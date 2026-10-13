@@ -15,7 +15,18 @@ import {
 } from "../../../packages/ui/src/index";
 import "../../../packages/tokens/src/tokens.css";
 import "../../../packages/ui/src/styles.css";
+import "@fontsource-variable/inter";
 import "./site.css";
+import "./reference-layout.css";
+import { SearchLg } from "@untitledui/icons";
+import {
+  DocsBrand,
+  DocsHeader,
+  SidebarContent,
+  LibraryOverview,
+  docCategories,
+  ComponentSearch,
+} from "./docs-layout";
 import { catalog, groups } from "./catalog";
 import {
   ComponentPage,
@@ -48,7 +59,11 @@ const devices: Device[] = [
     location: "测试区域",
   },
 ];
-function savedSetting(key: string, fallback: string, allowed: string[]) {
+function savedSetting(
+  key: string,
+  fallback: string,
+  allowed: string[],
+): string {
   try {
     const value = JSON.parse(localStorage.getItem("cs-docs-settings") || "{}")[
       key
@@ -62,7 +77,21 @@ function App() {
   const [route, setRoute] = useState(
     window.location.hash.slice(1) || "overview",
   );
-  const [componentQuery, setComponentQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  React.useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        event.key === "/" &&
+        !target.closest("input,textarea,select,[contenteditable=true]")
+      ) {
+        event.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
   const activeDoc = catalog.find((item) => route === `component/${item.id}`);
   React.useEffect(() => {
     const onHash = () => setRoute(window.location.hash.slice(1) || "overview");
@@ -70,7 +99,7 @@ function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
   React.useEffect(() => {
-    if (activeDoc) {
+    if (!route.endsWith("-components")) {
       window.scrollTo(0, 0);
     } else {
       requestAnimationFrame(() =>
@@ -125,125 +154,81 @@ function App() {
       >
         跳转到内容
       </a>
-      <aside>
-        <a href="#overview" className="brand">
-          CRYSOUND<span>DESIGN SYSTEM</span>
-        </a>
-        <div className="version">0.2.0 / Component library</div>
-        <div className="sidebar-scroll">
-          <nav aria-label="文档导航">
-            {[
-              ["overview", "系统概览"],
-              ["library", "组件总览"],
-              ["foundations", "基础规范"],
-              ["installation", "安装与接入"],
-              ["patterns", "产品模式"],
-              ["customization", "客户定制"],
-            ].map(([id, label]) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                aria-current={!activeDoc && route === id ? "page" : undefined}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-          <div className="component-search">
-            <Input
-              label="搜索组件"
-              type="search"
-              placeholder="名称 / 中文关键词"
-              value={componentQuery}
-              onChange={(e) => setComponentQuery(e.target.value)}
-            />
-          </div>
-          <nav
-            className={`catalog-nav ${componentQuery ? "catalog-nav--filtered" : ""}`}
-            aria-label="组件目录"
+      <ComponentSearch open={searchOpen} onOpenChange={setSearchOpen} />
+      <aside className="docs-sidebar">
+        <div className="docs-sidebar-brand">
+          <DocsBrand />
+          <button
+            className="docs-icon-button"
+            aria-label="搜索组件"
+            onClick={() => setSearchOpen(true)}
           >
-            {groups.map((group) => {
-              const items = catalog.filter(
-                (item) =>
-                  item.group === group &&
-                  `${item.name} ${item.zh}`
-                    .toLowerCase()
-                    .includes(componentQuery.toLowerCase()),
-              );
-              return items.length ? (
-                <div className="catalog-group" key={group}>
-                  <div className="catalog-group-label">
-                    {group}
-                    <span>{items.length}</span>
-                  </div>
-                  {items.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#component/${item.id}`}
-                      aria-current={
-                        activeDoc?.id === item.id ? "page" : undefined
-                      }
-                    >
-                      <span>{item.name}</span>
-                      <small>{item.zh}</small>
-                    </a>
-                  ))}
-                </div>
-              ) : null;
-            })}
-            {!catalog.some((item) =>
-              `${item.name} ${item.zh}`
-                .toLowerCase()
-                .includes(componentQuery.toLowerCase()),
-            ) && <p className="cs-help">没有匹配组件</p>}
-          </nav>
+            <SearchLg size={18} />
+          </button>
         </div>
-        <div className="aside-note">
-          Precision in every interaction.
-          <br />
-          让精密测量拥有一致体验。
-        </div>
+        <SidebarContent route={route} />
       </aside>
       <main id="main-content" tabIndex={-1}>
-        <header className="topbar">
-          <span>
-            设计系统 <span className="topbar-divider">/</span>{" "}
-            {activeDoc ? activeDoc.name : "总览"}
-          </span>
-          <div className="topbar-settings">
-            <label>
-              密度{" "}
-              <select
-                value={density}
-                onChange={(e) => setDensity(e.target.value)}
-              >
-                <option value="comfortable">舒适</option>
-                <option value="compact">紧凑</option>
-              </select>
-            </label>
-            <label>
-              主题{" "}
-              <select
-                value={customer}
-                onChange={(e) => setCustomer(e.target.value)}
-              >
-                <option value="crysound">CRYSOUND</option>
-                <option value="ocean">Ocean 示例</option>
-              </select>
-            </label>
-            <label>
-              外观{" "}
-              <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-                <option value="light">浅色</option>
-                <option value="dark">深色</option>
-              </select>
-            </label>
-          </div>
-        </header>
+        <DocsHeader
+          route={route}
+          activeDoc={activeDoc}
+          theme={theme}
+          onThemeToggle={() =>
+            setTheme((current) => (current === "dark" ? "light" : "dark"))
+          }
+          settings={
+            <div className="docs-settings-fields">
+              <label>
+                界面密度
+                <select
+                  value={density}
+                  onChange={(e) => setDensity(e.target.value)}
+                >
+                  <option value="comfortable">舒适 / 40px</option>
+                  <option value="compact">紧凑 / 32px</option>
+                </select>
+              </label>
+              <label>
+                客户主题
+                <select
+                  value={customer}
+                  onChange={(e) => setCustomer(e.target.value)}
+                >
+                  <option value="crysound">CRYSOUND</option>
+                  <option value="ocean">Ocean 示例</option>
+                </select>
+              </label>
+              <label>
+                应用表面
+                <select
+                  value={context}
+                  onChange={(e) => setContext(e.target.value)}
+                >
+                  <option value="website">官网 / 中性灰</option>
+                  <option value="software">软件 / Slate 灰</option>
+                </select>
+              </label>
+            </div>
+          }
+        />
+
         {activeDoc ? (
-          <ComponentPage key={activeDoc.id} item={activeDoc} />
+          <ComponentPage
+            key={activeDoc.id}
+            item={activeDoc}
+            theme={theme}
+            onToggleTheme={() =>
+              setTheme((current) => (current === "dark" ? "light" : "dark"))
+            }
+          />
+        ) : [
+            "overview",
+            "library",
+            ...docCategories.map((category) => `${category.id}-components`),
+          ].includes(route) ? (
+          <LibraryOverview />
         ) : (
-          <>
+          <div className="docs-legacy-content" data-section={route}>
             <section id="overview" className="intro">
               <div className="eyebrow">ENGINEERED FOR CLARITY</div>
               <h1>精密，一以贯之。</h1>
@@ -595,7 +580,7 @@ npm pack -w @crysound/ui`}</code>
                 <pre>{`import { Button } from '@crysound/ui';\nimport '@crysound/tokens/tokens.css';\nimport '@crysound/ui/styles.css';\n\n<Button onClick={connectDevice}>连接设备</Button>`}</pre>
               </Card>
             </section>
-          </>
+          </div>
         )}
         <footer>
           CRYSOUND Design System · 0.2.0 · 基于 Figma 变量的工程首版

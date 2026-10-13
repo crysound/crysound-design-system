@@ -1,6 +1,20 @@
 import { useState, type FormEvent } from "react";
 import * as UI from "../../../packages/ui/src/index";
 import { catalog, type ComponentDoc } from "./catalog";
+import {
+  PreviewFrame,
+  LeadExample,
+  StateExamples,
+  idsWithStateExamples,
+  copyExample,
+} from "./preview-frame";
+import {
+  Copy01,
+  ArrowLeft,
+  ArrowRight,
+  Code02,
+  LinkExternal01,
+} from "@untitledui/icons";
 const {
   Button,
   Input,
@@ -650,7 +664,15 @@ export function ComponentDemo({ id }: { id: string }) {
       return null;
   }
 }
-export function ComponentPage({ item }: { item: ComponentDoc }) {
+export function ComponentPage({
+  item,
+  theme,
+  onToggleTheme,
+}: {
+  item: ComponentDoc;
+  theme: string;
+  onToggleTheme: () => void;
+}) {
   const toast = useToast();
   const imports =
     item.id === "tabs"
@@ -675,121 +697,186 @@ export function ComponentPage({ item }: { item: ComponentDoc }) {
                         ? "EmptyState, Button"
                         : item.name;
   const code = `import { ${imports} } from '@crysound/ui';\n\n${item.code}`;
+  const previous = catalog[catalog.indexOf(item) - 1];
+  const next = catalog[catalog.indexOf(item) + 1];
   return (
-    <article className="component-page">
-      <Breadcrumbs
-        items={[
-          { label: "组件", href: "#library" },
-          { label: item.group },
-          { label: item.name },
-        ]}
-      />
-      <div className="component-heading">
-        <div>
-          <div className="eyebrow">
-            {item.group} / {item.zh}
+    <article
+      className={`component-page reference-component-page reference-component-page--${item.id}`}
+    >
+      <section className="reference-component-heading">
+        <div className="reference-title-row">
+          <div>
+            <h1>{item.name} components</h1>
+            <span className="reference-component-label">REACT</span>
           </div>
-          <h1>{item.name}</h1>
-          <p>{item.description}</p>
+          <div className="reference-title-actions">
+            <button
+              className="docs-text-button"
+              onClick={() => copyExample(code, toast)}
+            >
+              Copy
+              <Copy01 size={14} />
+            </button>
+            {previous ? (
+              <a
+                className="docs-square-button"
+                href={`#component/${previous.id}`}
+                aria-label={`上一个组件：${previous.name}`}
+              >
+                <ArrowLeft size={16} />
+              </a>
+            ) : (
+              <button
+                className="docs-square-button"
+                disabled
+                aria-label="没有上一个组件"
+              >
+                <ArrowLeft size={16} />
+              </button>
+            )}
+            {next ? (
+              <a
+                className="docs-square-button"
+                href={`#component/${next.id}`}
+                aria-label={`下一个组件：${next.name}`}
+              >
+                <ArrowRight size={16} />
+              </a>
+            ) : (
+              <button
+                className="docs-square-button"
+                disabled
+                aria-label="没有下一个组件"
+              >
+                <ArrowRight size={16} />
+              </button>
+            )}
+          </div>
         </div>
-        <Badge tone="success" variant="outline">
-          已实现
-        </Badge>
-      </div>
-      <Tabs defaultValue="preview" key={item.id}>
-        <div className="component-tabs-bar">
-          <TabsList aria-label="组件文档">
-            <TabsTrigger value="preview">交互预览</TabsTrigger>
-            <TabsTrigger value="code">使用代码</TabsTrigger>
-            <TabsTrigger value="api">API 参数</TabsTrigger>
-          </TabsList>
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(code);
-                toast({ title: "代码已复制" });
-              } catch {
-                toast({
-                  title: "复制不可用",
-                  description: "请在代码页手动选择复制。",
-                });
-              }
+        <p>
+          {item.description} 使用 CRYSOUND 语义 Token，支持明暗主题和客户定制。
+        </p>
+        <div className="reference-resource-links">
+          <a
+            href="https://github.com/ya7881/crysound-design-system"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Code02 size={12} />
+            GitHub
+            <LinkExternal01 size={10} />
+          </a>
+          <a href="#installation">
+            <Copy01 size={12} />
+            安装文档
+            <LinkExternal01 size={10} />
+          </a>
+          <a
+            href="#component-api"
+            onClick={(event) => {
+              event.preventDefault();
+              document
+                .getElementById("component-api")
+                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            复制代码
-          </Button>
+            API 参数
+            <LinkExternal01 size={10} />
+          </a>
         </div>
-        <TabsContent value="preview">
-          <div
-            className={`component-preview ${["data-table", "device-table"].includes(item.id) ? "component-preview--wide" : ""}`}
-          >
-            <ComponentDemo id={item.id} />
-          </div>
-          <div className="preview-footer">
-            可交互示例 · 支持全局主题与密度 · 数据为演示数据
-          </div>
-        </TabsContent>
-        <TabsContent value="code">
-          <pre className="code-block">
-            <code>{code}</code>
-          </pre>
-          <p className="cs-help">
-            先导入 Token
-            与组件样式。包含回调的示例需接入应用自己的业务函数与状态。
-          </p>
-        </TabsContent>
-        <TabsContent value="api">
-          <div className="cs-table-scroll api-table">
-            <table className="cs-table">
-              <caption className="cs-sr-only">{item.name} API 参数</caption>
-              <thead>
-                <tr>
-                  <th>属性</th>
-                  <th>类型</th>
-                  <th>默认 / 要求</th>
+      </section>
+      <PreviewFrame
+        title={`${item.name} example`}
+        code={code}
+        wide={["data-table", "device-table"].includes(item.id)}
+        theme={theme}
+        onToggleTheme={onToggleTheme}
+      >
+        <LeadExample id={item.id} />
+      </PreviewFrame>
+      <section className="reference-installation">
+        <h2>Installation</h2>
+        <p>使用源码 Registry 安装，或通过组件包接入项目。</p>
+        <Tabs defaultValue="cli">
+          <TabsList aria-label="安装方式">
+            <TabsTrigger value="cli">CLI</TabsTrigger>
+            <TabsTrigger value="package">Package</TabsTrigger>
+          </TabsList>
+          <TabsContent value="cli">
+            <pre className="reference-install-code">
+              <code>
+                npx shadcn@latest add {window.location.origin}
+                /r/crysound-ui.json
+              </code>
+            </pre>
+          </TabsContent>
+          <TabsContent value="package">
+            <pre className="reference-install-code">
+              <code>{`import { ${item.name} } from '@crysound/ui';\nimport '@crysound/tokens/tokens.css';\nimport '@crysound/ui/styles.css';`}</code>
+            </pre>
+            <p className="cs-help">
+              先安装 Release 中的 tokens 与 ui 两个 .tgz 安装包。
+            </p>
+          </TabsContent>
+        </Tabs>
+      </section>
+      {idsWithStateExamples.has(item.id) && (
+        <section className="reference-variants">
+          <h2>{item.name} examples</h2>
+          <p>查看组件的尺寸、状态与配置变体。</p>
+          <StateExamples
+            item={item}
+            theme={theme}
+            onToggleTheme={onToggleTheme}
+          />
+        </section>
+      )}
+      <section id="component-api" className="reference-api">
+        <h2>API reference</h2>
+        <p>主要属性与默认值。完整类型随组件包发布。</p>
+        <div className="cs-table-scroll api-table">
+          <table className="cs-table">
+            <caption className="cs-sr-only">{item.name} API 参数</caption>
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>类型</th>
+                <th>默认 / 要求</th>
+              </tr>
+            </thead>
+            <tbody>
+              {item.props.map(([name, type, defaultValue]) => (
+                <tr key={name}>
+                  <td>
+                    <code>{name}</code>
+                  </td>
+                  <td>{type}</td>
+                  <td>{defaultValue}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {item.props.map(([name, type, defaultValue]) => (
-                  <tr key={name}>
-                    <td>
-                      <code>{name}</code>
-                    </td>
-                    <td>{type}</td>
-                    <td>{defaultValue}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cs-help">
-            完整 TypeScript 类型随组件包发布；基于 Radix
-            的控件可传入对应原生属性。
-          </p>
-        </TabsContent>
-      </Tabs>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
       <section className="component-guidance">
         <h2>使用约定</h2>
         <p>{item.guidance}</p>
       </section>
       <div className="component-neighbors">
-        {[
-          catalog[catalog.indexOf(item) - 1],
-          catalog[catalog.indexOf(item) + 1],
-        ]
-          .filter(Boolean)
-          .map((neighbor) => (
-            <a key={neighbor.id} href={`#component/${neighbor.id}`}>
-              <span>{neighbor.group}</span>
-              <strong>{neighbor.name} →</strong>
-            </a>
-          ))}
+        {[previous, next].filter(Boolean).map((neighbor) => (
+          <a key={neighbor.id} href={`#component/${neighbor.id}`}>
+            <span>{neighbor.group}</span>
+            <strong>
+              {neighbor.name}
+              <ArrowRight size={16} />
+            </strong>
+          </a>
+        ))}
       </div>
     </article>
   );
 }
+
 export function MeasurementForm() {
   const toast = useToast();
   const [name, setName] = useState("");

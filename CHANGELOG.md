@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- 文档预览布局对齐 Untitled UI：固定导航、紧凑标题、组件缩略卡片、Preview/Code 工具栏与分组变体。
+- 自托管 Inter 字体，使用开源 Untitled UI 图标；保留 CRYSOUND 品牌与组件 API。
+- 增加搜索对话框、目录折叠、移动抽屉导航与对应交互验证。
+
 ## 0.2.0
 
 - 从 8 类扩展到 33 类组件，补齐表单、导航、浮层、反馈和展示能力。
