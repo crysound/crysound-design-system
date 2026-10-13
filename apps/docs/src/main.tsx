@@ -338,7 +338,7 @@ npm pack -w @crysound/ui`}</code>
               <div className="swatches">
                 {[
                   ["品牌", "--cs-brand"],
-                  ["正文", "--cs-text"],
+                  ["正文 / Slate 700", "--cs-text"],
                   ["成功", "--cs-success"],
                   ["警告", "--cs-warning"],
                   ["危险", "--cs-danger"],
@@ -355,7 +355,7 @@ npm pack -w @crysound/ui`}</code>
               </div>
               <div className="slate-foundation">
                 <h3>文字色阶 / Slate</h3>
-                <p>正文 Slate 900 · 次级文字 Slate 700 · 辅助文字 Slate 500 · 禁用文字 Slate 400。深色模式自动使用对应的浅色层级。</p>
+                <p>标题 Slate 900 · 正文 Slate 700 · 辅助文字 Slate 500 · 禁用文字 Slate 400。深色模式自动使用对应的浅色层级。</p>
                 <div className="slate-scale">
                   {[
                     [50, "#f8fafc"], [100, "#f1f5f9"], [200, "#e2e8f0"],

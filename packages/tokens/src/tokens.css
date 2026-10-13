@@ -22,7 +22,8 @@
   --cs-bg: #f9f9f9;
   --cs-surface: #fff;
   --cs-subtle: #f6f6fc;
-  --cs-text: var(--cs-slate-900);
+  --cs-text: var(--cs-slate-700);
+  --cs-text-heading: var(--cs-slate-900);
   --cs-text-secondary: var(--cs-slate-700);
   --cs-text-disabled: var(--cs-slate-400);
   --cs-muted: var(--cs-slate-500);
@@ -55,7 +56,8 @@
   --cs-bg: #111019;
   --cs-surface: #1c1928;
   --cs-subtle: #292438;
-  --cs-text: var(--cs-slate-50);
+  --cs-text: var(--cs-slate-200);
+  --cs-text-heading: var(--cs-slate-50);
   --cs-text-secondary: var(--cs-slate-200);
   --cs-text-disabled: var(--cs-slate-600);
   --cs-muted: var(--cs-slate-400);
@@ -91,7 +93,8 @@
   --cs-bg: #e2e8f0;
   --cs-surface: #fff;
   --cs-subtle: #f1f5f9;
-  --cs-text: var(--cs-slate-900);
+  --cs-text: var(--cs-slate-700);
+  --cs-text-heading: var(--cs-slate-900);
   --cs-muted: var(--cs-slate-500);
   --cs-border: #cbd5e1;
 }
