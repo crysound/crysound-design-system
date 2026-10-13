@@ -1,3 +1,17 @@
+/* Derived brand ramp; 900 is the verified CRYSOUND master color. */
+:root {
+  --cs-brand-50: #f0ecf8;
+  --cs-brand-100: #e4dcf2;
+  --cs-brand-200: #cbbbe5;
+  --cs-brand-300: #af95d5;
+  --cs-brand-400: #916ac1;
+  --cs-brand-500: #7446a9;
+  --cs-brand-600: #5c2d8e;
+  --cs-brand-700: #451d76;
+  --cs-brand-800: #301875;
+  --cs-brand-900: #170057;
+  --cs-brand-950: #0d0033;
+}
 /* Slate scale supplied by the user for typography. */
 :root {
   --cs-slate-50: #f8fafc;

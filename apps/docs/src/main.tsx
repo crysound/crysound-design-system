@@ -354,6 +354,31 @@ npm pack -w @crysound/ui`}</code>
                 ))}
               </div>
               <div className="slate-foundation">
+                <h3>品牌色阶 / CRYSOUND Purple</h3>
+                <p>主色 Brand 900（#170057）· 悬停 Brand 800 · 浅色背景 Brand 50。除主色外为衍生色阶提案，客户主题通过语义 Token 独立覆盖。</p>
+                <div className="slate-scale">
+                  {[
+                    [50, "#f0ecf8"],
+                    [100, "#e4dcf2"],
+                    [200, "#cbbbe5"],
+                    [300, "#af95d5"],
+                    [400, "#916ac1"],
+                    [500, "#7446a9"],
+                    [600, "#5c2d8e"],
+                    [700, "#451d76"],
+                    [800, "#301875"],
+                    [900, "#170057"],
+                    [950, "#0d0033"],
+                  ].map(([level, hex]) => (
+                    <div key={level}>
+                      <div className="slate-chip" style={{ background: `var(--cs-brand-${level})` }} />
+                      <strong>Brand {level}</strong>
+                      <code>{hex}</code>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="slate-foundation">
                 <h3>文字色阶 / Slate</h3>
                 <p>标题 Slate 900 · 正文 Slate 700 · 辅助文字 Slate 500 · 禁用文字 Slate 400。深色模式自动使用对应的浅色层级。</p>
                 <div className="slate-scale">
