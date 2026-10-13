@@ -1,23 +1,79 @@
 /* Brand, neutral, radius and font values traced to Figma; dark/customer modes are proposals. */
-:root,[data-theme="light"] {
- color-scheme:light;
- --cs-brand:#170057;--cs-brand-hover:#301875;--cs-on-brand:#fff;
- --cs-bg:#f9f9f9;--cs-surface:#fff;--cs-subtle:#f6f6fc;--cs-text:#333333;--cs-muted:#707070;--cs-border:#d6d6d6;
- --cs-success:#176541;--cs-success-bg:#e9f6ed;--cs-warning:#874900;--cs-warning-bg:#fff3dd;--cs-danger:#b42318;--cs-danger-bg:#fff0ee;
- --cs-focus:#61528d;--cs-radius:4px;--cs-font:"HarmonyOS Sans SC",Inter,"PingFang SC","Microsoft YaHei",sans-serif;
- --cs-space-1:4px;--cs-space-2:8px;--cs-space-3:12px;--cs-space-4:16px;--cs-space-6:24px;--cs-space-8:32px;
- --cs-control-height:40px;--cs-font-size:14px;--cs-shadow:0 8px 32px #102d2414;
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --cs-brand: #170057;
+  --cs-brand-hover: #301875;
+  --cs-on-brand: #fff;
+  --cs-bg: #f9f9f9;
+  --cs-surface: #fff;
+  --cs-subtle: #f6f6fc;
+  --cs-text: #333333;
+  --cs-muted: #707070;
+  --cs-border: #d6d6d6;
+  --cs-success: #176541;
+  --cs-success-bg: #e9f6ed;
+  --cs-warning: #874900;
+  --cs-warning-bg: #fff3dd;
+  --cs-danger: #b42318;
+  --cs-danger-bg: #fff0ee;
+  --cs-focus: #61528d;
+  --cs-radius: 4px;
+  --cs-font:
+    "HarmonyOS Sans SC", Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --cs-space-1: 4px;
+  --cs-space-2: 8px;
+  --cs-space-3: 12px;
+  --cs-space-4: 16px;
+  --cs-space-6: 24px;
+  --cs-space-8: 32px;
+  --cs-control-height: 40px;
+  --cs-font-size: 14px;
+  --cs-shadow: 0 8px 32px #102d2414;
 }
 [data-theme="dark"] {
- color-scheme:dark;
- --cs-brand:#c4b5fd;--cs-brand-hover:#ddd6fe;--cs-on-brand:#170057;
- --cs-bg:#111019;--cs-surface:#1c1928;--cs-subtle:#292438;--cs-text:#f4f2fa;--cs-muted:#bcb5cd;--cs-border:#514961;
- --cs-success:#8be0ae;--cs-success-bg:#193a28;--cs-warning:#ffcf85;--cs-warning-bg:#3d2e17;--cs-danger:#ffb4a9;--cs-danger-bg:#42241e;--cs-focus:#c4b5fd;
+  color-scheme: dark;
+  --cs-brand: #c4b5fd;
+  --cs-brand-hover: #ddd6fe;
+  --cs-on-brand: #170057;
+  --cs-bg: #111019;
+  --cs-surface: #1c1928;
+  --cs-subtle: #292438;
+  --cs-text: #f4f2fa;
+  --cs-muted: #bcb5cd;
+  --cs-border: #514961;
+  --cs-success: #8be0ae;
+  --cs-success-bg: #193a28;
+  --cs-warning: #ffcf85;
+  --cs-warning-bg: #3d2e17;
+  --cs-danger: #ffb4a9;
+  --cs-danger-bg: #42241e;
+  --cs-focus: #c4b5fd;
 }
-[data-density="compact"] {--cs-control-height:32px;--cs-font-size:13px;}
+[data-density="compact"] {
+  --cs-control-height: 32px;
+  --cs-font-size: 13px;
+}
 /* Example customer theme; the accessible foreground is part of the override. */
-[data-customer="ocean"] {--cs-brand:#1857b6;--cs-brand-hover:#12458f;--cs-on-brand:#fff;--cs-focus:#1857b6;}
-[data-customer="ocean"][data-theme="dark"] {--cs-brand:#95baff;--cs-brand-hover:#b6cfff;--cs-on-brand:#102348;--cs-focus:#95baff;}
+[data-customer="ocean"] {
+  --cs-brand: #1857b6;
+  --cs-brand-hover: #12458f;
+  --cs-on-brand: #fff;
+  --cs-focus: #1857b6;
+}
+[data-customer="ocean"][data-theme="dark"] {
+  --cs-brand: #95baff;
+  --cs-brand-hover: #b6cfff;
+  --cs-on-brand: #102348;
+  --cs-focus: #95baff;
+}
 
 /* OpenTest software surface profile; preserve the shared brand. */
-[data-context="software"][data-theme="light"] {--cs-bg:#e2e8f0;--cs-surface:#fff;--cs-subtle:#f1f5f9;--cs-text:#334155;--cs-muted:#64748b;--cs-border:#cbd5e1;}
+[data-context="software"][data-theme="light"] {
+  --cs-bg: #e2e8f0;
+  --cs-surface: #fff;
+  --cs-subtle: #f1f5f9;
+  --cs-text: #334155;
+  --cs-muted: #64748b;
+  --cs-border: #cbd5e1;
+}
