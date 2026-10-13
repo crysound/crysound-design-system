@@ -16,7 +16,7 @@ writeFileSync(
   JSON.stringify(
     {
       $description:
-        "Brand and light neutrals traced to Figma. Dark/customer modes are proposed.",
+        "Brand and surfaces traced to Figma; Slate text and system fonts selected by the user. Dark/customer modes are proposed.",
       modes,
     },
     null,

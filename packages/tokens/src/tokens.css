@@ -1,4 +1,18 @@
-/* Brand, neutral and radius traced to Figma; system font selected by CRYSOUND. */
+/* Slate scale supplied by the user for typography. */
+:root {
+  --cs-slate-50: #f8fafc;
+  --cs-slate-100: #f1f5f9;
+  --cs-slate-200: #e2e8f0;
+  --cs-slate-300: #cbd5e1;
+  --cs-slate-400: #94a3b8;
+  --cs-slate-500: #64748b;
+  --cs-slate-600: #475569;
+  --cs-slate-700: #334155;
+  --cs-slate-800: #1e293b;
+  --cs-slate-900: #0f172a;
+  --cs-slate-950: #020617;
+}
+/* Brand and radius traced to Figma; system font and Slate text selected by CRYSOUND. */
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -8,8 +22,10 @@
   --cs-bg: #f9f9f9;
   --cs-surface: #fff;
   --cs-subtle: #f6f6fc;
-  --cs-text: #333333;
-  --cs-muted: #707070;
+  --cs-text: var(--cs-slate-900);
+  --cs-text-secondary: var(--cs-slate-700);
+  --cs-text-disabled: var(--cs-slate-400);
+  --cs-muted: var(--cs-slate-500);
   --cs-border: #d6d6d6;
   --cs-success: #176541;
   --cs-success-bg: #e9f6ed;
@@ -39,8 +55,10 @@
   --cs-bg: #111019;
   --cs-surface: #1c1928;
   --cs-subtle: #292438;
-  --cs-text: #f4f2fa;
-  --cs-muted: #bcb5cd;
+  --cs-text: var(--cs-slate-50);
+  --cs-text-secondary: var(--cs-slate-200);
+  --cs-text-disabled: var(--cs-slate-600);
+  --cs-muted: var(--cs-slate-400);
   --cs-border: #514961;
   --cs-success: #8be0ae;
   --cs-success-bg: #193a28;
@@ -73,8 +91,8 @@
   --cs-bg: #e2e8f0;
   --cs-surface: #fff;
   --cs-subtle: #f1f5f9;
-  --cs-text: #334155;
-  --cs-muted: #64748b;
+  --cs-text: var(--cs-slate-900);
+  --cs-muted: var(--cs-slate-500);
   --cs-border: #cbd5e1;
 }
 

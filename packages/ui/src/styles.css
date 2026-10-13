@@ -241,3 +241,9 @@
     animation: none;
   }
 }
+
+.cs-input::placeholder,
+.cs-textarea::placeholder {
+  color: var(--cs-muted);
+  opacity: 1;
+}

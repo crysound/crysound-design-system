@@ -5,7 +5,7 @@ describe("theme export cascade", () => {
     const dark = tokens.modes['[data-theme="dark"]'];
     expect(dark.brand.$value).toBe("#c4b5fd");
     expect(dark["brand-subtle"].$value).toBe("#302742");
-    expect(dark.text.$value).toBe("#f4f2fa");
+    expect(dark.text.$value).toBe("var(--cs-slate-50)");
   });
   it("retains customer foregrounds alongside surface extensions", () => {
     const ocean = tokens.modes['[data-customer="ocean"]'];
