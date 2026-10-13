@@ -1,3 +1,4 @@
+import { ThemeSelect } from "./theme-select";
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -177,36 +178,9 @@ function App() {
           }
           settings={
             <div className="docs-settings-fields">
-              <label>
-                界面密度
-                <select
-                  value={density}
-                  onChange={(e) => setDensity(e.target.value)}
-                >
-                  <option value="comfortable">舒适 / 40px</option>
-                  <option value="compact">紧凑 / 32px</option>
-                </select>
-              </label>
-              <label>
-                客户主题
-                <select
-                  value={customer}
-                  onChange={(e) => setCustomer(e.target.value)}
-                >
-                  <option value="crysound">CRYSOUND</option>
-                  <option value="ocean">Ocean 示例</option>
-                </select>
-              </label>
-              <label>
-                应用表面
-                <select
-                  value={context}
-                  onChange={(e) => setContext(e.target.value)}
-                >
-                  <option value="website">官网 / 中性灰</option>
-                  <option value="software">软件 / Slate 灰</option>
-                </select>
-              </label>
+              <ThemeSelect label="界面密度" value={density} onValueChange={setDensity} options={[{ value: "comfortable", label: "舒适 / 40px" }, { value: "compact", label: "紧凑 / 32px" }]} />
+              <ThemeSelect label="客户主题" value={customer} onValueChange={setCustomer} options={[{ value: "crysound", label: "CRYSOUND" }, { value: "ocean", label: "Ocean 示例" }]} />
+              <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "软件 / Slate 灰" }]} />
             </div>
           }
         />
@@ -588,36 +562,9 @@ npm pack -w @crysound/ui`}</code>
                 description="调整应用级主题，页面和弹窗同步变化。"
               >
                 <div className="example controls">
-                  <label>
-                    应用表面
-                    <select
-                      value={context}
-                      onChange={(e) => setContext(e.target.value)}
-                    >
-                      <option value="website">官网 / 中性灰</option>
-                      <option value="software">软件 / Slate 灰</option>
-                    </select>
-                  </label>
-                  <label>
-                    客户主题
-                    <select
-                      value={customer}
-                      onChange={(e) => setCustomer(e.target.value)}
-                    >
-                      <option value="crysound">CRYSOUND 提案</option>
-                      <option value="ocean">Ocean 客户示例</option>
-                    </select>
-                  </label>
-                  <label>
-                    界面密度
-                    <select
-                      value={density}
-                      onChange={(e) => setDensity(e.target.value)}
-                    >
-                      <option value="comfortable">舒适 / 40px</option>
-                      <option value="compact">紧凑 / 32px</option>
-                    </select>
-                  </label>
+                  <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "软件 / Slate 灰" }]} />
+                  <ThemeSelect label="客户主题" value={customer} onValueChange={setCustomer} options={[{ value: "crysound", label: "CRYSOUND 提案" }, { value: "ocean", label: "Ocean 客户示例" }]} />
+                  <ThemeSelect label="界面密度" value={density} onValueChange={setDensity} options={[{ value: "comfortable", label: "舒适 / 40px" }, { value: "compact", label: "紧凑 / 32px" }]} />
                 </div>
                 <pre>{`import { Button } from '@crysound/ui';\nimport '@crysound/tokens/tokens.css';\nimport '@crysound/ui/styles.css';\n\n<Button onClick={connectDevice}>连接设备</Button>`}</pre>
               </Card>
