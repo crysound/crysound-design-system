@@ -1,3 +1,4 @@
+@import "./extended.css";
 .cs-button,
 .cs-input {
   font: inherit;
@@ -188,7 +189,7 @@
   position: fixed;
   inset: 0;
   background: #061a1388;
-  z-index: 50;
+  z-index: var(--cs-z-overlay);
 }
 .cs-dialog {
   position: fixed;
@@ -201,7 +202,7 @@
   padding: 24px;
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius);
-  z-index: 51;
+  z-index: var(--cs-z-modal);
   box-shadow: var(--cs-shadow);
   font-family: var(--cs-font);
 }

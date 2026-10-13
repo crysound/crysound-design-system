@@ -1,6 +1,6 @@
 {
   "name": "crysound-design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -8,11 +8,13 @@
   ],
   "scripts": {
     "dev": "npm run dev -w @crysound/docs",
-    "build": "npm run build -w @crysound/tokens && npm run build -w @crysound/ui && npm run build -w @crysound/docs",
+    "build": "npm run tokens:sync && npm run registry:build && npm run build -w @crysound/tokens && npm run build -w @crysound/ui && npm run build -w @crysound/docs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "check": "npm run typecheck && npm test && npm run build",
-    "tokens:sync": "node scripts/sync-tokens.mjs"
+    "check": "npm run tokens:sync && npm run registry:build && npm run registry:check && npm run typecheck && npm test && npm run build",
+    "tokens:sync": "node scripts/sync-tokens.mjs",
+    "registry:build": "node scripts/build-registry.mjs",
+    "registry:check": "node scripts/validate-registry.mjs"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.8.0",
@@ -21,6 +23,7 @@
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "ajv": "^8.20.0",
     "esbuild": "^0.28.2",
     "jsdom": "^26.1.0",
     "tsup": "^8.5.0",

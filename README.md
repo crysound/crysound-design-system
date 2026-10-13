@@ -2,7 +2,7 @@
 
 面向 CRYSOUND 产品软件、管理后台、官网和客户定制的 React + TypeScript 设计系统工程首版。
 
-**状态：0.1.0 提案。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、HarmonyOS Sans SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。本仓库没有复制 Untitled UI PRO 资源，也没有声称完成 Figma 视觉还原。
+**状态：0.2.0。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、HarmonyOS Sans SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。本仓库没有复制 Untitled UI PRO 资源，也没有声称完成 Figma 视觉还原。
 
 ## 本地运行
 
@@ -14,7 +14,7 @@ npm run dev
 npm run check
 ```
 
-开发服务器默认 http://127.0.0.1:5173。`check` 执行类型检查、交互测试和三个工作区的生产构建。
+开发服务器默认 [http://127.0.0.1:5173](http://127.0.0.1:5173)。`check` 执行 Token/Registry 生成、官方 Schema 校验、类型检查、交互测试和三个工作区的生产构建。
 
 ## 仓库结构
 
@@ -56,9 +56,38 @@ export function DeviceConnection() {
 
 在 HTML 根元素设置 `data-theme="dark"`、`data-density="compact"`、`data-customer="ocean"` 切换模式。将主题设置在根元素可让 Portal 弹窗继承主题。
 
-## 已有组件
+## 33 类组件
 
-Button、Input、StatusBadge、Card、Metric、EmptyState、Dialog、DeviceTable。Dialog 使用 Radix 处理焦点、Escape 和语义；设备读数、列表都是演示数据，没有硬件通信能力。
+| 分类 | 组件 |
+| --- | --- |
+| 操作 | Button（4 种层级、3 种尺寸、加载、禁用、图标） |
+| 表单 | Input、Textarea、Select、Combobox、Checkbox、Switch、RadioGroup、Slider、FileUpload |
+| 导航 | Tabs、Accordion、Breadcrumbs、Pagination |
+| 浮层 | Dialog、AlertDialog、Sheet、Popover、Tooltip、DropdownMenu |
+| 展示 | Badge、Avatar、Separator、Card |
+| 反馈 | Alert、ToastProvider/useToast、Progress、Skeleton、EmptyState |
+| 仪器业务 | StatusBadge、Metric、DeviceTable |
+| 数据 | DataTable（搜索、排序、分页、跨页选择） |
+
+中文文档站支持组件搜索、独立组件路由、交互预览、使用代码和 API 参数。产品模式提供测量任务配置与设备工作台。设备读数与列表都是演示数据，没有硬件通信能力。
+
+## 源码安装
+
+在已经初始化 shadcn 的 React 项目中运行（端口以本地实际服务为准）：
+
+```sh
+npx shadcn@latest add http://127.0.0.1:5173/r/crysound-ui.json
+```
+
+Registry 从实际源码生成，将组件安装到项目的 components 别名下 `crysound/` 目录。导入安装后的 `crysound/tokens.css` 和 `crysound/ui/styles.css`。详见 [安装与接入](docs/registry.md)。当前没有公开托管 Registry，仓库保持私有。
+
+## 维护与设计依据
+
+- [组件约定](docs/components.md)
+- [架构与客户定制](docs/architecture.md)
+- [Figma 来源映射](docs/design-review.md)
+- [两套参考系统的采用方式](docs/reference-adoption.md)
+- [版本变更](CHANGELOG.md)
 
 ## 参考资料与权利
 

@@ -2,7 +2,7 @@
 
 ## 单一基础
 
-组件行为统一使用 React 与原生 HTML；复杂浮层使用 Radix。不要在同一控件中混合 React Aria 与 Radix 的交互实现。Untitled UI 提供视觉与组织参考，shadcn/ui 提供可组合思路；本首版未实现 shadcn CLI registry，不能直接用 shadcn add 安装。
+组件行为统一使用 React 与原生 HTML；复杂浮层使用 Radix。不要在同一控件中混合 React Aria 与 Radix 的交互实现。Untitled UI 提供视觉与组织参考，shadcn/ui 提供可组合思路；0.2.0 已提供由源码生成的 shadcn Registry；安装方式见 registry.md。
 
 Token 分为品牌、表面、文字、边框、状态、焦点、密度。组件使用语义变量，不在客户项目里硬编码品牌颜色。当前 CSS 是 Token 真源，JSON 由脚本生成；每次更改执行 `npm run tokens:sync`，一起提交 CSS 与 JSON。
 
@@ -30,7 +30,7 @@ html[data-customer="example"] {
 }
 ```
 
-本首版仅支持固定 CSS 主题；不接受未经校验的用户输入注入 CSS。普通文本对比度目标 4.5:1，控件与焦点目标 3:1；每个新主题需要人工视觉与对比度复核，当前交互测试不等同于完整 WCAG 合规认证。
+当前支持固定 CSS 主题；不接受未经校验的用户输入注入 CSS。普通文本对比度目标 4.5:1，控件与焦点目标 3:1；每个新主题需要人工视觉与对比度复核，当前交互测试不等同于完整 WCAG 合规认证。
 
 ## 版本与交付
 

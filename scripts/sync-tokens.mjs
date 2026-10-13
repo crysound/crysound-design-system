@@ -9,7 +9,7 @@ for (const match of css.matchAll(/([^{}]+)\{([^{}]+)\}/g)) {
   const tokens = {};
   for (const declaration of match[2].matchAll(/--cs-([\w-]+)\s*:\s*([^;]+);/g))
     tokens[declaration[1]] = { $value: declaration[2].trim() };
-  modes[selector] = tokens;
+  modes[selector] = { ...modes[selector], ...tokens };
 }
 writeFileSync(
   new URL("../packages/tokens/src/tokens.json", import.meta.url),

@@ -1,0 +1,717 @@
+.cs-button.cs-button--sm {
+  min-height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+.cs-button.cs-button--lg {
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+.cs-button {
+  transition:
+    background var(--cs-duration-fast),
+    border-color var(--cs-duration-fast),
+    color var(--cs-duration-fast);
+}
+.cs-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.cs-label {
+  font-size: var(--cs-font-size);
+  font-weight: 600;
+}
+.cs-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.cs-textarea {
+  resize: vertical;
+  line-height: 1.6;
+  min-height: 100px;
+}
+.cs-select {
+  appearance: auto;
+}
+.cs-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--cs-font-size);
+}
+.cs-choice label {
+  cursor: pointer;
+  line-height: 22px;
+}
+.cs-choice p {
+  margin: 3px 0 0;
+}
+.cs-checkbox,
+.cs-radio {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  margin: 2px 0 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-sm);
+  background: var(--cs-surface);
+  color: var(--cs-on-brand);
+  cursor: pointer;
+}
+.cs-checkbox[data-state="checked"],
+.cs-checkbox[data-state="indeterminate"] {
+  background: var(--cs-brand);
+  border-color: var(--cs-brand);
+}
+.cs-checkbox[data-disabled],
+.cs-radio[data-disabled],
+.cs-switch[data-disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.cs-checkbox span {
+  font-size: 13px;
+  line-height: 1;
+}
+.cs-radio {
+  border-radius: 50%;
+  color: var(--cs-brand);
+}
+.cs-radio[data-state="checked"] {
+  border-color: var(--cs-brand);
+}
+.cs-radio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.cs-radio-group {
+  display: grid;
+  gap: 14px;
+}
+.cs-switch {
+  border: none;
+  background: var(--cs-border);
+  border-radius: 99px;
+  width: 36px;
+  height: 22px;
+  padding: 3px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cs-switch[data-state="checked"] {
+  background: var(--cs-brand);
+}
+.cs-switch-thumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: var(--cs-surface);
+  border-radius: 50%;
+  transition: transform var(--cs-duration-fast);
+}
+.cs-switch-thumb[data-state="checked"] {
+  transform: translateX(14px);
+}
+.cs-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  touch-action: none;
+  user-select: none;
+  height: 24px;
+  width: 100%;
+}
+.cs-slider-track {
+  position: relative;
+  flex-grow: 1;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--cs-border);
+}
+.cs-slider-range {
+  position: absolute;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--cs-brand);
+}
+.cs-slider-thumb {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cs-brand);
+  border-radius: 50%;
+  background: var(--cs-surface);
+  box-shadow: var(--cs-shadow-sm);
+}
+.cs-slider[data-disabled] {
+  opacity: 0.45;
+}
+.cs-combobox-trigger {
+  width: 100%;
+  justify-content: space-between;
+  font-weight: 400;
+}
+.cs-combobox {
+  width: var(--radix-popover-trigger-width);
+  padding: 4px !important;
+  min-width: 220px;
+}
+.cs-command-input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--cs-border);
+  padding: 12px;
+  font: inherit;
+  color: var(--cs-text);
+  background: transparent;
+}
+.cs-command-list {
+  max-height: 240px;
+  overflow: auto;
+  padding: 4px;
+}
+.cs-command-item {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--cs-radius);
+  cursor: pointer;
+  font-size: 14px;
+}
+.cs-command-item[data-selected="true"] {
+  background: var(--cs-subtle);
+  color: var(--cs-brand);
+}
+.cs-command-item[data-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.cs-command-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--cs-muted);
+}
+.cs-file-upload {
+  border: 1px dashed var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+  background: var(--cs-subtle);
+}
+.cs-file-upload input {
+  font: inherit;
+  color: var(--cs-text);
+  max-width: 100%;
+}
+.cs-file-upload input::file-selector-button {
+  padding: 8px 12px;
+  margin-right: 12px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  cursor: pointer;
+}
+.cs-file-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-file-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cs-border);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.cs-file-list span {
+  white-space: nowrap;
+  color: var(--cs-muted);
+}
+.cs-tabs-list {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  overflow-x: auto;
+}
+.cs-tabs-list--line {
+  border-bottom: 1px solid var(--cs-border);
+}
+.cs-tabs-trigger {
+  white-space: nowrap;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--cs-muted);
+  cursor: pointer;
+}
+.cs-tabs-trigger[data-state="active"] {
+  border-color: var(--cs-brand);
+  color: var(--cs-brand);
+}
+.cs-tabs-trigger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.cs-tabs-list--pill {
+  background: var(--cs-subtle);
+  padding: 4px;
+  border-radius: var(--cs-radius-lg);
+  width: fit-content;
+}
+.cs-tabs-list--pill .cs-tabs-trigger {
+  border: 0;
+  border-radius: var(--cs-radius);
+  padding: 7px 14px;
+}
+.cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] {
+  background: var(--cs-surface);
+  box-shadow: var(--cs-shadow-sm);
+}
+.cs-tabs-content {
+  padding-top: 20px;
+  outline: none;
+}
+.cs-accordion-item {
+  border-bottom: 1px solid var(--cs-border);
+}
+.cs-accordion-header {
+  margin: 0;
+}
+.cs-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  padding: 16px 0;
+  background: transparent;
+  color: var(--cs-text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.cs-accordion-trigger span {
+  font-size: 20px;
+  color: var(--cs-muted);
+  transition: transform var(--cs-duration-fast);
+}
+.cs-accordion-trigger[data-state="open"] span {
+  transform: rotate(45deg);
+}
+.cs-accordion-trigger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.cs-accordion-content > div {
+  padding: 0 0 16px;
+  color: var(--cs-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.cs-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+.cs-breadcrumbs li {
+  display: flex;
+  gap: 10px;
+}
+.cs-breadcrumbs a {
+  color: var(--cs-muted);
+  text-decoration: none;
+}
+.cs-breadcrumbs a:hover {
+  color: var(--cs-brand);
+  text-decoration: underline;
+}
+.cs-pagination {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.cs-pagination > span {
+  display: flex;
+  align-items: center;
+}
+.cs-pagination .cs-button {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+.cs-page-gap {
+  color: var(--cs-muted);
+  padding: 0 6px;
+}
+.cs-popover,
+.cs-dropdown {
+  z-index: var(--cs-z-popover);
+  font-family: var(--cs-font);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  padding: 16px;
+  box-shadow: var(--cs-shadow);
+  max-width: calc(100vw - 32px);
+}
+.cs-popover {
+  width: 300px;
+}
+.cs-dropdown {
+  padding: 5px;
+  min-width: 200px;
+}
+.cs-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 9px 12px;
+  border-radius: var(--cs-radius);
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+.cs-menu-item[data-highlighted] {
+  background: var(--cs-subtle);
+}
+.cs-menu-item[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.cs-menu-shortcut {
+  font-size: 11px;
+  color: var(--cs-muted);
+}
+.cs-tooltip {
+  z-index: var(--cs-z-tooltip);
+  font-family: var(--cs-font);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 7px 10px;
+  max-width: 260px;
+  border-radius: var(--cs-radius);
+  background: var(--cs-text);
+  color: var(--cs-surface);
+  box-shadow: var(--cs-shadow-sm);
+}
+.cs-tooltip-arrow {
+  fill: var(--cs-text);
+}
+.cs-sheet {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: min(460px, calc(100vw - 32px));
+  padding: 24px;
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  border: 1px solid var(--cs-border);
+  z-index: var(--cs-z-modal);
+  font-family: var(--cs-font);
+  box-shadow: var(--cs-shadow);
+  overflow: auto;
+}
+.cs-sheet--right {
+  right: 0;
+}
+.cs-sheet--left {
+  left: 0;
+}
+.cs-sheet h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.cs-sheet-body {
+  margin-top: 24px;
+}
+.cs-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.cs-actions .cs-button {
+  margin-top: 0;
+}
+.cs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  border-radius: var(--cs-radius);
+  border: 1px solid transparent;
+  background: var(--tone-bg);
+  color: var(--tone-fg);
+}
+.cs-tone-neutral {
+  --tone-bg: var(--cs-subtle);
+  --tone-fg: var(--cs-muted);
+}
+.cs-tone-brand {
+  --tone-bg: var(--cs-brand-subtle);
+  --tone-fg: var(--cs-brand);
+}
+.cs-tone-success {
+  --tone-bg: var(--cs-success-bg);
+  --tone-fg: var(--cs-success);
+}
+.cs-tone-warning {
+  --tone-bg: var(--cs-warning-bg);
+  --tone-fg: var(--cs-warning);
+}
+.cs-tone-danger {
+  --tone-bg: var(--cs-danger-bg);
+  --tone-fg: var(--cs-danger);
+}
+.cs-tag--outline {
+  background: transparent;
+  border-color: currentColor;
+}
+.cs-avatar {
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--cs-brand-subtle);
+  color: var(--cs-brand);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cs-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cs-avatar--sm {
+  width: 28px;
+  height: 28px;
+  font-size: 10px;
+}
+.cs-avatar--lg {
+  width: 56px;
+  height: 56px;
+  font-size: 20px;
+}
+.cs-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  justify-content: space-between;
+  border: 1px solid color-mix(in srgb, var(--tone-fg) 25%, transparent);
+  background: var(--tone-bg);
+  color: var(--tone-fg);
+  border-radius: var(--cs-radius);
+  padding: 16px;
+  font-size: 14px;
+}
+.cs-alert-content > div {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.cs-progress {
+  height: 6px;
+  width: 100%;
+  border-radius: 99px;
+  overflow: hidden;
+  background: var(--cs-border);
+}
+.cs-progress-indicator {
+  width: 100%;
+  height: 100%;
+  background: var(--cs-brand);
+  transition: transform var(--cs-duration-normal);
+}
+.cs-progress-indicator[data-state="indeterminate"] {
+  width: 40%;
+  animation: cs-indeterminate 1.2s infinite ease-in-out;
+}
+.cs-skeleton {
+  background: var(--cs-border);
+  border-radius: var(--cs-radius);
+  animation: cs-pulse 1.8s ease-in-out infinite;
+}
+.cs-separator {
+  background: var(--cs-border);
+  height: 1px;
+  border: 0;
+  margin: 8px 0;
+}
+.cs-separator--vertical {
+  width: 1px;
+  height: 24px;
+  margin: 0 8px;
+}
+.cs-toast-viewport {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: var(--cs-z-toast);
+  width: min(380px, calc(100vw - 40px));
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.cs-toast {
+  font-family: var(--cs-font);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  box-shadow: var(--cs-shadow);
+}
+.cs-toast > div:first-child {
+  flex: 1;
+}
+.cs-toast .cs-help {
+  display: block;
+  margin-top: 4px;
+}
+.cs-toast[data-swipe="move"] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+.cs-toast[data-swipe="end"] {
+  animation: cs-toast-out 0.15s ease-out forwards;
+}
+.cs-table-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+.cs-table-toolbar .cs-field {
+  max-width: 340px;
+  flex: 1;
+}
+.cs-data-table .cs-table th,
+.cs-data-table .cs-table td {
+  padding: 12px 16px;
+}
+.cs-data-table .cs-table th .cs-button {
+  padding: 0;
+  font-size: 12px;
+}
+.cs-data-table tr[data-selected] {
+  background: var(--cs-brand-subtle);
+}
+.cs-table-footer {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid var(--cs-border);
+}
+:where(
+  .cs-checkbox,
+  .cs-switch,
+  .cs-radio,
+  .cs-slider-thumb,
+  .cs-tabs-trigger,
+  .cs-accordion-trigger,
+  .cs-menu-item,
+  .cs-command-input,
+  .cs-popover,
+  .cs-sheet,
+  .cs-tabs-content
+):focus-visible {
+  outline: 2px solid var(--cs-focus);
+  outline-offset: 3px;
+}
+@keyframes cs-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes cs-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+@keyframes cs-toast-out {
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-button,
+  .cs-switch-thumb,
+  .cs-accordion-trigger span,
+  .cs-progress-indicator {
+    transition: none;
+  }
+  .cs-skeleton,
+  .cs-progress-indicator[data-state="indeterminate"],
+  .cs-toast {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .cs-table-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cs-table-toolbar .cs-field {
+    max-width: none;
+  }
+  .cs-alert {
+    flex-direction: column;
+  }
+  .cs-sheet {
+    padding: 20px;
+  }
+}
+.cs-button.cs-combobox-trigger {
+  justify-content: space-between;
+  font-weight: 400;
+}
+.cs-popover.cs-combobox {
+  width: var(--radix-popover-trigger-width);
+}

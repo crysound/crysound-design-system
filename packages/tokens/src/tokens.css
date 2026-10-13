@@ -29,7 +29,7 @@
   --cs-space-8: 32px;
   --cs-control-height: 40px;
   --cs-font-size: 14px;
-  --cs-shadow: 0 8px 32px #102d2414;
+  --cs-shadow: 0 8px 32px #17005714;
 }
 [data-theme="dark"] {
   color-scheme: dark;
@@ -76,4 +76,52 @@
   --cs-text: #334155;
   --cs-muted: #64748b;
   --cs-border: #cbd5e1;
+}
+
+/* Extension tokens: product-system proposals, separate from extracted Figma values. */
+:root {
+  --cs-brand-subtle: #f0ecf8;
+  --cs-radius-sm: 2px;
+  --cs-radius-lg: 8px;
+  --cs-space-0: 0px;
+  --cs-space-0-5: 2px;
+  --cs-space-5: 20px;
+  --cs-space-10: 40px;
+  --cs-space-12: 48px;
+  --cs-space-16: 64px;
+  --cs-space-20: 80px;
+  --cs-space-24: 96px;
+  --cs-text-xs: 12px;
+  --cs-text-sm: 14px;
+  --cs-text-md: 16px;
+  --cs-text-lg: 18px;
+  --cs-text-xl: 20px;
+  --cs-text-2xl: 24px;
+  --cs-text-3xl: 30px;
+  --cs-text-4xl: 36px;
+  --cs-leading-tight: 1.25;
+  --cs-leading-normal: 1.5;
+  --cs-leading-relaxed: 1.75;
+  --cs-weight-normal: 400;
+  --cs-weight-medium: 500;
+  --cs-weight-semibold: 600;
+  --cs-weight-bold: 700;
+  --cs-shadow-sm: 0 1px 3px #17005712;
+  --cs-duration-fast: 120ms;
+  --cs-duration-normal: 200ms;
+  --cs-z-overlay: 40;
+  --cs-z-modal: 50;
+  --cs-z-popover: 60;
+  --cs-z-tooltip: 70;
+  --cs-z-toast: 80;
+}
+[data-theme="dark"] {
+  --cs-brand-subtle: #302742;
+  --cs-shadow-sm: 0 1px 3px #00000040;
+}
+[data-customer="ocean"] {
+  --cs-brand-subtle: #edf3ff;
+}
+[data-customer="ocean"][data-theme="dark"] {
+  --cs-brand-subtle: #23324b;
 }

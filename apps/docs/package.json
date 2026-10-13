@@ -1,14 +1,14 @@
 {
   "name": "@crysound/docs",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build"
   },
   "dependencies": {
-    "@crysound/ui": "0.1.0",
-    "@crysound/tokens": "0.1.0"
+    "@crysound/ui": "0.2.0",
+    "@crysound/tokens": "0.2.0"
   }
 }
