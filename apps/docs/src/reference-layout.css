@@ -64,24 +64,14 @@ body {
   font-weight: 700;
   white-space: nowrap;
 }
-.docs-brand-mark {
-  width: 24px;
-  height: 24px;
-  border: 1px solid color-mix(in srgb, var(--cs-brand) 15%, var(--doc-line));
-  border-radius: 7px;
-  display: grid;
-  place-items: center;
-  background: var(--cs-brand-subtle);
-  color: var(--cs-brand);
-  font-weight: 700;
-  font-size: 15px;
-  box-shadow: 0 1px 2px #1018280d;
+.docs-brand-logo {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
 }
-.docs-brand small {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--doc-muted);
-  margin-left: 2px;
+[data-theme="dark"] .docs-brand-logo {
+  filter: brightness(0) invert(1);
 }
 .sidebar-content {
   overflow: auto;

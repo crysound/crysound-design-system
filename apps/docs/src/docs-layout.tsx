@@ -108,13 +108,8 @@ export function categoryFor(id: string) {
 }
 export function DocsBrand() {
   return (
-    <a className="docs-brand" href="#library">
-      <span className="docs-brand-mark" aria-hidden="true">
-        C
-      </span>
-      <span>
-        CRYSOUND <small>UI</small>
-      </span>
+    <a className="docs-brand" href="#library" aria-label="CRYSOUND 设计系统首页">
+      <img className="docs-brand-logo" src="/crysound-logo.svg" alt="CRYSOUND" width="1476" height="199" />
     </a>
   );
 }
