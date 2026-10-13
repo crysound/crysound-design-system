@@ -166,6 +166,7 @@ export function SidebarContent({
                 ["overview", "简介"],
                 ["installation", "安装与接入"],
                 ["foundations", "基础规范"],
+                ["icons", "图标库"],
                 ["customization", "主题与客户定制"],
                 ["patterns", "产品模式"],
               ].map(([id, name]) => (
@@ -597,6 +598,7 @@ export function DocsHeader({
           {activeDoc?.name ??
             {
               foundations: "基础规范",
+              icons: "图标库",
               installation: "安装与接入",
               patterns: "产品模式",
               customization: "主题与定制",

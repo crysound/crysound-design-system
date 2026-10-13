@@ -36,6 +36,7 @@ import {
   deviceColumns,
   ToastProvider,
 } from "./explorer";
+const IconLibrary = React.lazy(() => import("./icon-library"));
 const devices: Device[] = [
   {
     id: "CS-001",
@@ -185,7 +186,9 @@ function App() {
           }
         />
 
-        {activeDoc ? (
+        {route === "icons" ? (
+          <React.Suspense fallback={<p role="status">正在加载图标库…</p>}><IconLibrary /></React.Suspense>
+        ) : activeDoc ? (
           <ComponentPage
             key={activeDoc.id}
             item={activeDoc}

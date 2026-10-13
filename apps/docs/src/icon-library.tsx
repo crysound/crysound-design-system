@@ -1,0 +1,44 @@
+import { useState } from "react";
+import * as Icons from "@untitledui/icons";
+const entries = Object.entries(Icons).filter(([name]) => !name.endsWith('Rtl')).sort(([a], [b]) => a.localeCompare(b));
+const categories = [
+  ["全部", ""], ["导航", "Arrow|Chevron|Menu|Home|Link"],
+  ["操作", "Plus|Minus|Edit|Trash|Copy|Download|Upload|Check|Search|Settings"],
+  ["状态", "Alert|Info|Help|Check|XCircle|Clock"],
+  ["数据与设备", "Chart|Bar|Pie|Activity|Wave|Volume|Microphone|Monitor|Cpu|Wifi|Bluetooth|Database"],
+  ["文件", "File|Folder|Image|Book|Clipboard"], ["用户", "User|Users|Lock|Shield|Key"],
+];
+export default function IconLibrary() {
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  const [size, setSize] = useState(24);
+  const [brand, setBrand] = useState(false);
+  const [page, setPage] = useState(0);
+  const [selected, setSelected] = useState("Activity");
+  const [message, setMessage] = useState("");
+  const matches = entries.filter(([name]) => name.toLowerCase().includes(query.toLowerCase()) && (!category || new RegExp(category).test(name)));
+  const pages = Math.max(1, Math.ceil(matches.length / 80));
+  const activePage = Math.min(page, pages - 1);
+  const snippet = `import { ${selected} } from '@untitledui/icons';\n\n<${selected} size={${size}} aria-hidden="true"${brand ? ' style={{ color: "var(--cs-brand)" }}' : ''} />`;
+  async function copy() {
+    try { await navigator.clipboard.writeText(snippet); setMessage("已复制代码"); }
+    catch { setMessage("复制失败，请从下方代码框手动复制。"); }
+  }
+  return <article className="icon-library">
+    <h1>图标库 / Icons</h1>
+    <p className="icon-intro">{entries.length} 个 Untitled UI 开源线性图标，与产品组件统一使用。支持按名称搜索、分类浏览及复制 React 代码。</p>
+    <div className="icon-guidance">常用尺寸 16 / 20 / 24 / 32px，默认继承文字颜色。纯装饰图标使用 aria-hidden；图标按钮应在按钮上提供 aria-label。</div>
+    <div className="icon-tools">
+      <input className="cs-input" aria-label="搜索图标" placeholder="搜索英文名称，例如 Search、Volume、Arrow…" value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} />
+      <div className="icon-sizes" role="group" aria-label="图标尺寸">{[16,20,24,32].map(n => <button key={n} className="cs-button cs-button--secondary" aria-pressed={size===n} onClick={()=>setSize(n)}>{n}px</button>)}</div>
+      <label className="icon-color-toggle"><input type="checkbox" checked={brand} onChange={e=>setBrand(e.target.checked)} />品牌色</label>
+    </div>
+    <div className="icon-categories" role="group" aria-label="图标分类">{categories.map(([label, filter]) => <button key={label} className="cs-button cs-button--secondary" aria-pressed={category===filter} onClick={()=>{setCategory(filter);setPage(0);}}>{label}</button>)}</div>
+    <div className="icon-code-panel"><div><strong>{selected}</strong><button className="cs-button cs-button--secondary" onClick={copy}>复制代码</button></div><pre><code>{snippet}</code></pre><span role="status">{message}</span></div>
+    <p className="cs-help">找到 {matches.length} 个图标 · 点击图标选择代码示例</p>
+    <div className="icon-grid">{matches.slice(activePage*80,(activePage+1)*80).map(([name, Icon]) => <button key={name} className="icon-tile" aria-pressed={selected===name} onClick={()=>{setSelected(name);setMessage("");}}><Icon size={size} aria-hidden="true" style={{color:brand?'var(--cs-brand)':'var(--cs-text)'}} /><span>{name}</span></button>)}</div>
+    {!matches.length && <p className="icon-empty">没有匹配的图标，请更换关键词或分类。</p>}
+    <div className="icon-pagination"><button className="cs-button cs-button--secondary" disabled={activePage===0} onClick={()=>setPage(activePage-1)}>上一页</button><span>第 {activePage+1} / {pages} 页</span><button className="cs-button cs-button--secondary" disabled={activePage===pages-1} onClick={()=>setPage(activePage+1)}>下一页</button></div>
+    <p className="cs-help">依赖：@untitledui/icons · MIT 许可 · 消费项目需安装此包。<a href="/licenses/untitled-ui-icons-MIT.txt" target="_blank" rel="noreferrer">查看许可</a></p>
+  </article>;
+}
