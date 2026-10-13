@@ -70,4 +70,4 @@ Button、Input、StatusBadge、Card、Metric、EmptyState、Dialog、DeviceTable
 
 本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
 
-目标 GitHub 账号：`ya7881`；建议仓库名：`crysound-design-system`，默认私有。发布状态以实际远端验证为准。
+GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysound-design-system)，私有仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
