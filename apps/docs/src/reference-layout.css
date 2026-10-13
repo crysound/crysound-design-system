@@ -1374,3 +1374,12 @@ body {
 @media (max-width: 540px) { .slate-scale { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 #main-content :is(h1, h2, h3, h4) { color: var(--cs-text-heading); }
+
+.type-spec-label { flex: 0 0 128px; min-width: 0; }
+.type-spec-label strong { display: block; color: var(--cs-text-heading); font-size: 12px; font-weight: 500; margin-bottom: 4px; }
+.type-spec-label code { font-size: 10px; }
+.type-specs > div > span { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 540px) {
+  .type-spec-label { flex-basis: 104px; }
+  .type-specs > div { gap: 8px; }
+}

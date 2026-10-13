@@ -949,15 +949,21 @@ export function FoundationGallery() {
         <p className="cs-help">变量已统一提供，消费项目无需重复定义比例。</p>
         <div className="type-specs">
           {[
-            ["4xl", "36px", "产品页面标题"],
-            ["2xl", "24px", "内容区域标题"],
-            ["lg", "18px", "组件与面板标题"],
-            ["sm", "14px", "正文与表单标签"],
-            ["xs", "12px", "说明与辅助信息"],
-          ].map(([token, size, text]) => (
+            ["xs", "12px", "text extra small", "说明与辅助信息"],
+            ["sm", "14px", "text small", "表单标签与紧凑正文"],
+            ["md", "16px", "text base", "默认正文"],
+            ["lg", "18px", "text large", "组件与面板标题"],
+            ["xl", "20px", "text extra large", "分组标题"],
+            ["2xl", "24px", "text 2x large", "内容区域标题"],
+            ["3xl", "30px", "text 3x large", "页面标题"],
+            ["4xl", "36px", "text 4x large", "产品页面标题"],
+          ].map(([token, size, label, text]) => (
             <div key={token}>
-              <code>--cs-text-{token}</code>
-              <span style={{ fontSize: size }}>{text}</span>
+              <div className="type-spec-label">
+                <strong>{label}</strong>
+                <code>--cs-text-{token}</code>
+              </div>
+              <span style={{ fontSize: `var(--cs-text-${token})` }}>{text}</span>
               <small>{size}</small>
             </div>
           ))}
