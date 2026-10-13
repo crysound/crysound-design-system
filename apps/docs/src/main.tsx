@@ -353,8 +353,26 @@ npm pack -w @crysound/ui`}</code>
                   </div>
                 ))}
               </div>
+              <div className="slate-foundation">
+                <h3>文字色阶 / Slate</h3>
+                <p>正文 Slate 900 · 次级文字 Slate 700 · 辅助文字 Slate 500 · 禁用文字 Slate 400。深色模式自动使用对应的浅色层级。</p>
+                <div className="slate-scale">
+                  {[
+                    [50, "#f8fafc"], [100, "#f1f5f9"], [200, "#e2e8f0"],
+                    [300, "#cbd5e1"], [400, "#94a3b8"], [500, "#64748b"],
+                    [600, "#475569"], [700, "#334155"], [800, "#1e293b"],
+                    [900, "#0f172a"], [950, "#020617"],
+                  ].map(([level, hex]) => (
+                    <div key={level}>
+                      <div className="slate-chip" style={{ background: `var(--cs-slate-${level})` }} />
+                      <strong>Slate {level}</strong>
+                      <code>{hex}</code>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <div className="spec-line">
-                <span>字体 / HarmonyOS Sans SC + 系统回退</span>
+                <span>字体 / 苹方 PingFang SC + 系统回退</span>
                 <span>基础间距 / 4px</span>
                 <span>圆角 / 4px</span>
               </div>

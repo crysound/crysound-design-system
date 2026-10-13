@@ -1362,3 +1362,13 @@ body {
     min-height: 320px;
   }
 }
+
+.slate-foundation { margin-top: 28px; }
+.slate-foundation h3 { margin: 0 0 8px; font-size: 16px; }
+.slate-foundation p { margin: 0 0 20px; color: var(--cs-muted); font-size: 13px; line-height: 1.6; }
+.slate-scale { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 12px; }
+.slate-chip { height: 56px; border-radius: 8px; border: 1px solid var(--doc-line); margin-bottom: 8px; }
+.slate-scale strong { display: block; font-size: 12px; font-weight: 500; }
+.slate-scale code { display: block; margin-top: 4px; color: var(--cs-muted); font-size: 11px; }
+@media (max-width: 1100px) { .slate-scale { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .slate-scale { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
