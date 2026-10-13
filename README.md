@@ -52,7 +52,7 @@ export function DeviceConnection() {
 }
 ```
 
-字体文件尚未打包；请在获得字体使用权限后由消费项目加载 HarmonyOS Sans SC，否则使用系统回退。
+默认使用系统字体，优先使用 macOS 自带的苹方（PingFang SC），其他平台回退到当地系统字体；无需下载字体文件。
 
 在 HTML 根元素设置 `data-theme="dark"`、`data-density="compact"`、`data-customer="ocean"` 切换模式。将主题设置在根元素可让 Portal 弹窗继承主题。
 

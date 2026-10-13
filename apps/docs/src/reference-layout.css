@@ -7,7 +7,6 @@
   --doc-text: #181d27;
   --doc-muted: #535862;
   --doc-hover: #fafafa;
-  --cs-font: "Inter Variable", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 [data-theme="dark"] {
   --doc-page: #111019;

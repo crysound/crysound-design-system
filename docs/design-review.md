@@ -13,7 +13,7 @@
 | Figma 变量 | 原始值 | 代码 | 决定 |
 | --- | --- | --- | --- |
 | dc/color/foreground/primary、text/brand-primary | #170057 | --cs-brand | 两套 OpenTest 与公司官网一致，继承 |
-| font/style/italic | HarmonyOS Sans SC | --cs-font | 实际是字体变量名，不能因此设为斜体 |
+| font/style/italic | HarmonyOS Sans SC | --cs-font | 保留来源记录；按用户要求，当前默认改为系统苹方字体 |
 | dc/border radius/default | 4 | --cs-radius | 官网通用控件继承；软件微控件另有 2px，不强行合并 |
 | spacing/1、2、3、4、6 | 4、8、12、16、24 | --cs-space-* | 继承 |
 | 官网 text/primary、secondary | #333333、#707070 | --cs-text、--cs-muted | 默认官网/舒适基础 |
@@ -28,4 +28,4 @@
 
 深色主题、客户 Ocean 示例、状态色、40/32px 控件高度和 hover 色仍为工程提案。提供的 Engineer 微控件只有约 20px 高，因此未来需要单独定义仪器微控件尺寸，不把首版 compact 称为原图精确复刻。
 
-完整组件状态审计、官网真实资产、正式 logo、跨页面 Token 冲突处理与视觉回归仍需后续深化。当前 CRYSOUND 字样为纯文本；HarmonyOS 字体文件未打包，消费项目负责有权限地加载。
+完整组件状态审计、官网真实资产、正式 logo、跨页面 Token 冲突处理与视觉回归仍需后续深化。当前 CRYSOUND 字样为纯文本；字体按用户要求优先使用系统苹方，不打包或下载额外字体。

@@ -15,7 +15,6 @@ import {
 } from "../../../packages/ui/src/index";
 import "../../../packages/tokens/src/tokens.css";
 import "../../../packages/ui/src/styles.css";
-import "@fontsource-variable/inter";
 import "./site.css";
 import "./reference-layout.css";
 import { SearchLg } from "@untitledui/icons";

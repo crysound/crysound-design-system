@@ -1,4 +1,4 @@
-/* Brand, neutral, radius and font values traced to Figma; dark/customer modes are proposals. */
+/* Brand, neutral and radius traced to Figma; system font selected by CRYSOUND. */
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -20,7 +20,7 @@
   --cs-focus: #61528d;
   --cs-radius: 4px;
   --cs-font:
-    "HarmonyOS Sans SC", Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+    "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
   --cs-space-1: 4px;
   --cs-space-2: 8px;
   --cs-space-3: 12px;
