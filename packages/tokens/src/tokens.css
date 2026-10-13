@@ -42,6 +42,7 @@
   --cs-text-disabled: var(--cs-slate-400);
   --cs-muted: var(--cs-slate-500);
   --cs-border: #d6d6d6;
+  --cs-switch-on: #22c55e;
   --cs-success: #176541;
   --cs-success-bg: #e9f6ed;
   --cs-warning: #874900;

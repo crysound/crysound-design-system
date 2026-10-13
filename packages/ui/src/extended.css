@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 .cs-switch[data-state="checked"] {
-  background: var(--cs-success);
+  background: var(--cs-switch-on);
 }
 .cs-switch-thumb {
   display: block;
