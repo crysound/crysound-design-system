@@ -1,3 +1,4 @@
+import { SpaceFoundations } from "./space-foundations";
 import { ThemeSelect } from "./theme-select";
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
@@ -379,6 +380,7 @@ npm pack -w @crysound/ui`}</code>
                 <span>圆角 / 4px</span>
               </div>
               <FoundationGallery />
+              <SpaceFoundations />
             </section>
             <section id="components">
               <div className="section-heading">

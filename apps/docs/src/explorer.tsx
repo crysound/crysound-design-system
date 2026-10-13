@@ -970,7 +970,7 @@ export function FoundationGallery() {
         </div>
       </div>
       <div>
-        <h3>空间与层级</h3>
+        <h3>常用间距与浮层层级</h3>
         <p className="cs-help">
           4px 基线来自 Figma；扩展间距与浮层层级为系统提案。
         </p>

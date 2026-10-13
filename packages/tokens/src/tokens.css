@@ -126,6 +126,18 @@
   --cs-space-16: 64px;
   --cs-space-20: 80px;
   --cs-space-24: 96px;
+  --cs-space-1-5: 6px;
+  --cs-space-2-5: 10px;
+  --cs-space-3-5: 14px;
+  --cs-space-7: 28px;
+  --cs-space-9: 36px;
+  --cs-space-11: 44px;
+  --cs-space-14: 56px;
+  --cs-space-28: 112px;
+  --cs-space-32: 128px;
+  --cs-space-40: 160px;
+  --cs-space-48: 192px;
+  --cs-space-64: 256px;
   --cs-text-xs: 12px;
   --cs-text-sm: 14px;
   --cs-text-md: 16px;
