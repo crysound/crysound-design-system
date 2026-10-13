@@ -312,7 +312,7 @@ export function Combobox({
             aria-label={`${label}：${options.find((o) => o.value === selected)?.label ?? placeholder}`}
           >
             {options.find((o) => o.value === selected)?.label ?? placeholder}
-            <span aria-hidden="true">⌄</span>
+            <svg className="cs-combobox-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </Button>
         </P.Trigger>
         <P.Portal>

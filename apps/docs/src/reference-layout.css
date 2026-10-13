@@ -1405,3 +1405,5 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
   select { appearance: auto; background-image: none; }
   select:focus { outline: 2px solid Highlight; outline-offset: 2px; }
 }
+
+.measurement-form .two-col { align-items: start; }

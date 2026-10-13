@@ -268,3 +268,30 @@
   .cs-select { appearance: auto; background-image: none; }
   .cs-select:focus { outline: 2px solid Highlight; outline-offset: 2px; }
 }
+
+/* Fields keep their control height when adjacent content is taller. */
+.cs-field { align-content: start; min-width: 0; }
+.cs-input:not(.cs-textarea) {
+  height: var(--cs-control-height);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.cs-button.cs-combobox-trigger {
+  height: var(--cs-control-height);
+  box-sizing: border-box;
+  padding: 0 12px;
+  gap: 12px;
+  text-align: left;
+  color: var(--cs-text);
+  background: var(--cs-surface);
+}
+.cs-combobox-chevron { flex: 0 0 16px; color: var(--cs-muted); }
+.cs-button.cs-combobox-trigger:focus,
+.cs-button.cs-combobox-trigger[data-state="open"] {
+  border-color: var(--cs-brand);
+  outline: none;
+  box-shadow: none;
+}
+@media (forced-colors: active) {
+  .cs-button.cs-combobox-trigger:focus-visible { outline: 2px solid Highlight; outline-offset: 2px; }
+}
