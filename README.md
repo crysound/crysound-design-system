@@ -1,0 +1,73 @@
+# CRYSOUND Design System
+
+面向 CRYSOUND 产品软件、管理后台、官网和客户定制的 React + TypeScript 设计系统工程首版。
+
+**状态：0.1.0 提案。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、HarmonyOS Sans SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。本仓库没有复制 Untitled UI PRO 资源，也没有声称完成 Figma 视觉还原。
+
+## 本地运行
+
+需要 Node.js 22.12+ 或 24 LTS，以及 npm 10+。
+
+```sh
+npm ci
+npm run dev
+npm run check
+```
+
+开发服务器默认 http://127.0.0.1:5173。`check` 执行类型检查、交互测试和三个工作区的生产构建。
+
+## 仓库结构
+
+| 目录 | 职责 |
+| --- | --- |
+| `packages/tokens` | 可跨框架使用的主题 CSS 与生成的 Token JSON |
+| `packages/ui` | 带类型声明的 React 组件库，独立 ESM 构建 |
+| `apps/docs` | 可运行的中文规范、组件与业务模式展示 |
+| `docs` | 架构、定制策略、设计依据与后续路线 |
+| `.github/workflows` | GitHub 持续集成 |
+
+## 接入项目
+
+尚未发布到 npm。先在本仓库构建后打包：
+
+```sh
+npm run build
+npm pack -w @crysound/tokens
+npm pack -w @crysound/ui
+```
+
+在目标项目安装这两个生成的 `.tgz` 文件和 React 19，然后：
+
+```tsx
+import { Button, Input, StatusBadge } from '@crysound/ui';
+import '@crysound/tokens/tokens.css';
+import '@crysound/ui/styles.css';
+
+export function DeviceConnection() {
+  return <div>
+    <Input label="设备地址" placeholder="192.168.1.10" />
+    <StatusBadge status="offline" />
+    <Button onClick={() => console.log('在业务层接入连接服务')}>连接设备</Button>
+  </div>;
+}
+```
+
+字体文件尚未打包；请在获得字体使用权限后由消费项目加载 HarmonyOS Sans SC，否则使用系统回退。
+
+在 HTML 根元素设置 `data-theme="dark"`、`data-density="compact"`、`data-customer="ocean"` 切换模式。将主题设置在根元素可让 Portal 弹窗继承主题。
+
+## 已有组件
+
+Button、Input、StatusBadge、Card、Metric、EmptyState、Dialog、DeviceTable。Dialog 使用 Radix 处理焦点、Escape 和语义；设备读数、列表都是演示数据，没有硬件通信能力。
+
+## 参考资料与权利
+
+- [Untitled UI React](https://github.com/untitleduico/react)：参考视觉层级与组件组织。
+- [shadcn/ui](https://github.com/shadcn-ui/ui)：参考组件源码可控、可组合的方式。
+- [OpenTest V4](https://www.figma.com/design/Ea2zZC9NZCRY7SP1BySrvv/OpenTest-V4?node-id=8-2225)
+- [OpenTest 官网](https://www.figma.com/design/vs6mXxpmwkI91R1JLsLG6c/OpenTest?node-id=1-19978)
+- [公司官网 2.0](https://www.figma.com/design/bsk0jyVDkS9VCM3gjmhdaM/Website?node-id=19939-12429)
+
+本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
+
+目标 GitHub 账号：`ya7881`；建议仓库名：`crysound-design-system`，默认私有。发布状态以实际远端验证为准。

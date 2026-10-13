@@ -1,0 +1,15 @@
+{
+  "name": "@crysound/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp src/* dist/"
+  }
+}
