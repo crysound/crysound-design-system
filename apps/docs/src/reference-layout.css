@@ -1407,3 +1407,9 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
 }
 
 .measurement-form .two-col { align-items: start; }
+
+/* One consistent gap between product-pattern sections, including the metrics row. */
+#patterns > .section-heading { margin-bottom: 0; }
+#patterns > .cs-card,
+#patterns > .cs-card:first-of-type,
+#patterns > .metrics { margin: 24px 0 0; }
