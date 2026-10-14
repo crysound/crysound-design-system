@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Instrument components 增加 Log in pages：登录表单、密码显隐、记住登录及回调提交反馈。
+
 - 新增 TreeView：多级目录展开、受控选择、图标、禁用节点及方向键导航。
 
 - 新增 SectionHeader：标题层级、说明、图标/徽标、操作、标签区及响应式布局。

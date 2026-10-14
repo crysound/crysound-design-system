@@ -1,3 +1,4 @@
+import { LoginDemo } from "./login-demo";
 import { TreeViewDemo } from "./tree-view-demo";
 import { SectionHeaderDemo } from "./section-header-demo";
 import { ProgressStepsDemo } from "./progress-steps-demo";
@@ -621,6 +622,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "login-page":
+      return <LoginDemo />;
     case "tree-view":
       return <TreeViewDemo />;
     case "section-header":

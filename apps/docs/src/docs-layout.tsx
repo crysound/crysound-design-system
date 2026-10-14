@@ -111,7 +111,7 @@ export const docCategories = [
     english: "Instrument components",
     description:
       "设备状态、测量读数和设备列表——为 CRYSOUND 的仪器与声学产品统一信息表达。",
-    ids: ["device-table", "metric", "status-badge"],
+    ids: ["device-table", "metric", "status-badge", "login-page"],
   },
 ];
 export function categoryFor(id: string) {
@@ -348,6 +348,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "login-page":
+      return <div className="thumb-menu"><div><strong>欢迎回来</strong></div><div>账号　________</div><div>密码　••••••••</div><Button size="sm">登录</Button></div>;
     case "tree-view":
       return <div className="thumb-menu"><div>⌄ 测量项目</div><div>　产线检测</div><div>　检测报告.pdf</div><div>› 设备目录</div></div>;
     case "section-header":
