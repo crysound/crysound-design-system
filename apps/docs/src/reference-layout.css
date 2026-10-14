@@ -1554,3 +1554,11 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .file-format-card button:focus-visible { outline:2px solid var(--cs-brand); outline-offset:3px; }
 
 .video-demo { width: 100%; max-width: 640px; display: grid; gap: 16px; }
+
+/* Breadcrumb links must not inherit the documentation navigation's hit-area padding. */
+.cs-breadcrumbs li > a,
+.cs-breadcrumbs li > span {
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+}
