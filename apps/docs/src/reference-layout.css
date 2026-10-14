@@ -1528,3 +1528,8 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 
 .reference-preview .metric-demo-row { align-items: flex-start; gap: 24px; }
 .reference-preview .metric-demo-row .cs-metric { padding: 16px; }
+
+.theme-select-trigger[data-state="open"],
+.theme-select-trigger:focus-visible {
+  color: var(--cs-brand);
+}
