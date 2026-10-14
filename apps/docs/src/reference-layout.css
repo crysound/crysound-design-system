@@ -176,7 +176,7 @@ body {
   color: var(--doc-text);
 }
 .docs-nav-links a[aria-current] {
-  background: color-mix(in srgb, var(--cs-brand) 6%, var(--doc-page));
+  background: var(--cs-selected-bg);
   color: var(--cs-brand);
   font-weight: 600;
 }
@@ -1439,7 +1439,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
   cursor: pointer; outline: none; box-sizing: border-box;
 }
 .theme-select-option[data-highlighted] { background: var(--cs-subtle); }
-.theme-select-option[data-state="checked"] { background: var(--cs-brand-subtle); color: var(--cs-brand); font-weight: 500; }
+.theme-select-option[data-state="checked"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); font-weight: 500; }
 @media (forced-colors: active) { .theme-select-trigger:focus-visible { outline: 2px solid Highlight; } .theme-select-option[data-highlighted] { outline: 1px solid Highlight; } }
 
 .icon-library { padding-top: 0; padding-bottom: 32px; }
@@ -1450,7 +1450,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .icon-tools > .cs-input { flex: 1; min-width: 220px; }
 .icon-color-toggle { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .icon-categories { margin: 16px 0 24px; }
-.icon-library button[aria-pressed="true"] { border-color: var(--cs-brand); background: var(--cs-brand-subtle); color: var(--cs-brand); }
+.icon-library button[aria-pressed="true"] { border-color: var(--cs-brand); background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 .icon-code-panel { padding: 16px; border: 1px solid var(--doc-line); border-radius: 8px; margin-bottom: 24px; }
 .icon-code-panel > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .icon-code-panel pre { margin: 16px 0 0; overflow-x: auto; font-size: 12px; line-height: 1.7; }
@@ -1627,3 +1627,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
     line-height: 28px;
   }
 }
+
+.docs-nav-links a[aria-current]:hover,
+.theme-select-option[data-state="checked"][data-highlighted],
+.icon-library button[aria-pressed="true"]:hover { background: var(--cs-selected-hover-bg); }

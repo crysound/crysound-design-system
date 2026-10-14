@@ -181,3 +181,15 @@
 [data-customer="ocean"][data-theme="dark"] {
   --cs-brand-subtle: #23324b;
 }
+
+/* Proposed shared selection treatment; resolves against each active brand/theme. */
+:root, [data-theme], [data-customer] {
+  --cs-selected-bg: color-mix(in srgb, var(--cs-brand) 6%, var(--cs-surface));
+  --cs-selected-fg: var(--cs-brand);
+  --cs-selected-hover-bg: color-mix(in srgb, var(--cs-brand) 9%, var(--cs-surface));
+  --cs-item-hover-bg: var(--cs-subtle);
+}
+[data-theme="dark"] {
+  --cs-selected-bg: color-mix(in srgb, var(--cs-brand) 12%, var(--cs-surface));
+  --cs-selected-hover-bg: color-mix(in srgb, var(--cs-brand) 16%, var(--cs-surface));
+}

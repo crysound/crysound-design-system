@@ -187,8 +187,8 @@
   font-size: 14px;
 }
 .cs-command-item[data-selected="true"] {
-  background: var(--cs-subtle);
-  color: var(--cs-brand);
+  background: var(--cs-selected-bg);
+  color: var(--cs-selected-fg);
 }
 .cs-command-item[data-disabled="true"] {
   opacity: 0.4;
@@ -646,7 +646,8 @@
 .cs-data-table .cs-table th[aria-sort="ascending"] .cs-button,
 .cs-data-table .cs-table th[aria-sort="descending"] .cs-button { color: var(--cs-brand); }
 .cs-data-table tr[data-selected] {
-  background: var(--cs-brand-subtle);
+  background: var(--cs-selected-bg);
+  color: var(--cs-selected-fg);
 }
 .cs-table-footer {
   display: flex;
@@ -827,7 +828,7 @@
 .cs-command-menu-group + .cs-command-menu-group { border-top: 1px solid var(--cs-border); margin-top: 8px; padding-top: 8px; }
 .cs-command-menu [cmdk-group-heading] { font-size: 11px; color: var(--cs-muted); padding: 8px 12px; }
 .cs-command-menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 6px; font-size: 14px; cursor: pointer; }
-.cs-command-menu-item[data-selected="true"] { color: var(--cs-brand); background: var(--cs-brand-subtle); }
+.cs-command-menu-item[data-selected="true"] { color: var(--cs-selected-fg); background: var(--cs-selected-bg); }
 .cs-command-menu-item[data-disabled="true"] { opacity: .4; cursor: not-allowed; }
 .cs-command-menu-icon { display: flex; width: 20px; height: 20px; color: var(--cs-muted); flex-shrink: 0; }
 .cs-command-menu-item[data-selected="true"] .cs-command-menu-icon { color: var(--cs-brand); }
@@ -856,7 +857,7 @@
 .cs-date-grid button:hover:not(:disabled) { background: var(--cs-subtle); }
 .cs-date-grid button[data-outside] { color: var(--cs-muted); }
 .cs-date-grid button[data-today] { box-shadow: inset 0 0 0 1px var(--cs-brand); }
-.cs-date-grid button[aria-pressed="true"] { background: var(--cs-brand); color: var(--cs-on-brand); }
+.cs-date-grid button[aria-pressed="true"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); font-weight: 600; }
 .cs-date-grid button:disabled { opacity: .3; cursor: not-allowed; }
 .cs-date-footer { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--cs-border); }
 .cs-date-footer button { padding: 4px 8px; border: 0; background: transparent; color: var(--cs-brand); font: inherit; font-size: 13px; cursor: pointer; }
@@ -943,7 +944,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-progress-steps li:not(:last-child)::after { content: ''; position: absolute; top: 13px; left: 40px; right: -12px; height: 1px; background: var(--cs-border); }
 .cs-progress-steps li[data-state="complete"]::after { background: var(--cs-brand); }
 .cs-progress-steps li[data-state="complete"] .cs-step-marker { background: var(--cs-brand); border-color: var(--cs-brand); color: var(--cs-on-brand); }
-.cs-progress-steps li[data-state="current"] .cs-step-marker { border-color: var(--cs-brand); color: var(--cs-brand); background: var(--cs-brand-subtle); box-shadow: 0 0 0 3px var(--cs-brand-subtle); }
+.cs-progress-steps li[data-state="current"] .cs-step-marker { border-color: var(--cs-brand); color: var(--cs-selected-fg); background: var(--cs-selected-bg); box-shadow: 0 0 0 3px var(--cs-selected-bg); }
 .cs-progress-steps li[data-state="current"] strong { color: var(--cs-brand); }
 .cs-progress-steps li[data-state="error"] .cs-step-marker { color: var(--cs-danger-fg); background: var(--cs-danger-bg); border-color: var(--cs-danger-fg); }
 .cs-progress-steps li[data-state="error"] strong { color: var(--cs-danger-fg); }
@@ -1003,7 +1004,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-tree-view, .cs-tree-view ul { list-style: none; padding: 0; margin: 0; }
 .cs-tree-item { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; box-sizing: border-box; border-radius: 6px; font-size: 13px; line-height: 20px; color: var(--cs-text); cursor: pointer; }
 .cs-tree-item:hover:not([aria-disabled="true"]) { background: var(--cs-subtle); }
-.cs-tree-item[aria-selected="true"] { color: var(--cs-brand); background: var(--cs-brand-subtle); }
+.cs-tree-item[aria-selected="true"] { color: var(--cs-selected-fg); background: var(--cs-selected-bg); }
 .cs-tree-item[aria-disabled="true"] { opacity: .4; cursor: not-allowed; }
 .cs-tree-item:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: -2px; }
 .cs-tree-toggle { display: grid; place-items: center; width: 16px; height: 20px; flex-shrink: 0; color: var(--cs-muted); }
@@ -1034,8 +1035,6 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-tree-view--simple .cs-tree-item { min-height: 36px; padding: 6px 8px; gap: 8px; }
 .cs-tree-view--simple .cs-tree-branch > ul { margin: 2px 0 4px 16px; padding-left: 8px; border-left: 1px solid var(--cs-border); }
-.cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-slate-100); color: var(--cs-brand); }
-[data-theme="dark"] .cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-subtle); }
 .cs-tree-view--simple .cs-tree-label { font-size: 14px; line-height: 22px; }
 .cs-tree-view--simple .cs-tree-toggle { height: 22px; }
 
@@ -1117,7 +1116,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-tabs-trigger { position: relative; z-index: 1; transition: color 160ms ease-out; }
 .cs-tabs-indicator { position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; z-index: 0; background: var(--cs-brand); }
 .cs-tabs-list[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { border-color: transparent; }
-.cs-tabs-list--pill .cs-tabs-indicator { background: var(--cs-surface); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow-sm); }
+.cs-tabs-list--pill .cs-tabs-indicator { background: var(--cs-selected-bg); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow-sm); }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; box-shadow: none; }
 .cs-tabs-content[data-state="active"] { animation: cs-tab-content-in 220ms cubic-bezier(.22, 1, .36, 1); }
 @keyframes cs-tab-content-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
@@ -1125,3 +1124,20 @@ button.cs-step-content { cursor: pointer; }
   .cs-tabs-trigger { transition: none; }
   .cs-tabs-content[data-state="active"] { animation: none; }
 }
+
+/* Selection and hover share semantics across navigable items. */
+.cs-tree-item:not([aria-disabled="true"]):hover,
+.cs-menu-item[data-highlighted]:not([data-disabled]) { background: var(--cs-item-hover-bg); }
+.cs-tree-item[aria-selected="true"]:not([aria-disabled="true"]):hover,
+.cs-command-item[data-selected="true"]:not([data-disabled="true"]):hover,
+.cs-command-menu-item[data-selected="true"]:not([data-disabled="true"]):hover,
+.cs-data-table tr[data-selected]:hover,
+.cs-date-grid button[aria-pressed="true"]:hover:not(:disabled) { background: var(--cs-selected-hover-bg); }
+.cs-pagination .cs-button[aria-current="page"],
+.cs-pagination .cs-button[aria-current="page"]:hover:not(:disabled) {
+  background: var(--cs-selected-bg); color: var(--cs-selected-fg);
+}
+.cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] {
+  background: var(--cs-selected-bg); color: var(--cs-selected-fg);
+}
+.cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; }
