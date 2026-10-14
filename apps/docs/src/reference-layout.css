@@ -1524,7 +1524,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .reference-preview .cs-table thead { background: var(--doc-subtle); }
 .reference-preview .cs-table :is(th, td) { border-color: var(--doc-line); }
 
-.dropdown-example-trigger { gap: 8px; line-height: 20px; }
+.dropdown-example-trigger { gap: 8px; line-height: 20px; padding-left: 12px; padding-right: 12px; }
 .dropdown-example-trigger svg { display: block; flex-shrink: 0; }
 .dropdown-example-trigger[data-state="open"] svg { transform: rotate(180deg); color: var(--cs-brand); }
 
