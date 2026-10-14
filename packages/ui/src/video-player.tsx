@@ -44,9 +44,9 @@ export function VideoPlayer({ title, src, poster, captions = [], className, onEr
       {available && <div className="cs-video-controls" role="group" aria-label="视频控制">
         <button type="button" aria-label={playing?'暂停':'播放'} onClick={()=>void toggle()}>{icon(playing?'pause':'play')}</button>
         <button type="button" aria-label={muted?'取消静音':'静音'} onClick={()=>{if(video.current)video.current.muted=!video.current.muted;}}>{icon('volume')}</button>
-        <input className="cs-video-volume" type="range" aria-label="音量" min="0" max="1" step="0.05" value={muted?0:volume} onChange={e=>{if(video.current){video.current.volume=Number(e.target.value);video.current.muted=false;}}} />
+        <input className="cs-video-volume" style={{backgroundImage:`linear-gradient(to right, white ${(muted?0:volume)*100}%, #ffffff40 ${(muted?0:volume)*100}%)`}} type="range" aria-label="音量" min="0" max="1" step="0.05" value={muted?0:volume} onChange={e=>{if(video.current){video.current.volume=Number(e.target.value);video.current.muted=false;}}} />
         <span className="cs-video-time">{format(time)}</span>
-        <input className="cs-video-progress" type="range" aria-label="播放进度" min="0" max={duration || 1} step="0.1" value={time} disabled={!duration} onChange={e=>{if(video.current)video.current.currentTime=Number(e.target.value);}} />
+        <input className="cs-video-progress" style={{backgroundImage:`linear-gradient(to right, white ${duration?Math.min(100,time/duration*100):0}%, #ffffff40 ${duration?Math.min(100,time/duration*100):0}%)`}} type="range" aria-label="播放进度" min="0" max={duration || 1} step="0.1" value={time} disabled={!duration} onChange={e=>{if(video.current)video.current.currentTime=Number(e.target.value);}} />
         <span className="cs-video-time">-{format(Math.max(0,duration-time))}</span>
         <Menu.Root>
           <Menu.Trigger className="cs-video-speed" aria-label="播放速度">{speed}×<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></Menu.Trigger>

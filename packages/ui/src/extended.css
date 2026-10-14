@@ -1152,3 +1152,25 @@ button.cs-step-content { cursor: pointer; }
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] { color: var(--cs-selected-fg); font-weight: 600; }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; box-shadow: none; }
 .cs-tabs-list--pill .cs-tabs-trigger:not([data-state="active"]):hover:not(:disabled) { color: var(--cs-text); }
+
+/* Borderless media sliders; native inputs keep keyboard and range semantics. */
+.cs-video-controls input[type="range"] {
+  appearance: none; -webkit-appearance: none; border: 0; padding: 0;
+  border-radius: 99px; background-color: transparent;
+  background-size: 100% 6px; background-position: center; background-repeat: no-repeat;
+  box-shadow: none;
+}
+.cs-video-controls input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px; border: 0; border-radius: 99px; background: transparent; box-shadow: none;
+}
+.cs-video-controls input[type="range"]::-webkit-slider-thumb {
+  appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin-top: -5px;
+  border: 0; border-radius: 50%; background: white; box-shadow: none;
+}
+.cs-video-controls input[type="range"]::-moz-range-track {
+  height: 6px; border: 0; border-radius: 99px; background: transparent; box-shadow: none;
+}
+.cs-video-controls input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px; border: 0; border-radius: 50%; background: white; box-shadow: none;
+}
+.cs-video-controls input[type="range"]:disabled { opacity: .5; cursor: not-allowed; }
