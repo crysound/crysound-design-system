@@ -1,3 +1,4 @@
+import { VideoDemo } from "./video-demo";
 import { useState, type FormEvent } from "react";
 import * as UI from "../../../packages/ui/src/index";
 import { catalog, type ComponentDoc } from "./catalog";
@@ -611,6 +612,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "video-player":
+      return <VideoDemo />;
     case "metric":
       return (
         <div className="demo-row metric-demo-row">

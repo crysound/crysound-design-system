@@ -33,6 +33,7 @@ import {
   Progress,
   RadioGroup,
   Pagination,
+  VideoPlayer,
   Slider,
   Switch,
   Tabs,
@@ -90,6 +91,7 @@ export const docCategories = [
       "sheet",
       "tabs",
       "toast",
+      "video-player",
     ],
   },
   {
@@ -335,6 +337,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "video-player":
+      return <VideoPlayer title="测量演示" poster="/video-poster.svg" src="/demo-video.webm" />;
     case "pagination":
       return (
         <Pagination page={1} pageCount={12} onPageChange={() => {}} />

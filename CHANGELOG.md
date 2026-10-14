@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 新增 VideoPlayer：原生播放控制、倍速、字幕、空状态与错误重试，附本地合成视频演示。
+
 - File icons 改为 52 种独立实现的文件格式图标，提供 Default / Gray / Solid 三种样式、搜索及 SVG / JSX 复制；共享包导出 FileIcon。
 
 - 基础空间补全 26 档间距 Token、场景示例、响应式留白与密度规范。

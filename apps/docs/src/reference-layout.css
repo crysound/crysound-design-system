@@ -1552,3 +1552,5 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .file-format-card button { padding:4px 0; border:0; background:transparent; font:inherit; font-size:11px; color:var(--cs-muted); cursor:pointer; }
 .file-format-card button:hover { color:var(--cs-brand); }
 .file-format-card button:focus-visible { outline:2px solid var(--cs-brand); outline-offset:3px; }
+
+.video-demo { width: 100%; max-width: 640px; display: grid; gap: 16px; }

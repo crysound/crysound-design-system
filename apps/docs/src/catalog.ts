@@ -28,6 +28,7 @@ const define = (
   guidance,
 });
 export const catalog: ComponentDoc[] = [
+  define("video-player", "VideoPlayer", "视频播放器", "展示", "播放演示、操作培训和测量记录视频，支持原生控制栏、倍速及错误恢复。", [["title", "string", "必填"], ["src / poster", "string", "—"], ["captions", "字幕轨道数组", "[]"], ["muted / loop / autoPlay", "boolean", "false"]], '<VideoPlayer title="测量演示" src="/demo.webm" captions={[{src:"/captions.vtt",srcLang:"zh",label:"中文"}]} />', "播放器不包含上传或视频转码逻辑。带语言内容应提供字幕；避免有声自动播放。原生控制栏外观因浏览器不同而变化。"),
   define(
     "button",
     "Button",
