@@ -1046,3 +1046,11 @@ button.cs-step-content { cursor: pointer; }
 .cs-tree-branch[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
 .cs-tree-branch > ul { min-height: 0; overflow: hidden; }
 @media(prefers-reduced-motion:reduce) { .cs-tree-toggle svg, .cs-tree-item, .cs-tree-branch { transition: none; } }
+
+.cs-login-options > button {
+  margin-left: auto;
+  padding: 0;
+  min-width: 0;
+  text-align: right;
+}
+.cs-login-options > button { text-spacing-trim: trim-end; }
