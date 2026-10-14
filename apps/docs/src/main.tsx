@@ -187,8 +187,8 @@ function App() {
           }
         />
 
-        {route === "icons" ? (
-          <React.Suspense fallback={<p role="status">正在加载图标库…</p>}><IconLibrary /></React.Suspense>
+        {["icons", "file-icons"].includes(route) ? (
+          <React.Suspense fallback={<p role="status">正在加载图标库…</p>}><IconLibrary key={route} filesOnly={route === "file-icons"} /></React.Suspense>
         ) : activeDoc ? (
           <ComponentPage
             key={activeDoc.id}

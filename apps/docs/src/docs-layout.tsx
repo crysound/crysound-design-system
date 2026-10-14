@@ -168,6 +168,7 @@ export function SidebarContent({
                 ["installation", "安装与接入"],
                 ["foundations", "基础规范"],
                 ["icons", "图标库"],
+                ["file-icons", "File icons 文件图标"],
                 ["customization", "主题与客户定制"],
                 ["patterns", "产品模式"],
               ].map(([id, name]) => (
@@ -594,6 +595,7 @@ export function DocsHeader({
             {
               foundations: "基础规范",
               icons: "图标库",
+              "file-icons": "File icons 文件图标",
               installation: "安装与接入",
               patterns: "产品模式",
               customization: "主题与定制",
