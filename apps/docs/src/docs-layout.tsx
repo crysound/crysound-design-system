@@ -102,6 +102,7 @@ export const docCategories = [
       "loading-indicator",
       "progress-steps",
       "section-header",
+      "tree-view",
     ],
   },
   {
@@ -347,6 +348,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "tree-view":
+      return <div className="thumb-menu"><div>⌄ 测量项目</div><div>　产线检测</div><div>　检测报告.pdf</div><div>› 设备目录</div></div>;
     case "section-header":
       return <div className="thumb-menu"><div><strong>测量项目</strong><Button size="sm">新建</Button></div><small>查看项目、设备与报告</small></div>;
     case "progress-steps":

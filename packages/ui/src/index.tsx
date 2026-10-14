@@ -291,3 +291,5 @@ export * from "./charts";
 export * from "./loading-indicator";
 export * from "./progress-steps";
 export * from "./section-header";
+
+export * from "./tree-view";

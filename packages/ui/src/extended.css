@@ -995,3 +995,16 @@ button.cs-step-content { cursor: pointer; }
   .cs-inline-cta:has(.cs-inline-cta-icon) .cs-inline-cta-actions { grid-column: 1 / -1; }
   .cs-inline-cta-actions .cs-button { width: 100%; }
 }
+
+.cs-tree-view, .cs-tree-view ul { list-style: none; padding: 0; margin: 0; }
+.cs-tree-item { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; box-sizing: border-box; border-radius: 6px; font-size: 13px; line-height: 20px; color: var(--cs-text); cursor: pointer; }
+.cs-tree-item:hover { background: var(--cs-subtle); }
+.cs-tree-item[aria-selected="true"] { color: var(--cs-brand); background: var(--cs-brand-subtle); }
+.cs-tree-item[aria-disabled="true"] { opacity: .4; cursor: not-allowed; }
+.cs-tree-item:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: -2px; }
+.cs-tree-toggle { display: grid; place-items: center; width: 16px; height: 20px; flex-shrink: 0; color: var(--cs-muted); }
+.cs-tree-icon { display: flex; flex: 0 0 20px; color: var(--cs-muted); }
+.cs-tree-icon svg { width: 20px; height: 20px; }
+.cs-tree-item[aria-selected="true"] :is(.cs-tree-icon,.cs-tree-toggle) { color: var(--cs-brand); }
+.cs-tree-label { min-width: 0; overflow-wrap: anywhere; }
+.cs-tree-empty { padding: 24px; color: var(--cs-muted); text-align: center; font-size: 13px; }

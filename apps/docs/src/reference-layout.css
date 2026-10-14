@@ -1597,3 +1597,6 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .section-header-demo { width: 100%; min-width: 0; display: grid; gap: 40px; }
 
 .reference-preview > .inline-cta-demo { max-width: 768px; }
+
+.tree-view-demo { width: 100%; max-width: 560px; display: grid; gap: 16px; }
+.tree-view-panel { padding: 12px; border: 1px solid var(--cs-border); border-radius: 10px; background: var(--cs-surface); }
