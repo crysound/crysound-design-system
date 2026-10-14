@@ -285,3 +285,4 @@ export * from "./color-picker";
 export * from "./command-menu";
 
 export * from "./date-picker";
+export * from "./inline-cta";

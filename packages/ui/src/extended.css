@@ -878,3 +878,17 @@
 .cs-upload-list button { display: grid; place-items: center; padding: 4px; color: var(--cs-muted); background: transparent; border: 0; cursor: pointer; font: inherit; font-size: 12px; }
 .cs-upload-list button:disabled { opacity: .4; cursor: not-allowed; }
 .cs-upload-field :is(button,input):focus-visible { outline: 2px solid var(--cs-brand); outline-offset: 3px; }
+
+.cs-inline-cta { height: auto; top: auto; flex-direction: row; box-sizing: border-box; min-width: 0; display: flex; align-items: center; gap: 16px; padding: 20px 24px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-lg); background: var(--cs-surface); color: var(--cs-text); position: relative; }
+.cs-inline-cta--brand { background: var(--cs-brand-subtle); border-color: color-mix(in srgb,var(--cs-brand) 20%,var(--cs-border)); }
+.cs-inline-cta-icon { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border: 1px solid var(--cs-border); border-radius: 8px; background: var(--cs-surface); color: var(--cs-brand); }
+.cs-inline-cta-icon svg { width: 24px; height: 24px; }
+.cs-inline-cta-content { display: grid; gap: 6px; flex: 1; min-width: 0; }
+.cs-inline-cta-content > strong { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--cs-text-heading); }
+.cs-inline-cta-content > div { font-size: 13px; line-height: 20px; color: var(--cs-muted); }
+.cs-inline-cta-actions { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
+.cs-inline-cta-actions a { box-sizing: border-box; text-decoration: none; }
+.cs-inline-cta-close { display: grid; place-items: center; width: 24px; height: 24px; align-self: flex-start; border: 0; padding: 0; background: transparent; color: var(--cs-muted); cursor: pointer; flex-shrink: 0; }
+.cs-inline-cta-close:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 2px; }
+@media(max-width:900px) { .cs-inline-cta { flex-wrap: wrap; } .cs-inline-cta-content { flex-basis: calc(100% - 80px); } .cs-inline-cta-actions { width: 100%; } .cs-inline-cta:has(.cs-inline-cta-close) { padding-right: 44px; } .cs-inline-cta-close { position: absolute; right: 12px; top: 12px; } }
+@media(max-width:540px) { .cs-inline-cta { padding: 16px; } .cs-inline-cta-actions { flex-direction: column; } .cs-inline-cta-actions .cs-button { width: 100%; } }

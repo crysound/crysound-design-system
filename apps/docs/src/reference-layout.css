@@ -1575,3 +1575,5 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 
 .command-menu-demo { width: min(100%,560px); display: grid; gap: 20px; }
 .command-menu-demo > .cs-button { justify-self: start; }
+
+.inline-cta-demo { width: 100%; display: grid; gap: 24px; }

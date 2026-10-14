@@ -1,3 +1,4 @@
+import { InlineCTADemo } from "./inline-cta-demo";
 import { CommandMenuDemo } from "./command-menu-demo";
 import { ColorPickerDemo } from "./color-picker-demo";
 import { VideoDemo } from "./video-demo";
@@ -615,6 +616,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "inline-cta":
+      return <InlineCTADemo />;
     case "date-picker":
       return <Stack><DatePicker label="测量日期" defaultValue="2026-10-14" /><DatePicker label="计划日期" min="2026-10-01" max="2026-12-31" /><DatePicker label="不可用日期" disabled /><DatePicker label="必填日期" error="请选择测量日期" /></Stack>;
     case "command-menu":

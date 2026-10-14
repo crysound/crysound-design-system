@@ -95,6 +95,7 @@ export const docCategories = [
       "color-picker",
       "command-menu",
       "date-picker",
+      "inline-cta",
     ],
   },
   {
@@ -340,6 +341,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "inline-cta":
+      return <div className="thumb-alert"><div><strong>配置报告模板</strong><small>统一团队的结果交付</small></div><Button size="sm">开始配置</Button></div>;
     case "date-picker":
       return <div className="thumb-menu"><div>2026 年 10 月</div><div>一　二　三　四　五</div><div>12　13　14　15　16</div></div>;
     case "command-menu":
