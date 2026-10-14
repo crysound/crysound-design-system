@@ -375,3 +375,10 @@
 .cs-number-track { display: flex; flex-direction: column; line-height: 1; }
 .cs-number-track > span { display: block; height: 1em; flex: 0 0 1em; text-align: center; }
 .cs-number-symbol { line-height: 1; }
+
+/* Prefer fuller final lines in prose without changing controls or data labels. */
+:where(p, .cs-help, .cs-error, .cs-dialog-description, .cs-section-header-description,
+  .cs-login-description, .cs-inline-cta-content > div, .cs-alert-content > div,
+  .cs-accordion-content > div, .cs-command-menu-label small) {
+  text-wrap: pretty;
+}
