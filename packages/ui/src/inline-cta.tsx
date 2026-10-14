@@ -3,17 +3,18 @@ import { useState, type ReactNode } from 'react';
 import { Button } from './index';
 export interface InlineCTAAction { label: string; onClick?: () => void; href?: string; disabled?: boolean; loading?: boolean }
 export interface InlineCTAProps {
-  title: string; description?: ReactNode; icon?: ReactNode; tone?: 'neutral'|'brand';
+  title: string; description?: ReactNode; icon?: ReactNode; media?: ReactNode; tone?: 'neutral'|'brand';
   primaryAction: InlineCTAAction; secondaryAction?: InlineCTAAction; dismissible?: boolean; onDismiss?: () => void;
 }
-export function InlineCTA({title,description,icon,tone='neutral',primaryAction,secondaryAction,dismissible=false,onDismiss}:InlineCTAProps) {
+export function InlineCTA({title,description,icon,media,tone='neutral',primaryAction,secondaryAction,dismissible=false,onDismiss}:InlineCTAProps) {
   const [dismissed,setDismissed]=useState(false);
   if(dismissed)return null;
   function action(item:InlineCTAAction,primary:boolean) {
     if(item.href&&!item.disabled&&!item.loading)return <a className={`cs-button cs-button--${primary?'primary':'secondary'}`} href={item.href} onClick={item.onClick}>{item.label}</a>;
     return <Button type="button" variant={primary?'primary':'secondary'} size="sm" disabled={item.disabled} loading={item.loading} onClick={item.onClick}>{item.label}</Button>;
   }
-  return <aside className={`cs-inline-cta cs-inline-cta--${tone}`} aria-label={title}>
+  return <aside className={`cs-inline-cta cs-inline-cta--${tone}${media ? ' cs-inline-cta--media' : ''}`} aria-label={title}>
+    {media&&<div className="cs-inline-cta-media">{media}</div>}
     {icon&&<div className="cs-inline-cta-icon" aria-hidden="true">{icon}</div>}
     <div className="cs-inline-cta-content"><strong>{title}</strong>{description&&<div>{description}</div>}</div>
     <div className="cs-inline-cta-actions">{secondaryAction&&action(secondaryAction,false)}{action(primaryAction,true)}</div>
