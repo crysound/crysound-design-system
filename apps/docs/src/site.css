@@ -110,19 +110,19 @@ main {
 .eyebrow {
   font-size: 11px;
   letter-spacing: normal;
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   color: var(--cs-brand);
 }
 h1 {
   font-size: clamp(36px, 4vw, 60px);
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   letter-spacing: normal;
   line-height: 1.2;
   margin: 22px 0;
 }
 h2 {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   margin: 6px 0;
 }
 .intro > p, .section-intro {
@@ -371,7 +371,7 @@ aside nav a {
 .component-search label {
   font-size: 11px;
   color: var(--cs-muted);
-  font-weight: 500;
+  font-weight: var(--cs-weight-medium);
 }
 .component-search input {
   min-height: 34px;
@@ -387,7 +387,7 @@ aside nav a {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   color: var(--cs-muted);
   padding: 0 10px 7px;
 }
@@ -621,7 +621,7 @@ main {
 }
 .component-neighbors strong {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--cs-weight-medium);
 }
 .component-neighbors a:hover {
   color: var(--cs-brand);
@@ -835,7 +835,7 @@ main {
 .layer-specs strong {
   color: var(--cs-text);
   margin-left: 6px;
-  font-weight: 500;
+  font-weight: var(--cs-weight-medium);
 }
 @media (max-width: 1000px) {
   .foundation-gallery {

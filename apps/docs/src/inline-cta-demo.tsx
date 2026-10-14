@@ -5,10 +5,10 @@ function ReportPreview() {
   return <svg className="cta-report-preview" viewBox="0 0 240 180" role="img" aria-label="测量报告模板预览">
     <rect width="240" height="180" fill="var(--cs-subtle)"/>
     <rect x="42" y="18" width="156" height="162" rx="5" fill="var(--cs-surface)" stroke="var(--cs-border)"/>
-    <text x="56" y="40" fill="var(--cs-text-heading)" fontSize="10" fontWeight="600">声学测量报告</text>
+    <text x="56" y="40" fill="var(--cs-text-heading)" fontSize="10" fontWeight="var(--cs-weight-semibold)">声学测量报告</text>
     <path d="M56 49H184" stroke="var(--cs-border)"/>
     <text x="56" y="67" fill="var(--cs-muted)" fontSize="7">声压级</text>
-    <text x="56" y="87" fill="var(--cs-text)" fontSize="19" fontWeight="500">68.4<tspan fontSize="7" dx="5" fill="var(--cs-muted)">dB SPL</tspan></text>
+    <text x="56" y="87" fill="var(--cs-text)" fontSize="19" fontWeight="var(--cs-weight-medium)">68.4<tspan fontSize="7" dx="5" fill="var(--cs-muted)">dB SPL</tspan></text>
     <path d="M56 104H184M56 121H184M56 138H184" stroke="var(--cs-border)" strokeWidth=".5"/>
     <path d="m56 129 12-5 12 4 12-17 12 7 12-13 12 8 12-19 12 13 12-5 12 6 8-10" fill="none" stroke="var(--cs-brand)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M56 154H111M56 161H143" stroke="var(--cs-border)" strokeWidth="3" strokeLinecap="round"/>

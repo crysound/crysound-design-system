@@ -193,3 +193,9 @@
   --cs-selected-bg: color-mix(in srgb, var(--cs-brand) 12%, var(--cs-surface));
   --cs-selected-hover-bg: var(--cs-selected-bg);
 }
+
+/* Dark surfaces use slightly lighter medium and semibold text. */
+[data-theme="dark"] {
+  --cs-weight-medium: 460;
+  --cs-weight-semibold: 560;
+}

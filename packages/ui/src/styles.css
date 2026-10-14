@@ -33,7 +33,7 @@
   padding: 0 var(--cs-space-4);
   border: 1px solid transparent;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   background: var(--cs-brand);
   color: var(--cs-on-brand);
 }
@@ -77,7 +77,7 @@
   font-size: var(--cs-font-size);
 }
 .cs-field label {
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
 }
 .cs-input {
   padding: 8px 12px;
@@ -161,7 +161,7 @@
 }
 .cs-metric-value {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: var(--cs-weight-semibold);
   font-variant-numeric: tabular-nums;
   margin: 6px 0;
   line-height: 1.2;
@@ -191,7 +191,7 @@
   color: var(--cs-text);
 }
 .cs-table tbody th {
-  font-weight: 500;
+  font-weight: var(--cs-weight-medium);
 }
 .cs-table small {
   display: block;
