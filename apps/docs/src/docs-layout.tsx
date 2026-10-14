@@ -32,6 +32,7 @@ import {
   Input,
   Progress,
   RadioGroup,
+  Pagination,
   Slider,
   Switch,
   Tabs,
@@ -335,13 +336,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
       );
     case "pagination":
       return (
-        <div className="thumb-row thumb-pages">
-          <span>←</span>
-          <span className="thumb-page-active">1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>→</span>
-        </div>
+        <Pagination page={1} pageCount={12} onPageChange={() => {}} />
       );
     case "alert":
       return (
