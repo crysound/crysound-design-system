@@ -1092,3 +1092,22 @@ button.cs-step-content { cursor: pointer; }
   .cs-inline-cta--media .cs-inline-cta-content { grid-column: 1; grid-row: 2; padding: 20px 20px 0; }
   .cs-inline-cta--media .cs-inline-cta-actions { grid-column: 1; grid-row: 3; padding: 0 20px 20px; width: 100%; box-sizing: border-box; }
 }
+
+.cs-upload-dropzone {
+  transition: border-color 160ms ease-out, background-color 160ms ease-out;
+}
+.cs-upload-dropzone:not([data-disabled]):is(:hover, :focus-within) {
+  border-color: var(--cs-brand);
+  background: color-mix(in srgb, var(--cs-brand) 4%, var(--cs-surface));
+}
+.cs-upload-dropzone:not([data-disabled])[data-dragging] {
+  background: var(--cs-brand-subtle);
+}
+.cs-upload-icon { transition: color 160ms ease-out, border-color 160ms ease-out; }
+.cs-upload-dropzone:not([data-disabled]):is(:hover, :focus-within) .cs-upload-icon {
+  color: var(--cs-brand);
+  border-color: color-mix(in srgb, var(--cs-brand) 35%, var(--cs-border));
+}
+@media(prefers-reduced-motion: reduce) {
+  .cs-upload-dropzone, .cs-upload-icon { transition: none; }
+}
