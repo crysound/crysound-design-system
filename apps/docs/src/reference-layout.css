@@ -178,7 +178,6 @@ body {
 .docs-nav-links a[aria-current] {
   background: var(--cs-selected-bg);
   color: var(--cs-brand);
-  font-weight: 600;
 }
 .docs-topbar {
   position: fixed;
@@ -1439,7 +1438,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
   cursor: pointer; outline: none; box-sizing: border-box;
 }
 .theme-select-option[data-highlighted] { background: var(--cs-subtle); }
-.theme-select-option[data-state="checked"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); font-weight: 500; }
+.theme-select-option[data-state="checked"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 @media (forced-colors: active) { .theme-select-trigger:focus-visible { outline: 2px solid Highlight; } .theme-select-option[data-highlighted] { outline: 1px solid Highlight; } }
 
 .icon-library { padding-top: 0; padding-bottom: 32px; }
