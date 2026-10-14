@@ -358,8 +358,13 @@
   align-items: center;
 }
 .cs-pagination .cs-button {
-  min-height: 30px;
-  padding: 0 10px;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
   font-size: 12px;
 }
 .cs-page-gap {
