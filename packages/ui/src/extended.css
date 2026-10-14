@@ -1143,11 +1143,11 @@ button.cs-step-content { cursor: pointer; }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; }
 
 /* A segmented control needs a distinct thumb against its neutral track. */
-.cs-tabs-list--pill { border: 1px solid var(--cs-border); }
+.cs-tabs-list--pill { border: 0; }
 .cs-tabs-list--pill .cs-tabs-indicator,
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] {
   background: var(--cs-surface);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cs-brand) 18%, var(--cs-border)), var(--cs-shadow-sm);
+  box-shadow: var(--cs-shadow-sm);
 }
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] { color: var(--cs-selected-fg); font-weight: 600; }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; box-shadow: none; }
