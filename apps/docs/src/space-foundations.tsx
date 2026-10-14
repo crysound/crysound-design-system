@@ -11,7 +11,7 @@ export function SpaceFoundations() {
     <h3>按场景使用</h3>
     <div className="space-usage-grid">{[
       ['控件内部','8 / 12px','space-2 / space-3','图标与文字间距 8px；输入框左右内距 12px。',8,12],
-      ['表单字段','6 / 24px','space-1-5 / space-6','标签与控件间距 6px；相邻字段组间距 24px。',6,24],
+      ['表单字段','4 / 24px','space-1 / space-6','标签与控件间距 4px；相邻字段组间距 24px。',4,24],
       ['卡片内容','16 / 24px','space-4 / space-6','紧凑卡片内距 16px；常规卡片内距 24px。',16,24],
       ['区块布局','24 / 32px','space-6 / space-8','工作台区块间距 24px；主要内容分组间距 32px。',24,32],
     ].map(([title, value, token, description, gap, padding])=><div className="space-usage" key={title}><strong>{title}</strong><span>{value}</span><p>{description}</p><code>{token}</code><div className="space-padding-demo" style={{padding:`${padding}px`,gap:`${gap}px`}}><span /><span /></div></div>)}</div>

@@ -54,7 +54,7 @@
 }
 .cs-field {
   display: grid;
-  gap: var(--cs-space-1-5);
+  gap: var(--cs-space-1);
   font-size: var(--cs-font-size);
 }
 .cs-field label {
