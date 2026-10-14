@@ -833,3 +833,28 @@
 .cs-command-menu-footer { display: flex; flex-wrap: wrap; gap: 16px; padding: 12px 20px; border-top: 1px solid var(--cs-border); font-size: 11px; color: var(--cs-muted); }
 .cs-command-menu-dialog { position: fixed; z-index: var(--cs-z-modal); top: 18vh; left: 50%; transform: translateX(-50%); width: min(560px,calc(100vw - 32px)); outline: none; }
 .cs-command-menu-dialog .cs-command-menu-list { max-height: 55vh; }
+
+.cs-date-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: var(--cs-control-height); padding: 0 12px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); font: inherit; font-size: var(--cs-font-size); color: var(--cs-text); background: var(--cs-surface); cursor: pointer; }
+.cs-date-trigger span { flex: 1; text-align: left; }
+.cs-date-trigger [data-placeholder] { color: var(--cs-muted); }
+.cs-date-trigger svg { flex-shrink: 0; color: var(--cs-muted); }
+.cs-date-trigger:focus-visible, .cs-date-trigger[data-state="open"] { outline: none; border-color: var(--cs-brand); }
+.cs-date-trigger[data-state="open"] > svg:last-child { transform: rotate(180deg); color: var(--cs-brand); }
+.cs-date-trigger:disabled { opacity: .5; cursor: not-allowed; }
+.cs-date-trigger[aria-invalid="true"] { border-color: var(--cs-danger-fg); }
+.cs-date-popover { width: 296px; max-width: calc(100vw - 24px); padding: 16px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: 12px; background: var(--cs-surface); color: var(--cs-text); box-shadow: var(--cs-shadow); z-index: var(--cs-z-popover); font-family: var(--cs-font); }
+.cs-date-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.cs-date-header strong { font-size: 14px; font-weight: 500; }
+.cs-date-header button, .cs-date-grid button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; color: var(--cs-text); background: transparent; font: inherit; font-size: 13px; cursor: pointer; }
+.cs-date-weekdays, .cs-date-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; }
+.cs-date-weekdays { margin-bottom: 8px; color: var(--cs-muted); text-align: center; font-size: 12px; }
+.cs-date-grid button { width: 100%; aspect-ratio: 1; height: auto; }
+.cs-date-grid button:hover { background: var(--cs-subtle); }
+.cs-date-grid button[data-outside] { color: var(--cs-muted); }
+.cs-date-grid button[data-today] { box-shadow: inset 0 0 0 1px var(--cs-brand); }
+.cs-date-grid button[aria-pressed="true"] { background: var(--cs-brand); color: var(--cs-on-brand); }
+.cs-date-grid button:disabled { opacity: .3; cursor: not-allowed; }
+.cs-date-footer { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--cs-border); }
+.cs-date-footer button { padding: 4px 8px; border: 0; background: transparent; color: var(--cs-brand); font: inherit; font-size: 13px; cursor: pointer; }
+.cs-date-footer button:disabled { opacity: .4; cursor: not-allowed; }
+.cs-date-popover button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 1px; }

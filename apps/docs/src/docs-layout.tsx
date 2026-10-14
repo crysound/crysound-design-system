@@ -94,6 +94,7 @@ export const docCategories = [
       "video-player",
       "color-picker",
       "command-menu",
+      "date-picker",
     ],
   },
   {
@@ -339,6 +340,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "date-picker":
+      return <div className="thumb-menu"><div>2026 年 10 月</div><div>一　二　三　四　五</div><div>12　13　14　15　16</div></div>;
     case "command-menu":
       return <div className="thumb-menu"><div>⌕ 搜索命令…</div><div>新建测量任务 <small>⌘ N</small></div><div>团队设置</div></div>;
     case "color-picker":
