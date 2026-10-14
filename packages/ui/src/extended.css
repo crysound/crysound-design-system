@@ -726,3 +726,5 @@
 }
 
 .cs-breadcrumb-separator { flex: 0 0 16px; color: var(--cs-muted); }
+
+.cs-sort-icon { display: block; flex: 0 0 16px; width: 16px; height: 16px; }

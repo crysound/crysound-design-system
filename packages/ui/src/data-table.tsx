@@ -145,13 +145,9 @@ export function DataTable<T>({
                         }
                       >
                         {column.header}
-                        <span aria-hidden="true">
-                          {sort?.id === column.id
-                            ? sort.direction === "asc"
-                              ? "↑"
-                              : "↓"
-                            : "↕"}
-                        </span>
+                        <svg className="cs-sort-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          {sort?.id !== column.id ? <><path d="M8 19V5m-4 4 4-4 4 4" /><path d="M16 5v14m-4-4 4 4 4-4" /></> : sort.direction === "asc" ? <path d="M12 19V5m-6 6 6-6 6 6" /> : <path d="M12 5v14m-6-6 6 6 6-6" />}
+                        </svg>
                       </Button>
                     ) : (
                       column.header
