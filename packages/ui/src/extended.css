@@ -744,3 +744,26 @@
 .cs-breadcrumbs [aria-current="page"] {
   color: var(--cs-text-heading);
 }
+
+/* Independent implementation of the reference's overlaid video control layout. */
+.cs-video-player { border: 0; }
+.cs-video-stage { border-radius: 8px; overflow: hidden; }
+.cs-video-stage video { cursor: pointer; }
+.cs-video-stage:fullscreen { aspect-ratio: auto; width: 100%; height: 100%; }
+.cs-video-center-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 64px; height: 64px; border: 0; border-radius: 50%; background: #ffffff4d; backdrop-filter: blur(8px); color: white; display: grid; place-items: center; cursor: pointer; }
+.cs-video-center-play svg { width: 24px; height: 24px; }
+.cs-video-center-play:hover { background: #ffffff66; }
+.cs-video-controls { position: absolute; inset: auto 0 0; padding: 32px 16px 12px; display: flex; align-items: center; gap: 8px; background: linear-gradient(transparent,#0009); color: white; opacity: 0; transition: opacity 150ms; }
+.cs-video-stage:hover .cs-video-controls, .cs-video-stage:focus-within .cs-video-controls { opacity: 1; }
+.cs-video-controls button { width: 32px; height: 32px; min-width: 32px; padding: 0; border: 0; border-radius: 6px; display: grid; place-items: center; background: transparent; color: white; font: inherit; font-size: 12px; cursor: pointer; }
+.cs-video-controls button:hover { background: #ffffff33; }
+.cs-video-controls :is(button,select,input):focus-visible, .cs-video-center-play:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.cs-video-time { font-size: 12px; line-height: 20px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cs-video-controls input { accent-color: white; height: 16px; margin: 0; cursor: pointer; }
+.cs-video-progress { flex: 1; min-width: 20px; }
+.cs-video-volume { width: 48px; }
+.cs-video-controls select { color: white; background: transparent; border: 0; padding: 4px; appearance: auto; background-image: none; font: inherit; font-size: 12px; width: 48px; }
+.cs-video-controls option { color: #0f172a; background: white; }
+@media(hover:none) { .cs-video-controls { opacity: 1; } }
+@media(max-width:540px) { .cs-video-volume { display: none; } .cs-video-controls { padding: 24px 8px 8px; gap: 4px; } }
+@media(prefers-reduced-motion:reduce) { .cs-video-controls { transition: none; } }
