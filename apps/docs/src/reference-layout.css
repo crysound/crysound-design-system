@@ -1513,3 +1513,11 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 #foundations > .swatches { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 @media (max-width: 900px) { #foundations > .swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 540px) { #foundations > .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Table previews share the API table's neutral surface and frame. */
+.reference-preview--wide:has(.cs-table) {
+  border-radius: 12px;
+  border-color: var(--doc-line);
+}
+.reference-preview .cs-table thead { background: var(--doc-subtle); }
+.reference-preview .cs-table :is(th, td) { border-color: var(--doc-line); }
