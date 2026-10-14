@@ -131,7 +131,7 @@ export function Pagination({
         onClick={() => onPageChange(current - 1)}
         aria-label="上一页"
       >
-        ←
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
       </Button>
       {pages.map((number, i) => (
         <span key={number}>
@@ -154,7 +154,7 @@ export function Pagination({
         onClick={() => onPageChange(current + 1)}
         aria-label="下一页"
       >
-        →
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
       </Button>
     </nav>
   );
