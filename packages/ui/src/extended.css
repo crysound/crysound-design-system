@@ -740,3 +740,7 @@
 .cs-video-caption label { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
 .cs-video-caption select { font: inherit; padding: 4px 8px; border: 1px solid var(--cs-border); border-radius: 4px; color: var(--cs-text); background: var(--cs-surface); }
 @media(max-width:540px) { .cs-video-caption { align-items: flex-start; flex-direction: column; gap: 8px; } }
+
+.cs-breadcrumbs [aria-current="page"] {
+  color: var(--cs-text-heading);
+}
