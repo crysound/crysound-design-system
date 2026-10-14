@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 新增 SectionHeader：标题层级、说明、图标/徽标、操作、标签区及响应式布局。
+
 - 新增 ProgressSteps：横向/纵向步骤、当前/完成/待进行/错误状态及可点击步骤。
 
 - 新增 LoadingIndicator：旋转、圆环、跳点三种样式与三档尺寸，支持无障碍状态宣读和减少动态效果。

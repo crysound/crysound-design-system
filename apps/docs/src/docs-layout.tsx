@@ -101,6 +101,7 @@ export const docCategories = [
       "line-bar-charts",
       "loading-indicator",
       "progress-steps",
+      "section-header",
     ],
   },
   {
@@ -346,6 +347,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "section-header":
+      return <div className="thumb-menu"><div><strong>测量项目</strong><Button size="sm">新建</Button></div><small>查看项目、设备与报告</small></div>;
     case "progress-steps":
       return <ProgressSteps steps={[{id:"a",title:"设备"},{id:"b",title:"配置"},{id:"c",title:"完成"}]} currentStep="b" />;
     case "loading-indicator":
