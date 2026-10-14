@@ -768,7 +768,8 @@
 @media(max-width:540px) { .cs-video-volume { display: none; } .cs-video-controls { padding: 24px 8px 8px; gap: 4px; } }
 @media(prefers-reduced-motion:reduce) { .cs-video-controls { transition: none; } }
 
-.cs-video-controls .cs-video-speed { display: flex; gap: 6px; width: auto; min-width: 48px; padding: 0 6px; white-space: nowrap; }
+.cs-video-controls .cs-video-speed { display: inline-flex; justify-content: center; gap: 6px; width: auto; min-width: 0; padding: 0 8px; box-sizing: border-box; white-space: nowrap; }
+.cs-video-speed svg { display: block; flex: 0 0 12px; }
 .cs-video-speed[data-state="open"] { background: #ffffff26; }
 .cs-video-speed[data-state="open"] svg { transform: rotate(180deg); }
 .cs-video-speed-menu { z-index: var(--cs-z-popover); min-width: 100px; padding: 4px; border: 1px solid #ffffff26; border-radius: 8px; background: #1e293bf2; backdrop-filter: blur(12px); color: #f8fafc; font-family: var(--cs-font); box-shadow: 0 8px 24px #0005; }
