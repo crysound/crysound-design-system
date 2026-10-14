@@ -229,7 +229,7 @@ export function DeviceTable({
 }) {
   return devices.length ? (
     <div className="cs-table-scroll">
-      <table className="cs-table">
+      <table className="cs-table cs-device-table">
         <caption className="cs-sr-only">设备列表</caption>
         <thead>
           <tr>

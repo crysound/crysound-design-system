@@ -295,3 +295,20 @@
 @media (forced-colors: active) {
   .cs-button.cs-combobox-trigger:focus-visible { outline: 2px solid Highlight; outline-offset: 2px; }
 }
+
+.cs-device-table {
+  line-height: 20px;
+  letter-spacing: normal;
+}
+.cs-device-table :is(th, td) {
+  padding: 10px 16px;
+  vertical-align: middle;
+}
+.cs-device-table thead th { padding-top: 8px; padding-bottom: 8px; }
+.cs-device-table small {
+  margin-top: 2px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.cs-device-table .cs-button { min-height: 32px; padding: 0 12px; }
+[data-density="compact"] .cs-device-table :is(th, td) { padding-top: 6px; padding-bottom: 6px; }
