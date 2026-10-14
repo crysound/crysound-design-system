@@ -175,6 +175,8 @@ body {
   color: var(--doc-text);
 }
 .docs-nav-links a[aria-current] {
+  background: color-mix(in srgb, var(--cs-brand) 12%, var(--doc-page));
+  color: var(--cs-brand);
   font-weight: 600;
 }
 .docs-topbar {
