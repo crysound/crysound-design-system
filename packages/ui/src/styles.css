@@ -69,14 +69,14 @@
   box-sizing: border-box;
 }
 .cs-input[aria-invalid="true"] {
-  border-color: var(--cs-danger);
+  border-color: var(--cs-danger-fg);
 }
 .cs-help {
   font-size: 12px;
   color: var(--cs-muted);
 }
 .cs-error {
-  color: var(--cs-danger);
+  color: var(--cs-danger-fg);
 }
 .cs-badge {
   display: inline-flex;
@@ -97,7 +97,7 @@
 }
 .cs-badge--online {
   background: var(--cs-success-bg);
-  color: var(--cs-success);
+  color: var(--cs-success-fg);
 }
 .cs-badge--running {
   background: var(--cs-subtle);
@@ -105,11 +105,11 @@
 }
 .cs-badge--warning {
   background: var(--cs-warning-bg);
-  color: var(--cs-warning);
+  color: var(--cs-warning-fg);
 }
 .cs-badge--error {
   background: var(--cs-danger-bg);
-  color: var(--cs-danger);
+  color: var(--cs-danger-fg);
 }
 .cs-card {
   border: 1px solid var(--cs-border);
@@ -263,7 +263,7 @@
   outline: none;
   box-shadow: none;
 }
-.cs-select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
+.cs-select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 @media (forced-colors: active) {
   .cs-select { appearance: auto; background-image: none; }
   .cs-select:focus { outline: 2px solid Highlight; outline-offset: 2px; }

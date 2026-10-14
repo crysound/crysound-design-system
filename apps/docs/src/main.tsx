@@ -320,6 +320,7 @@ npm pack -w @crysound/ui`}</code>
                   ["成功", "--cs-success"],
                   ["警告", "--cs-warning"],
                   ["危险", "--cs-danger"],
+                  ["辅助紫", "--cs-accent"],
                 ].map(([name, token]) => (
                   <div key={token}>
                     <div

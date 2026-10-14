@@ -482,15 +482,15 @@
 }
 .cs-tone-success {
   --tone-bg: var(--cs-success-bg);
-  --tone-fg: var(--cs-success);
+  --tone-fg: var(--cs-success-fg);
 }
 .cs-tone-warning {
   --tone-bg: var(--cs-warning-bg);
-  --tone-fg: var(--cs-warning);
+  --tone-fg: var(--cs-warning-fg);
 }
 .cs-tone-danger {
   --tone-bg: var(--cs-danger-bg);
-  --tone-fg: var(--cs-danger);
+  --tone-fg: var(--cs-danger-fg);
 }
 .cs-tag--outline {
   background: transparent;

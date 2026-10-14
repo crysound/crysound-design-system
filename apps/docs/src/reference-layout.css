@@ -507,7 +507,7 @@ body {
   border-radius: 6px;
   padding: 12px;
   width: 230px;
-  color: var(--cs-success);
+  color: var(--cs-success-fg);
 }
 .thumb-alert strong,
 .thumb-alert small {
@@ -651,7 +651,7 @@ body {
   box-shadow: var(--cs-shadow-sm);
 }
 .thumb-notification svg {
-  color: var(--cs-success);
+  color: var(--cs-success-fg);
 }
 .thumb-notification > div {
   flex: 1;
@@ -1400,7 +1400,7 @@ select:focus {
   outline: none;
   box-shadow: none;
 }
-select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
+select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 @media (forced-colors: active) {
   select { appearance: auto; background-image: none; }
   select:focus { outline: 2px solid Highlight; outline-offset: 2px; }
@@ -1508,3 +1508,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
 .theme-select-trigger:focus-visible svg {
   color: var(--cs-brand);
 }
+
+#foundations > .swatches { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (max-width: 900px) { #foundations > .swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 540px) { #foundations > .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
