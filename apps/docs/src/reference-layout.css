@@ -991,7 +991,7 @@ body {
   outline-offset: -1px;
   color: var(--doc-text);
 }
-.reference-example .cs-tabs-content {
+.reference-example > div > .cs-tabs-content {
   padding-top: 0;
 }
 .reference-preview {
