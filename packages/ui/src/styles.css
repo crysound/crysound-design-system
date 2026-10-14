@@ -304,7 +304,7 @@
   padding: 12px 16px;
   vertical-align: middle;
 }
-.cs-device-table thead th { padding-top: 8px; padding-bottom: 8px; }
+.cs-device-table thead th { padding-top: 12px; padding-bottom: 12px; }
 .cs-device-table small {
   margin-top: 2px;
   line-height: 16px;
