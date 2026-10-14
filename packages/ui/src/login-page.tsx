@@ -1,7 +1,7 @@
 "use client";
 import { useId, useState, useEffect, type ReactNode, type FormEvent } from 'react';
 import { Button } from './index';
-function useLoopingPlaceholder(text: string) {
+function useLoopingPlaceholder(text: string, startDelay = 0) {
   const [cycle, setCycle] = useState(0);
   const [stopped, setStopped] = useState(false);
   useEffect(() => {
@@ -13,7 +13,7 @@ function useLoopingPlaceholder(text: string) {
     return () => { clearInterval(timer); media?.removeEventListener('change', reduce); };
   }, [stopped]);
   return {
-    hint: !stopped && <span key={cycle} className="cs-login-hint" aria-hidden="true">{Array.from(text).map((character, index) => <span key={index} style={{ animationDelay: `${index * 85}ms` }}>{character}</span>)}</span>,
+    hint: !stopped && <span key={cycle} className="cs-login-hint" aria-hidden="true">{Array.from(text).map((character, index) => <span key={index} style={{ animationDelay: `${startDelay + index * 85}ms` }}>{character}</span>)}</span>,
     stop: () => setStopped(true),
   };
 }
@@ -25,7 +25,7 @@ export interface LoginPageProps {
 }
 export function LoginPage({logo,title='登录工作空间',description='使用您的账号访问设备、测量任务和报告。',onSubmit,onForgotPassword,disabled=false}:LoginPageProps) {
   const accountHint = useLoopingPlaceholder('输入工作账号');
-  const passwordHint = useLoopingPlaceholder('输入密码');
+  const passwordHint = useLoopingPlaceholder('输入密码', 1000);
   const id=useId();const [show,setShow]=useState(false);const [pending,setPending]=useState(false);const [error,setError]=useState('');
   async function submit(event:FormEvent<HTMLFormElement>) {event.preventDefault();if(pending||disabled)return;const form=event.currentTarget;const data=new FormData(form);setError('');setPending(true);try{await onSubmit({account:String(data.get('account')??'').trim(),password:String(data.get('password')??''),remember:data.get('remember')==='on'});}catch(err){setError(err instanceof Error?err.message:'登录失败，请稍后重试。');}finally{setPending(false);}}
   return <section className="cs-login-page" aria-labelledby={`${id}-title`}>
