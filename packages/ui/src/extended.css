@@ -1029,7 +1029,7 @@ button.cs-step-content { cursor: pointer; }
 [data-theme="dark"] .cs-login-logo img { filter: brightness(0) invert(1); }
 
 .cs-tree-view--simple .cs-tree-item { min-height: 36px; padding: 6px 8px; gap: 8px; }
-.cs-tree-view--simple ul[role="group"] { margin: 2px 0 4px 16px; padding-left: 8px; border-left: 1px solid var(--cs-border); }
+.cs-tree-view--simple .cs-tree-branch > ul { margin: 2px 0 4px 16px; padding-left: 8px; border-left: 1px solid var(--cs-border); }
 .cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-slate-100); color: var(--cs-brand); }
 [data-theme="dark"] .cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-subtle); }
 .cs-tree-view--simple .cs-tree-label { font-size: 14px; line-height: 22px; }
@@ -1039,3 +1039,10 @@ button.cs-step-content { cursor: pointer; }
 .cs-tree-view--simple .cs-tree-item:not([aria-expanded]) .cs-tree-toggle {
   display: none;
 }
+
+.cs-tree-toggle svg { transition: transform 200ms cubic-bezier(.2,0,0,1); }
+.cs-tree-item { transition: background-color 160ms ease-out, color 160ms ease-out; }
+.cs-tree-branch { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 220ms cubic-bezier(.2,0,0,1), opacity 160ms ease-out; }
+.cs-tree-branch[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
+.cs-tree-branch > ul { min-height: 0; overflow: hidden; }
+@media(prefers-reduced-motion:reduce) { .cs-tree-toggle svg, .cs-tree-item, .cs-tree-branch { transition: none; } }
