@@ -79,7 +79,6 @@ a:focus-visible {
 .docs-nav a[aria-current] {
   background: var(--cs-subtle);
   color: var(--cs-brand);
-  font-weight: 600;
 }
 .aside-note {
   margin-top: auto;
