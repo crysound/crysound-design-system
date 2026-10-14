@@ -1,21 +1,83 @@
 "use client";
-import { type ComponentProps, type ReactNode } from "react";
+import { useEffect, useRef, type ComponentProps, type ReactNode } from "react";
 import * as T from "@radix-ui/react-tabs";
 import * as A from "@radix-ui/react-accordion";
 import { Button } from "./index";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className,
-  variant = "line",
-  ...props
+  className, children, ref, variant = "line", ...props
 }: ComponentProps<typeof T.List> & { variant?: "line" | "pill" }) {
-  return (
-    <T.List
-      {...props}
-      className={cx("cs-tabs-list", `cs-tabs-list--${variant}`, className)}
-    />
-  );
+  const list = useRef<HTMLDivElement>(null);
+  const indicator = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const root = list.current;
+    const bar = indicator.current;
+    if (!root || !bar) return;
+    const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    let previous = 0;
+    let initialized = false;
+    const current = { x: 0, width: 0, vx: 0, vw: 0 };
+    const target = { x: 0, width: 0 };
+    const paint = () => {
+      bar.style.transform = `translateX(${current.x}px)`;
+      bar.style.width = `${Math.max(0, current.width)}px`;
+    };
+    const snap = () => {
+      cancelAnimationFrame(frame);
+      current.x = target.x; current.width = target.width; current.vx = 0; current.vw = 0;
+      paint();
+    };
+    const tick = (now: number) => {
+      const dt = Math.min((now - previous) / 1000, .04);
+      previous = now;
+      const omega = 22;
+      const decay = Math.exp(-omega * dt);
+      for (const [position, velocity] of [['x', 'vx'], ['width', 'vw']] as const) {
+        const offset = current[position] - target[position];
+        const combined = current[velocity] + omega * offset;
+        current[position] = target[position] + (offset + combined * dt) * decay;
+        current[velocity] = (current[velocity] - omega * combined * dt) * decay;
+      }
+      paint();
+      if (Math.abs(current.x - target.x) < .1 && Math.abs(current.width - target.width) < .1 && Math.abs(current.vx) < .1 && Math.abs(current.vw) < .1) snap();
+      else frame = requestAnimationFrame(tick);
+    };
+    const measure = () => {
+      const active = root.querySelector<HTMLElement>('[role="tab"][data-state="active"]');
+      if (!active) { bar.style.opacity = '0'; return; }
+      const rect = active.getBoundingClientRect();
+      const parent = root.getBoundingClientRect();
+      target.x = rect.left - parent.left + root.scrollLeft - root.clientLeft;
+      target.width = rect.width;
+      bar.style.top = `${rect.top - parent.top + root.scrollTop - root.clientTop + (variant === 'line' ? rect.height - 2 : 0)}px`;
+      bar.style.height = `${variant === 'line' ? 2 : rect.height}px`;
+      bar.style.opacity = '1';
+      root.dataset.indicatorReady = 'true';
+      cancelAnimationFrame(frame);
+      if (!initialized || media?.matches) snap();
+      else { previous = performance.now(); frame = requestAnimationFrame(tick); }
+      initialized = true;
+    };
+    const observer = new MutationObserver(measure);
+    observer.observe(root, { attributes: true, subtree: true, attributeFilter: ['data-state'] });
+    const resize = new ResizeObserver(measure);
+    resize.observe(root);
+    root.querySelectorAll('[role="tab"]').forEach(tab => resize.observe(tab));
+    const reduce = () => { if (media?.matches) snap(); };
+    media?.addEventListener('change', reduce);
+    measure();
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
+  }, [variant]);
+  return <T.List {...props} ref={element => {
+    list.current = element;
+    if (typeof ref === 'function') return ref(element);
+    if (ref) ref.current = element;
+  }} className={cx("cs-tabs-list", `cs-tabs-list--${variant}`, className)}>
+    <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />
+    {children}
+  </T.List>;
 }
 export function TabsTrigger({
   className,
