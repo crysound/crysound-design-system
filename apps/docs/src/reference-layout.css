@@ -1484,3 +1484,19 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
 .space-code { padding: 20px; background: var(--cs-subtle); border-radius: 8px; overflow-x: auto; font-size: 12px; line-height: 1.7; }
 @media(max-width:1100px) { .space-usage-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .space-scale-grid { grid-template-columns: minmax(0,1fr); } }
 @media(max-width:540px) { .space-usage-grid, .space-density-grid { grid-template-columns: minmax(0,1fr); } .space-scale-row { grid-template-columns: 108px minmax(0,1fr) 36px; gap: 8px; } }
+
+/* Foundation sections share one typography hierarchy. */
+#foundations :is(.slate-foundation, .foundation-gallery, .space-foundations) h3 {
+  font-family: var(--cs-font);
+  font-size: var(--cs-text-md);
+  font-weight: var(--cs-weight-semibold);
+  line-height: var(--cs-leading-normal);
+}
+#foundations :is(.slate-foundation, .foundation-gallery, .space-section-heading) > p,
+#foundations .foundation-gallery > div > p {
+  font-family: var(--cs-font);
+  font-size: var(--cs-text-sm);
+  font-weight: var(--cs-weight-normal);
+  line-height: var(--cs-leading-normal);
+  color: var(--cs-muted);
+}
