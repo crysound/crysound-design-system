@@ -613,7 +613,7 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "metric":
       return (
-        <div className="demo-row">
+        <div className="demo-row metric-demo-row">
           <Metric
             label="声压级"
             value="68.4"

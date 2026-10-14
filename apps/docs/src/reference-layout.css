@@ -1525,3 +1525,6 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .dropdown-example-trigger { gap: 8px; line-height: 20px; }
 .dropdown-example-trigger svg { display: block; flex-shrink: 0; }
 .dropdown-example-trigger[data-state="open"] svg { transform: rotate(180deg); color: var(--cs-brand); }
+
+.reference-preview .metric-demo-row { align-items: flex-start; gap: 24px; }
+.reference-preview .metric-demo-row .cs-metric { padding: 16px; }
