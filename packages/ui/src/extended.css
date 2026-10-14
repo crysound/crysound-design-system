@@ -858,3 +858,23 @@
 .cs-date-footer button { padding: 4px 8px; border: 0; background: transparent; color: var(--cs-brand); font: inherit; font-size: 13px; cursor: pointer; }
 .cs-date-footer button:disabled { opacity: .4; cursor: not-allowed; }
 .cs-date-popover button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 1px; }
+
+.cs-upload-dropzone { border: 1px dashed var(--cs-border); border-radius: 10px; background: var(--cs-surface); }
+.cs-upload-dropzone[data-dragging] { border-color: var(--cs-brand); background: var(--cs-brand-subtle); }
+.cs-upload-dropzone[data-disabled] { opacity: .5; }
+.cs-upload-choose { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 24px 16px; background: transparent; color: var(--cs-muted); border: 0; border-radius: inherit; font: inherit; font-size: 13px; cursor: pointer; }
+.cs-upload-choose strong { color: var(--cs-brand); font-weight: 500; }
+.cs-upload-choose small { font-size: 11px; line-height: 1.5; }
+.cs-upload-choose:disabled { cursor: not-allowed; }
+.cs-upload-icon { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--cs-border); border-radius: 8px; color: var(--cs-text); box-shadow: var(--cs-shadow-sm); }
+.cs-upload-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 12px; }
+.cs-upload-list li { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid var(--cs-border); border-radius: 8px; }
+.cs-upload-file-icon { color: var(--cs-brand); flex-shrink: 0; }
+.cs-upload-file-details { display: grid; gap: 4px; flex: 1; min-width: 0; }
+.cs-upload-file-details strong { font-size: 13px; font-weight: 500; overflow-wrap: anywhere; }
+.cs-upload-file-details span { color: var(--cs-muted); font-size: 12px; }
+.cs-upload-file-details .cs-error { color: var(--cs-danger-fg); }
+.cs-upload-file-details progress { width: 100%; height: 6px; accent-color: var(--cs-brand); margin-top: 4px; }
+.cs-upload-list button { display: grid; place-items: center; padding: 4px; color: var(--cs-muted); background: transparent; border: 0; cursor: pointer; font: inherit; font-size: 12px; }
+.cs-upload-list button:disabled { opacity: .4; cursor: not-allowed; }
+.cs-upload-field :is(button,input):focus-visible { outline: 2px solid var(--cs-brand); outline-offset: 3px; }

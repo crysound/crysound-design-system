@@ -2,6 +2,7 @@
 import {
   forwardRef,
   useId,
+  useRef,
   useState,
   type TextareaHTMLAttributes,
   type SelectHTMLAttributes,
@@ -358,63 +359,42 @@ export function Combobox({
     </div>
   );
 }
-export function FileUpload({
-  label,
-  accept,
-  multiple = false,
-  maxSize = 10 * 1024 * 1024,
-  disabled,
-  onFilesChange,
-}: {
-  label: string;
-  accept?: string;
-  multiple?: boolean;
-  maxSize?: number;
-  disabled?: boolean;
-  onFilesChange?: (files: File[]) => void;
-}) {
-  const id = useId();
-  const [files, setFiles] = useState<File[]>([]);
-  const [error, setError] = useState("");
-  return (
-    <div className="cs-field">
-      <label htmlFor={id}>{label}</label>
-      <div className="cs-file-upload">
-        <input
-          id={id}
-          type="file"
-          accept={accept}
-          multiple={multiple}
-          disabled={disabled}
-          aria-describedby={`${id}-help`}
-          aria-invalid={!!error}
-          onChange={(e) => {
-            const next = Array.from(e.target.files ?? []);
-            if (next.some((f) => f.size > maxSize)) {
-              setError(`文件不能超过 ${Math.round(maxSize / 1024 / 1024)} MB`);
-              e.target.value = "";
-              return;
-            }
-            setError("");
-            setFiles(next);
-            onFilesChange?.(next);
-          }}
-        />
-        <span className="cs-help" id={`${id}-help`}>
-          {error ||
-            `仅本地选择，最大 ${Math.round(maxSize / 1024 / 1024)} MB；上传由业务层处理。`}
-        </span>
-      </div>
-      {files.length > 0 && (
-        <ul className="cs-file-list">
-          {files.map((file, i) => (
-            <li key={`${file.name}-${i}`}>
-              {file.name}
-              <span>{Math.ceil(file.size / 1024)} KB</span>
-            </li>
-          ))}
-        </ul>
-      )}
+export interface FileUploadProps {
+  label: string; accept?: string; multiple?: boolean; maxSize?: number; maxFiles?: number;
+  disabled?: boolean; onFilesChange?: (files: File[]) => void;
+  progress?: Record<string, number>; errors?: Record<string, string>; onRetry?: (file: File) => void;
+}
+export function FileUpload({label,accept,multiple=false,maxSize=10*1024*1024,maxFiles=10,disabled,onFilesChange,progress={},errors={},onRetry}:FileUploadProps) {
+  const id=useId();const input=useRef<HTMLInputElement>(null);
+  const [files,setFiles]=useState<File[]>([]);const [error,setError]=useState('');const [drag,setDrag]=useState(false);
+  const limit=multiple?Math.max(1,maxFiles):1;
+  const bytes=(n:number)=>n>=1024*1024?`${(n/1024/1024).toFixed(1)} MB`:`${Math.max(1,Math.ceil(n/1024))} KB`;
+  function matches(file:File) {return !accept||accept.split(',').some(rule=>{rule=rule.trim().toLowerCase();return rule.startsWith('.')?file.name.toLowerCase().endsWith(rule):rule.endsWith('/*')?file.type.toLowerCase().startsWith(rule.slice(0,-1)):file.type.toLowerCase()===rule;});}
+  function update(next:File[]) {setFiles(next);onFilesChange?.(next);}
+  function add(incoming:File[]) {
+    if(disabled||!incoming.length)return;
+    if(incoming.some(file=>!matches(file))){setError(`不支持的文件类型，请选择 ${accept} 文件。`);return;}
+    if(incoming.some(file=>file.size>maxSize)){setError(`单个文件不能超过 ${bytes(maxSize)}`);return;}
+    const next=multiple?[...files]:[];
+    for(const file of incoming)if(!next.some(current=>current.name===file.name&&current.size===file.size&&current.lastModified===file.lastModified))next.push(file);
+    if(next.length>limit){setError(`最多选择 ${limit} 个文件。`);return;}
+    setError('');update(next);
+  }
+  return <div className="cs-field cs-upload-field"><label htmlFor={id}>{label}</label>
+    <div className="cs-upload-dropzone" data-dragging={drag||undefined} data-disabled={disabled||undefined} onDragOver={event=>{event.preventDefault();if(!disabled)setDrag(true);}} onDragLeave={event=>{if(!event.currentTarget.contains(event.relatedTarget as Node))setDrag(false);}} onDrop={event=>{event.preventDefault();setDrag(false);add(Array.from(event.dataTransfer.files));}}>
+      <input ref={input} id={id} type="file" accept={accept} multiple={multiple} disabled={disabled} aria-describedby={`${id}-help`} aria-invalid={!!error} className="cs-sr-only" onChange={event=>{add(Array.from(event.target.files??[]));event.target.value='';}} />
+      <button type="button" className="cs-upload-choose" disabled={disabled} onClick={()=>input.current?.click()}>
+        <span className="cs-upload-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4" /></svg></span>
+        <span><strong>点击选择文件</strong> 或拖拽到此处</span>
+        <small>{accept||'所有文件类型'} · 每个文件最大 {bytes(maxSize)}{multiple?` · 最多 ${limit} 个`:''}</small>
+      </button>
     </div>
-  );
+    <span id={`${id}-help`} className={error?'cs-error':'cs-help'} role={error?'alert':undefined}>{error||'仅本地选择，实际上传与进度由消费项目提供。'}</span>
+    {files.length>0&&<ul className="cs-upload-list">{files.map((file,i)=>{const percent=progress[file.name];const failure=errors[file.name];return <li key={`${file.name}-${file.lastModified}-${i}`}>
+      <svg className="cs-upload-file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 12h8M8 16h6" /></svg>
+      <div className="cs-upload-file-details"><strong>{file.name}</strong><span>{bytes(file.size)} · {failure?'上传失败':percent===undefined?'已选择':percent>=100?'上传完成':`上传中 ${Math.round(percent)}%`}</span>{failure?<span className="cs-error" role="alert">{failure}</span>:percent!==undefined&&<progress aria-label={`${file.name} 上传进度`} max="100" value={Math.max(0,Math.min(100,percent))}/>}</div>
+      {failure&&onRetry&&<button type="button" disabled={disabled} onClick={()=>onRetry(file)}>重试</button>}
+      <button type="button" aria-label={`移除 ${file.name}`} disabled={disabled} onClick={()=>{update(files.filter((_,index)=>index!==i));setError('');}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+    </li>;})}</ul>}
+  </div>;
 }

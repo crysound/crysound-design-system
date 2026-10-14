@@ -271,7 +271,7 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "file-upload":
       return (
-        <FileUpload
+        <Stack><FileUpload
           label="选择校准配置"
           accept=".json,.csv"
           multiple
@@ -282,7 +282,7 @@ export function ComponentDemo({ id }: { id: string }) {
               description: "未上传至服务器。",
             })
           }
-        />
+        /><FileUpload label="上传图片" accept="image/png,image/jpeg,image/webp" maxSize={5*1024*1024} /><FileUpload label="不可用上传器" disabled /></Stack>
       );
     case "tabs":
       return (

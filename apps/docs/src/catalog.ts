@@ -164,13 +164,15 @@ export const catalog: ComponentDoc[] = [
   define(
     "file-upload",
     "FileUpload",
-    "文件选择",
+    "文件上传器",
     "表单",
-    "选择本地配置、校准文件并校验文件大小。",
+    "拖拽或选择文件，校验类型与大小，展示文件列表、移除和业务层传入的上传进度。",
     [
       ["label", "string", "必填"],
       ["accept / multiple", "string / boolean", "— / false"],
-      ["maxSize", "number，字节", "10 MB"],
+      ["maxSize / maxFiles", "number，字节 / number", "10 MB / 10"],
+      ["progress / errors", "Record<文件名, number / string>", "—"],
+      ["onRetry", "(file: File) => void", "—"],
       ["onFilesChange", "(files: File[]) => void", "—"],
     ],
     '<FileUpload label="导入配置" accept=".json" maxSize={1048576} onFilesChange={files => console.log(files)} />',
