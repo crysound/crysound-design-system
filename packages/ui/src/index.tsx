@@ -7,6 +7,7 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from "react";
+import { AnimatedNumber } from "./animated-number";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 const cx = (...parts: (string | undefined | false)[]) =>
   parts.filter(Boolean).join(" ");
@@ -150,17 +151,19 @@ export function Metric({
   value,
   unit,
   note,
+  animate = false,
 }: {
   label: string;
   value: number | string;
   unit?: string;
   note?: string;
+  animate?: boolean;
 }) {
   return (
     <div className="cs-metric">
       <div className="cs-muted">{label}</div>
       <div className="cs-metric-value">
-        {value} <span>{unit}</span>
+        {animate ? <AnimatedNumber value={value} /> : value} <span>{unit}</span>
       </div>
       {note && <div className="cs-muted">{note}</div>}
     </div>

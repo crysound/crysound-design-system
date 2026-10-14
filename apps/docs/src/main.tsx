@@ -485,6 +485,7 @@ npm pack -w @crysound/ui`}</code>
                 <Card title="声压级">
                   <Metric
                     label="当前读数"
+                    animate
                     value="68.4"
                     unit="dB SPL"
                     note="演示数据 · 非实时采集"
@@ -493,6 +494,7 @@ npm pack -w @crysound/ui`}</code>
                 <Card title="设备连接">
                   <Metric
                     label="在线设备"
+                    animate
                     value="2"
                     unit="/ 3"
                     note="运行中设备计入在线"
@@ -501,6 +503,7 @@ npm pack -w @crysound/ui`}</code>
                 <Card title="采样设置">
                   <Metric
                     label="采样率"
+                    animate
                     value="48"
                     unit="kHz"
                     note="演示配置"

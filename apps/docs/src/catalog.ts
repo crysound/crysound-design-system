@@ -453,6 +453,7 @@ export const catalog: ComponentDoc[] = [
     [
       ["label / value", "string / number | string", "必填"],
       ["unit / note", "string", "—"],
+      ["animate", "boolean", "false；开启数字弹簧滚动，支持减少动态效果"],
     ],
     '<Metric label="声压级" value="68.4" unit="dB SPL" note="演示数据 · A 计权" />',
     "断连/无效值传“—”。加权、时间、精度和来源由业务层明确提供。",

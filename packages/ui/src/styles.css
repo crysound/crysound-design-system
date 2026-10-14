@@ -344,3 +344,13 @@
   .cs-checkbox:focus-visible, .cs-radio:focus-visible,
   .cs-command-input:focus-visible { outline: 2px solid Highlight; outline-offset: 2px; }
 }
+
+/* Proposed metric motion: critically damped digit rolls with stable tabular widths. */
+.cs-metric-value .cs-animated-number,
+.cs-metric-value .cs-animated-number span { font-size: inherit; font-weight: inherit; color: inherit; }
+.cs-animated-number { display: inline-block; vertical-align: baseline; font-variant-numeric: tabular-nums; }
+.cs-number-visual { display: inline-flex; align-items: baseline; }
+.cs-number-digit { display: inline-block; height: 1em; width: .62em; overflow: hidden; line-height: 1; position: relative; }
+.cs-number-track { display: flex; flex-direction: column; line-height: 1; }
+.cs-number-track > span { display: block; height: 1em; flex: 0 0 1em; text-align: center; }
+.cs-number-symbol { line-height: 1; }
