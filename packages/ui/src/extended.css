@@ -333,7 +333,7 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  gap: 8px;
+  gap: 6px;
   margin: 0;
   padding: 0;
   font-size: 13px;
@@ -341,7 +341,7 @@
 .cs-breadcrumbs li {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .cs-breadcrumbs a {
   color: var(--cs-muted);
