@@ -1500,3 +1500,11 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger); }
   line-height: var(--cs-leading-normal);
   color: var(--cs-muted);
 }
+
+.theme-select-trigger[data-state="open"] svg {
+  color: var(--cs-brand);
+  transform: rotate(180deg);
+}
+.theme-select-trigger:focus-visible svg {
+  color: var(--cs-brand);
+}
