@@ -92,6 +92,7 @@ export const docCategories = [
       "tabs",
       "toast",
       "video-player",
+      "color-picker",
     ],
   },
   {
@@ -337,6 +338,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "color-picker":
+      return <div className="thumb-color-picker"><div /><span>#170057</span></div>;
     case "video-player":
       return <VideoPlayer title="测量演示" poster="/video-poster.svg" src="/demo-video.webm" />;
     case "pagination":

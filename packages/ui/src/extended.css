@@ -777,3 +777,38 @@
 .cs-video-speed-option[data-highlighted] { background: #ffffff1a; }
 .cs-video-speed-option[data-state="checked"] { color: white; background: #ffffff26; }
 .cs-video-speed-option:focus-visible { outline: 1px solid white; outline-offset: -1px; }
+
+.cs-color-picker { width: 320px; max-width: 100%; padding: 20px; border: 1px solid var(--cs-border); border-radius: 12px; box-sizing: border-box; background: var(--cs-surface); color: var(--cs-text); position: relative; box-shadow: var(--cs-shadow-sm); }
+.cs-color-fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.cs-color-fieldset:disabled { opacity: .5; }
+.cs-color-picker .cs-tabs-list { gap: 4px; }
+.cs-color-picker .cs-tabs-trigger { padding: 8px 10px; }
+.cs-color-picker .cs-tabs-content { padding-top: 16px; }
+.cs-color-picker .react-colorful { width: 100%; height: 240px; }
+.cs-color-picker .react-colorful__saturation { border-radius: 8px; border-bottom: 0; }
+.cs-color-picker .react-colorful__hue { margin-top: 16px; height: 12px; border-radius: 99px; }
+.cs-color-picker .react-colorful__pointer { width: 18px; height: 18px; }
+.cs-color-gradient-preview, .cs-color-image-preview { width: 100%; height: 180px; border-radius: 8px; overflow: hidden; background: var(--cs-subtle); display: grid; place-items: center; font-size: 13px; }
+.cs-color-image-preview img { width: 100%; height: 100%; object-fit: cover; }
+.cs-color-gradient-inputs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-top: 12px; }
+.cs-color-gradient-inputs label { display: grid; gap: 4px; font-size: 12px; }
+.cs-color-gradient-inputs input { width: 100%; min-width: 0; height: 32px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: 4px; color: var(--cs-text); background: var(--cs-surface); }
+.cs-color-opacity { display: flex; gap: 12px; margin: 16px 0; align-items: center; }
+.cs-color-opacity button { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--cs-border); border-radius: 6px; background: var(--cs-surface); color: var(--cs-muted); display: grid; place-items: center; cursor: pointer; }
+.cs-color-opacity label { display: grid; gap: 4px; flex: 1; min-width: 0; font-size: 11px; color: var(--cs-muted); }
+.cs-color-opacity input { width: 100%; margin: 0; accent-color: var(--cs-brand); }
+.cs-color-hex-row { display: flex; gap: 8px; align-items: center; border: 1px solid var(--cs-border); border-radius: 6px; padding: 8px; font-size: 12px; }
+.cs-color-dot { width: 16px; height: 16px; flex-shrink: 0; border-radius: 50%; }
+.cs-color-hex-row > input { flex: 1; width: 80px; min-width: 0; }
+.cs-color-hex-row input { border: 0; background: transparent; color: var(--cs-text); font: inherit; padding: 0; }
+.cs-color-hex-row label { display: flex; align-items: center; gap: 2px; }
+.cs-color-hex-row label input { width: 34px; appearance: textfield; }
+.cs-color-saved-heading { display: flex; justify-content: space-between; align-items: center; margin: 16px 0 12px; font-size: 13px; }
+.cs-color-saved-heading strong { font-weight: 500; }
+.cs-color-saved-heading button { border: 0; padding: 0; background: transparent; color: var(--cs-muted); cursor: pointer; font: inherit; }
+.cs-color-swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.cs-color-swatches button { width: 24px; height: 24px; border: 1px solid #0001; border-radius: 50%; padding: 0; cursor: pointer; }
+.cs-color-swatches button[aria-pressed="true"] { outline: 2px solid var(--cs-brand); outline-offset: 2px; }
+.cs-color-close { position: absolute; top: 4px; right: 4px; border: 0; color: var(--cs-muted); background: transparent; cursor: pointer; }
+.cs-color-picker :is(input,button):focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 2px; }
+.cs-color-picker .cs-error { font-size: 12px; }

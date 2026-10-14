@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 新增 ColorPicker：纯色、双色渐变、图片填充、透明度、Hex 输入校验、屏幕取色与会话色板，附实时预览。
+
 - 新增 VideoPlayer：原生播放控制、倍速、字幕、空状态与错误重试，附本地合成视频演示。
 
 - File icons 改为 52 种独立实现的文件格式图标，提供 Default / Gray / Solid 三种样式、搜索及 SVG / JSX 复制；共享包导出 FileIcon。

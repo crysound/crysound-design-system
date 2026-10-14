@@ -28,6 +28,7 @@ const define = (
   guidance,
 });
 export const catalog: ComponentDoc[] = [
+  define("color-picker", "ColorPicker", "颜色选择器", "表单", "选择纯色、渐变或图片填充，支持透明度、Hex 输入、屏幕取色与会话色板。", [["value / defaultValue", "ColorFill / Partial<ColorFill>", "—"], ["onChange", "(fill: ColorFill) => void", "—"], ["disabled", "boolean", "false"], ["onClose", "() => void", "—"]], '<ColorPicker defaultValue={{color:"#170057"}} onChange={fill => console.log(fill)} />', "使用受控值同步填充结果。图片只创建本地临时地址，持久化和上传交给消费项目。屏幕取色依赖浏览器能力，输入和滑块均可键盘操作。"),
   define("video-player", "VideoPlayer", "视频播放器", "展示", "播放演示、操作培训和测量记录视频，支持浮动控制栏、倍速及错误恢复。", [["title", "string", "必填"], ["src / poster", "string", "—"], ["captions", "字幕轨道数组", "[]"], ["muted / loop / autoPlay", "boolean", "false"]], '<VideoPlayer title="测量演示" src="/demo.webm" captions={[{src:"/captions.vtt",srcLang:"zh",label:"中文"}]} />', "播放器不包含上传或视频转码逻辑。带语言内容应提供字幕；避免有声自动播放。自定义控制栏支持播放、静音、进度、倍速、字幕和全屏；视频聚焦时可用空格或 K 播放暂停，M 静音，方向键调整进度和音量。"),
   define(
     "button",

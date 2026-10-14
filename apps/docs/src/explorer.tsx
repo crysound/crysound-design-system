@@ -1,3 +1,4 @@
+import { ColorPickerDemo } from "./color-picker-demo";
 import { VideoDemo } from "./video-demo";
 import { useState, type FormEvent } from "react";
 import * as UI from "../../../packages/ui/src/index";
@@ -612,6 +613,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "color-picker":
+      return <ColorPickerDemo />;
     case "video-player":
       return <VideoDemo />;
     case "metric":
