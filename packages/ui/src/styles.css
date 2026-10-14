@@ -167,8 +167,8 @@
 }
 .cs-table thead {
   background: var(--cs-subtle);
-  font-size: 12px;
-  color: var(--cs-muted);
+  font-size: inherit;
+  color: var(--cs-text);
 }
 .cs-table tbody th {
   font-weight: 500;

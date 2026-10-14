@@ -639,8 +639,11 @@
 }
 .cs-data-table .cs-table th .cs-button {
   padding: 0;
-  font-size: 12px;
+  font-size: inherit;
+  color: inherit;
 }
+.cs-data-table .cs-table th[aria-sort="ascending"] .cs-button,
+.cs-data-table .cs-table th[aria-sort="descending"] .cs-button { color: var(--cs-brand); }
 .cs-data-table tr[data-selected] {
   background: var(--cs-brand-subtle);
 }
