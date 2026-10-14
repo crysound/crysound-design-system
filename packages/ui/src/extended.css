@@ -1174,3 +1174,9 @@ button.cs-step-content { cursor: pointer; }
   width: 16px; height: 16px; border: 0; border-radius: 50%; background: white; box-shadow: none;
 }
 .cs-video-controls input[type="range"]:disabled { opacity: .5; cursor: not-allowed; }
+
+.cs-tree-item[aria-selected="true"],
+.cs-command-item[data-selected="true"],
+.cs-command-menu-item[data-selected="true"],
+.cs-data-table tr[data-selected] { font-weight: 600; }
+.cs-command-menu-label small, .cs-command-menu kbd { font-weight: 400; }

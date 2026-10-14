@@ -186,10 +186,10 @@
 :root, [data-theme], [data-customer] {
   --cs-selected-bg: color-mix(in srgb, var(--cs-brand) 6%, var(--cs-surface));
   --cs-selected-fg: var(--cs-brand);
-  --cs-selected-hover-bg: color-mix(in srgb, var(--cs-brand) 9%, var(--cs-surface));
+  --cs-selected-hover-bg: var(--cs-selected-bg);
   --cs-item-hover-bg: var(--cs-subtle);
 }
 [data-theme="dark"] {
   --cs-selected-bg: color-mix(in srgb, var(--cs-brand) 12%, var(--cs-surface));
-  --cs-selected-hover-bg: color-mix(in srgb, var(--cs-brand) 16%, var(--cs-surface));
+  --cs-selected-hover-bg: var(--cs-selected-bg);
 }
