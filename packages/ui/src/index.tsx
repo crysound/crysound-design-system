@@ -288,3 +288,4 @@ export * from "./date-picker";
 export * from "./inline-cta";
 
 export * from "./charts";
+export * from "./loading-indicator";

@@ -911,3 +911,17 @@
 .cs-chart-data .cs-table :is(th,td) { padding: 8px 12px; font-size: 12px; }
 .cs-chart-legend button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; }
 @media(max-width:540px) { .cs-chart { padding: 12px; } }
+
+.cs-loading-indicator { --loading-size: 24px; display: inline-flex; align-items: center; gap: 10px; color: var(--cs-brand); }
+.cs-loading-indicator--neutral { color: var(--cs-muted); }
+.cs-loading-indicator--sm { --loading-size: 16px; gap: 8px; }
+.cs-loading-indicator--lg { --loading-size: 40px; gap: 12px; }
+.cs-loading-spin { width: var(--loading-size); height: var(--loading-size); flex-shrink: 0; animation: cs-loading-rotate 1s linear infinite; }
+.cs-loading-label { font-size: 13px; line-height: 20px; color: var(--cs-muted); }
+.cs-loading-dots { display: inline-flex; align-items: center; gap: 4px; height: var(--loading-size); }
+.cs-loading-dots i { display: block; width: calc(var(--loading-size) / 4); height: calc(var(--loading-size) / 4); border-radius: 50%; background: currentColor; animation: cs-loading-bounce 1.2s ease-in-out infinite; }
+.cs-loading-dots i:nth-child(2) { animation-delay: .15s; }
+.cs-loading-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes cs-loading-rotate { to { transform: rotate(360deg); } }
+@keyframes cs-loading-bounce { 0%,60%,100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
+@media(prefers-reduced-motion:reduce) { .cs-loading-spin, .cs-loading-dots i { animation: none; } }

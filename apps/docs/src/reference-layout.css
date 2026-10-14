@@ -1581,3 +1581,10 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .charts-demo { display: grid; width: 100%; min-width: 0; gap: 24px; }
 .charts-demo-states { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
 @media(max-width:700px) { .charts-demo-states { grid-template-columns: minmax(0,1fr); } }
+
+.loading-demo { display: grid; gap: 32px; width: 100%; max-width: 640px; }
+.loading-demo h3 { margin: 0 0 16px; font-size: 14px; font-weight: 500; }
+.loading-demo-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+.loading-demo-row > div { display: grid; gap: 12px; }
+.loading-demo-row small { color: var(--cs-muted); font-size: 11px; }
+.loading-demo-panel { min-height: 120px; display: grid; place-items: center; background: var(--cs-subtle); border-radius: 8px; padding: 16px; }

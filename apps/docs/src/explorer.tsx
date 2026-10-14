@@ -1,3 +1,4 @@
+import { LoadingDemo } from "./loading-demo";
 import { ChartsDemo } from "./charts-demo";
 import { InlineCTADemo } from "./inline-cta-demo";
 import { CommandMenuDemo } from "./command-menu-demo";
@@ -617,6 +618,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "loading-indicator":
+      return <LoadingDemo />;
     case "line-bar-charts":
       return <ChartsDemo />;
     case "inline-cta":
