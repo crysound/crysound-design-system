@@ -10,6 +10,7 @@ import {
 } from "./preview-frame";
 import {
   Copy01,
+  ChevronDown,
   ArrowLeft,
   ArrowRight,
   Code02,
@@ -428,7 +429,7 @@ export function ComponentDemo({ id }: { id: string }) {
     case "dropdown-menu":
       return (
         <DropdownMenu
-          trigger={<Button variant="secondary">更多操作 ⌄</Button>}
+          trigger={<Button variant="secondary" className="dropdown-example-trigger"><span>更多操作</span><ChevronDown size={16} aria-hidden="true" /></Button>}
           items={[
             {
               id: "export",
