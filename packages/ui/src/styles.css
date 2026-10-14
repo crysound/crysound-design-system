@@ -316,3 +316,5 @@
 
 /* The enclosing frame supplies the top edge; avoid a second collapsed border. */
 .cs-table thead tr:first-child > :is(th, td) { border-top: 0; }
+
+.cs-device-table .cs-button { font-weight: var(--cs-weight-normal); }
