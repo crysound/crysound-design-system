@@ -1440,7 +1440,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 @media (forced-colors: active) { .theme-select-trigger:focus-visible { outline: 2px solid Highlight; } .theme-select-option[data-highlighted] { outline: 1px solid Highlight; } }
 
 .icon-library { padding-top: 68px; padding-bottom: 32px; }
-.icon-library h1 { font-size: 24px; line-height: 32px; margin: 0 0 12px; }
+.icon-library h1 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: normal; margin: 0 0 12px; }
 .icon-intro { color: var(--cs-muted); line-height: 1.6; }
 .icon-guidance { padding: 16px; background: var(--cs-subtle); border-radius: 8px; font-size: 13px; line-height: 1.7; margin: 24px 0; }
 .icon-tools, .icon-sizes, .icon-categories, .icon-pagination { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
