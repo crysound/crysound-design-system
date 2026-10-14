@@ -1,3 +1,4 @@
+import { CommandMenuDemo } from "./command-menu-demo";
 import { ColorPickerDemo } from "./color-picker-demo";
 import { VideoDemo } from "./video-demo";
 import { useState, type FormEvent } from "react";
@@ -613,6 +614,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "command-menu":
+      return <CommandMenuDemo />;
     case "color-picker":
       return <ColorPickerDemo />;
     case "video-player":

@@ -93,6 +93,7 @@ export const docCategories = [
       "toast",
       "video-player",
       "color-picker",
+      "command-menu",
     ],
   },
   {
@@ -338,6 +339,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "command-menu":
+      return <div className="thumb-menu"><div>⌕ 搜索命令…</div><div>新建测量任务 <small>⌘ N</small></div><div>团队设置</div></div>;
     case "color-picker":
       return <div className="thumb-color-picker"><div /><span>#170057</span></div>;
     case "video-player":

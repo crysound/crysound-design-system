@@ -1572,3 +1572,6 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .color-picker-result code { white-space: normal; overflow-wrap: anywhere; font-size: 12px; color: var(--cs-muted); }
 .thumb-color-picker { width: 160px; padding: 12px; border: 1px solid var(--cs-border); border-radius: 8px; background: var(--cs-surface); font-size: 12px; }
 .thumb-color-picker > div { height: 100px; margin-bottom: 12px; border-radius: 4px; background: linear-gradient(0deg,black,transparent),linear-gradient(90deg,white,#170057); }
+
+.command-menu-demo { width: min(100%,560px); display: grid; gap: 20px; }
+.command-menu-demo > .cs-button { justify-self: start; }

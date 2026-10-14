@@ -282,3 +282,4 @@ export * from "./data-table";
 export * from "./file-icon";
 export * from "./video-player";
 export * from "./color-picker";
+export * from "./command-menu";
