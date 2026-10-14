@@ -1034,3 +1034,8 @@ button.cs-step-content { cursor: pointer; }
 [data-theme="dark"] .cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-subtle); }
 .cs-tree-view--simple .cs-tree-label { font-size: 14px; line-height: 22px; }
 .cs-tree-view--simple .cs-tree-toggle { height: 22px; }
+
+/* Leaf nodes do not need the space reserved for an expansion chevron. */
+.cs-tree-view--simple .cs-tree-item:not([aria-expanded]) .cs-tree-toggle {
+  display: none;
+}
