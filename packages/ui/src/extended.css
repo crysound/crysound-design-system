@@ -970,3 +970,28 @@ button.cs-step-content { cursor: pointer; }
 .cs-section-header-content { margin-top: 20px; }
 .cs-section-header-content .cs-tabs-list { border-bottom: 0; }
 @media(max-width:700px) { .cs-section-header-main { flex-wrap: wrap; } .cs-section-header-copy { flex-basis: calc(100% - 60px); } .cs-section-header-actions { width: 100%; } }
+
+/* Inline CTA cards: reference-aligned vertical content and action hierarchy. */
+.cs-inline-cta {
+  display: grid; grid-template-columns: minmax(0,1fr); gap: 0;
+  align-items: start; padding: 24px; border-radius: 12px;
+  box-shadow: var(--cs-shadow-sm); width: 100%;
+}
+.cs-inline-cta:has(.cs-inline-cta-icon) { grid-template-columns: 40px minmax(0,1fr); column-gap: 16px; }
+.cs-inline-cta-content { display: grid; gap: 2px; }
+.cs-inline-cta-content > strong { font-size: 16px; line-height: 24px; }
+.cs-inline-cta-content > div { font-size: 14px; line-height: 20px; }
+.cs-inline-cta-actions { margin-top: 20px; gap: 12px; width: auto; flex-direction: row; }
+.cs-inline-cta:has(.cs-inline-cta-icon) .cs-inline-cta-actions { grid-column: 2; }
+.cs-inline-cta-actions .cs-button { min-height: 36px; height: 36px; padding: 0 12px; font-size: 14px; line-height: 20px; border-radius: 8px; width: auto; }
+.cs-inline-cta-close { position: absolute; top: 16px; right: 16px; }
+.cs-inline-cta:has(.cs-inline-cta-close) { padding-right: 56px; }
+.cs-inline-cta--brand { border-color: color-mix(in srgb,var(--cs-brand) 12%,var(--cs-border)); background: color-mix(in srgb,var(--cs-brand) 4%,var(--cs-surface)); }
+@media(max-width:600px) {
+  .cs-inline-cta { padding: 16px; }
+  .cs-inline-cta:has(.cs-inline-cta-close) { padding-right: 44px; }
+  .cs-inline-cta-close { top: 12px; right: 12px; }
+  .cs-inline-cta-actions { flex-direction: column-reverse; width: 100%; }
+  .cs-inline-cta:has(.cs-inline-cta-icon) .cs-inline-cta-actions { grid-column: 1 / -1; }
+  .cs-inline-cta-actions .cs-button { width: 100%; }
+}

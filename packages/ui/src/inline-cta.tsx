@@ -11,7 +11,7 @@ export function InlineCTA({title,description,icon,tone='neutral',primaryAction,s
   if(dismissed)return null;
   function action(item:InlineCTAAction,primary:boolean) {
     if(item.href&&!item.disabled&&!item.loading)return <a className={`cs-button cs-button--${primary?'primary':'secondary'}`} href={item.href} onClick={item.onClick}>{item.label}</a>;
-    return <Button type="button" variant={primary?'primary':'secondary'} disabled={item.disabled} loading={item.loading} onClick={item.onClick}>{item.label}</Button>;
+    return <Button type="button" variant={primary?'primary':'secondary'} size="sm" disabled={item.disabled} loading={item.loading} onClick={item.onClick}>{item.label}</Button>;
   }
   return <aside className={`cs-inline-cta cs-inline-cta--${tone}`} aria-label={title}>
     {icon&&<div className="cs-inline-cta-icon" aria-hidden="true">{icon}</div>}

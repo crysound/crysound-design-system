@@ -1595,3 +1595,5 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .progress-steps-demo .cs-error { font-size: 12px; margin-top: 16px; }
 
 .section-header-demo { width: 100%; min-width: 0; display: grid; gap: 40px; }
+
+.reference-preview > .inline-cta-demo { max-width: 768px; }
