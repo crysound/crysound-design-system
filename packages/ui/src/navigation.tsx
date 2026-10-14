@@ -3,6 +3,7 @@ import { useEffect, useRef, type ComponentProps, type ReactNode } from "react";
 import * as T from "@radix-ui/react-tabs";
 import * as A from "@radix-ui/react-accordion";
 import { Button } from "./index";
+import { revealText } from "./text-reveal";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
@@ -86,10 +87,10 @@ export function TabsTrigger({
   return <T.Trigger {...props} className={cx("cs-tabs-trigger", className)} />;
 }
 export function TabsContent({
-  className,
+  className, children,
   ...props
 }: ComponentProps<typeof T.Content>) {
-  return <T.Content {...props} className={cx("cs-tabs-content", className)} />;
+  return <T.Content {...props} className={cx("cs-tabs-content", className)}>{revealText(children)}</T.Content>;
 }
 export interface AccordionItem {
   value: string;

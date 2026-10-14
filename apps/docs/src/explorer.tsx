@@ -1,3 +1,4 @@
+import { TextReveal } from "../../../packages/ui/src/text-reveal";
 import { LoginDemo } from "./login-demo";
 import { TreeViewDemo } from "./tree-view-demo";
 import { SectionHeaderDemo } from "./section-header-demo";
@@ -740,7 +741,7 @@ export function ComponentPage({
       <section className="reference-component-heading">
         <div className="reference-title-row">
           <div>
-            <h1>{item.name} components</h1>
+            <h1><TextReveal text={`${item.name} components`}/></h1>
             <span className="reference-component-label">REACT</span>
           </div>
           <div className="reference-title-actions">
@@ -788,7 +789,7 @@ export function ComponentPage({
           </div>
         </div>
         <p>
-          {item.description} 使用 CRYSOUND 语义 Token，支持明暗主题和客户定制。
+          <TextReveal text={`${item.description} 使用 CRYSOUND 语义 Token，支持明暗主题和客户定制。`}/>
         </p>
         <div className="reference-resource-links">
           <a
