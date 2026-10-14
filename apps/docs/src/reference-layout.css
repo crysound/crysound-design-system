@@ -103,8 +103,9 @@ body {
   min-width: 0;
 }
 .docs-search:focus-within {
-  outline: 2px solid var(--cs-focus);
-  outline-offset: 2px;
+  border-color: var(--cs-brand);
+  outline: none;
+  box-shadow: none;
 }
 .docs-search kbd {
   border: 1px solid var(--doc-line);
