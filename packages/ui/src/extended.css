@@ -214,6 +214,7 @@
   max-width: 100%;
 }
 .cs-file-upload input::file-selector-button {
+  font: inherit;
   padding: 8px 12px;
   margin-right: 12px;
   border: 1px solid var(--cs-border);
@@ -795,7 +796,7 @@
 .cs-color-image-preview img { width: 100%; height: 100%; object-fit: cover; }
 .cs-color-gradient-inputs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-top: 12px; }
 .cs-color-gradient-inputs label { display: grid; gap: 4px; font-size: 12px; }
-.cs-color-gradient-inputs input { width: 100%; min-width: 0; height: 32px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: 4px; color: var(--cs-text); background: var(--cs-surface); }
+.cs-color-gradient-inputs input { font: inherit; width: 100%; min-width: 0; height: 32px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: 4px; color: var(--cs-text); background: var(--cs-surface); }
 .cs-color-opacity { display: flex; gap: 12px; margin: 16px 0; align-items: center; }
 .cs-color-opacity button { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--cs-border); border-radius: 6px; background: var(--cs-surface); color: var(--cs-muted); display: grid; place-items: center; cursor: pointer; }
 .cs-color-opacity label { display: grid; gap: 4px; flex: 1; min-width: 0; font-size: 11px; color: var(--cs-muted); }

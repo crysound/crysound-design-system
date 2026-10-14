@@ -1,7 +1,26 @@
 @import "./extended.css";
+/* Library typography must also work outside the documentation site's reset. */
+:where(.cs-card, .cs-table, .cs-field, .cs-choice, .cs-radio-group,
+  .cs-tabs-list, .cs-tabs-content, .cs-accordion, .cs-breadcrumbs,
+  .cs-pagination, .cs-empty, .cs-metric, .cs-inline-cta, .cs-tree-view,
+  .cs-login-page, .cs-section-header, .cs-chart, .cs-color-picker,
+  .cs-video-player, .cs-command-menu, .cs-dialog, .cs-sheet, .cs-popover,
+  .cs-dropdown, .cs-toast, .cs-date-trigger, .cs-date-popover, .cs-video-speed-menu,
+  .cs-tag, .cs-badge, .cs-avatar, .cs-alert, .cs-loading-indicator, .cs-tooltip) {
+  font-family: var(--cs-font);
+  font-size: var(--cs-font-size);
+}
+:where([class^="cs-"], [class*=" cs-"]) :where(button, input, select, textarea),
+:where(button, input, select, textarea):where([class^="cs-"], [class*=" cs-"]) {
+  font: inherit;
+  color: inherit;
+}
+:where(.cs-dialog, .cs-sheet, .cs-popover, .cs-dropdown, .cs-toast) { line-height: 1.5; }
+
 .cs-button,
 .cs-input {
   font: inherit;
+  font-family: var(--cs-font);
   font-size: var(--cs-font-size);
   border-radius: var(--cs-radius);
   min-height: var(--cs-control-height);
@@ -124,16 +143,17 @@
   justify-content: space-between;
   gap: 16px;
 }
-.cs-card h3 {
+.cs-card-header > div > h3 {
   margin: 0;
   font-size: 16px;
+  color: var(--cs-text-heading);
 }
-.cs-card p,
+.cs-card-header > div > p,
 .cs-muted {
   color: var(--cs-muted);
   font-size: 13px;
 }
-.cs-card p {
+.cs-card-header > div > p {
   margin: 6px 0 0;
 }
 .cs-metric {
@@ -146,7 +166,7 @@
   margin: 6px 0;
   line-height: 1.2;
 }
-.cs-metric-value span {
+.cs-metric-value > .cs-metric-unit {
   font-size: 14px;
   color: var(--cs-muted);
   font-weight: 400;
@@ -183,8 +203,11 @@
   text-align: center;
   padding: 48px 24px;
 }
-.cs-empty p {
+.cs-empty > h3 { margin: 0; font-size: 20px; color: var(--cs-text-heading); }
+.cs-empty > p {
   margin: 12px 0 20px;
+  font-size: var(--cs-font-size);
+  color: var(--cs-muted);
 }
 .cs-dialog-overlay {
   position: fixed;
@@ -211,7 +234,7 @@
   font-size: 20px;
   margin-top: 0;
 }
-.cs-dialog p {
+.cs-dialog-description {
   color: var(--cs-muted);
 }
 .cs-dialog .cs-button {
@@ -346,8 +369,6 @@
 }
 
 /* Proposed metric motion: critically damped digit rolls with stable tabular widths. */
-.cs-metric-value .cs-animated-number,
-.cs-metric-value .cs-animated-number span { font-size: inherit; font-weight: inherit; color: inherit; }
 .cs-animated-number { display: inline-block; vertical-align: baseline; font-variant-numeric: tabular-nums; }
 .cs-number-visual { display: inline-flex; align-items: baseline; }
 .cs-number-digit { display: inline-block; height: 1em; width: .62em; overflow: hidden; line-height: 1; position: relative; }

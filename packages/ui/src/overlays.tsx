@@ -188,7 +188,7 @@ export function AlertDialog({
         <AD.Overlay className="cs-dialog-overlay" />
         <AD.Content className="cs-dialog">
           <AD.Title>{title}</AD.Title>
-          <AD.Description>{description}</AD.Description>
+          <AD.Description className="cs-dialog-description">{description}</AD.Description>
           {error && (
             <p role="alert" className="cs-error">
               {error}
@@ -233,7 +233,9 @@ export function AlertDialog({
 export const DialogRoot = D.Root;
 export const DialogTrigger = D.Trigger;
 export const DialogTitle = D.Title;
-export const DialogDescription = D.Description;
+export function DialogDescription({ className, ...props }: ComponentProps<typeof D.Description>) {
+  return <D.Description {...props} className={cx("cs-dialog-description", className)} />;
+}
 export const DialogClose = D.Close;
 export function DialogContent({
   className,

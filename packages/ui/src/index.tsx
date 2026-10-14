@@ -163,7 +163,7 @@ export function Metric({
     <div className="cs-metric">
       <div className="cs-muted">{label}</div>
       <div className="cs-metric-value">
-        {animate ? <AnimatedNumber value={value} /> : value} <span>{unit}</span>
+        {animate ? <AnimatedNumber value={value} /> : value} <span className="cs-metric-unit">{unit}</span>
       </div>
       {note && <div className="cs-muted">{note}</div>}
     </div>
@@ -204,7 +204,7 @@ export function Dialog({
         <DialogPrimitive.Overlay className="cs-dialog-overlay" />
         <DialogPrimitive.Content className="cs-dialog">
           <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
-          <DialogPrimitive.Description>
+          <DialogPrimitive.Description className="cs-dialog-description">
             {description}
           </DialogPrimitive.Description>
           {children}
