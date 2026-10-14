@@ -279,3 +279,4 @@ export * from "./overlays";
 export * from "./display";
 export * from "./toast";
 export * from "./data-table";
+export * from "./file-icon";

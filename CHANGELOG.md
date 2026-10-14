@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- File icons 改为 52 种独立实现的文件格式图标，提供 Default / Gray / Solid 三种样式、搜索及 SVG / JSX 复制；共享包导出 FileIcon。
+
 - 基础空间补全 26 档间距 Token、场景示例、响应式留白与密度规范。
 
 - 新增 1181 个 Untitled UI 图标的独立图标库，支持搜索、分类、分页、尺寸和品牌色预览及代码复制。

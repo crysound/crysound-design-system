@@ -1540,3 +1540,13 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .file-type-example strong { font-size: 13px; font-weight: 500; }
 .file-type-example span { font-size: 12px; color: var(--cs-muted); }
 .file-type-example:focus-visible { outline: 2px solid var(--cs-brand); outline-offset: 2px; }
+
+.file-icons-toolbar { display:flex; gap:24px; align-items:center; justify-content:space-between; margin:32px 0 20px; flex-wrap:wrap; }
+.file-icons-toolbar > input { width: min(100%, 360px); }
+.file-format-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:16px; }
+.file-format-card { padding:24px 12px 16px; border:1px solid var(--doc-line); border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:16px; background:var(--cs-surface); }
+.file-format-card strong { font-size:13px; font-weight:500; }
+.file-format-card > div { display:flex; gap:12px; }
+.file-format-card button { padding:4px 0; border:0; background:transparent; font:inherit; font-size:11px; color:var(--cs-muted); cursor:pointer; }
+.file-format-card button:hover { color:var(--cs-brand); }
+.file-format-card button:focus-visible { outline:2px solid var(--cs-brand); outline-offset:3px; }

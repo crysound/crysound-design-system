@@ -37,6 +37,7 @@ import {
   deviceColumns,
   ToastProvider,
 } from "./explorer";
+const FileIconsPage = React.lazy(() => import("./file-icons-page"));
 const IconLibrary = React.lazy(() => import("./icon-library"));
 const devices: Device[] = [
   {
@@ -188,7 +189,7 @@ function App() {
         />
 
         {["icons", "file-icons"].includes(route) ? (
-          <React.Suspense fallback={<p role="status">正在加载图标库…</p>}><IconLibrary key={route} filesOnly={route === "file-icons"} /></React.Suspense>
+          <React.Suspense fallback={<p role="status">正在加载图标库…</p>}>{route === "file-icons" ? <FileIconsPage /> : <IconLibrary />}</React.Suspense>
         ) : activeDoc ? (
           <ComponentPage
             key={activeDoc.id}
