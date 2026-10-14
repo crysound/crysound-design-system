@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState, useEffect, type VideoHTMLAttributes } from 'react';
+import * as Menu from "@radix-ui/react-dropdown-menu";
 export interface VideoPlayerProps extends Omit<VideoHTMLAttributes<HTMLVideoElement>, 'controls' | 'title'> {
   title: string;
   captions?: { src: string; srcLang: string; label: string; default?: boolean }[];
@@ -47,7 +48,14 @@ export function VideoPlayer({ title, src, poster, captions = [], className, onEr
         <span className="cs-video-time">{format(time)}</span>
         <input className="cs-video-progress" type="range" aria-label="播放进度" min="0" max={duration || 1} step="0.1" value={time} disabled={!duration} onChange={e=>{if(video.current)video.current.currentTime=Number(e.target.value);}} />
         <span className="cs-video-time">-{format(Math.max(0,duration-time))}</span>
-        <select aria-label="播放速度" value={speed} onChange={e=>{setSpeed(e.target.value);if(video.current)video.current.playbackRate=Number(e.target.value);}}>{['0.5','0.75','1','1.25','1.5','2'].map(rate=><option key={rate} value={rate}>{rate}×</option>)}</select>
+        <Menu.Root>
+          <Menu.Trigger className="cs-video-speed" aria-label="播放速度">{speed}×<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></Menu.Trigger>
+          <Menu.Content className="cs-video-speed-menu" side="top" align="end" sideOffset={8} collisionPadding={8}>
+            <Menu.RadioGroup value={speed} onValueChange={value=>{setSpeed(value);if(video.current)video.current.playbackRate=Number(value);}} aria-label="播放速度">
+              {['0.5','0.75','1','1.25','1.5','2'].map(rate=><Menu.RadioItem className="cs-video-speed-option" key={rate} value={rate}>{rate}×<Menu.ItemIndicator aria-hidden="true">✓</Menu.ItemIndicator></Menu.RadioItem>)}
+            </Menu.RadioGroup>
+          </Menu.Content>
+        </Menu.Root>
         {captions.length>0 && <button type="button" aria-label="字幕" aria-pressed={cc} onClick={()=>{const next=!cc;setCc(next);if(video.current)Array.from(video.current.textTracks).forEach((track,i)=>{track.mode=next&&i===0?'showing':'disabled';});}}>CC</button>}
         <button type="button" aria-label="切换全屏" onClick={()=>void fullscreen()}>{icon('full')}</button>
       </div>}
