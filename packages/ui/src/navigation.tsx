@@ -86,9 +86,7 @@ export function Breadcrumbs({
         {items.map((item, i) => (
           <li key={`${item.label}-${i}`}>
             {i > 0 && (
-              <span aria-hidden="true" className="cs-muted">
-                /
-              </span>
+              <svg className="cs-breadcrumb-separator" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
             )}
             {i === items.length - 1 ? (
               <span aria-current="page">{item.label}</span>

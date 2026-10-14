@@ -328,6 +328,8 @@
   line-height: 1.7;
 }
 .cs-breadcrumbs ol {
+  align-items: center;
+  line-height: 20px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -338,7 +340,8 @@
 }
 .cs-breadcrumbs li {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
 }
 .cs-breadcrumbs a {
   color: var(--cs-muted);
@@ -721,3 +724,5 @@
 .cs-popover.cs-combobox {
   width: var(--radix-popover-trigger-width);
 }
+
+.cs-breadcrumb-separator { flex: 0 0 16px; color: var(--cs-muted); }
