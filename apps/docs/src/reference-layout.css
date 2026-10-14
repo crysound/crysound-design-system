@@ -1603,3 +1603,8 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .tree-view-panel { padding: 12px; border: 1px solid var(--cs-border); border-radius: 10px; background: var(--cs-surface); }
 
 .login-demo { display: grid; gap: 24px; width: 100%; max-width: 440px; }
+
+.reference-preview:has(.login-demo) { min-height: 480px; }
+.login-demo { justify-items: center; margin-inline: auto; }
+.login-demo > .cs-help { text-align: center; margin: 0; line-height: 20px; }
+.cs-login-card { margin-inline: auto; }
