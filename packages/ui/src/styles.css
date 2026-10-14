@@ -312,3 +312,6 @@
 }
 .cs-device-table .cs-button { min-height: 32px; padding: 0 12px; }
 [data-density="compact"] .cs-device-table :is(th, td) { padding-top: 6px; padding-bottom: 6px; }
+
+/* The enclosing frame supplies the top edge; avoid a second collapsed border. */
+.cs-device-table thead tr:first-child th { border-top: 0; }
