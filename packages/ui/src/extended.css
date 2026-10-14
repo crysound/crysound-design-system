@@ -1027,3 +1027,10 @@ button.cs-step-content { cursor: pointer; }
 .cs-login-form > .cs-button { width: 100%; }
 .cs-login-form button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 2px; }
 [data-theme="dark"] .cs-login-logo img { filter: brightness(0) invert(1); }
+
+.cs-tree-view--simple .cs-tree-item { min-height: 36px; padding: 6px 8px; gap: 8px; }
+.cs-tree-view--simple ul[role="group"] { margin: 2px 0 4px 16px; padding-left: 8px; border-left: 1px solid var(--cs-border); }
+.cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-slate-100); color: var(--cs-brand); }
+[data-theme="dark"] .cs-tree-view--simple .cs-tree-item[aria-selected="true"] { background: var(--cs-subtle); }
+.cs-tree-view--simple .cs-tree-label { font-size: 14px; line-height: 22px; }
+.cs-tree-view--simple .cs-tree-toggle { height: 22px; }
