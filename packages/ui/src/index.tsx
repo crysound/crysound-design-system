@@ -286,3 +286,5 @@ export * from "./command-menu";
 
 export * from "./date-picker";
 export * from "./inline-cta";
+
+export * from "./charts";

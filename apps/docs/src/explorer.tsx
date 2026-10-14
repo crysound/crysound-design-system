@@ -1,3 +1,4 @@
+import { ChartsDemo } from "./charts-demo";
 import { InlineCTADemo } from "./inline-cta-demo";
 import { CommandMenuDemo } from "./command-menu-demo";
 import { ColorPickerDemo } from "./color-picker-demo";
@@ -616,6 +617,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "line-bar-charts":
+      return <ChartsDemo />;
     case "inline-cta":
       return <InlineCTADemo />;
     case "date-picker":

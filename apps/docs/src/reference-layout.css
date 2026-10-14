@@ -1577,3 +1577,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .command-menu-demo > .cs-button { justify-self: start; }
 
 .inline-cta-demo { width: 100%; display: grid; gap: 24px; }
+
+.charts-demo { display: grid; width: 100%; min-width: 0; gap: 24px; }
+.charts-demo-states { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+@media(max-width:700px) { .charts-demo-states { grid-template-columns: minmax(0,1fr); } }

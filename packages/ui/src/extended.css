@@ -892,3 +892,22 @@
 .cs-inline-cta-close:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 2px; }
 @media(max-width:900px) { .cs-inline-cta { flex-wrap: wrap; } .cs-inline-cta-content { flex-basis: calc(100% - 80px); } .cs-inline-cta-actions { width: 100%; } .cs-inline-cta:has(.cs-inline-cta-close) { padding-right: 44px; } .cs-inline-cta-close { position: absolute; right: 12px; top: 12px; } }
 @media(max-width:540px) { .cs-inline-cta { padding: 16px; } .cs-inline-cta-actions { flex-direction: column; } .cs-inline-cta-actions .cs-button { width: 100%; } }
+
+.cs-chart { margin: 0; padding: 20px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-lg); background: var(--cs-surface); color: var(--cs-text); min-width: 0; }
+.cs-chart figcaption > strong { font-size: 14px; font-weight: 600; color: var(--cs-text-heading); }
+.cs-chart figcaption p { margin: 6px 0 0; color: var(--cs-muted); font-size: 12px; line-height: 20px; }
+.cs-chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+.cs-chart-legend button { display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: var(--cs-text); font: inherit; font-size: 12px; cursor: pointer; }
+.cs-chart-legend button[aria-pressed="false"] { opacity: .4; text-decoration: line-through; }
+.cs-chart-legend span { width: 8px; height: 8px; border-radius: 50%; }
+.cs-chart-plot svg { display: block; overflow: visible; font-family: var(--cs-font); }
+.cs-chart-plot [role="button"]:focus-visible { outline: 1px solid var(--cs-focus); outline-offset: -1px; }
+.cs-chart-readout { min-height: 40px; padding: 8px 12px; border-radius: 6px; background: var(--cs-subtle); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--cs-muted); }
+.cs-chart-readout strong { color: var(--cs-text); font-weight: 500; }
+.cs-chart-empty { display: grid; place-items: center; color: var(--cs-muted); font-size: 13px; background: var(--cs-subtle); border-radius: 6px; }
+.cs-chart-data { margin-top: 16px; font-size: 12px; }
+.cs-chart-data summary { cursor: pointer; color: var(--cs-brand); }
+.cs-chart-data .cs-table { margin-top: 12px; }
+.cs-chart-data .cs-table :is(th,td) { padding: 8px 12px; font-size: 12px; }
+.cs-chart-legend button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; }
+@media(max-width:540px) { .cs-chart { padding: 12px; } }
