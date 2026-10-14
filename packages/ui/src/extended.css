@@ -849,7 +849,7 @@
 .cs-date-weekdays, .cs-date-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; }
 .cs-date-weekdays { margin-bottom: 8px; color: var(--cs-muted); text-align: center; font-size: 12px; }
 .cs-date-grid button { width: 100%; aspect-ratio: 1; height: auto; }
-.cs-date-grid button:hover { background: var(--cs-subtle); }
+.cs-date-grid button:hover:not(:disabled) { background: var(--cs-subtle); }
 .cs-date-grid button[data-outside] { color: var(--cs-muted); }
 .cs-date-grid button[data-today] { box-shadow: inset 0 0 0 1px var(--cs-brand); }
 .cs-date-grid button[aria-pressed="true"] { background: var(--cs-brand); color: var(--cs-on-brand); }
@@ -998,7 +998,7 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-tree-view, .cs-tree-view ul { list-style: none; padding: 0; margin: 0; }
 .cs-tree-item { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; box-sizing: border-box; border-radius: 6px; font-size: 13px; line-height: 20px; color: var(--cs-text); cursor: pointer; }
-.cs-tree-item:hover { background: var(--cs-subtle); }
+.cs-tree-item:hover:not([aria-disabled="true"]) { background: var(--cs-subtle); }
 .cs-tree-item[aria-selected="true"] { color: var(--cs-brand); background: var(--cs-brand-subtle); }
 .cs-tree-item[aria-disabled="true"] { opacity: .4; cursor: not-allowed; }
 .cs-tree-item:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: -2px; }
