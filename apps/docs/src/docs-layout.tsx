@@ -34,6 +34,7 @@ import {
   RadioGroup,
   Pagination,
   LoadingIndicator,
+  ProgressSteps,
   VideoPlayer,
   Slider,
   Switch,
@@ -99,6 +100,7 @@ export const docCategories = [
       "inline-cta",
       "line-bar-charts",
       "loading-indicator",
+      "progress-steps",
     ],
   },
   {
@@ -344,6 +346,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
           </TabsList>
         </Tabs>
       );
+    case "progress-steps":
+      return <ProgressSteps steps={[{id:"a",title:"设备"},{id:"b",title:"配置"},{id:"c",title:"完成"}]} currentStep="b" />;
     case "loading-indicator":
       return <LoadingIndicator variant="ring" size="lg" label="加载中" />;
     case "line-bar-charts":

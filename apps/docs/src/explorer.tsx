@@ -1,3 +1,4 @@
+import { ProgressStepsDemo } from "./progress-steps-demo";
 import { LoadingDemo } from "./loading-demo";
 import { ChartsDemo } from "./charts-demo";
 import { InlineCTADemo } from "./inline-cta-demo";
@@ -618,6 +619,8 @@ export function ComponentDemo({ id }: { id: string }) {
           )}
         </div>
       );
+    case "progress-steps":
+      return <ProgressStepsDemo />;
     case "loading-indicator":
       return <LoadingDemo />;
     case "line-bar-charts":

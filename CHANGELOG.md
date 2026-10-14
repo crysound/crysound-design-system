@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 新增 ProgressSteps：横向/纵向步骤、当前/完成/待进行/错误状态及可点击步骤。
+
 - 新增 LoadingIndicator：旋转、圆环、跳点三种样式与三档尺寸，支持无障碍状态宣读和减少动态效果。
 
 - 新增 LineChart / BarChart：多序列折线与分组柱状图、图例开关、坐标轴、键盘数据提示及原始数据表。

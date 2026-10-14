@@ -1588,3 +1588,8 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .loading-demo-row > div { display: grid; gap: 12px; }
 .loading-demo-row small { color: var(--cs-muted); font-size: 11px; }
 .loading-demo-panel { min-height: 120px; display: grid; place-items: center; background: var(--cs-subtle); border-radius: 8px; padding: 16px; }
+
+.progress-steps-demo { width: 100%; display: grid; gap: 32px; }
+.progress-steps-demo h3 { margin: 0 0 24px; font-size: 14px; font-weight: 500; }
+.progress-steps-demo .demo-row { margin-top: 24px; }
+.progress-steps-demo .cs-error { font-size: 12px; margin-top: 16px; }

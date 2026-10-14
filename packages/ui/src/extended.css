@@ -925,3 +925,31 @@
 @keyframes cs-loading-rotate { to { transform: rotate(360deg); } }
 @keyframes cs-loading-bounce { 0%,60%,100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
 @media(prefers-reduced-motion:reduce) { .cs-loading-spin, .cs-loading-dots i { animation: none; } }
+
+.cs-progress-steps { width: 100%; }
+.cs-progress-steps ol { list-style: none; display: flex; padding: 0; margin: 0; gap: 24px; }
+.cs-progress-steps li { position: relative; flex: 1; min-width: 0; }
+.cs-step-content { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 12px; border: 0; padding: 0; margin: 0; background: transparent; color: var(--cs-text); font: inherit; text-align: left; width: 100%; }
+button.cs-step-content { cursor: pointer; }
+.cs-step-marker { display: grid; place-items: center; width: 32px; height: 32px; flex: 0 0 32px; border: 1px solid var(--cs-border); border-radius: 50%; background: var(--cs-surface); color: var(--cs-muted); font-size: 13px; font-weight: 500; box-sizing: border-box; }
+.cs-step-copy { display: grid; gap: 4px; padding-top: 4px; min-width: 0; }
+.cs-step-copy strong { font-size: 13px; font-weight: 500; line-height: 20px; }
+.cs-step-copy small { font-size: 12px; line-height: 18px; color: var(--cs-muted); }
+.cs-progress-steps--horizontal .cs-step-content { flex-direction: column; gap: 8px; }
+.cs-progress-steps li:not(:last-child)::after { content: ''; position: absolute; top: 15px; left: 44px; right: -12px; height: 1px; background: var(--cs-border); }
+.cs-progress-steps li[data-state="complete"]::after { background: var(--cs-brand); }
+.cs-progress-steps li[data-state="complete"] .cs-step-marker { background: var(--cs-brand); border-color: var(--cs-brand); color: var(--cs-on-brand); }
+.cs-progress-steps li[data-state="current"] .cs-step-marker { border-color: var(--cs-brand); color: var(--cs-brand); background: var(--cs-brand-subtle); box-shadow: 0 0 0 3px var(--cs-brand-subtle); }
+.cs-progress-steps li[data-state="current"] strong { color: var(--cs-brand); }
+.cs-progress-steps li[data-state="error"] .cs-step-marker { color: var(--cs-danger-fg); background: var(--cs-danger-bg); border-color: var(--cs-danger-fg); }
+.cs-progress-steps li[data-state="error"] strong { color: var(--cs-danger-fg); }
+.cs-progress-steps li[data-disabled] { opacity: .45; }
+.cs-step-content:disabled { cursor: not-allowed; }
+.cs-step-content:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; border-radius: 4px; }
+.cs-progress-steps--vertical ol { flex-direction: column; gap: 24px; }
+.cs-progress-steps--vertical li:not(:last-child)::after { left: 15px; right: auto; top: 44px; bottom: -12px; width: 1px; height: auto; }
+@media(max-width:600px) {
+  .cs-progress-steps--horizontal ol { flex-direction: column; gap: 24px; }
+  .cs-progress-steps--horizontal .cs-step-content { flex-direction: row; gap: 12px; }
+  .cs-progress-steps--horizontal li:not(:last-child)::after { left: 15px; right: auto; top: 44px; bottom: -12px; width: 1px; height: auto; }
+}
