@@ -109,3 +109,5 @@ GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysou
 - 使用 SVG 图标组件，禁止用 Unicode 箭头字符拼接按钮文案，避免不同平台基线、尺寸和字重不一致。
 
 站内文字操作统一使用 `<ActionLink href="/samples">全部样本</ActionLink>`；外部导航显式传 `external`。箭头使用组件内的 16px SVG、1.5px 线宽和 6px 间距，不拼接字符。
+
+Select 的普通单选使用统一 Radix 浮层，不使用操作系统原生弹出菜单；保留 option、value/defaultValue、onChange、name、required 与原生 select ref。multiple、size 和 optgroup 保留原生语义。业务页面请使用共享 Select，直接写原生 select 不会获得统一浮层。

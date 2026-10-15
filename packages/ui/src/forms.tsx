@@ -1,5 +1,8 @@
 "use client";
 import {
+  Children,
+  isValidElement,
+  useEffect,
   forwardRef,
   useId,
   useRef,
@@ -9,6 +12,7 @@ import {
   type ReactNode,
   type ComponentProps,
 } from "react";
+import * as Menu from "@radix-ui/react-dropdown-menu";
 import * as C from "@radix-ui/react-checkbox";
 import * as S from "@radix-ui/react-switch";
 import * as R from "@radix-ui/react-radio-group";
@@ -88,26 +92,52 @@ export const Select = forwardRef<
 ) {
   const generated = useId();
   const field = id ?? generated;
-  return (
-    <div className="cs-field">
-      <label htmlFor={field}>{label}</label>
-      <select
-        {...props}
-        ref={ref}
-        id={field}
-        aria-invalid={error ? true : props["aria-invalid"]}
-        aria-describedby={
-          [described, (error || hint) && `${field}-help`]
-            .filter(Boolean)
-            .join(" ") || undefined
-        }
-        className={cx("cs-input cs-select", className)}
-      >
-        {children}
-      </select>
-      <Help id={`${field}-help`} error={error} hint={hint} />
-    </div>
-  );
+  const native = useRef<HTMLSelectElement | null>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const options = Children.toArray(children).filter(isValidElement).map(child => {
+    const option = child.props as { value?: string | number; children?: ReactNode; disabled?: boolean };
+    return { value: String(option.value ?? option.children ?? ''), label: option.children, disabled: option.disabled };
+  });
+  const [current, setCurrent] = useState(String(props.value ?? props.defaultValue ?? options[0]?.value ?? ''));
+  useEffect(() => {
+    const select = native.current;
+    const reset = () => requestAnimationFrame(() => setCurrent(select?.value ?? ''));
+    select?.form?.addEventListener('reset', reset);
+    return () => select?.form?.removeEventListener('reset', reset);
+  }, []);
+  const value = props.value !== undefined ? String(props.value) : current;
+  const description = [described, (error || hint) && `${field}-help`].filter(Boolean).join(' ') || undefined;
+  // Preserve native multi-select, grouped options and custom child contracts.
+  if (props.multiple || props.size || Children.toArray(children).some(child => !isValidElement(child) || child.type !== 'option')) {
+    return <div className="cs-field"><label htmlFor={field}>{label}</label><select {...props} ref={ref} id={field} className={cx('cs-input cs-select',className)} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>{children}</select><Help id={`${field}-help`} error={error} hint={hint}/></div>;
+  }
+  return <div className="cs-field">
+    <label id={`${field}-label`} htmlFor={field}>{label}</label>
+    <select {...props} ref={node => { native.current = node; if(typeof ref === 'function') ref(node); else if(ref) ref.current = node; }}
+      className="cs-select-native" aria-hidden="true" tabIndex={-1} value={value}
+      onChange={event => {setCurrent(event.target.value); props.onChange?.(event);}}
+      onInvalid={event => {trigger.current?.focus(); props.onInvalid?.(event);}}>{children}</select>
+    <Menu.Root modal={false}>
+      <Menu.Trigger ref={trigger} id={field} disabled={props.disabled} className={cx('cs-input cs-select-trigger',className)} style={props.style}
+        aria-labelledby={`${field}-label ${field}-value`} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>
+        <span id={`${field}-value`}>{options.find(option => option.value === value)?.label}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </Menu.Trigger>
+      <Menu.Portal><Menu.Content className="cs-select-menu" sideOffset={6} align="start" collisionPadding={12}>
+        <Menu.RadioGroup value={value} onValueChange={next => {
+          const select = native.current;
+          if(!select) return;
+          Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value')?.set?.call(select,next);
+          select.dispatchEvent(new Event('change',{bubbles:true}));
+        }}>
+          {options.map(option => <Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option">
+            <span>{option.label}</span><Menu.ItemIndicator aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m5 12 4 4L19 6"/></svg></Menu.ItemIndicator>
+          </Menu.RadioItem>)}
+        </Menu.RadioGroup>
+      </Menu.Content></Menu.Portal>
+    </Menu.Root>
+    <Help id={`${field}-help`} error={error} hint={hint}/>
+  </div>;
 });
 export function Checkbox({
   label,
