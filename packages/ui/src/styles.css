@@ -496,3 +496,15 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 .cs-input-reveal input:not(:placeholder-shown) ~ .cs-input-placeholder-reveal { display: none; }
 @media(prefers-reduced-motion:reduce) { .cs-input-placeholder-reveal > span { animation: none; } }
 .cs-input-wrap { display: contents; }
+
+/* All corner dismiss controls share the same hover motion. */
+:is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon) > svg {
+  display: block; transform-origin: center; transition: transform 180ms cubic-bezier(.2,.8,.2,1);
+}
+@media(hover:hover) {
+  :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon):hover > svg { transform: rotate(90deg); }
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon) > svg { transition: none; }
+  :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon):hover > svg { transform: none; }
+}

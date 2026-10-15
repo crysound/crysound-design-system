@@ -41,7 +41,7 @@ export function ColorPicker({value,defaultValue,onChange,disabled=false,onClose}
     try { const result=await new ctor().open();update({color:result.sRGBHex}); } catch {setMessage('已取消取色。');}
   }
   return <div className="cs-color-picker">
-    {onClose && <button type="button" className="cs-color-close" aria-label="关闭颜色选择器" onClick={onClose}>×</button>}
+    {onClose && <button type="button" className="cs-color-close" aria-label="关闭颜色选择器" onClick={onClose}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>}
     <fieldset disabled={disabled} className="cs-color-fieldset">
       <legend className="cs-sr-only">填充颜色</legend>
       <Tabs value={fill.mode} onValueChange={mode=>update({mode:mode as ColorFill['mode']})}>
