@@ -464,3 +464,5 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 @media(prefers-reduced-motion:reduce) {
   .cs-instrument-dialog[data-state="closed"], .cs-instrument-dialog-close:active > svg, .cs-instrument-dialog[data-state="closed"] .cs-instrument-dialog-close > svg { animation: none; }
 }
+
+.cs-badge.cs-status-badge { background: transparent; border: 0; border-radius: 0; padding: 0; }

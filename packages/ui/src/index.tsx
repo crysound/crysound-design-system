@@ -117,7 +117,7 @@ export function StatusBadge({
   return (
     <span
       {...props}
-      className={cx("cs-badge", `cs-badge--${status}`, props.className)}
+      className={cx("cs-badge", "cs-status-badge", `cs-badge--${status}`, props.className)}
     >
       <span aria-hidden="true" className="cs-dot" />
       {children ?? statusLabels[status]}
