@@ -50,9 +50,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {loading && <span aria-hidden="true" className="cs-spinner" />}
-        {!loading && iconStart && <span aria-hidden="true">{iconStart}</span>}
+        {!loading && iconStart && <span className="cs-button-icon" aria-hidden="true">{iconStart}</span>}
         {children}
-        {iconEnd && <span aria-hidden="true">{iconEnd}</span>}
+        {iconEnd && <span className="cs-button-icon" aria-hidden="true">{iconEnd}</span>}
       </button>
     );
   },

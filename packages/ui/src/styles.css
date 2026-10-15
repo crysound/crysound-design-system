@@ -382,3 +382,8 @@
   .cs-accordion-content > div, .cs-command-menu-label small) {
   text-wrap: pretty;
 }
+
+/* Icon wrappers must not reserve the inline SVG baseline/descender space. */
+.cs-button { line-height: 20px; }
+.cs-button-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; line-height: 1; }
+.cs-button-icon > svg, .cs-button > svg { display: block; flex-shrink: 0; }
