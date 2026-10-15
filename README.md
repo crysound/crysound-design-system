@@ -100,3 +100,10 @@ Registry 从实际源码生成，将组件安装到项目的 components 别名�
 本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
 
 GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysound-design-system)，私有仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
+
+## 导航图标语义
+
+- 站内列表详情、查看全部和进入子页面：默认使用明确的文字链接；需要方向提示时使用统一图标库的 ChevronRight / ArrowRight。
+- 右上箭头 / LinkExternal 仅用于外部站点或明确的新窗口跳转，不作为卡片、表格行尾、标题链接的默认装饰。
+- 表格已有可点击名称时，不重复添加无标签的行尾箭头。确需独立详情操作时，提供“查看详情”文字或带 aria-label 的按钮。
+- 使用 SVG 图标组件，禁止用 Unicode 箭头字符拼接按钮文案，避免不同平台基线、尺寸和字重不一致。

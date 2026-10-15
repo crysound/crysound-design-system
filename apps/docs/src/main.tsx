@@ -1,3 +1,4 @@
+import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
 import { SpaceFoundations } from "./space-foundations";
 import { ThemeSelect } from "./theme-select";
 import React, { useState } from "react";
@@ -248,7 +249,7 @@ function App() {
                             {item.name}
                             <small>{item.zh}</small>
                           </span>
-                          <span aria-hidden="true">↗</span>
+                          <ChevronRight size={16} aria-hidden="true" />
                         </a>
                       ))}
                   </div>
@@ -293,7 +294,7 @@ npm pack -w @crysound/ui`}</code>
                       target="_blank"
                       rel="noreferrer"
                     >
-                      查看安装清单 ↗
+                      查看安装清单 <LinkExternal01 size={14} aria-hidden="true" style={{verticalAlign:"middle"}} />
                     </a>
                   </div>
                 </Card>
