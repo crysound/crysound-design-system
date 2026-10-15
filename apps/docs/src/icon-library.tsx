@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Checkbox } from "../../../packages/ui/src/index";
 import * as Icons from "@untitledui/icons";
 const entries = Object.entries(Icons).filter(([name]) => !name.endsWith('Rtl')).sort(([a], [b]) => a.localeCompare(b));
 const categories = [
@@ -39,7 +40,7 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
     <div className="icon-tools">
       <input className="cs-input" aria-label="搜索图标" placeholder="搜索英文名称，例如 Search、Volume、Arrow…" value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} />
       <div className="icon-sizes" role="group" aria-label="图标尺寸">{[16,20,24,32].map(n => <button key={n} className="cs-button cs-button--secondary" aria-pressed={size===n} onClick={()=>setSize(n)}>{n}px</button>)}</div>
-      <label className="icon-color-toggle"><input type="checkbox" checked={brand} onChange={e=>setBrand(e.target.checked)} />品牌色</label>
+      <Checkbox label="品牌色" checked={brand} onCheckedChange={checked => setBrand(checked === true)} />
     </div>
     <div className="icon-categories" role="group" aria-label="图标分类">{visibleCategories.map(([label, filter]) => <button key={label} className="cs-button cs-button--secondary" aria-pressed={category===filter} onClick={()=>{setCategory(filter);setPage(0);}}>{label}</button>)}</div>
     <div className="icon-code-panel"><div><strong>{selected}</strong><button className="cs-button cs-button--secondary" onClick={copy}>复制代码</button></div><pre><code>{snippet}</code></pre><span role="status">{message}</span></div>

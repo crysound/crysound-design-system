@@ -1425,7 +1425,6 @@ body {
 .icon-guidance { padding: 16px; background: var(--cs-subtle); border-radius: 8px; font-size: 13px; line-height: 1.7; margin: 24px 0; }
 .icon-tools, .icon-sizes, .icon-categories, .icon-pagination { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .icon-tools > .cs-input { flex: 1; min-width: 220px; }
-.icon-color-toggle { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .icon-categories { margin: 16px 0 24px; }
 .icon-library button[aria-pressed="true"] { border-color: var(--cs-brand); background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 .icon-code-panel { padding: 16px; border: 1px solid var(--doc-line); border-radius: 8px; margin-bottom: 24px; }
