@@ -1203,3 +1203,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-chart-tooltip-row > span:nth-child(2) { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .cs-chart-tooltip-row strong { flex-shrink: 0; }
 @media(max-width:540px) { .cs-chart-tooltip { left: 8px !important; top: 8px !important; width: calc(100% - 16px); max-width: none; transform: none; } }
+
+/* Pointer selection uses the crosshair; keyboard focus stays visible without a native blue ring. */
+.cs-chart-plot svg [role="button"] { outline: none; }
+.cs-chart-plot svg [role="button"]:focus-visible { outline: 1px dashed var(--cs-chart-axis); outline-offset: -1px; }
