@@ -1043,9 +1043,9 @@ button.cs-step-content { cursor: pointer; }
   display: none;
 }
 
-.cs-tree-toggle svg { transition: transform 200ms cubic-bezier(.2,0,0,1); }
-.cs-tree-item { transition: background-color 160ms ease-out, color 160ms ease-out; }
-.cs-tree-branch { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 220ms cubic-bezier(.2,0,0,1), opacity 160ms ease-out; }
+.cs-tree-toggle svg { transition: transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-tree-item { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), color var(--cds-dur-fast) var(--cds-ease-out); }
+.cs-tree-branch { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--cds-dur-base) var(--cds-ease-out), opacity var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-tree-branch[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
 .cs-tree-branch > ul { min-height: 0; overflow: hidden; }
 @media(prefers-reduced-motion:reduce) { .cs-tree-toggle svg, .cs-tree-item, .cs-tree-branch { transition: none; } }
@@ -1092,7 +1092,7 @@ button.cs-step-content { cursor: pointer; }
 }
 
 .cs-upload-dropzone {
-  transition: border-color 160ms ease-out, background-color 160ms ease-out;
+  transition: border-color var(--cds-dur-fast) var(--cds-ease-out), background-color var(--cds-dur-fast) var(--cds-ease-out);
 }
 .cs-upload-dropzone:not([data-disabled]):is(:hover, :focus-within) {
   border-color: var(--cs-brand);
@@ -1101,7 +1101,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-upload-dropzone:not([data-disabled])[data-dragging] {
   background: var(--cs-brand-subtle);
 }
-.cs-upload-icon { transition: color 160ms ease-out, border-color 160ms ease-out; }
+.cs-upload-icon { transition: color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-upload-dropzone:not([data-disabled]):is(:hover, :focus-within) .cs-upload-icon {
   color: var(--cs-brand);
   border-color: color-mix(in srgb, var(--cs-brand) 35%, var(--cs-border));
@@ -1112,7 +1112,7 @@ button.cs-step-content { cursor: pointer; }
 
 /* Proposed Tabs motion: a shared, interruptible, critically damped indicator. */
 .cs-tabs-list { position: relative; isolation: isolate; }
-.cs-tabs-trigger { position: relative; z-index: 1; transition: color 160ms ease-out; }
+.cs-tabs-trigger { position: relative; z-index: 1; transition: color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-tabs-indicator { position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; z-index: 0; background: var(--cs-brand); }
 .cs-tabs-list[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { border-color: transparent; }
 .cs-tabs-list--pill .cs-tabs-indicator { background: var(--cs-selected-bg); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow-sm); }

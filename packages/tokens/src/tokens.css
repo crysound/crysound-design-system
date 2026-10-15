@@ -295,3 +295,17 @@
 [data-theme="dark"] {
   --cs-skeleton-bg: color-mix(in srgb, var(--cs-text) 8%, var(--cs-surface));
 }
+
+/* Motion scale supplied by the design specification. */
+:root, [data-theme], [data-customer] {
+  --cds-dur-fast: 60ms;
+  --cds-dur-snap: .12s;
+  --cds-dur-base: .2s;
+  --cds-dur-sheet: .3s;
+  --cds-dur-slow: .45s;
+  --cds-ease-out: cubic-bezier(.165, .84, .44, 1);
+  --cds-ease-snap: cubic-bezier(.32, .72, 0, 1);
+  --cds-ease-overshoot: cubic-bezier(.34, 1.3, .64, 1);
+  --cs-duration-fast: var(--cds-dur-fast);
+  --cs-duration-normal: var(--cds-dur-base);
+}

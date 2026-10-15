@@ -343,7 +343,7 @@ select.cs-input.cs-select {
 .cs-device-table .cs-button { font-weight: var(--cs-weight-normal); }
 
 /* Bordered form controls change their existing edge instead of adding a focus ring. */
-.cs-input { transition: border-color 150ms ease-out; }
+.cs-input { transition: border-color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-input:hover:not(:disabled):not(:focus):not([aria-invalid="true"]) {
   border-color: color-mix(in srgb, var(--cs-brand) 45%, var(--cs-border));
 }
@@ -456,9 +456,9 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 .cs-alert-action .cs-button:focus-visible { outline-color: var(--tone-fg); }
 @media(max-width:540px) { .cs-alert { flex-wrap: wrap; } .cs-alert-content { flex: 1 1 200px; min-width: 0; } }
 
-.cs-instrument-dialog[data-state="closed"] { animation: cs-instrument-dialog-exit 180ms cubic-bezier(.2,.8,.2,1) both; pointer-events: none; }
+.cs-instrument-dialog[data-state="closed"] { animation: cs-instrument-dialog-exit var(--cds-dur-base) var(--cds-ease-out) both; pointer-events: none; }
 .cs-instrument-dialog-close:active > svg,
-.cs-instrument-dialog[data-state="closed"] .cs-instrument-dialog-close > svg { animation: cs-dialog-close-turn 180ms cubic-bezier(.2,.8,.2,1) both; transform-origin: center; }
+.cs-instrument-dialog[data-state="closed"] .cs-instrument-dialog-close > svg { animation: cs-dialog-close-turn var(--cds-dur-base) var(--cds-ease-out) both; transform-origin: center; }
 @keyframes cs-dialog-close-turn { from { transform: rotate(0deg); } to { transform: rotate(90deg); } }
 @keyframes cs-instrument-dialog-exit { from { opacity: 1; } to { opacity: 0; } }
 @media(prefers-reduced-motion:reduce) {
@@ -474,12 +474,12 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 .cs-overlay-close { display: inline-grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--cs-radius); background: transparent; color: var(--cs-muted); cursor: pointer; }
 .cs-overlay-close > svg { display: block; }
 .cs-overlay-close:hover, .cs-overlay-close:focus-visible { background: var(--cs-subtle); color: var(--cs-text); outline: none; }
-.cs-overlay-close:active > svg { animation: cs-dialog-close-turn 180ms cubic-bezier(.2,.8,.2,1) both; }
+.cs-overlay-close:active > svg { animation: cs-dialog-close-turn var(--cds-dur-base) var(--cds-ease-out) both; }
 @media(prefers-reduced-motion:reduce) { .cs-overlay-close:active > svg { animation: none; } }
 @media(forced-colors:active) { .cs-overlay-close:focus-visible { outline: 1px solid Highlight; } }
 
 /* Close affordances respond on hover, before activation. */
-.cs-overlay-close > svg, .cs-instrument-dialog-close > svg { transition: transform 180ms cubic-bezier(.2,.8,.2,1); transform-origin: center; }
+.cs-overlay-close > svg, .cs-instrument-dialog-close > svg { transition: transform var(--cds-dur-base) var(--cds-ease-out); transform-origin: center; }
 @media(hover:hover) {
   .cs-overlay-close:hover > svg, .cs-instrument-dialog-close:hover > svg { transform: rotate(90deg); }
   .cs-overlay-close:hover:active > svg, .cs-instrument-dialog-close:hover:active > svg { animation: none; }
@@ -499,7 +499,7 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 
 /* All corner dismiss controls share the same hover motion. */
 :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon) > svg {
-  display: block; transform-origin: center; transition: transform 180ms cubic-bezier(.2,.8,.2,1);
+  display: block; transform-origin: center; transition: transform var(--cds-dur-base) var(--cds-ease-out);
 }
 @media(hover:hover) {
   :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon):hover > svg { transform: rotate(90deg); }
@@ -516,3 +516,28 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 /* 24-unit chevrons include 4px horizontal whitespace at 16px; compensate optically. */
 .cs-button.cs-dropdown-trigger:has(> svg:last-child),
 .cs-button.cs-dropdown-trigger:has(> .cs-button-icon:last-child) { padding-left: 12px; padding-right: 8px; }
+
+/* Shared semantic motion: feedback, snap controls, standard overlays and sheets. */
+.cs-button { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out); }
+.cs-switch, .cs-checkbox, .cs-radio { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out); }
+.cs-switch-thumb, .cs-slider-thumb { transition: transform var(--cds-dur-snap) var(--cds-ease-snap); }
+.cs-tabs-trigger { transition: color var(--cds-dur-snap) var(--cds-ease-snap); }
+.cs-accordion-trigger > span, .cs-tree-toggle svg { transition: transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-popover[data-state="open"], .cs-dropdown[data-state="open"], .cs-select-menu[data-state="open"] { animation: cs-surface-enter var(--cds-dur-base) var(--cds-ease-out) both; }
+.cs-dialog[data-state="open"] { animation: cs-dialog-enter var(--cds-dur-base) var(--cds-ease-out) both; }
+.cs-sheet--right[data-state="open"] { animation: cs-sheet-right-enter var(--cds-dur-sheet) var(--cds-ease-out) both; }
+.cs-sheet--left[data-state="open"] { animation: cs-sheet-left-enter var(--cds-dur-sheet) var(--cds-ease-out) both; }
+.cs-sheet--right[data-state="closed"] { animation: cs-sheet-right-exit var(--cds-dur-sheet) var(--cds-ease-out) both; }
+.cs-sheet--left[data-state="closed"] { animation: cs-sheet-left-exit var(--cds-dur-sheet) var(--cds-ease-out) both; }
+.cs-card, .cs-inline-cta, .cs-sheet, .cs-dialog { transition: background-color var(--cds-dur-slow) var(--cds-ease-out), color var(--cds-dur-slow) var(--cds-ease-out); }
+@keyframes cs-surface-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cs-dialog-enter { from { opacity: 0; transform: translate(-50%,calc(-50% + 6px)); } to { opacity: 1; transform: translate(-50%,-50%); } }
+@keyframes cs-sheet-right-enter { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes cs-sheet-left-enter { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes cs-sheet-right-exit { from { transform: translateX(0); } to { transform: translateX(100%); } }
+@keyframes cs-sheet-left-exit { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@media(prefers-reduced-motion:reduce) {
+  .cs-button, .cs-switch, .cs-checkbox, .cs-radio, .cs-switch-thumb, .cs-slider-thumb, .cs-tabs-trigger,
+  .cs-accordion-trigger > span, .cs-tree-toggle svg, .cs-card, .cs-inline-cta, .cs-sheet, .cs-dialog { transition: none; }
+  .cs-popover[data-state], .cs-dropdown[data-state], .cs-select-menu[data-state], .cs-dialog[data-state], .cs-sheet[data-state] { animation: none; }
+}

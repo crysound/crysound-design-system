@@ -16,6 +16,9 @@ export function TabsList({
     const bar = indicator.current;
     if (!root || !bar) return;
     const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const snapTime = getComputedStyle(root).getPropertyValue('--cds-dur-snap').trim();
+    const snapSeconds = snapTime.endsWith('ms') ? parseFloat(snapTime) / 1000 : parseFloat(snapTime);
+    const omega = 6.6 / (Number.isFinite(snapSeconds) && snapSeconds > 0 ? snapSeconds : .12);
     let frame = 0;
     let previous = 0;
     let initialized = false;
@@ -33,7 +36,6 @@ export function TabsList({
     const tick = (now: number) => {
       const dt = Math.min((now - previous) / 1000, .04);
       previous = now;
-      const omega = 22;
       const decay = Math.exp(-omega * dt);
       for (const [position, velocity] of [['x', 'vx'], ['width', 'vw']] as const) {
         const offset = current[position] - target[position];
