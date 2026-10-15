@@ -312,6 +312,16 @@ export function ComponentDemo({ id }: { id: string }) {
               </Alert>
             </TabsContent>
           </Tabs>
+          <div style={{width: "100%", maxWidth: 240}}><Tabs defaultValue="overview">
+            <TabsList variant="pill" collapseInactiveLabels aria-label="紧凑三项分段控制器">
+              <TabsTrigger value="overview" icon={<Copy01 size={16} />}>概览</TabsTrigger>
+              <TabsTrigger value="details" icon={<ChevronDown size={16} />}>详情</TabsTrigger>
+              <TabsTrigger value="history" icon={<ArrowLeft size={16} />}>历史</TabsTrigger>
+            </TabsList>
+            <TabsContent value="overview">容器不超过 254px 时，未激活项仅展示图标。</TabsContent>
+            <TabsContent value="details">详情视图</TabsContent>
+            <TabsContent value="history">历史视图</TabsContent>
+          </Tabs></div>
           <Tabs defaultValue="day">
             <TabsList variant="pill" aria-label="时间范围">
               <TabsTrigger value="day">今天</TabsTrigger>

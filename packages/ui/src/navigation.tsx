@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type ComponentProps, type ReactNode } from "react";
+import { Children, isValidElement, useEffect, useRef, type ComponentProps, type ReactNode } from "react";
 import * as T from "@radix-ui/react-tabs";
 import * as A from "@radix-ui/react-accordion";
 import { Button } from "./index";
@@ -7,8 +7,8 @@ import { revealText } from "./text-reveal";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className, children, ref, variant = "line", ...props
-}: ComponentProps<typeof T.List> & { variant?: "line" | "pill" }) {
+  className, children, ref, variant = "line", collapseInactiveLabels = false, ...props
+}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -72,7 +72,8 @@ export function TabsList({
     measure();
     return () => { cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
   }, [variant]);
-  return <T.List {...props} ref={element => {
+  const segmented = collapseInactiveLabels && variant === "pill" && Children.toArray(children).filter(child => isValidElement(child) && child.type === TabsTrigger).length === 3;
+  const content = <T.List {...props} data-compact-segmented={segmented || undefined} ref={element => {
     list.current = element;
     if (typeof ref === 'function') return ref(element);
     if (ref) ref.current = element;
@@ -80,12 +81,13 @@ export function TabsList({
     <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />
     {children}
   </T.List>;
+  return segmented ? <div className="cs-tabs-container">{content}</div> : content;
 }
 export function TabsTrigger({
-  className,
+  className, icon, children,
   ...props
-}: ComponentProps<typeof T.Trigger>) {
-  return <T.Trigger {...props} className={cx("cs-tabs-trigger", className)} />;
+}: ComponentProps<typeof T.Trigger> & { icon?: ReactNode }) {
+  return <T.Trigger {...props} data-has-icon={icon ? true : undefined} className={cx("cs-tabs-trigger", className)}>{icon && <span className="cs-tabs-icon" aria-hidden="true">{icon}</span>}<span className="cs-tabs-label">{children}</span></T.Trigger>;
 }
 export function TabsContent({
   className, children,

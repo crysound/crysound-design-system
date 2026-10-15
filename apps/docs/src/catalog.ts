@@ -197,6 +197,8 @@ export const catalog: ComponentDoc[] = [
     [
       ["Tabs value / defaultValue", "string", "—"],
       ["TabsList variant", "line | pill", "line"],
+      ["TabsList collapseInactiveLabels", "boolean；三项 pill 在 ≤254px 收起未激活标签", "false"],
+      ["TabsTrigger icon", "ReactNode；收起时保留图标，无图标项保留文字", "—"],
       ["TabsTrigger value / disabled", "string / boolean", "必填 / false"],
     ],
     '<Tabs defaultValue="parameters"><TabsList aria-label="设备内容"><TabsTrigger value="parameters">参数</TabsTrigger><TabsTrigger value="logs">日志</TabsTrigger></TabsList><TabsContent value="parameters">参数配置</TabsContent><TabsContent value="logs">运行日志</TabsContent></Tabs>',
