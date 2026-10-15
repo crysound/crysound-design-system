@@ -1,4 +1,3 @@
-import { TextReveal } from "../../../packages/ui/src/text-reveal";
 import { LoginDemo } from "./login-demo";
 import { TreeViewDemo } from "./tree-view-demo";
 import { SectionHeaderDemo } from "./section-header-demo";
@@ -789,7 +788,7 @@ export function ComponentPage({
           </div>
         </div>
         <p>
-          <TextReveal text={`${item.description} 使用 CRYSOUND 语义 Token，支持明暗主题和客户定制。`}/>
+          {item.description} 使用 CRYSOUND 语义 Token，支持明暗主题和客户定制。
         </p>
         <div className="reference-resource-links">
           <a

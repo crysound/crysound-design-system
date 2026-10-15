@@ -7,7 +7,6 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from "react";
-import { TextReveal } from "./text-reveal";
 export { TextReveal } from "./text-reveal";
 import { AnimatedNumber } from "./animated-number";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
@@ -140,7 +139,7 @@ export function Card({
       <header className="cs-card-header">
         <div>
           <h3>{title}</h3>
-          {description && <p><TextReveal text={description} /></p>}
+          {description && <p>{description}</p>}
         </div>
         {actions}
       </header>
@@ -183,7 +182,7 @@ export function EmptyState({
   return (
     <div className="cs-empty">
       <h3>{title}</h3>
-      <p><TextReveal text={description} /></p>
+      <p>{description}</p>
       {action}
     </div>
   );
