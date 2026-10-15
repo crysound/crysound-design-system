@@ -3,3 +3,5 @@ dist/
 .DS_Store
 coverage/
 *.tgz
+
+apps/docs/public/downloads/

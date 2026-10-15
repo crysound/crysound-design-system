@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build"
+    "build": "vite build",
+    "prebuild": "node ../../scripts/build-download.mjs"
   },
   "dependencies": {
     "@crysound/tokens": "0.2.0",

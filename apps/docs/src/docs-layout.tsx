@@ -662,9 +662,8 @@ export function DocsHeader({
         </a>
         <a
           className="docs-action docs-desktop-action"
-          href="https://github.com/ya7881/crysound-design-system/releases/latest"
-          target="_blank"
-          rel="noreferrer"
+          href="/downloads/crysound-install.zip"
+          download="crysound-install.zip"
         >
           下载安装包
         </a>
