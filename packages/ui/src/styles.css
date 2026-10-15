@@ -566,3 +566,9 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 /* SVG icon convention: optional explicit secondary paths, never font glyphs. */
 .cs-icon { display: inline-block; flex-shrink: 0; font-feature-settings: "liga" 0; }
 .cs-icon [data-layer="secondary"] { color: color-mix(in srgb, currentColor 45%, transparent); }
+
+/* Opt-in baseline alignment for icons in inline text; not for flex-centered controls. */
+.cs-icon-inline { display: inline-block; width: 1em; height: 1em; vertical-align: -.125em; flex-shrink: 0; }
+.cs-icon-inline--caption { vertical-align: -.075em; }
+.cs-icon-inline--offset-1 { vertical-align: -1px; }
+.cs-icon-inline--offset-2 { vertical-align: -2px; }

@@ -94,3 +94,7 @@
 
 计数、测量读数、分页、时间和表格使用 font-variant-numeric:tabular-nums。消费项目的计时器和计数可复用 cs-tabular-nums 或 data-cs-numeric；字体须支持该 OpenType 特性。
 图标继续使用现有 SVG 资产和原生 viewBox，不引入 Phosphor 或 Anthro 插件资产，也不重写为256坐标系。可选 cs-icon 次层以 data-layer="secondary" 标记，使用 currentColor 45% 混色；主层保持 currentColor，图标线宽仍为1.2px。SVG 不经过字体连字替换，辅助类同时明确 liga=0。
+
+## 行内图标基线对齐
+
+14–16px 正文混排使用 cs-icon-inline（vertical-align:-.125em），12px辅助文字增加 cs-icon-inline--caption（-.075em）。固定高度工具栏可选 --offset-1 / --offset-2，分别为-1px/-2px。仅用于 inline 排版；flex居中的按钮、Tabs和导航不重复施加偏移。图标实际光学中心依资产而异，不能保证所有图标绝对共线。
