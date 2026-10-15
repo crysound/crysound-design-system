@@ -2,16 +2,19 @@ import { useState } from 'react';
 import { HelpCircle } from '@untitledui/icons';
 import { InlineCTA, InlineCTASkeleton } from '../../../packages/ui/src/index';
 function ReportPreview() {
-  return <svg className="cta-report-preview" viewBox="0 0 240 180" role="img" aria-label="测量报告模板预览">
-    <rect width="240" height="180" fill="var(--cs-subtle)"/>
-    <rect x="42" y="18" width="156" height="162" rx="5" fill="var(--cs-surface)" stroke="var(--cs-border)"/>
-    <text x="56" y="40" fill="var(--cs-text-heading)" fontSize="10" fontWeight="var(--cs-weight-semibold)">声学测量报告</text>
-    <path d="M56 49H184" stroke="var(--cs-border)"/>
-    <text x="56" y="67" fill="var(--cs-muted)" fontSize="7">声压级</text>
-    <text x="56" y="87" fill="var(--cs-text)" fontSize="19" fontWeight="var(--cs-weight-medium)">68.4<tspan fontSize="7" dx="5" fill="var(--cs-muted)">dB SPL</tspan></text>
-    <path d="M56 104H184M56 121H184M56 138H184" stroke="var(--cs-border)" strokeWidth=".5"/>
-    <path d="m56 129 12-5 12 4 12-17 12 7 12-13 12 8 12-19 12 13 12-5 12 6 8-10" fill="none" stroke="var(--cs-brand)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M56 154H111M56 161H143" stroke="var(--cs-border)" strokeWidth="3" strokeLinecap="round"/>
+  return <svg className="cta-report-preview" viewBox="0 0 280 200" role="img" aria-label="声学报告预览：声压级 68.4 dB SPL，频率响应曲线">
+    <rect width="280" height="200" fill="var(--cs-surface)"/>
+    <text x="24" y="29" fill="var(--cs-muted)" fontSize="9">声压级 · SPL</text>
+    <text x="24" y="63" fill="var(--cs-text-heading)" fontSize="30" fontWeight="var(--cs-weight-medium)">68.4</text>
+    <text x="95" y="62" fill="var(--cs-muted)" fontSize="9">dB SPL</text>
+    <rect x="205" y="19" width="51" height="18" rx="9" fill="var(--cs-selected-bg)"/>
+    <text x="230.5" y="31" textAnchor="middle" fill="var(--cs-brand)" fontSize="8">CH 01</text>
+    {[94,119,144].map(y=><path key={y} d={`M24 ${y}H256`} stroke="var(--cs-border)" strokeOpacity=".55" strokeWidth=".5"/>)}
+    <path d="M24 145C40 145 44 132 58 128S80 117 94 120S115 130 131 116S149 97 165 103S185 121 201 109S231 94 256 98" fill="none" stroke="var(--cs-brand)" strokeWidth="1.6" strokeLinecap="round"/>
+    <path d="M24 145C40 145 44 132 58 128S80 117 94 120S115 130 131 116S149 97 165 103S185 121 201 109S231 94 256 98V157H24Z" fill="var(--cs-brand)" opacity=".035"/>
+    <text x="24" y="174" fill="var(--cs-muted)" fontSize="8">20 Hz</text>
+    <text x="140" y="174" textAnchor="middle" fill="var(--cs-muted)" fontSize="8">1 kHz</text>
+    <text x="256" y="174" textAnchor="end" fill="var(--cs-muted)" fontSize="8">20 kHz</text>
   </svg>;
 }
 export function InlineCTADemo() {
