@@ -1190,3 +1190,16 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-chart-overlay { position: absolute; inset: 12px 16px 54px 76px; display: grid; place-items: center; pointer-events: none; color: #94a3b8; font-size: 13px; }
 .cs-chart-overlay > span { padding: 8px 12px; background: var(--cs-chart-plot-bg); }
+
+.cs-chart-crosshair line { stroke: #334155; stroke-width: 1; stroke-dasharray: 6 5; opacity: .8; }
+.cs-chart-tooltip { position: absolute; z-index: 2; min-width: 200px; max-width: min(360px, calc(100% - 24px)); max-height: 180px; overflow: hidden; box-sizing: border-box; padding: 8px 10px; border: 1px solid var(--cs-chart-grid); border-radius: 4px; background: var(--cs-chart-plot-bg); color: var(--cs-chart-axis); box-shadow: 0 2px 8px #0f172a12; transform: translateX(12px); pointer-events: none; color: #334155; font-size: 12px; line-height: 20px; font-variant-numeric: tabular-nums; }
+.cs-chart-tooltip[data-flip] { transform: translateX(calc(-100% - 12px)); }
+.cs-chart-tooltip-title { text-align: center; margin-bottom: 2px; }
+.cs-chart-tooltip-row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.cs-chart-tooltip-row strong { margin-left: auto; font-weight: var(--cs-weight-semibold); }
+.cs-chart-tooltip-dot { width: 9px; height: 9px; flex: 0 0 9px; border: 1px solid #334155; border-radius: 50%; }
+@media(max-width:540px) { .cs-chart-tooltip { min-width: 0; font-size: 11px; } .cs-chart-tooltip-row { gap: 4px; } }
+
+.cs-chart-tooltip-row > span:nth-child(2) { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.cs-chart-tooltip-row strong { flex-shrink: 0; }
+@media(max-width:540px) { .cs-chart-tooltip { left: 8px !important; top: 8px !important; width: calc(100% - 16px); max-width: none; transform: none; } }

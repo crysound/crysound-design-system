@@ -37,4 +37,17 @@ describe('charts',()=>{
     expect(swatch().style.background).toBe('rgb(18, 52, 86)');
   });
 
+  it('pins the crosshair and precise channel readout until Escape',()=>{
+    const view=render(<LineChart title="FFT" unit="dBV rms" xScale="log" xLabel="Frequency(Hz)" data={[{label:'140.625 Hz',x:140.625,values:{a:-69.704}}]} series={series}/>);
+    const point=screen.getByRole('button',{name:'140.625 Hz：测点 A -69.704 dBV rms'});
+    fireEvent.click(point);
+    fireEvent.mouseLeave(view.container.querySelector('.cs-chart-plot')!);
+    expect(point).toHaveAttribute('aria-pressed','true');
+    expect(view.container.querySelector('.cs-chart-tooltip')).toHaveTextContent('140.625 Hz');
+    expect(view.container.querySelector('.cs-chart-tooltip')).toHaveTextContent('-69.704 dBV rms');
+    expect(view.container.querySelectorAll('.cs-chart-crosshair line')).toHaveLength(2);
+    fireEvent.keyDown(point,{key:'Escape'});
+    expect(view.container.querySelector('.cs-chart-tooltip')).not.toBeInTheDocument();
+  });
+
 });
