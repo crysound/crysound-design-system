@@ -82,7 +82,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
         </div>}
         {(loading||!data.length||!series.length)&&<div className="cs-chart-overlay" role={loading?'status':undefined}><span>{loading?'正在加载图表…':'暂无图表数据'}</span></div>}
       </div>
-      {!loading&&data.length>0&&series.length>0&&<><div className="cs-chart-readout" aria-live="polite">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>悬浮查看 · 点击固定游标 · Esc 取消 · Tab / 方向键移动{unit?` · 单位 ${unit}`:''}</span>}</div>
+      {!loading&&data.length>0&&series.length>0&&<><div className="cs-sr-only" aria-live="polite" aria-atomic="true">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>悬浮查看 · 点击固定游标 · Esc 取消 · Tab / 方向键移动{unit?` · 单位 ${unit}`:''}</span>}</div>
       <details className="cs-chart-data"><summary>查看数据表</summary><div className="cs-table-scroll"><table className="cs-table"><caption className="cs-sr-only">{title}原始数据</caption><thead><tr><th>项目</th>{series.map(item=><th key={item.key}>{item.label}{unit?` (${unit})`:''}</th>)}</tr></thead><tbody>{data.map((row,i)=><tr key={i}><th scope="row">{row.label}</th>{series.map(item=><td key={item.key}>{typeof row.values[item.key]==='number'&&Number.isFinite(row.values[item.key])?format(row.values[item.key]!):'—'}</td>)}</tr>)}</tbody></table></div></details></>}
     </>
   </figure>;
