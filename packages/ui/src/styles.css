@@ -395,3 +395,24 @@
 [data-shadow="md"] { box-shadow: var(--cs-shadow-md); }
 [data-shadow="lg"] { box-shadow: var(--cs-shadow-lg); }
 [data-shadow="xl"] { box-shadow: var(--cs-shadow-xl); }
+
+/* Self-contained select geometry, independent of consuming page typography. */
+.cs-input.cs-select-trigger {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 12px;
+  gap: 12px;
+  font-family: var(--cs-font);
+  font-size: var(--cs-font-size);
+  font-weight: var(--cs-weight-normal);
+  line-height: 20px;
+  text-align: left;
+  background-image: none;
+}
+.cs-select-trigger > span { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cs-select-trigger > svg { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
+.cs-select-menu { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); line-height: 20px; }
+.cs-select-option { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); }
