@@ -19,7 +19,6 @@ import "../../../packages/tokens/src/tokens.css";
 import "../../../packages/ui/src/styles.css";
 import "./site.css";
 import "./reference-layout.css";
-import { SearchLg } from "@untitledui/icons";
 import {
   DocsBrand,
   DocsHeader,
@@ -161,13 +160,6 @@ function App() {
       <aside className="docs-sidebar">
         <div className="docs-sidebar-brand">
           <DocsBrand />
-          <button
-            className="docs-icon-button"
-            aria-label="搜索组件"
-            onClick={() => setSearchOpen(true)}
-          >
-            <SearchLg size={18} />
-          </button>
         </div>
         <SidebarContent route={route} />
       </aside>
@@ -176,6 +168,7 @@ function App() {
           route={route}
           activeDoc={activeDoc}
           theme={theme}
+          onSearch={() => setSearchOpen(true)}
           onThemeToggle={() =>
             setTheme((current) => (current === "dark" ? "light" : "dark"))
           }

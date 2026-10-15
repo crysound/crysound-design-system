@@ -602,12 +602,14 @@ export function DocsHeader({
   activeDoc,
   theme,
   onThemeToggle,
+  onSearch,
   settings,
 }: {
   route: string;
   activeDoc?: ComponentDoc;
   theme: string;
   onThemeToggle: () => void;
+  onSearch: () => void;
   settings: ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -627,6 +629,9 @@ export function DocsHeader({
         ]} />
       </div>
       <div className="docs-header-actions">
+        <button type="button" className="docs-icon-button" aria-label="搜索组件" onClick={onSearch}>
+          <SearchLg size={18} aria-hidden="true" />
+        </button>
         <button
           className="docs-icon-button"
           aria-label={theme === "dark" ? "切换浅色主题" : "切换深色主题"}
