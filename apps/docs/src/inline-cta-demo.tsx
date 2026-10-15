@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HelpCircle } from '@untitledui/icons';
-import { InlineCTA } from '../../../packages/ui/src/index';
+import { InlineCTA, InlineCTASkeleton } from '../../../packages/ui/src/index';
 function ReportPreview() {
   return <svg className="cta-report-preview" viewBox="0 0 240 180" role="img" aria-label="测量报告模板预览">
     <rect width="240" height="180" fill="var(--cs-subtle)"/>
@@ -16,5 +16,5 @@ function ReportPreview() {
 }
 export function InlineCTADemo() {
   const [message,setMessage]=useState('');
-  return <div className="inline-cta-demo"><InlineCTA shadow="sm" title="全新测量报告已上线" description="统一报告格式，让团队更高效地整理与交付测量结果。" media={<ReportPreview/>} primaryAction={{label:'配置模板',onClick:()=>setMessage('已触发配置模板示例。')}} secondaryAction={{label:'了解更多',onClick:()=>setMessage('已触发了解更多示例。')}} /><InlineCTA tone="brand" title="需要定制检测流程？" description="联系技术团队，了解 CRYSOUND 产品集成方案。" primaryAction={{label:'查看产品模式',href:'#patterns'}} secondaryAction={{label:'稍后再说',onClick:()=>setMessage('已选择稍后再说。')}} dismissible onDismiss={()=>setMessage('提示已关闭。')} /><InlineCTA title="配置尚未完成" description="演示加载与禁用操作状态。" icon={<HelpCircle size={24}/>} primaryAction={{label:'保存配置',loading:true}} secondaryAction={{label:'取消',disabled:true}} /><p className="cs-help" role="status">{message||'操作仅为组件演示，不发送请求。'}</p></div>;
+  return <div className="inline-cta-demo"><InlineCTA shadow="sm" title="全新测量报告已上线" description="统一报告格式，让团队更高效地整理与交付测量结果。" media={<ReportPreview/>} primaryAction={{label:'配置模板',onClick:()=>setMessage('已触发配置模板示例。')}} secondaryAction={{label:'了解更多',onClick:()=>setMessage('已触发了解更多示例。')}} /><InlineCTA tone="brand" title="需要定制检测流程？" description="联系技术团队，了解 CRYSOUND 产品集成方案。" primaryAction={{label:'查看产品模式',href:'#patterns'}} secondaryAction={{label:'稍后再说',onClick:()=>setMessage('已选择稍后再说。')}} dismissible onDismiss={()=>setMessage('提示已关闭。')} /><InlineCTA title="配置尚未完成" description="演示加载与禁用操作状态。" icon={<HelpCircle size={24}/>} primaryAction={{label:'保存配置',loading:true}} secondaryAction={{label:'取消',disabled:true}} /><InlineCTASkeleton media shadow="sm" /><p className="cs-help" role="status">{message||'操作仅为组件演示，不发送请求。'}</p></div>;
 }

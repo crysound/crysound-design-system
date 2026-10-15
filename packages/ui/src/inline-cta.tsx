@@ -2,6 +2,7 @@
 import { useState, type ReactNode } from 'react';
 import type { ShadowLevel } from './shadow';
 import { Button } from './index';
+import { Skeleton } from './display';
 export interface InlineCTAAction { label: string; onClick?: () => void; href?: string; disabled?: boolean; loading?: boolean }
 export interface InlineCTAProps {
   shadow?: ShadowLevel;
@@ -21,5 +22,14 @@ export function InlineCTA({title,description,icon,media,tone='neutral',shadow,pr
     <div className="cs-inline-cta-content"><strong>{title}</strong>{description&&<div>{description}</div>}</div>
     <div className="cs-inline-cta-actions">{secondaryAction&&action(secondaryAction,false)}{action(primaryAction,true)}</div>
     {dismissible&&<button type="button" className="cs-inline-cta-close" aria-label={`关闭 ${title}`} onClick={()=>{setDismissed(true);onDismiss?.();}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>}
+  </aside>;
+}
+
+export interface InlineCTASkeletonProps { media?: boolean; shadow?: ShadowLevel; label?: string }
+export function InlineCTASkeleton({media = false, shadow, label = '正在加载行动提示'}: InlineCTASkeletonProps) {
+  return <aside className={`cs-inline-cta cs-inline-cta--neutral${media ? ' cs-inline-cta--media' : ''}`} data-shadow={shadow} aria-busy="true" aria-label={label}>
+    {media && <div className="cs-inline-cta-media"><Skeleton height="100%" style={{minHeight:180,borderRadius:0}} /></div>}
+    <div className="cs-inline-cta-content"><Skeleton variant="text" width="55%" height={20}/><Skeleton variant="text" width="90%" height={16}/><Skeleton variant="text" width="70%" height={16}/></div>
+    <div className="cs-inline-cta-actions"><Skeleton width={88} height={36}/><Skeleton width={100} height={36}/></div>
   </aside>;
 }

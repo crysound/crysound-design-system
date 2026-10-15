@@ -572,7 +572,7 @@ export function ComponentDemo({ id }: { id: string }) {
         <div aria-busy="true" aria-label="正在加载设备资料">
           <Stack>
             <div className="demo-row">
-              <Skeleton width={48} height={48} />
+              <Skeleton variant="circle" width={48} height={48} />
               <div className="demo-flex">
                 <Skeleton width="60%" height={18} />
                 <div style={{ height: 10 }} />

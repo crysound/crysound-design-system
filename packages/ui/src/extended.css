@@ -1211,3 +1211,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-spectrogram-scale { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin: 12px 0 6px; color: var(--cs-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .cs-spectrogram-colorbar { width: 180px; height: 10px; background: linear-gradient(90deg,#440154,#3b528b,#21918c,#5ec962,#fde725); }
 .cs-spectrogram-readout { position: absolute; top: 20px; right: 36px; padding: 6px 10px; border: 1px solid var(--cs-chart-grid); border-radius: 4px; background: var(--cs-chart-plot-bg); color: var(--cs-chart-axis); font-size: 12px; pointer-events: none; }
+
+.cs-skeleton--circle { border-radius: 50%; }
+.cs-skeleton--text { border-radius: 3px; }
+.cs-skeleton[data-animate="false"] { animation: none; }

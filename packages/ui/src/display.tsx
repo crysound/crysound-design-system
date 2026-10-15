@@ -121,11 +121,15 @@ export function Progress({
   );
 }
 export function Skeleton({
+  variant = "rounded",
+  animate = true,
   width = "100%",
   height = 16,
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement> & {
+  variant?: "rounded" | "circle" | "text";
+  animate?: boolean;
   width?: CSSProperties["width"];
   height?: CSSProperties["height"];
 }) {
@@ -133,7 +137,8 @@ export function Skeleton({
     <div
       {...props}
       aria-hidden="true"
-      className={cx("cs-skeleton", className)}
+      className={cx("cs-skeleton", `cs-skeleton--${variant}`, className)}
+      data-animate={animate}
       style={{ width, height, ...props.style }}
     />
   );
