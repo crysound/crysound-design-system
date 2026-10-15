@@ -129,8 +129,11 @@
   --cs-radius-sm: 2px;
   --cs-radius-md: 6px;
   --cs-radius-lg: 8px;
+  --cs-radius-10: 10px;
   --cs-radius-xl: 12px;
-  --cs-radius-pill: 9999px;
+  --cs-radius-2xl: 16px;
+  --cs-radius-3xl: 20px;
+  --cs-radius-pill: 99999px;
   --cs-radius-circle: 50%;
   --cs-space-0: 0px;
   --cs-space-0-5: 2px;
