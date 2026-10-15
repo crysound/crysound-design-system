@@ -121,6 +121,7 @@ export function Progress({
   );
 }
 export function Skeleton({
+  effect = "pulse",
   variant = "rounded",
   animate = true,
   width = "100%",
@@ -128,6 +129,7 @@ export function Skeleton({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement> & {
+  effect?: "pulse" | "sweep";
   variant?: "rounded" | "circle" | "text";
   animate?: boolean;
   width?: CSSProperties["width"];
@@ -137,7 +139,7 @@ export function Skeleton({
     <div
       {...props}
       aria-hidden="true"
-      className={cx("cs-skeleton", `cs-skeleton--${variant}`, className)}
+      className={cx("cs-skeleton", `cs-skeleton--${variant}`, `cs-skeleton--${effect}`, className)}
       data-animate={animate}
       style={{ width, height, ...props.style }}
     />

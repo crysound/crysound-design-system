@@ -580,7 +580,7 @@ export function ComponentDemo({ id }: { id: string }) {
                 <Skeleton width="40%" height={12} />
               </div>
             </div>
-            <Skeleton height={100} />
+            <Skeleton effect="sweep" height={100} />
           </Stack>
         </div>
       );

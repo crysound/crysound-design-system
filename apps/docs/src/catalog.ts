@@ -405,6 +405,7 @@ export const catalog: ComponentDoc[] = [
       ["width / height", "CSS 长度", "100% / 16"],
       ["variant", "rounded | circle | text", "rounded"],
       ["animate", "boolean", "true"],
+      ["effect", "pulse | sweep", "pulse"],
       ["className", "string", "—"],
     ],
     '<div aria-busy="true" aria-label="正在加载设备"><Skeleton height={20} width="60%" /><Skeleton height={100} /></div>',

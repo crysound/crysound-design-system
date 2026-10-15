@@ -98,3 +98,7 @@
 ## 行内图标基线对齐
 
 14–16px 正文混排使用 cs-icon-inline（vertical-align:-.125em），12px辅助文字增加 cs-icon-inline--caption（-.075em）。固定高度工具栏可选 --offset-1 / --offset-2，分别为-1px/-2px。仅用于 inline 排版；flex居中的按钮、Tabs和导航不重复施加偏移。图标实际光学中心依资产而异，不能保证所有图标绝对共线。
+
+## 消息与异步反馈动效
+
+可选类 cs-message-enter（10px上浮，200ms）、cs-user-bubble-enter（.92缩放和6px上浮，200ms超调）、cs-saved-check-decay（展示1秒后450ms消退）、cs-pill-pending（900ms交替呼吸）。Skeleton 的 effect="sweep" 开启1.6秒倾斜扫光；默认pulse保持兼容，animate=false和减少动态效果均关闭扫光。循环加载使用独立节奏，不套用单次交互60ms。消费方负责设置真实loading/aria-busy状态，对勾消退不隐藏按钮的可访问名称。

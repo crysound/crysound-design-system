@@ -575,3 +575,21 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 
 /* Action text shares the column's leading edge; expand hit area without moving text. */
 .cs-device-table .cs-button--ghost { padding: 0 12px; margin-left: -13px; }
+
+/* Optional communication and asynchronous feedback motion. */
+@keyframes message-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes code-user-bubble-enter { from { opacity: 0; transform: scale(.92) translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes saved-check-decay { to { opacity: 0; } }
+@keyframes cds-skeleton-sweep { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+@keyframes df-pill-pending { to { opacity: .45; } }
+.cs-message-enter { animation: message-fade-up var(--cds-dur-base) var(--cds-ease-out) both; }
+.cs-user-bubble-enter { transform-origin: bottom right; animation: code-user-bubble-enter var(--cds-dur-base) var(--cds-ease-overshoot) both; }
+.cs-saved-check-decay { animation: saved-check-decay var(--cds-dur-slow) var(--cds-ease-out) 1s forwards; }
+.cs-pill-pending { animation: df-pill-pending 900ms ease-in-out infinite alternate; }
+.cs-skeleton--sweep { position: relative; overflow: hidden; isolation: isolate; animation: none; }
+.cs-skeleton--sweep::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 20%, color-mix(in srgb, var(--cs-surface) 70%, transparent) 50%, transparent 80%); animation: cds-skeleton-sweep 1.6s var(--cds-ease-out) infinite; pointer-events: none; }
+.cs-skeleton--sweep[data-animate="false"]::after { display: none; }
+@media(prefers-reduced-motion:reduce) {
+  .cs-message-enter, .cs-user-bubble-enter, .cs-saved-check-decay, .cs-pill-pending { animation: none; }
+  .cs-skeleton--sweep::after { display: none; }
+}
