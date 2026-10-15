@@ -1651,3 +1651,9 @@ body {
 .logo-rules-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 40px; }
 .logo-guidelines a { color: var(--cs-brand); font-size: 14px; }
 @media(max-width:760px) { .logo-guidelines { padding: 40px 24px; } .logo-variant-grid, .logo-rules-grid { grid-template-columns: 1fr; } .logo-clearspace { padding: 16px; } .logo-clearspace-inner { padding: 24px; } .logo-clearspace-inner img { width: 178.819px; height:24px; } .logo-clearspace-inner span { top:4px; } }
+
+:where(.reference-page, .docs-legacy-content, .logo-guidelines) :is(h1,h2,h3,h4) { text-wrap: balance; }
+:where(.reference-description, .reference-page p, .docs-legacy-content p, .logo-guidelines p) { text-wrap: pretty; overflow-wrap: anywhere; word-break: normal; }
+@media(max-width:767px) and (pointer:coarse) {
+  .docs-search-dialog input, .icon-tools input, .docs-settings-fields select { font-size: max(16px, var(--cs-font-size)); }
+}

@@ -541,3 +541,20 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
   .cs-accordion-trigger > span, .cs-tree-toggle svg, .cs-card, .cs-inline-cta, .cs-sheet, .cs-dialog { transition: none; }
   .cs-popover[data-state], .cs-dropdown[data-state], .cs-select-menu[data-state], .cs-dialog[data-state], .cs-sheet[data-state] { animation: none; }
 }
+
+/* Text flow: preserve words, permit emergency wrapping, balance headings. */
+:where(.cs-card, .cs-field, .cs-alert, .cs-dialog, .cs-sheet, .cs-popover, .cs-inline-cta,
+  .cs-section-header, .cs-tree-view, .cs-command-menu, .cs-table) {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+:where(.cs-card, .cs-alert, .cs-dialog, .cs-sheet, .cs-inline-cta, .cs-section-header) :is(h1,h2,h3,h4,h5,h6) { text-wrap: balance; }
+.cs-wrap-balance { text-wrap: balance; }
+.cs-wrap-pretty { text-wrap: pretty; }
+.cs-wrap-identifier { overflow-wrap: anywhere; word-break: normal; min-width: 0; }
+/* iOS avoids automatic focus zoom for controls with at least 16px text. */
+@media(max-width:767px) and (pointer:coarse) {
+  .cs-input, .cs-command-menu-search input, .cs-login-input input, .cs-color-picker input,
+  .cs-date-trigger, .cs-input.cs-select-trigger { font-size: max(16px, var(--cs-font-size)); }
+  .cs-input-placeholder-reveal, .cs-login-hint { font-size: max(16px, var(--cs-font-size)); }
+}
