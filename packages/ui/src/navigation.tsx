@@ -48,12 +48,11 @@ export function TabsList({
     const measure = () => {
       const active = root.querySelector<HTMLElement>('[role="tab"][data-state="active"]');
       if (!active) { bar.style.opacity = '0'; return; }
-      const rect = active.getBoundingClientRect();
-      const parent = root.getBoundingClientRect();
-      target.x = rect.left - parent.left + root.scrollLeft - root.clientLeft;
-      target.width = rect.width;
-      bar.style.top = `${rect.top - parent.top + root.scrollTop - root.clientTop + (variant === 'line' ? rect.height - 2 : 0)}px`;
-      bar.style.height = `${variant === 'line' ? 2 : rect.height}px`;
+      // Layout coordinates stay correct inside scaled component thumbnails.
+      target.x = active.offsetLeft;
+      target.width = active.offsetWidth;
+      bar.style.top = `${active.offsetTop + (variant === 'line' ? active.offsetHeight - 2 : 0)}px`;
+      bar.style.height = `${variant === 'line' ? 2 : active.offsetHeight}px`;
       bar.style.opacity = '1';
       root.dataset.indicatorReady = 'true';
       cancelAnimationFrame(frame);
