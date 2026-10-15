@@ -196,29 +196,7 @@ body {
   gap: 16px;
 }
 .docs-header-breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  font-weight: var(--cs-weight-medium);
   min-width: 0;
-}
-.docs-header-breadcrumbs a {
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  color: var(--doc-muted);
-}
-.docs-header-breadcrumbs > svg {
-  color: var(--cs-text-disabled);
-  flex-shrink: 0;
-}
-.docs-header-breadcrumbs > span {
-  padding: 3px 7px;
-  border-radius: 5px;
-  background: var(--doc-subtle);
-  white-space: nowrap;
-  color: var(--doc-text);
 }
 .docs-header-actions {
   display: flex;

@@ -25,6 +25,7 @@ import {
 } from "../../../packages/ui/src/index";
 import { catalog, type ComponentDoc } from "./catalog";
 import {
+  Breadcrumbs,
   Avatar,
   Badge,
   Button,
@@ -615,30 +616,16 @@ export function DocsHeader({
       <div className="docs-mobile-brand">
         <DocsBrand />
       </div>
-      <nav className="docs-header-breadcrumbs" aria-label="当前位置">
-        <a href="#library">
-          {activeDoc ? categoryFor(activeDoc.id).name : "组件"}
-        </a>
-        <ChevronRight size={16} aria-hidden="true" />
-        {activeDoc && (
-          <>
-            <a href="#library">组件</a>
-            <ChevronRight size={16} aria-hidden="true" />
-          </>
-        )}
-        <span aria-current="page">
-          {activeDoc?.name ??
-            {
-              foundations: "基础规范",
-              icons: "图标库",
-              "file-icons": "File icons 文件图标",
-              installation: "安装与接入",
-              patterns: "产品模式",
-              customization: "主题与定制",
-            }[route] ??
-            "简介"}
-        </span>
-      </nav>
+      <div className="docs-header-breadcrumbs">
+        <Breadcrumbs label="当前位置" items={[
+          { label: activeDoc ? categoryFor(activeDoc.id).name : "组件", href: "#library" },
+          ...(activeDoc ? [{ label: "组件", href: "#library" }] : []),
+          { label: activeDoc?.name ?? ({
+            foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
+            installation: "安装与接入", patterns: "产品模式", customization: "主题与定制",
+          } as Record<string, string>)[route] ?? "简介" },
+        ]} />
+      </div>
       <div className="docs-header-actions">
         <button
           className="docs-icon-button"
