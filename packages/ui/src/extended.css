@@ -1061,12 +1061,11 @@ button.cs-step-content { cursor: pointer; }
 /* Proposed placeholder motion: soft character entry and a shared loop fade. */
 .cs-login-input { position: relative; }
 .cs-login-input:has(.cs-login-hint) input::placeholder { color: transparent; }
-.cs-login-hint { position: absolute; inset: 0 44px 0 12px; display: flex; align-items: center; pointer-events: none; color: var(--cs-muted); font: inherit; white-space: pre; animation: cs-login-hint-cycle 4s cubic-bezier(.22, 1, .36, 1) both; }
+.cs-login-hint { position: absolute; inset: 0 44px 0 12px; display: flex; align-items: center; pointer-events: none; color: var(--cs-muted); font: inherit; white-space: pre; }
 .cs-login-hint > span { display: inline-block; opacity: 0; animation: cs-character-reveal 90ms cubic-bezier(.22, 1, .36, 1) both; }
 .cs-login-input input:not(:placeholder-shown) ~ .cs-login-hint,
 .cs-login-input input:focus ~ .cs-login-hint { visibility: hidden; }
 @keyframes cs-character-reveal { from { opacity: 0; filter: blur(3px); } to { opacity: 1; filter: blur(0); } }
-@keyframes cs-login-hint-cycle { 0%, 88% { opacity: 1; } 98%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
   .cs-login-hint { display: none; animation: none; }
   .cs-login-hint > span { animation: none; }
