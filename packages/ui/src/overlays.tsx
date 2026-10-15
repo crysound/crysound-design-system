@@ -85,7 +85,7 @@ export function DropdownMenu({
 }) {
   return (
     <Menu.Root>
-      <Menu.Trigger asChild>{trigger}</Menu.Trigger>
+      <Menu.Trigger asChild className="cs-dropdown-trigger">{trigger}</Menu.Trigger>
       <Menu.Portal>
         <Menu.Content
           className="cs-dropdown"

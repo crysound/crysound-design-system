@@ -512,3 +512,7 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 /* Center mixed text actions and dismiss controls in alert rows. */
 .cs-alert > button, .cs-alert-action > button { align-self: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px; line-height: 20px; }
 button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; min-height: 32px; flex: 0 0 32px; padding: 0; box-sizing: border-box; }
+
+/* 24-unit chevrons include 4px horizontal whitespace at 16px; compensate optically. */
+.cs-button.cs-dropdown-trigger:has(> svg:last-child),
+.cs-button.cs-dropdown-trigger:has(> .cs-button-icon:last-child) { padding-left: 12px; padding-right: 8px; }
