@@ -107,3 +107,5 @@ GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysou
 - 右上箭头 / LinkExternal 仅用于外部站点或明确的新窗口跳转，不作为卡片、表格行尾、标题链接的默认装饰。
 - 表格已有可点击名称时，不重复添加无标签的行尾箭头。确需独立详情操作时，提供“查看详情”文字或带 aria-label 的按钮。
 - 使用 SVG 图标组件，禁止用 Unicode 箭头字符拼接按钮文案，避免不同平台基线、尺寸和字重不一致。
+
+站内文字操作统一使用 `<ActionLink href="/samples">全部样本</ActionLink>`；外部导航显式传 `external`。箭头使用组件内的 16px SVG、1.5px 线宽和 6px 间距，不拼接字符。

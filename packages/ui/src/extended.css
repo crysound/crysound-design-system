@@ -1222,3 +1222,10 @@ button.cs-step-content { cursor: pointer; }
 @media (forced-colors: active) {
   .cs-tabs-trigger:focus-visible { outline: 1px solid Highlight; outline-offset: -3px; }
 }
+
+.cs-action-link { display: inline-flex; align-items: center; gap: 6px; color: var(--cs-brand); font: inherit; font-size: 14px; line-height: 20px; text-decoration: none; border-radius: var(--cs-radius); }
+.cs-action-link > span { min-width: 0; }
+.cs-action-link-arrow { display: block; flex: 0 0 16px; }
+.cs-action-link:hover { color: var(--cs-brand-hover); }
+.cs-action-link:hover > span { text-decoration: underline; text-underline-offset: 3px; }
+.cs-action-link:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 3px; }

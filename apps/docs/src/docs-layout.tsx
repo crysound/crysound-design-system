@@ -58,6 +58,7 @@ export const docCategories = [
       "avatar",
       "badge",
       "button",
+      "action-link",
       "checkbox",
       "combobox",
       "input",

@@ -305,3 +305,5 @@ export * from "./login-page";
 export * from "./spectrogram";
 
 export * from "./shadow";
+
+export * from "./action-link";
