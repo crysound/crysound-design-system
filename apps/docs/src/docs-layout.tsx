@@ -183,6 +183,7 @@ export function SidebarContent({
                 ["overview", "Overview", "简介"],
                 ["installation", "Installation", "安装与接入"],
                 ["foundations", "Foundations", "基础规范"],
+                ["logo", "Logo guidelines", "标志规范"],
                 ["icons", "Icons", "图标库"],
                 ["file-icons", "File icons", "文件图标"],
                 ["customization", "Customization", "主题与客户定制"],
@@ -624,7 +625,7 @@ export function DocsHeader({
           { label: activeDoc ? categoryFor(activeDoc.id).name : "组件", href: "#library" },
           ...(activeDoc ? [{ label: "组件", href: "#library" }] : []),
           { label: activeDoc?.name ?? ({
-            foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
+            logo: "Logo 规范", foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
             installation: "安装与接入", patterns: "产品模式", customization: "主题与定制",
           } as Record<string, string>)[route] ?? "简介" },
         ]} />

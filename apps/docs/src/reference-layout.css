@@ -1629,3 +1629,26 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 .charts-demo-status { font-size: 12px; color: var(--cs-muted); }
 .charts-demo-status > summary { cursor: pointer; }
 .charts-demo-status > .charts-demo-states { margin-top: 16px; }
+
+.logo-guidelines { padding: 72px 32px 48px; color: var(--cs-text); }
+.logo-guidelines > header { margin-bottom: 40px; }
+.logo-guidelines h1 { margin: 0; font-size: 24px; line-height: 32px; color: var(--cs-text-heading); }
+.logo-guidelines > header > p { margin: 20px 0 0; font-size: 16px; line-height: 24px; color: var(--cs-muted); }
+.logo-guidelines section { margin-top: 40px; }
+.logo-guidelines h2 { font-size: 18px; line-height: 26px; margin: 0 0 12px; }
+.logo-guidelines h3 { font-size: 14px; margin: 0 0 8px; }
+.logo-guidelines p { font-size: 14px; line-height: 24px; color: var(--cs-muted); }
+.logo-clearspace { padding: 32px; background: white; border: 1px solid var(--cs-border); border-radius: 8px; display: flex; justify-content: center; overflow: auto; }
+.logo-clearspace-inner { position: relative; padding: 40px; border: 1px dashed #cbd5e1; }
+.logo-clearspace-inner img { display: block; width: 298.032px; height: 40px; outline: 1px solid #e2e8f0; }
+.logo-clearspace-inner span { position: absolute; top: 12px; left: 50%; font-size: 12px; color: #64748b; }
+.logo-variant-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.logo-variant-grid figure { margin: 0; min-width: 0; border: 1px solid var(--cs-border); border-radius: 8px; overflow: hidden; }
+.logo-variant-preview { min-height: 150px; display: grid; place-items: center; padding: 24px; background: #fff; }
+.logo-variant-preview--white { background: #170057; }
+.logo-variant-preview img { width: 100%; max-width: 298.032px; height: auto; }
+.logo-variant-grid figcaption { padding: 20px; font-size: 14px; }
+.logo-variant-grid figcaption p { margin: 8px 0 16px; }
+.logo-rules-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 40px; }
+.logo-guidelines a { color: var(--cs-brand); font-size: 14px; }
+@media(max-width:760px) { .logo-guidelines { padding: 40px 24px; } .logo-variant-grid, .logo-rules-grid { grid-template-columns: 1fr; } .logo-clearspace { padding: 16px; } .logo-clearspace-inner { padding: 24px; } .logo-clearspace-inner img { width: 178.819px; height:24px; } .logo-clearspace-inner span { top:4px; } }

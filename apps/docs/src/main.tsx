@@ -1,3 +1,4 @@
+import { LogoGuidelines } from "./logo-guidelines";
 import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
 import { SpaceFoundations } from "./space-foundations";
 import { ThemeSelect } from "./theme-select";
@@ -182,7 +183,7 @@ function App() {
           }
         />
 
-        {["icons", "file-icons"].includes(route) ? (
+        {route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
           <React.Suspense fallback={<p role="status">正在加载图标库…</p>}>{route === "file-icons" ? <FileIconsPage /> : <IconLibrary />}</React.Suspense>
         ) : activeDoc ? (
           <ComponentPage
