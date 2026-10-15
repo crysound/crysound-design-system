@@ -1,3 +1,4 @@
+import { DeviceTableDemo } from "./device-table-demo";
 import { InstrumentDialogDemo } from "./instrument-dialog-demo";
 import { LoginDemo } from "./login-demo";
 import { TreeViewDemo } from "./tree-view-demo";
@@ -116,7 +117,6 @@ export function ComponentDemo({ id }: { id: string }) {
   const [checked, setChecked] = useState(true);
   const [page, setPage] = useState(1);
   const [progress, setProgress] = useState(36);
-  const [selected, setSelected] = useState<UI.Device>();
   const options = [
     { value: "daq", label: "SonoDAQ 数据采集" },
     { value: "imaging", label: "声学成像仪" },
@@ -687,19 +687,7 @@ export function ComponentDemo({ id }: { id: string }) {
         />
       );
     case "device-table":
-      return (
-        <Stack>
-          <DeviceTable
-            devices={sampleDevices.slice(0, 3)}
-            onSelect={setSelected}
-          />
-          {selected && (
-            <Alert title={selected.name}>
-              {selected.id} · {selected.location}
-            </Alert>
-          )}
-        </Stack>
-      );
+      return <DeviceTableDemo devices={sampleDevices.slice(0, 3)} />;
     case "data-table":
       return (
         <DataTable
