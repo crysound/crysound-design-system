@@ -177,21 +177,21 @@ export function SidebarContent({
           {!collapsed.includes("documentation") && (
             <div className="docs-nav-links">
               {[
-                ["overview", "简介"],
-                ["installation", "安装与接入"],
-                ["foundations", "基础规范"],
-                ["icons", "图标库"],
-                ["file-icons", "File icons 文件图标"],
-                ["customization", "主题与客户定制"],
-                ["patterns", "产品模式"],
-              ].map(([id, name]) => (
+                ["overview", "Overview", "简介"],
+                ["installation", "Installation", "安装与接入"],
+                ["foundations", "Foundations", "基础规范"],
+                ["icons", "Icons", "图标库"],
+                ["file-icons", "File icons", "文件图标"],
+                ["customization", "Customization", "主题与客户定制"],
+                ["patterns", "Product patterns", "产品模式"],
+              ].map(([id, name, zh]) => (
                 <a
                   key={id}
                   href={`#${id}`}
                   aria-current={route === id ? "page" : undefined}
                   onClick={onNavigate}
                 >
-                  {name}
+                  {name}<span>{zh}</span>
                 </a>
               ))}
             </div>
