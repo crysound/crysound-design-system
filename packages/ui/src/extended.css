@@ -1215,3 +1215,10 @@ button.cs-step-content { cursor: pointer; }
 .cs-skeleton--circle { border-radius: 50%; }
 .cs-skeleton--text { border-radius: 3px; }
 .cs-skeleton[data-animate="false"] { animation: none; }
+
+/* Tabs keep a quiet in-place keyboard cue instead of a rectangular focus ring. */
+.cs-tabs-trigger:focus { outline: none; }
+.cs-tabs-trigger:focus-visible { outline: none; background: var(--cs-selected-bg); }
+@media (forced-colors: active) {
+  .cs-tabs-trigger:focus-visible { outline: 1px solid Highlight; outline-offset: -3px; }
+}
