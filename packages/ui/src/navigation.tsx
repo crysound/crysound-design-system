@@ -124,7 +124,7 @@ export function Accordion({
           <A.Header className="cs-accordion-header">
             <A.Trigger className="cs-accordion-trigger">
               {item.title}
-              <span aria-hidden="true">+</span>
+              <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"><path d="M5 12h14M12 5v14"/></svg></span>
             </A.Trigger>
           </A.Header>
           <A.Content className="cs-accordion-content">

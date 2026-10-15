@@ -284,3 +284,6 @@
   --cs-shadow: var(--cs-shadow-lg);
 }
 [data-theme="dark"] { --cs-shadow-opacity: .3; --cs-shadow-xs: 0 1px 2px #0003; }
+
+/* Shared UI icon stroke width, requested across all themes. */
+:root, [data-theme], [data-customer] { --cs-icon-stroke-width: 1.2px; }
