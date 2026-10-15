@@ -234,7 +234,7 @@ pre {
   overflow: auto;
   font-size: 12px;
 }
-footer {
+.shell > main > footer {
   padding: 32px 0;
   color: var(--cs-muted);
   font-size: 12px;
