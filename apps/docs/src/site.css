@@ -57,12 +57,12 @@ a:focus-visible {
 .brand span {
   display: block;
   font-weight: 400;
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   letter-spacing: normal;
   margin-top: 4px;
 }
 .version {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   margin: 20px 0 42px;
 }
@@ -82,7 +82,7 @@ a:focus-visible {
 }
 .aside-note {
   margin-top: auto;
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   line-height: 2;
 }
@@ -108,7 +108,7 @@ main {
   padding: 64px 0 40px;
 }
 .eyebrow {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   letter-spacing: normal;
   font-weight: var(--cs-weight-semibold);
   color: var(--cs-brand);
@@ -177,7 +177,7 @@ main > section:not(.intro) {
 .swatches code {
   display: block;
   color: var(--cs-muted);
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   margin-top: 4px;
 }
 .spec-line {
@@ -312,7 +312,7 @@ pre {
     display: none;
   }
   .swatches code {
-    font-size: 10px;
+    font-size: var(--cs-text-xs);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -369,7 +369,7 @@ aside nav a {
   margin: 22px 0;
 }
 .component-search label {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   font-weight: var(--cs-weight-medium);
 }
@@ -386,14 +386,14 @@ aside nav a {
 .catalog-group-label {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   font-weight: var(--cs-weight-semibold);
   color: var(--cs-muted);
   padding: 0 10px 7px;
 }
 .catalog-group-label > span {
   font-weight: 400;
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
 }
 .catalog-group a {
   display: flex;
@@ -403,7 +403,7 @@ aside nav a {
   gap: 6px;
 }
 .catalog-group a small {
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   font-weight: 400;
 }
@@ -462,7 +462,7 @@ main {
 }
 .component-index-group h3 > span {
   font-weight: 400;
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
 }
 .component-index-group a {
   display: flex;
@@ -481,7 +481,7 @@ main {
 }
 .component-index-group small {
   display: inline-block;
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   margin-left: 8px;
 }
@@ -552,7 +552,7 @@ main {
 .preview-footer {
   display: flex;
   justify-content: center;
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   margin-top: 14px;
 }
@@ -616,7 +616,7 @@ main {
   gap: 6px;
 }
 .component-neighbors span {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
 }
 .component-neighbors strong {
@@ -640,7 +640,7 @@ main {
   display: block;
 }
 #installation pre {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   line-height: 1.9;
   min-height: 110px;
 }
@@ -739,7 +739,7 @@ main {
     padding: 10px;
   }
   .component-tabs-bar > .cs-button {
-    font-size: 11px;
+    font-size: var(--cs-text-xs);
     padding: 0 5px;
   }
   .component-index-group {
@@ -756,7 +756,7 @@ main {
   }
   .code-block {
     padding: 18px;
-    font-size: 11px;
+    font-size: var(--cs-text-xs);
   }
 }
 .foundation-gallery {
@@ -773,7 +773,7 @@ main {
 }
 .foundation-gallery p {
   margin: 6px 0 20px;
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
 }
 .type-specs > div {
   display: flex;
@@ -784,7 +784,7 @@ main {
   border-bottom: 1px solid var(--cs-border);
 }
 .type-specs code {
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
   min-width: 100px;
 }
@@ -793,7 +793,7 @@ main {
   line-height: 1.3;
 }
 .type-specs small {
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
 }
 .space-specs {
@@ -807,7 +807,7 @@ main {
 }
 .space-specs code {
   width: 20px;
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
 }
 .space-specs span {
@@ -816,7 +816,7 @@ main {
   background: var(--cs-brand);
 }
 .space-specs small {
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
 }
 .layer-specs {
@@ -829,7 +829,7 @@ main {
   padding: 6px 10px;
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius);
-  font-size: 10px;
+  font-size: var(--cs-text-xs);
   color: var(--cs-muted);
 }
 .layer-specs strong {
@@ -862,11 +862,11 @@ main {
   gap: 18px;
 }
 .topbar-settings label {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   white-space: nowrap;
 }
 .topbar-settings select {
-  font-size: 11px;
+  font-size: var(--cs-text-xs);
   padding: 6px 8px;
 }
 @media (max-width: 1000px) {
@@ -898,7 +898,7 @@ main {
     justify-content: flex-start;
   }
   .topbar-settings label {
-    font-size: 10px;
+    font-size: var(--cs-text-xs);
   }
   .topbar-settings select {
     margin-left: 5px;
