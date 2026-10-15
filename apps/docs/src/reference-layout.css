@@ -1618,7 +1618,8 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
   color: var(--cs-text-heading);
   margin: 0;
 }
-:is(.library-introduction, .icon-library) > h1 { margin-bottom: 12px; }
+#main-content .icon-library > h1 { margin-bottom: 12px; }
+#main-content .library-introduction > h1 { margin-bottom: 24px; }
 @media (max-width: 700px) {
   :is(.library-introduction > h1, .icon-library > h1, .reference-title-row h1,
     .docs-legacy-content > section > .section-heading > div > h2) {
