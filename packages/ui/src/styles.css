@@ -574,4 +574,4 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-icon-inline--offset-2 { vertical-align: -2px; }
 
 /* Action text shares the column's leading edge; expand hit area without moving text. */
-.cs-device-table .cs-button--ghost { padding: 0 12px; margin-left: -12px; }
+.cs-device-table .cs-button--ghost { padding: 0 12px; margin-left: -13px; }
