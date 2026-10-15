@@ -416,3 +416,17 @@
 .cs-select-trigger > svg { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
 .cs-select-menu { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); line-height: 20px; }
 .cs-select-option { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); }
+
+/* Proposed instrument workflow dialog layout. */
+.cs-dialog.cs-instrument-dialog { width: min(560px, calc(100vw - 32px)); padding: 24px; max-height: calc(100dvh - 48px); overflow: auto; box-sizing: border-box; }
+.cs-dialog.cs-instrument-dialog--sm { width: min(400px, calc(100vw - 32px)); }
+.cs-dialog.cs-instrument-dialog--lg { width: min(760px, calc(100vw - 32px)); }
+.cs-instrument-dialog-header { padding-right: 40px; margin-bottom: 24px; }
+.cs-instrument-dialog-header h2 { margin: 0; font-size: 20px; line-height: 28px; font-weight: var(--cs-weight-semibold); }
+.cs-instrument-dialog-header .cs-dialog-description { margin: 8px 0 0; font-size: 14px; line-height: 22px; }
+.cs-instrument-dialog-body { display: grid; gap: 16px; }
+.cs-instrument-dialog-footer { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.cs-instrument-dialog .cs-button { margin-top: 0; }
+.cs-instrument-dialog-close { position: absolute; top: 20px; right: 20px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--cs-radius); background: transparent; color: var(--cs-muted); cursor: pointer; }
+.cs-instrument-dialog-close:hover, .cs-instrument-dialog-close:focus-visible { background: var(--cs-subtle); color: var(--cs-text); outline: none; }
+@media(forced-colors:active) { .cs-instrument-dialog-close:focus-visible { outline: 1px solid Highlight; } }

@@ -114,7 +114,7 @@ export const docCategories = [
     english: "Instrument components",
     description:
       "设备状态、测量读数和设备列表——为 CRYSOUND 的仪器与声学产品统一信息表达。",
-    ids: ["device-table", "metric", "status-badge", "login-page"],
+    ids: ["device-table", "metric", "status-badge", "login-page", "instrument-dialog"],
   },
 ];
 export function categoryFor(id: string) {

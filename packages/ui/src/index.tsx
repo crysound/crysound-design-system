@@ -307,3 +307,4 @@ export * from "./spectrogram";
 export * from "./shadow";
 
 export * from "./action-link";
+export * from "./instrument-dialog";

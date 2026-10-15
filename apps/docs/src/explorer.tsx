@@ -1,3 +1,4 @@
+import { InstrumentDialogDemo } from "./instrument-dialog-demo";
 import { LoginDemo } from "./login-demo";
 import { TreeViewDemo } from "./tree-view-demo";
 import { SectionHeaderDemo } from "./section-header-demo";
@@ -597,6 +598,8 @@ export function ComponentDemo({ id }: { id: string }) {
           </div>
         </Stack>
       );
+    case "instrument-dialog":
+      return <InstrumentDialogDemo/>;
     case "action-link":
       return <div className="demo-row"><UI.ActionLink href="#patterns">全部样本</UI.ActionLink><UI.ActionLink href="#component/card">查看详情</UI.ActionLink><UI.ActionLink href="https://www.crysound.com" external>产品官网</UI.ActionLink><UI.ActionLink href="#library" arrow={false}>浏览组件</UI.ActionLink></div>;
     case "shadow":
