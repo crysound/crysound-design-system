@@ -317,3 +317,29 @@
   --cs-duration-fast: var(--cds-dur-fast);
   --cs-duration-normal: var(--cds-dur-base);
 }
+
+/* User-supplied alpha scale; dark mapping is a proposed adaptation. */
+:root, [data-theme], [data-customer] {
+  --cds-alpha-0: hsla(0, 0%, 8%, 0);
+  --cds-alpha-1: hsla(0, 0%, 8%, .05);
+  --cds-alpha-2: hsla(0, 0%, 8%, .10);
+  --cds-alpha-3: hsla(0, 0%, 8%, .20);
+  --cds-alpha-4: hsla(0, 0%, 8%, .35);
+  --cds-border: var(--cds-alpha-2);
+  --cds-border-strong: var(--cds-alpha-3);
+  --cs-border-hairline: var(--cds-ring-hairline);
+}
+:root { --cds-ring-hairline: 1px; }
+[data-theme="dark"] {
+  --cds-alpha-0: hsla(0, 0%, 100%, 0);
+  --cds-alpha-1: hsla(0, 0%, 100%, .05);
+  --cds-alpha-2: hsla(0, 0%, 100%, .10);
+  --cds-alpha-3: hsla(0, 0%, 100%, .20);
+  --cds-alpha-4: hsla(0, 0%, 100%, .35);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  :root { --cds-ring-hairline: .5px; }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
+  :root { --cds-ring-hairline: calc(1px / 3); }
+}
