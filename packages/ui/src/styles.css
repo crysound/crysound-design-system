@@ -477,3 +477,14 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 .cs-overlay-close:active > svg { animation: cs-dialog-close-turn 180ms cubic-bezier(.2,.8,.2,1) both; }
 @media(prefers-reduced-motion:reduce) { .cs-overlay-close:active > svg { animation: none; } }
 @media(forced-colors:active) { .cs-overlay-close:focus-visible { outline: 1px solid Highlight; } }
+
+/* Close affordances respond on hover, before activation. */
+.cs-overlay-close > svg, .cs-instrument-dialog-close > svg { transition: transform 180ms cubic-bezier(.2,.8,.2,1); transform-origin: center; }
+@media(hover:hover) {
+  .cs-overlay-close:hover > svg, .cs-instrument-dialog-close:hover > svg { transform: rotate(90deg); }
+  .cs-overlay-close:hover:active > svg, .cs-instrument-dialog-close:hover:active > svg { animation: none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .cs-overlay-close > svg, .cs-instrument-dialog-close > svg { transition: none; }
+  .cs-overlay-close:hover > svg, .cs-instrument-dialog-close:hover > svg { transform: none; }
+}
