@@ -569,7 +569,7 @@
   animation: cs-indeterminate 1.2s infinite ease-in-out;
 }
 .cs-skeleton {
-  background: var(--cs-border);
+  background: var(--cs-skeleton-bg);
   border-radius: var(--cs-radius);
   animation: cs-pulse 1.8s ease-in-out infinite;
 }

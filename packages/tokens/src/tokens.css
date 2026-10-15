@@ -287,3 +287,11 @@
 
 /* Shared UI icon stroke width, requested across all themes. */
 :root, [data-theme], [data-customer] { --cs-icon-stroke-width: 1.2px; }
+
+/* Proposed quiet skeleton surface, independent from control borders. */
+:root, [data-theme], [data-customer] {
+  --cs-skeleton-bg: color-mix(in srgb, var(--cs-text) 6%, var(--cs-surface));
+}
+[data-theme="dark"] {
+  --cs-skeleton-bg: color-mix(in srgb, var(--cs-text) 8%, var(--cs-surface));
+}
