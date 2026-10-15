@@ -68,7 +68,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
             <line x1={x(active)} x2={x(active)} y1={top} y2={top+plotHeight}/>
             {visible.map(item=>{const value=selected.values[item.key];return typeof value==='number'&&Number.isFinite(value)?<line key={item.key} x1={left} x2={width-right} y1={y(value)} y2={y(value)}/>:null;})}
           </g>}
-          {min<0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-chart-axis)"/>}
+          {min<0&&max>=0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-chart-axis)" clipPath={`url(#${id}-clip)`}/>}
           {!loading&&kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="1.5" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
           {!loading&&data.map((row,i)=><g key={`${row.label}-${i}`}>
             {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="11">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
