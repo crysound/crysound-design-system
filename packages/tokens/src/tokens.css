@@ -125,8 +125,13 @@
 /* Extension tokens: product-system proposals, separate from extracted Figma values. */
 :root {
   --cs-brand-subtle: #f0ecf8;
+  --cs-radius-none: 0px;
   --cs-radius-sm: 2px;
+  --cs-radius-md: 6px;
   --cs-radius-lg: 8px;
+  --cs-radius-xl: 12px;
+  --cs-radius-pill: 9999px;
+  --cs-radius-circle: 50%;
   --cs-space-0: 0px;
   --cs-space-0-5: 2px;
   --cs-space-5: 20px;

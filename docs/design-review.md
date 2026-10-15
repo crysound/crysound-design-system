@@ -104,3 +104,7 @@
 可选类 cs-message-enter（10px上浮，200ms）、cs-user-bubble-enter（.92缩放和6px上浮，200ms超调）、cs-saved-check-decay（展示1秒后450ms消退）、cs-pill-pending（900ms交替呼吸）。Skeleton 的 effect="sweep" 开启1.6秒倾斜扫光；默认pulse保持兼容，animate=false和减少动态效果均关闭扫光。循环加载使用独立节奏，不套用单次交互60ms。消费方负责设置真实loading/aria-busy状态，对勾消退不隐藏按钮的可访问名称。
 
 补充可选效果：cs-shimmer-text（2.4秒文字扫描）、cs-waiting-glow（2秒等待光晕）、cs-linear-sweep（1.6秒线性扫描）。关键帧来自用户提供片段，未经外部官方来源认证；品牌光晕适配 cs-brand，而非固定橙色。仅在等待状态按需挂载，不能作为页面所有正文默认效果；不改变文字可访问名称，消费方负责真实状态与aria-busy。减少动态效果和强制颜色模式下关闭扫描与脉冲。
+
+## 圆角矩阵 · 2026-10-15
+
+基础规范补充 none / sm / default / md / lg / xl / pill / circle 矩阵。4px 默认圆角有 Figma 变量依据；2px 保留软件微控件来源记录。0、6、8、12px、胶囊及圆形的统一命名和场景映射为工程扩展建议，不宣称完整 Figma 对齐。本次新增 Token，不批量修改既有组件外观；消费项目优先使用语义变量。密度不改变圆角，圆形要求等宽等高，嵌套圆角按内距和边框关系判断，不机械叠加。

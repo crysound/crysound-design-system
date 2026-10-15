@@ -1657,3 +1657,12 @@ body {
 @media(max-width:767px) and (pointer:coarse) {
   .docs-search-dialog input, .icon-tools input, .docs-settings-fields select { font-size: max(16px, var(--cs-font-size)); }
 }
+
+.radius-foundations { margin-top: var(--cs-space-12); }
+.radius-scale { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--cs-space-6); margin: var(--cs-space-6) 0; }
+.radius-scale figure { margin: 0; min-width: 0; }
+.radius-sample { width: 96px; height: 64px; border: 1px solid var(--cs-border); background: var(--cs-brand-subtle); box-sizing: border-box; margin-bottom: var(--cs-space-3); }
+.radius-sample--circle { width: 64px; }
+.radius-scale figcaption { display: grid; gap: var(--cs-space-1); }
+.radius-scale figcaption span { color: var(--cs-muted); font-variant-numeric: tabular-nums; }
+.radius-scale code { font-size: var(--cs-text-xs); overflow-wrap: anywhere; }
