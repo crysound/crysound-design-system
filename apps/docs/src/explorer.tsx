@@ -597,6 +597,8 @@ export function ComponentDemo({ id }: { id: string }) {
           </div>
         </Stack>
       );
+    case "shadow":
+      return <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))',gap:32,width:'100%',padding:24}}>{(['none','xs','sm','md','lg','xl'] as const).map(level=><UI.Shadow key={level} level={level} style={{padding:24,minHeight:100,display:'grid',placeContent:'center',textAlign:'center',border:'1px solid var(--cs-border)'}}><strong>{level}</strong><span className="cs-help">{({none:'无阴影',xs:'轻微层次',sm:'卡片',md:'菜单',lg:'浮层',xl:'高层浮层'})[level]}</span></UI.Shadow>)}</div>;
     case "card":
       return (
         <Card

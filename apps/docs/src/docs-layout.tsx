@@ -69,6 +69,7 @@ export const docCategories = [
       "tooltip",
       "separator",
       "skeleton",
+      "shadow",
     ],
   },
   {

@@ -387,3 +387,11 @@
 .cs-button { line-height: 20px; }
 .cs-button-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; line-height: 1; }
 .cs-button-icon > svg, .cs-button > svg { display: block; flex-shrink: 0; }
+
+.cs-shadow { background: var(--cs-surface); color: var(--cs-text); border-radius: var(--cs-radius); }
+[data-shadow="none"] { box-shadow: var(--cs-shadow-none); }
+[data-shadow="xs"] { box-shadow: var(--cs-shadow-xs); }
+[data-shadow="sm"] { box-shadow: var(--cs-shadow-sm); }
+[data-shadow="md"] { box-shadow: var(--cs-shadow-md); }
+[data-shadow="lg"] { box-shadow: var(--cs-shadow-lg); }
+[data-shadow="xl"] { box-shadow: var(--cs-shadow-xl); }

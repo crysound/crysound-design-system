@@ -1,3 +1,4 @@
+import type { ShadowLevel } from "./shadow";
 "use client";
 import {
   forwardRef,
@@ -128,14 +129,16 @@ export function Card({
   description,
   children,
   actions,
+  shadow,
   ...props
 }: Omit<HTMLAttributes<HTMLElement>, "title"> & {
   title: string;
   description?: string;
   actions?: ReactNode;
+  shadow?: ShadowLevel;
 }) {
   return (
-    <section {...props} className={cx("cs-card", props.className)}>
+    <section {...props} data-shadow={shadow} className={cx("cs-card", props.className)}>
       <header className="cs-card-header">
         <div>
           <h3>{title}</h3>
@@ -300,3 +303,5 @@ export * from "./tree-view";
 export * from "./login-page";
 
 export * from "./spectrogram";
+
+export * from "./shadow";

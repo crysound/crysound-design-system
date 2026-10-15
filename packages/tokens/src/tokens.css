@@ -270,3 +270,17 @@
   --cs-chart-grid: #e2e8f0;
   --cs-chart-axis: #64748b;
 }
+
+/* Proposed elevation scale, following shadcn/ui's restrained surface treatment. */
+:root, [data-theme], [data-customer] {
+  --cs-shadow-color: 0 0 0;
+  --cs-shadow-opacity: .1;
+  --cs-shadow-none: none;
+  --cs-shadow-xs: 0 1px 2px rgb(var(--cs-shadow-color) / .05);
+  --cs-shadow-sm: 0 1px 3px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity)), 0 1px 2px rgb(var(--cs-shadow-color) / .06);
+  --cs-shadow-md: 0 4px 6px -1px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity)), 0 2px 4px -2px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity));
+  --cs-shadow-lg: 0 10px 15px -3px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity)), 0 4px 6px -4px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity));
+  --cs-shadow-xl: 0 20px 25px -5px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity)), 0 8px 10px -6px rgb(var(--cs-shadow-color) / var(--cs-shadow-opacity));
+  --cs-shadow: var(--cs-shadow-lg);
+}
+[data-theme="dark"] { --cs-shadow-opacity: .3; --cs-shadow-xs: 0 1px 2px #0003; }
