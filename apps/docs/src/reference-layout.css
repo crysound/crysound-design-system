@@ -1367,7 +1367,6 @@ body {
 }
 
 /* Keep the native select interaction with consistent inset and a single focus border. */
-select,
 .docs-settings-fields select {
   appearance: none;
   padding-left: 12px;
@@ -1377,15 +1376,15 @@ select,
   background-position: right 12px center;
   background-size: 16px;
 }
-select:focus {
+.docs-settings-fields select:focus {
   border-color: var(--cs-brand);
   outline: none;
   box-shadow: none;
 }
-select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
+.docs-settings-fields select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 @media (forced-colors: active) {
-  select { appearance: auto; background-image: none; }
-  select:focus { outline: 2px solid Highlight; outline-offset: 2px; }
+  .docs-settings-fields select { appearance: auto; background-image: none; }
+  .docs-settings-fields select:focus { outline: 2px solid Highlight; outline-offset: 2px; }
 }
 
 .measurement-form .two-col { align-items: start; }

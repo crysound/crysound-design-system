@@ -273,7 +273,7 @@
 }
 
 /* Keep the native select interaction with consistent inset and a single focus border. */
-.cs-select {
+select.cs-input.cs-select {
   appearance: none;
   padding-left: 12px;
   padding-right: 36px;

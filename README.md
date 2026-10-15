@@ -111,3 +111,5 @@ GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysou
 站内文字操作统一使用 `<ActionLink href="/samples">全部样本</ActionLink>`；外部导航显式传 `external`。箭头使用组件内的 16px SVG、1.5px 线宽和 6px 间距，不拼接字符。
 
 Select 的普通单选使用统一 Radix 浮层，不使用操作系统原生弹出菜单；保留 option、value/defaultValue、onChange、name、required 与原生 select ref。multiple、size 和 optgroup 保留原生语义。业务页面请使用共享 Select，直接写原生 select 不会获得统一浮层。
+
+排查 Select 左右留白不一致：确认使用最新共享 Select 并同时引入 `@crysound/tokens/tokens.css` 和 `@crysound/ui/styles.css`。新版普通单选 DOM 为 `button.cs-select-trigger`，左右内距各 12px，箭头固定 16px；旧原生 `select` 需使用 `cs-input cs-select`。不要依赖文档站 CSS 或在业务页通过 padding-right 覆盖箭头留白。
