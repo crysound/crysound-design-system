@@ -12,7 +12,7 @@ describe('charts',()=>{
     expect(screen.getByRole('table',{hidden:true})).toHaveTextContent('—');
   });
   it('distinguishes empty and loading states',()=>{
-    const view=render(<BarChart title="统计" data={[]} series={series}/>);expect(screen.getByText('暂无图表数据')).toBeInTheDocument();
+    const view=render(<BarChart title="统计" data={[]} series={series}/>);expect(screen.getByText('暂无图表数据')).toBeInTheDocument();expect(screen.getByRole('img')).toBeInTheDocument();
     view.rerender(<BarChart title="统计" data={[]} series={series} loading/>);expect(screen.getByRole('status')).toHaveTextContent('正在加载');
   });
   it('spaces equal frequency ratios equally on a logarithmic axis and uses the requested dB scale',()=>{
