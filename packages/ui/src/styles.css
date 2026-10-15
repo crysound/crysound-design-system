@@ -466,3 +466,7 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 }
 
 .cs-badge.cs-status-badge { background: transparent; border: 0; border-radius: 0; padding: 0; }
+
+/* Softer alert surfaces while retaining semantic text contrast. */
+.cs-alert { background: color-mix(in srgb, var(--tone-bg) 55%, var(--cs-surface)); }
+.cs-alert-action .cs-button:is(.cs-button--secondary, .cs-button--ghost):hover:not(:disabled) { background: color-mix(in srgb, var(--tone-fg) 6%, var(--cs-surface)); }
