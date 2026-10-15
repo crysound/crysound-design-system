@@ -102,3 +102,5 @@
 ## 消息与异步反馈动效
 
 可选类 cs-message-enter（10px上浮，200ms）、cs-user-bubble-enter（.92缩放和6px上浮，200ms超调）、cs-saved-check-decay（展示1秒后450ms消退）、cs-pill-pending（900ms交替呼吸）。Skeleton 的 effect="sweep" 开启1.6秒倾斜扫光；默认pulse保持兼容，animate=false和减少动态效果均关闭扫光。循环加载使用独立节奏，不套用单次交互60ms。消费方负责设置真实loading/aria-busy状态，对勾消退不隐藏按钮的可访问名称。
+
+补充可选效果：cs-shimmer-text（2.4秒文字扫描）、cs-waiting-glow（2秒等待光晕）、cs-linear-sweep（1.6秒线性扫描）。关键帧来自用户提供片段，未经外部官方来源认证；品牌光晕适配 cs-brand，而非固定橙色。仅在等待状态按需挂载，不能作为页面所有正文默认效果；不改变文字可访问名称，消费方负责真实状态与aria-busy。减少动态效果和强制颜色模式下关闭扫描与脉冲。
