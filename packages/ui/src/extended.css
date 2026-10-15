@@ -898,16 +898,16 @@
 @media(max-width:900px) { .cs-inline-cta { flex-wrap: wrap; } .cs-inline-cta-content { flex-basis: calc(100% - 80px); } .cs-inline-cta-actions { width: 100%; } .cs-inline-cta:has(.cs-inline-cta-close) { padding-right: 44px; } .cs-inline-cta-close { position: absolute; right: 12px; top: 12px; } }
 @media(max-width:540px) { .cs-inline-cta { padding: 16px; } .cs-inline-cta-actions { flex-direction: column; } .cs-inline-cta-actions .cs-button { width: 100%; } }
 
-.cs-chart { margin: 0; padding: 20px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-lg); background: var(--cs-surface); color: var(--cs-text); min-width: 0; }
+.cs-chart { margin: 0; padding: 16px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); background: var(--cs-surface); color: var(--cs-text); min-width: 0; }
 .cs-chart figcaption > strong { font-size: 14px; font-weight: var(--cs-weight-semibold); color: var(--cs-text-heading); }
 .cs-chart figcaption p { margin: 6px 0 0; color: var(--cs-muted); font-size: 12px; line-height: 20px; }
-.cs-chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+.cs-chart-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 12px 0 6px; }
 .cs-chart-legend button { display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: var(--cs-text); font: inherit; font-size: 12px; cursor: pointer; }
 .cs-chart-legend button[aria-pressed="false"] { opacity: .4; text-decoration: line-through; }
 .cs-chart-legend span { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 0; }
 .cs-chart-plot svg { display: block; overflow: visible; font-family: var(--cs-font); }
 .cs-chart-plot [role="button"]:focus-visible { outline: 1px solid var(--cs-focus); outline-offset: -1px; }
-.cs-chart-readout { min-height: 40px; padding: 8px 12px; border-radius: 6px; background: var(--cs-subtle); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--cs-muted); }
+.cs-chart-readout { min-height: 32px; padding: 8px 0; border-top: 1px solid var(--cs-border); border-radius: 0; background: var(--cs-surface); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--cs-muted); }
 .cs-chart-readout strong { color: var(--cs-text); font-weight: var(--cs-weight-medium); }
 .cs-chart-empty { display: grid; place-items: center; color: var(--cs-muted); font-size: 13px; background: var(--cs-subtle); border-radius: 6px; }
 .cs-chart-data { margin-top: 16px; font-size: 12px; }
@@ -1184,3 +1184,6 @@ button.cs-step-content { cursor: pointer; }
 :is(h1, h2, h3, h4, h5, h6, [role="heading"]) .cs-text-reveal-character {
   animation: none; opacity: 1; filter: none;
 }
+
+.cs-chart-measurement-info { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--cs-border); color: var(--cs-muted); font-size: 11px; line-height: 16px; }
+.cs-chart-plot { width: 100%; min-width: 0; }

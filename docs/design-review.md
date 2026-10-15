@@ -55,3 +55,9 @@
 ## 暗色字重 · 2026-10-14
 
 按用户要求，暗色主题的 medium/semibold 字重分别由 500/600 调整为 460/560。组件与文档消费 `--cs-weight-medium` / `--cs-weight-semibold`，亮色保持 500/600。系统字体实际显示的中间字重取决于平台字体支持及浏览器字体匹配。
+
+## 声学图表展示 · 2026-10-15
+
+参考 Audio Precision APx500 用户手册（https://www.ap.com/fileadmin-ap/technical-library/APx500_User_Manual_v9-0-0.pdf）对数频率轴展示，以及 B&K BK Connect CPB 产品资料（https://www.bksv.com/-/media/literature/Product-Data/bp2582.ashx）的频带/通道展示约定，独立实现频响和 1/3 倍频程示例。没有复制商业软件界面或资产。
+
+新增可选数值 X 坐标、线性/对数轴、Y 轴范围/步长和测量条件说明。绘图区响应容器宽度，规则 dB 刻度、细网格、游标线、方形图例、通道标签与数据表共存。图表外观为工程设计建议；所有示例值均为合成数据，频带示例不包含实际滤波、IEC 合规或采集能力。加权、参考量及采样条件由消费应用据真实测量提供。
