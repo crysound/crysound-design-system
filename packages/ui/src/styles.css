@@ -359,7 +359,7 @@ select.cs-input.cs-select {
   border-color: var(--cs-brand); outline: none;
 }
 .cs-command-input:focus-visible {
-  border-bottom-color: var(--cs-brand); outline: none; box-shadow: none;
+  border-bottom-color: color-mix(in srgb, var(--cs-border) 60%, var(--cs-surface)); outline: none; box-shadow: none;
 }
 @media(prefers-reduced-motion:reduce) { .cs-input { transition: none; } }
 @media(forced-colors:active) {

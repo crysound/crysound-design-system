@@ -166,7 +166,7 @@
 .cs-command-input {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid var(--cs-border);
+  border-bottom: .5px solid color-mix(in srgb, var(--cs-border) 60%, var(--cs-surface));
   padding: 12px;
   font: inherit;
   color: var(--cs-text);
