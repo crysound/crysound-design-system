@@ -666,7 +666,7 @@ export function DocsHeader({
           target="_blank"
           rel="noopener noreferrer"
         >
-          下载安装包
+          代码仓库
         </a>
         <div className="docs-mobile-menu">
           <Sheet
