@@ -52,4 +52,13 @@ describe('charts',()=>{
     expect(view.container.querySelector('.cs-chart-tooltip')).not.toBeInTheDocument();
   });
 
+  it('draws a negative dBFS level upward from an explicit lower baseline',()=>{
+    const view=render(<BarChart title="电平" unit="dBFS" yDomain={[-80,0]} barBaseline={-80} data={[{label:'CH 01',values:{a:-20}}]} series={series}/>);
+    const bar=view.container.querySelector('rect[clip-path]')!;
+    const frame=view.container.querySelector('clipPath rect')!;
+    const bottom=Number(frame.getAttribute('y'))+Number(frame.getAttribute('height'));
+    expect(Number(bar.getAttribute('y'))).toBeLessThan(bottom);
+    expect(Number(bar.getAttribute('y'))+Number(bar.getAttribute('height'))).toBeCloseTo(bottom);
+  });
+
 });

@@ -1192,7 +1192,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-chart-overlay > span { padding: 8px 12px; background: var(--cs-chart-plot-bg); }
 
 .cs-chart-crosshair line { stroke: #334155; stroke-width: 1; stroke-dasharray: 6 5; opacity: .8; }
-.cs-chart-tooltip { position: absolute; z-index: 2; min-width: 200px; max-width: min(360px, calc(100% - 24px)); max-height: 180px; overflow: hidden; box-sizing: border-box; padding: 8px 10px; border: 1px solid var(--cs-chart-grid); border-radius: 4px; background: var(--cs-chart-plot-bg); color: var(--cs-chart-axis); box-shadow: 0 2px 8px #0f172a12; transform: translateX(12px); pointer-events: none; color: #334155; font-size: 12px; line-height: 20px; font-variant-numeric: tabular-nums; }
+.cs-chart-tooltip { position: absolute; z-index: 2; min-width: 200px; max-width: min(360px, calc(100% - 24px)); max-height: 260px; overflow: hidden; box-sizing: border-box; padding: 8px 10px; border: 1px solid var(--cs-chart-grid); border-radius: 4px; background: var(--cs-chart-plot-bg); color: var(--cs-chart-axis); box-shadow: 0 2px 8px #0f172a12; transform: translateX(12px); pointer-events: none; color: #334155; font-size: 12px; line-height: 20px; font-variant-numeric: tabular-nums; }
 .cs-chart-tooltip[data-flip] { transform: translateX(calc(-100% - 12px)); }
 .cs-chart-tooltip-title { text-align: center; margin-bottom: 2px; }
 .cs-chart-tooltip-row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
@@ -1207,3 +1207,7 @@ button.cs-step-content { cursor: pointer; }
 /* Pointer selection uses the crosshair; keyboard focus stays visible without a native blue ring. */
 .cs-chart-plot svg [role="button"] { outline: none; }
 .cs-chart-plot svg [role="button"]:focus-visible { outline: 1px dashed var(--cs-chart-axis); outline-offset: -1px; }
+
+.cs-spectrogram-scale { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin: 12px 0 6px; color: var(--cs-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.cs-spectrogram-colorbar { width: 180px; height: 10px; background: linear-gradient(90deg,#440154,#3b528b,#21918c,#5ec962,#fde725); }
+.cs-spectrogram-readout { position: absolute; top: 20px; right: 36px; padding: 6px 10px; border: 1px solid var(--cs-chart-grid); border-radius: 4px; background: var(--cs-chart-plot-bg); color: var(--cs-chart-axis); font-size: 12px; pointer-events: none; }

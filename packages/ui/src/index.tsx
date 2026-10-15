@@ -298,3 +298,5 @@ export * from "./section-header";
 
 export * from "./tree-view";
 export * from "./login-page";
+
+export * from "./spectrogram";

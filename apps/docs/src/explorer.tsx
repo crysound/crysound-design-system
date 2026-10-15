@@ -846,7 +846,7 @@ export function ComponentPage({
           </TabsContent>
           <TabsContent value="package">
             <pre className="reference-install-code">
-              <code>{`import { ${item.name} } from '@crysound/ui';\nimport '@crysound/tokens/tokens.css';\nimport '@crysound/ui/styles.css';`}</code>
+              <code>{`import { ${item.id === "line-bar-charts" ? "LineChart, BarChart, Spectrogram" : item.name} } from '@crysound/ui';\nimport '@crysound/tokens/tokens.css';\nimport '@crysound/ui/styles.css';`}</code>
             </pre>
             <p className="cs-help">
               先安装 Release 中的 tokens 与 ui 两个 .tgz 安装包。

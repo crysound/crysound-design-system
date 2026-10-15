@@ -1644,3 +1644,10 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
   font-size: 16px; line-height: 24px;
 }
 #main-content .icon-library > .icon-intro { margin-top: 0; }
+
+.charts-demo-intro { margin: 0; color: var(--cs-muted); font-size: 13px; line-height: 22px; }
+.charts-type-tabs { flex-wrap: wrap; overflow: visible; }
+.charts-type-tabs .cs-tabs-trigger { padding: 10px 12px; }
+.charts-demo-status { font-size: 12px; color: var(--cs-muted); }
+.charts-demo-status > summary { cursor: pointer; }
+.charts-demo-status > .charts-demo-states { margin-top: 16px; }

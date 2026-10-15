@@ -359,7 +359,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
     case "loading-indicator":
       return <LoadingIndicator variant="ring" size="lg" label="加载中" />;
     case "line-bar-charts":
-      return <svg width="220" height="100" viewBox="0 0 220 100" aria-hidden="true"><path d="M10 80H210M10 15V80" fill="none" stroke="var(--cs-border)"/><path d="m10 65 30-15 30 10 30-30 30 10 30-25 30 10" fill="none" stroke="var(--cs-brand)" strokeWidth="3"/><path d="m10 75 30-10 30 5 30-20 30 5 30-20 30 10" fill="none" stroke="#0ea5e9" strokeWidth="3"/></svg>;
+      return <svg width="220" height="100" viewBox="0 0 220 100" aria-hidden="true"><path d="M10 80H210M10 15V80" fill="none" stroke="var(--cs-border)"/><path d="m10 65 30-15 30 10 30-30 30 10 30-25 30 10" fill="none" stroke="var(--cs-chart-channel-01)" strokeWidth="3"/><path d="m10 75 30-10 30 5 30-20 30 5 30-20 30 10" fill="none" stroke="var(--cs-chart-channel-02)" strokeWidth="3"/></svg>;
     case "inline-cta":
       return <div className="thumb-alert"><div><strong>配置报告模板</strong><small>统一团队的结果交付</small></div><Button size="sm">开始配置</Button></div>;
     case "date-picker":

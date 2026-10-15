@@ -4,14 +4,14 @@ export interface ChartDatum { label: string; x?: number; values: Record<string, 
 export interface ChartSeries { key: string; label: string; color?: string; channel?: number }
 export interface ChartProps {
   title: string; description?: string; data: ChartDatum[]; series: ChartSeries[]; unit?: string;
-  height?: number; loading?: boolean;
+  height?: number; loading?: boolean; barBaseline?: number;
   xScale?: 'category'|'linear'|'log'; xLabel?: string; yLabel?: string;
   xDomain?: [number, number]; yDomain?: [number, number]; yStep?: number; measurementInfo?: string[];
 }
 export const chartChannelColors: readonly string[] = Object.freeze(Array.from({length:64},(_,index)=>`var(--cs-chart-channel-${String(index+1).padStart(2,'0')})`));
 export function LineChart(props:ChartProps) {return <Chart {...props} kind="line"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
-function Chart({title,description,data,series,unit='',height=300,loading=false,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,kind}:ChartProps&{kind:'line'|'bar'}) {
+function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,kind}:ChartProps&{kind:'line'|'bar'}) {
   const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);
   const visible=series.filter(item=>!hidden.includes(item.key));
   const values=data.flatMap(row=>visible.map(item=>row.values[item.key])).filter((n):n is number=>typeof n==='number'&&Number.isFinite(n));
@@ -72,7 +72,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
           {!loading&&kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="1.5" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
           {!loading&&data.map((row,i)=><g key={`${row.label}-${i}`}>
             {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="11">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
-            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="5" fill={color(item)} stroke="#334155" strokeWidth="1.5"/>:null;})}
+            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(Number.isFinite(barBaseline)?barBaseline:0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(Number.isFinite(barBaseline)?barBaseline:0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="5" fill={color(item)} stroke="#334155" strokeWidth="1.5"/>:null;})}
             <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} onMouseEnter={()=>setActive(i)} onMouseMove={()=>setActive(i)} onFocus={()=>setActive(i)} onBlur={()=>setActive(undefined)} onKeyDown={event=>{if(event.key==='Escape'){setActive(undefined);return;}if(event.key==='Enter'||event.key===' '){event.preventDefault();setActive(i);return;}if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
           </g>)}
         </svg>
