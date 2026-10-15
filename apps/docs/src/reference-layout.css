@@ -2,7 +2,7 @@
    Brand tokens and component behavior stay owned by CRYSOUND. */
 :root {
   --doc-page: #fff;
-  --doc-title-description-gap: 24px;
+  --doc-title-description-gap: 20px;
   --doc-subtle: #fafafa;
   --doc-line: #e9eaeb;
   --doc-text: var(--cs-text);
