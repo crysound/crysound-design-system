@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useId, useRef, useState } from 'react';
 export interface ChartDatum { label: string; x?: number; values: Record<string, number | null> }
-export interface ChartSeries { key: string; label: string; color?: string }
+export interface ChartSeries { key: string; label: string; color?: string; channel?: number }
 export interface ChartProps {
   title: string; description?: string; data: ChartDatum[]; series: ChartSeries[]; unit?: string;
   height?: number; loading?: boolean;
   xScale?: 'category'|'linear'|'log'; xLabel?: string; yLabel?: string;
   yDomain?: [number, number]; yStep?: number; measurementInfo?: string[];
 }
-const palette=['var(--cs-brand)','#0ea5e9','#f97316','#22c55e','#a855f7'];
+export const chartChannelColors: readonly string[] = Object.freeze(Array.from({length:64},(_,index)=>`var(--cs-chart-channel-${String(index+1).padStart(2,'0')})`));
 export function LineChart(props:ChartProps) {return <Chart {...props} kind="line"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
 function Chart({title,description,data,series,unit='',height=300,loading=false,xScale='category',xLabel,yLabel,yDomain,yStep,measurementInfo,kind}:ChartProps&{kind:'line'|'bar'}) {
@@ -42,7 +42,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
   const xTicks=numeric&&xScale==='log'?[20,50,100,200,500,1000,2000,5000,10000,20000].filter(n=>transformX(n)>=xMin&&transformX(n)<=xMax):[];
   const hitLeft=(i:number)=>i===0?left:(x(i-1)+x(i))/2;
   const hitRight=(i:number)=>i===data.length-1?width-right:(x(i)+x(i+1))/2;
-  const color=(item:ChartSeries)=>item.color??palette[series.indexOf(item)%palette.length];
+  const color=(item:ChartSeries)=>item.color??chartChannelColors[Number.isInteger(item.channel)&&item.channel!>=1&&item.channel!<=64?item.channel!-1:series.indexOf(item)%chartChannelColors.length];
   const selected=active===undefined?undefined:data[active];
   const format=(n:number)=>new Intl.NumberFormat('zh-CN',{maximumFractionDigits:2,notation:Math.abs(n)>=10000?'compact':'standard'}).format(n);
   return <figure className="cs-chart" aria-labelledby={`${id}-title`}>
@@ -53,17 +53,17 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
       <div ref={plot} className="cs-chart-plot" onMouseLeave={()=>setActive(undefined)}>
         <svg viewBox={`0 0 ${width} ${svgHeight}`} width="100%" height={svgHeight} role="img" aria-label={`${title}，${kind==='line'?'折线图':'柱状图'}，${data.length} 组数据；详细数值见下方数据表`}>
           <defs><clipPath id={`${id}-clip`}><rect x={left} y={top} width={plotWidth} height={plotHeight}/></clipPath></defs>
-          <text x={left} y={15} fill="var(--cs-muted)" fontSize="11">{yLabel??unit}</text>
-          <text x={width-right} y={svgHeight-5} textAnchor="end" fill="var(--cs-muted)" fontSize="11">{xLabel}</text>
-          <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-surface)" stroke="var(--cs-border)"/>
-          {ticks.map(value=>{const yy=y(value);return <g key={value}><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-border)" strokeWidth=".5"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-muted)" fontSize="11">{format(value)}</text></g>;})}
-          {xTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value}><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-border)" strokeWidth=".5"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-muted)" fontSize="11">{value>=1000?`${value/1000}k`:value}</text></g>;})}
-          {active!==undefined&&<line x1={x(active)} x2={x(active)} y1={top} y2={top+plotHeight} stroke="var(--cs-muted)" strokeDasharray="4 3"/>}
-          {min<0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-muted)"/>}
+          <text x={left} y={15} fill="var(--cs-chart-axis)" fontSize="11">{yLabel??unit}</text>
+          <text x={width-right} y={svgHeight-5} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="11">{xLabel}</text>
+          <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-chart-plot-bg)" stroke="var(--cs-chart-grid)"/>
+          {ticks.map(value=>{const yy=y(value);return <g key={value}><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".5"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="11">{format(value)}</text></g>;})}
+          {xTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value}><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="11">{value>=1000?`${value/1000}k`:value}</text></g>;})}
+          {active!==undefined&&<line x1={x(active)} x2={x(active)} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-axis)" strokeDasharray="4 3"/>}
+          {min<0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-chart-axis)"/>}
           {kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="1.5" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
           {data.map((row,i)=><g key={`${row.label}-${i}`}>
-            {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-muted)" fontSize="11">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
-            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r={active===i?5:3} fill="var(--cs-surface)" stroke={color(item)} strokeWidth="1.5"/>:null;})}
+            {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="11">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
+            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r={active===i?5:3} fill="var(--cs-chart-plot-bg)" stroke={color(item)} strokeWidth="1.5"/>:null;})}
             <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} onMouseEnter={()=>setActive(i)} onFocus={()=>setActive(i)} onBlur={()=>setActive(undefined)} onKeyDown={event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
           </g>)}
         </svg>

@@ -24,4 +24,17 @@ describe('charts',()=>{
     expect(screen.getByText('频率 / Hz')).toBeInTheDocument();
   });
 
+  it('keeps explicit channel colors stable when a series is hidden or reordered',()=>{
+    const channels=[{key:'a',label:'通道64',channel:64},{key:'b',label:'通道2',channel:2}];
+    const data=[{label:'测点',values:{a:10,b:20}}];
+    const view=render(<LineChart title="通道色" data={data} series={channels}/>);
+    const swatch=()=>screen.getByRole('button',{name:'通道64'}).querySelector('span')!;
+    expect(swatch().style.background).toBe('var(--cs-chart-channel-64)');
+    fireEvent.click(screen.getByRole('button',{name:'通道2'}));
+    view.rerender(<LineChart title="通道色" data={data} series={[channels[1],channels[0]]}/>);
+    expect(swatch().style.background).toBe('var(--cs-chart-channel-64)');
+    view.rerender(<LineChart title="通道色" data={data} series={[{...channels[0],color:'#123456'}]}/>);
+    expect(swatch().style.background).toBe('rgb(18, 52, 86)');
+  });
+
 });

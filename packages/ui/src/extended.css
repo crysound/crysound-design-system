@@ -901,8 +901,8 @@
 .cs-chart { margin: 0; padding: 16px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); background: var(--cs-surface); color: var(--cs-text); min-width: 0; }
 .cs-chart figcaption > strong { font-size: 14px; font-weight: var(--cs-weight-semibold); color: var(--cs-text-heading); }
 .cs-chart figcaption p { margin: 6px 0 0; color: var(--cs-muted); font-size: 12px; line-height: 20px; }
-.cs-chart-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 12px 0 6px; }
-.cs-chart-legend button { display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: var(--cs-text); font: inherit; font-size: 12px; cursor: pointer; }
+.cs-chart-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 12px 0 0; padding: 10px 12px; background: var(--cs-chart-plot-bg); border-bottom: 1px solid var(--cs-chart-grid); }
+.cs-chart-legend button { display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: var(--cs-chart-axis); font: inherit; font-size: 12px; cursor: pointer; }
 .cs-chart-legend button[aria-pressed="false"] { opacity: .4; text-decoration: line-through; }
 .cs-chart-legend span { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 0; }
 .cs-chart-plot svg { display: block; overflow: visible; font-family: var(--cs-font); }
@@ -1186,4 +1186,4 @@ button.cs-step-content { cursor: pointer; }
 }
 
 .cs-chart-measurement-info { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--cs-border); color: var(--cs-muted); font-size: 11px; line-height: 16px; }
-.cs-chart-plot { width: 100%; min-width: 0; }
+.cs-chart-plot { width: 100%; min-width: 0; background: var(--cs-chart-plot-bg); }
