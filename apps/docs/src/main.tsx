@@ -1,5 +1,6 @@
 import { LogoGuidelines } from "./logo-guidelines";
 import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
+import { SpringFoundations } from "./spring-foundations";
 import { AlphaFoundations } from "./alpha-foundations";
 import { RadiusFoundations } from "./radius-foundations";
 import { SpaceFoundations } from "./space-foundations";
@@ -382,6 +383,7 @@ npm pack -w @crysound/ui`}</code>
               <SpaceFoundations />
               <RadiusFoundations />
               <AlphaFoundations />
+              <SpringFoundations />
             </section>
             <section id="components">
               <div className="section-heading">

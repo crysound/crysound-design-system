@@ -118,3 +118,7 @@
 ## 窄容器三项分段控制器
 
 采用用户提供的≤254px容器阈值，TabsList variant="pill" collapseInactiveLabels 显式开启，仅三项直接 TabsTrigger 生效。未激活且有icon的项目收起可见标签，保留可访问名称；无图标项目保留文字，避免空白按钮。激活项左右16px，未激活图标项左右0，保留32px最小交互区域。原Radix键盘、disabled及面板关联保持；原有ResizeObserver随收起和选择重测指示器。未支持容器查询的浏览器保持完整标签。
+
+## 弹簧预设 · 2026-10-15
+
+按用户片段导出 springButton（scale .92 / stiffness600 / damping30）、springPopover（.95/6px进入、4px退出 / 320/28）、springBadgeBounce（.8→1 / 380/18）。均为可选参数对象，getSpringPreset 接受消费方 useReducedMotion()，减少动态效果时取消变形并立即切换。UI库不引入Motion运行时；文档站按需依赖framer-motion进行交互展示。物理弹簧收敛不套用固定时长，既有Radix焦点管理保持原实现；预览面板不作为弹窗实现范例。
