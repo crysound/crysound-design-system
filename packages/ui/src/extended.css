@@ -1240,3 +1240,5 @@ button.cs-step-content { cursor: pointer; }
 .cs-select-option[data-state="checked"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 .cs-select-option[data-disabled] { color: var(--cs-text-disabled); pointer-events: none; }
 @media(forced-colors:active) { .cs-select-trigger:focus-visible { outline: 1px solid Highlight; } .cs-select-option[data-highlighted] { outline: 1px solid Highlight; } }
+
+.cs-popover-options { display: grid; gap: 12px; }

@@ -419,10 +419,10 @@ export function ComponentDemo({ id }: { id: string }) {
           title="筛选设备"
           trigger={<Button variant="secondary">打开筛选</Button>}
         >
-          <Stack>
+          <div className="cs-popover-options">
             <Checkbox label="仅显示在线设备" />
             <Checkbox label="包含运行中的设备" defaultChecked />
-          </Stack>
+          </div>
         </Popover>
       );
     case "tooltip":
