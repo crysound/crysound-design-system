@@ -2,7 +2,7 @@
 
 面向 CRYSOUND 产品软件、管理后台、官网和客户定制的 React + TypeScript 设计系统工程首版。
 
-**状态：0.2.0。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、HarmonyOS Sans SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。本仓库没有复制 Untitled UI PRO 资源，也没有声称完成 Figma 视觉还原。
+**状态：0.2.0。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、PingFang SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。
 
 ## 本地运行
 
@@ -91,8 +91,6 @@ Registry 从实际源码生成，将组件安装到项目的 components 别名�
 
 ## 参考资料与权利
 
-- [Untitled UI React](https://github.com/untitleduico/react)：参考视觉层级与组件组织。
-- [shadcn/ui](https://github.com/shadcn-ui/ui)：参考组件源码可控、可组合的方式。
 - [OpenTest V4](https://www.figma.com/design/Ea2zZC9NZCRY7SP1BySrvv/OpenTest-V4?node-id=8-2225)
 - [OpenTest 官网](https://www.figma.com/design/vs6mXxpmwkI91R1JLsLG6c/OpenTest?node-id=1-19978)
 - [公司官网 2.0](https://www.figma.com/design/bsk0jyVDkS9VCM3gjmhdaM/Website?node-id=19939-12429)
