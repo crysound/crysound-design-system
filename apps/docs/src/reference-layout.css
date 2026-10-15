@@ -2,6 +2,7 @@
    Brand tokens and component behavior stay owned by CRYSOUND. */
 :root {
   --doc-page: #fff;
+  --doc-title-description-gap: 24px;
   --doc-subtle: #fafafa;
   --doc-line: #e9eaeb;
   --doc-text: var(--cs-text);
@@ -1618,8 +1619,7 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
   color: var(--cs-text-heading);
   margin: 0;
 }
-#main-content .icon-library > h1 { margin-bottom: 12px; }
-#main-content .library-introduction > h1 { margin-bottom: 24px; }
+#main-content :is(.icon-library, .library-introduction) > h1 { margin-bottom: var(--doc-title-description-gap); }
 @media (max-width: 700px) {
   :is(.library-introduction > h1, .icon-library > h1, .reference-title-row h1,
     .docs-legacy-content > section > .section-heading > div > h2) {
@@ -1637,3 +1637,10 @@ select[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 /* Body copy keeps short trailing words/characters with the preceding text. */
 #main-content :where(p, .reference-component-description, .component-guidance,
   .section-intro, .icon-guidance, .docs-action-description) { text-wrap: pretty; }
+
+/* Shared page-heading rhythm for every documentation destination. */
+#main-content .reference-component-heading > p { margin-top: var(--doc-title-description-gap); }
+#main-content :is(.icon-library > .icon-intro, .library-introduction > p, .reference-component-heading > p) {
+  font-size: 16px; line-height: 24px;
+}
+#main-content .icon-library > .icon-intro { margin-top: 0; }
