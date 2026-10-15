@@ -139,7 +139,7 @@ export function Card({
     <section {...props} className={cx("cs-card", props.className)}>
       <header className="cs-card-header">
         <div>
-          <h3><TextReveal text={title} /></h3>
+          <h3>{title}</h3>
           {description && <p><TextReveal text={description} /></p>}
         </div>
         {actions}
@@ -182,7 +182,7 @@ export function EmptyState({
 }) {
   return (
     <div className="cs-empty">
-      <h3><TextReveal text={title} /></h3>
+      <h3>{title}</h3>
       <p><TextReveal text={description} /></p>
       {action}
     </div>

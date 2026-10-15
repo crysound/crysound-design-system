@@ -1,5 +1,5 @@
 "use client";
-import { TextReveal, revealText } from "./text-reveal";
+import { revealText } from "./text-reveal";
 import { useState, type ReactNode } from 'react';
 import { Button } from './index';
 export interface InlineCTAAction { label: string; onClick?: () => void; href?: string; disabled?: boolean; loading?: boolean }
@@ -17,7 +17,7 @@ export function InlineCTA({title,description,icon,media,tone='neutral',primaryAc
   return <aside className={`cs-inline-cta cs-inline-cta--${tone}${media ? ' cs-inline-cta--media' : ''}`} aria-label={title}>
     {media&&<div className="cs-inline-cta-media">{media}</div>}
     {icon&&<div className="cs-inline-cta-icon" aria-hidden="true">{icon}</div>}
-    <div className="cs-inline-cta-content"><strong><TextReveal text={title}/></strong>{description&&<div>{revealText(description)}</div>}</div>
+    <div className="cs-inline-cta-content"><strong>{title}</strong>{description&&<div>{revealText(description)}</div>}</div>
     <div className="cs-inline-cta-actions">{secondaryAction&&action(secondaryAction,false)}{action(primaryAction,true)}</div>
     {dismissible&&<button type="button" className="cs-inline-cta-close" aria-label={`关闭 ${title}`} onClick={()=>{setDismissed(true);onDismiss?.();}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>}
   </aside>;

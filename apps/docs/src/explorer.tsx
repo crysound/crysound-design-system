@@ -741,7 +741,7 @@ export function ComponentPage({
       <section className="reference-component-heading">
         <div className="reference-title-row">
           <div>
-            <h1><TextReveal text={`${item.name} components`}/></h1>
+            <h1>{item.name} components</h1>
             <span className="reference-component-label">REACT</span>
           </div>
           <div className="reference-title-actions">

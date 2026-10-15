@@ -9,7 +9,7 @@ export function TextReveal({ text }: { text: string }) {
 export function revealText(children: ReactNode): ReactNode {
   return Children.map(children, child => {
     if (typeof child === 'string' && child.trim()) return <TextReveal text={child} />;
-    if (!isValidElement<{ children?: ReactNode }>(child) || typeof child.type !== 'string' || ['input','textarea','select','code','pre','svg','button'].includes(child.type)) return child;
+    if (!isValidElement<{ children?: ReactNode }>(child) || typeof child.type !== 'string' || ['h1','h2','h3','h4','h5','h6','input','textarea','select','code','pre','svg','button'].includes(child.type)) return child;
     return cloneElement(child, {}, revealText(child.props.children));
   });
 }

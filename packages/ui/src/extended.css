@@ -1179,3 +1179,8 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-text-reveal-character { animation: cs-character-reveal 90ms cubic-bezier(.22, 1, .36, 1) both; animation-delay: var(--cs-character-delay, 0ms); white-space: pre-wrap; }
 @media(prefers-reduced-motion: reduce) { .cs-text-reveal-character { animation: none; } }
+
+/* Headings are immediately readable, including composed TextReveal usage. */
+:is(h1, h2, h3, h4, h5, h6, [role="heading"]) .cs-text-reveal-character {
+  animation: none; opacity: 1; filter: none;
+}
