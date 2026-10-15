@@ -62,12 +62,14 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   hint?: string;
   error?: string;
+  placeholderReveal?: boolean;
 }
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     label,
     hint,
     error,
+    placeholderReveal = false,
     id,
     className,
     "aria-describedby": description,
@@ -81,6 +83,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <div className="cs-field">
       <label htmlFor={inputId}>{label}</label>
+      <div className={placeholderReveal ? "cs-input-reveal" : "cs-input-wrap"}>
       <input
         {...props}
         ref={ref}
@@ -93,6 +96,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         }
         className={cx("cs-input", className)}
       />
+      {placeholderReveal && props.placeholder && <span className="cs-input-placeholder-reveal" aria-hidden="true">{Array.from(props.placeholder).map((char,index)=><span key={index} style={{animationDelay:`${index*90}ms`}}>{char}</span>)}</span>}
+      </div>
       {(error || hint) && (
         <span id={helpId} className={cx("cs-help", !!error && "cs-error")}>
           {error || hint}

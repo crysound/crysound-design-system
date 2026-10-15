@@ -488,3 +488,11 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
   .cs-overlay-close > svg, .cs-instrument-dialog-close > svg { transition: none; }
   .cs-overlay-close:hover > svg, .cs-instrument-dialog-close:hover > svg { transform: none; }
 }
+
+.cs-input-wrap, .cs-input-reveal { min-width: 0; position: relative; }
+.cs-input-reveal input::placeholder { color: transparent; }
+.cs-input-placeholder-reveal { position: absolute; inset: 0 12px; display: flex; align-items: center; overflow: hidden; pointer-events: none; color: var(--cs-muted); font-family: var(--cs-font); font-size: var(--cs-font-size); line-height: 20px; white-space: pre; }
+.cs-input-placeholder-reveal > span { display: inline-block; animation: cs-character-reveal 90ms cubic-bezier(.22,1,.36,1) both; }
+.cs-input-reveal input:not(:placeholder-shown) ~ .cs-input-placeholder-reveal { display: none; }
+@media(prefers-reduced-motion:reduce) { .cs-input-placeholder-reveal > span { animation: none; } }
+.cs-input-wrap { display: contents; }
