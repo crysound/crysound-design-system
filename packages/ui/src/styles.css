@@ -508,3 +508,7 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
   :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon) > svg { transition: none; }
   :is(.cs-overlay-close, .cs-instrument-dialog-close, .cs-inline-cta-close, .cs-color-close, .cs-close-icon):hover > svg { transform: none; }
 }
+
+/* Center mixed text actions and dismiss controls in alert rows. */
+.cs-alert > button, .cs-alert-action > button { align-self: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px; line-height: 20px; }
+button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; min-height: 32px; flex: 0 0 32px; padding: 0; box-sizing: border-box; }

@@ -536,7 +536,7 @@
 }
 .cs-alert {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   justify-content: space-between;
   border: 1px solid color-mix(in srgb, var(--tone-fg) 25%, transparent);
