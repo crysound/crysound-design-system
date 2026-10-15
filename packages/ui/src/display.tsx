@@ -83,7 +83,7 @@ export function Alert({
         <strong>{title}</strong>
         {children && <div>{children}</div>}
       </div>
-      {action}
+      {action && <div className="cs-alert-action">{action}</div>}
     </div>
   );
 }

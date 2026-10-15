@@ -439,3 +439,19 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 }
 .cs-accordion-trigger > span { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 20px; }
 .cs-accordion-trigger > span > svg { display: block; }
+
+/* Alert actions belong to the semantic surface instead of a neutral white button. */
+.cs-alert-action { display: flex; align-items: center; flex-shrink: 0; gap: 8px; }
+.cs-alert-action .cs-button:is(.cs-button--secondary, .cs-button--ghost) {
+  background: transparent;
+  color: var(--tone-fg);
+  border-color: color-mix(in srgb, var(--tone-fg) 25%, transparent);
+  box-shadow: none;
+  font-weight: var(--cs-weight-medium);
+}
+.cs-alert-action .cs-button:is(.cs-button--secondary, .cs-button--ghost):hover:not(:disabled) {
+  background: color-mix(in srgb, var(--tone-fg) 8%, var(--tone-bg));
+  border-color: color-mix(in srgb, var(--tone-fg) 40%, transparent);
+}
+.cs-alert-action .cs-button:focus-visible { outline-color: var(--tone-fg); }
+@media(max-width:540px) { .cs-alert { flex-wrap: wrap; } .cs-alert-content { flex: 1 1 200px; min-width: 0; } }
