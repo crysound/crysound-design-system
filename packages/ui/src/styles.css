@@ -470,3 +470,10 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
 /* Softer alert surfaces while retaining semantic text contrast. */
 .cs-alert { background: color-mix(in srgb, var(--tone-bg) 55%, var(--cs-surface)); }
 .cs-alert-action .cs-button:is(.cs-button--secondary, .cs-button--ghost):hover:not(:disabled) { background: color-mix(in srgb, var(--tone-fg) 6%, var(--cs-surface)); }
+
+.cs-overlay-close { display: inline-grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--cs-radius); background: transparent; color: var(--cs-muted); cursor: pointer; }
+.cs-overlay-close > svg { display: block; }
+.cs-overlay-close:hover, .cs-overlay-close:focus-visible { background: var(--cs-subtle); color: var(--cs-text); outline: none; }
+.cs-overlay-close:active > svg { animation: cs-dialog-close-turn 180ms cubic-bezier(.2,.8,.2,1) both; }
+@media(prefers-reduced-motion:reduce) { .cs-overlay-close:active > svg { animation: none; } }
+@media(forced-colors:active) { .cs-overlay-close:focus-visible { outline: 1px solid Highlight; } }

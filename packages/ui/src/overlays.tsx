@@ -56,9 +56,7 @@ export function Popover({
           <div className="cs-between">
             <strong>{title}</strong>
             <PopoverPrimitive.Close asChild>
-              <Button variant="ghost" size="sm" aria-label="关闭浮层">
-                ×
-              </Button>
+              <button type="button" className="cs-overlay-close" aria-label="关闭浮层"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
             </PopoverPrimitive.Close>
           </div>
           {children}
@@ -143,9 +141,7 @@ export function Sheet({
           <div className="cs-between">
             <D.Title>{title}</D.Title>
             <D.Close asChild>
-              <Button variant="ghost" size="sm" aria-label="关闭面板">
-                ×
-              </Button>
+              <button type="button" className="cs-overlay-close" aria-label="关闭面板"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
             </D.Close>
           </div>
           <D.Description className="cs-muted">{description}</D.Description>
