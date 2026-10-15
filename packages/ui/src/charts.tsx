@@ -12,7 +12,7 @@ export const chartChannelColors: readonly string[] = Object.freeze(Array.from({l
 export function LineChart(props:ChartProps) {return <Chart {...props} kind="line"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
 function Chart({title,description,data,series,unit='',height=300,loading=false,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,kind}:ChartProps&{kind:'line'|'bar'}) {
-  const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);const [pinned,setPinned]=useState(false);
+  const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);
   const visible=series.filter(item=>!hidden.includes(item.key));
   const values=data.flatMap(row=>visible.map(item=>row.values[item.key])).filter((n):n is number=>typeof n==='number'&&Number.isFinite(n));
   const plot = useRef<HTMLDivElement>(null);
@@ -54,7 +54,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
     {measurementInfo&&<div className="cs-chart-measurement-info">{measurementInfo.map(info=><span key={info}>{info}</span>)}</div>}
     <div className="cs-chart-legend" role="group" aria-label={`${title} 数据序列`}>{series.map(item=><button key={item.key} type="button" aria-pressed={!hidden.includes(item.key)} onClick={()=>setHidden(current=>current.includes(item.key)?current.filter(key=>key!==item.key):[...current,item.key])}><span style={{background:color(item)}}/>{item.label}</button>)}</div>
     <>
-      <div ref={plot} className="cs-chart-plot" onMouseLeave={()=>{if(!pinned)setActive(undefined);}}>
+      <div ref={plot} className="cs-chart-plot" onMouseLeave={()=>setActive(undefined)}>
         <svg viewBox={`0 0 ${width} ${svgHeight}`} width="100%" height={svgHeight} role="img" aria-label={`${title}，${kind==='line'?'折线图':'柱状图'}，${data.length} 组数据；详细数值见下方数据表`}>
           <defs><clipPath id={`${id}-clip`}><rect x={left} y={top} width={plotWidth} height={plotHeight}/></clipPath></defs>
           <text x={20} y={top+plotHeight/2} transform={`rotate(-90 20 ${top+plotHeight/2})`} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="12">{yLabel??unit}</text>
@@ -73,7 +73,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
           {!loading&&data.map((row,i)=><g key={`${row.label}-${i}`}>
             {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="11">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
             {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="5" fill={color(item)} stroke="#334155" strokeWidth="1.5"/>:null;})}
-            <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} aria-pressed={pinned&&active===i} onClick={()=>{setActive(i);setPinned(true);}} onMouseEnter={()=>{if(!pinned)setActive(i);}} onFocus={()=>setActive(i)} onBlur={()=>{if(!pinned)setActive(undefined);}} onKeyDown={event=>{if(event.key==='Escape'){setPinned(false);setActive(undefined);return;}if(event.key==='Enter'||event.key===' '){event.preventDefault();setActive(i);setPinned(true);return;}if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
+            <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} onMouseEnter={()=>setActive(i)} onMouseMove={()=>setActive(i)} onFocus={()=>setActive(i)} onBlur={()=>setActive(undefined)} onKeyDown={event=>{if(event.key==='Escape'){setActive(undefined);return;}if(event.key==='Enter'||event.key===' '){event.preventDefault();setActive(i);return;}if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
           </g>)}
         </svg>
         {selected&&active!==undefined&&!loading&&visible.length>0&&<div className="cs-chart-tooltip" aria-hidden="true" data-flip={x(active)>left+plotWidth*.6||undefined} style={{left:`${x(active)/width*100}%`,top:`${Math.min(svgHeight-110,Math.max(8,cursorY-36))}px`}}>
@@ -82,7 +82,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,x
         </div>}
         {(loading||!data.length||!series.length)&&<div className="cs-chart-overlay" role={loading?'status':undefined}><span>{loading?'正在加载图表…':'暂无图表数据'}</span></div>}
       </div>
-      {!loading&&data.length>0&&series.length>0&&<><div className="cs-sr-only" aria-live="polite" aria-atomic="true">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>悬浮查看 · 点击固定游标 · Esc 取消 · Tab / 方向键移动{unit?` · 单位 ${unit}`:''}</span>}</div>
+      {!loading&&data.length>0&&series.length>0&&<><div className="cs-sr-only" aria-live="polite" aria-atomic="true">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>移动鼠标查看数值 · Tab / 方向键移动 · Esc 隐藏{unit?` · 单位 ${unit}`:''}</span>}</div>
       <details className="cs-chart-data"><summary>查看数据表</summary><div className="cs-table-scroll"><table className="cs-table"><caption className="cs-sr-only">{title}原始数据</caption><thead><tr><th>项目</th>{series.map(item=><th key={item.key}>{item.label}{unit?` (${unit})`:''}</th>)}</tr></thead><tbody>{data.map((row,i)=><tr key={i}><th scope="row">{row.label}</th>{series.map(item=><td key={item.key}>{typeof row.values[item.key]==='number'&&Number.isFinite(row.values[item.key])?format(row.values[item.key]!):'—'}</td>)}</tr>)}</tbody></table></div></details></>}
     </>
   </figure>;
