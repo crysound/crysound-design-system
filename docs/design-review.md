@@ -89,3 +89,8 @@
 ## 智能断行与移动端输入
 
 标题使用 text-wrap:balance；正文使用 text-wrap:pretty。浏览器对 pretty 的支持与排版策略不同，不能承诺绝不出现孤字。长标识使用 overflow-wrap:anywhere 与 word-break:normal，保持英文单词完整，必要时允许应急断行。明确要求单行的按钮、数字和代码不强制参与正文换行。触屏手机输入文字至少16px，避免 iOS 输入聚焦自动缩放；不禁用用户手动缩放。
+
+## 等宽数字与 SVG 图标层次
+
+计数、测量读数、分页、时间和表格使用 font-variant-numeric:tabular-nums。消费项目的计时器和计数可复用 cs-tabular-nums 或 data-cs-numeric；字体须支持该 OpenType 特性。
+图标继续使用现有 SVG 资产和原生 viewBox，不引入 Phosphor 或 Anthro 插件资产，也不重写为256坐标系。可选 cs-icon 次层以 data-layer="secondary" 标记，使用 currentColor 45% 混色；主层保持 currentColor，图标线宽仍为1.2px。SVG 不经过字体连字替换，辅助类同时明确 liga=0。

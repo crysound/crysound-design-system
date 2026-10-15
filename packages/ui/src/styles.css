@@ -558,3 +558,11 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
   .cs-date-trigger, .cs-input.cs-select-trigger { font-size: max(16px, var(--cs-font-size)); }
   .cs-input-placeholder-reveal, .cs-login-hint { font-size: max(16px, var(--cs-font-size)); }
 }
+
+/* Stable numerals for measurements, counts, time and tabular data. */
+.cs-table, .cs-metric, .cs-animated-number, .cs-progress, .cs-progress-steps,
+.cs-pagination, .cs-badge, .cs-chart, .cs-spectrogram, .cs-video-time,
+.cs-tabular-nums, [data-cs-numeric] { font-variant-numeric: tabular-nums; }
+/* SVG icon convention: optional explicit secondary paths, never font glyphs. */
+.cs-icon { display: inline-block; flex-shrink: 0; font-feature-settings: "liga" 0; }
+.cs-icon [data-layer="secondary"] { color: color-mix(in srgb, currentColor 45%, transparent); }
