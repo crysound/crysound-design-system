@@ -135,15 +135,17 @@ export function Card({
   children,
   actions,
   shadow,
+  variant = "outlined",
   ...props
 }: Omit<HTMLAttributes<HTMLElement>, "title"> & {
   title: string;
   description?: string;
   actions?: ReactNode;
   shadow?: ShadowLevel;
+  variant?: "outlined" | "plain" | "inset";
 }) {
   return (
-    <section {...props} data-shadow={shadow} className={cx("cs-card", props.className)}>
+    <section {...props} data-shadow={shadow} data-variant={variant} className={cx("cs-card", props.className)}>
       <header className="cs-card-header">
         <div>
           <h3>{title}</h3>
@@ -316,3 +318,19 @@ export * from "./instrument-dialog";
 export * from "./motion-presets";
 export * from "./glass-surface";
 export * from "./typography";
+export { LinkGroup, type LinkGroupProps, type LinkGroupItem } from './link-group';
+
+/** Card content uses spacing, not another closed container. */
+export function CardBody({className, ...props}: HTMLAttributes<HTMLDivElement>) {
+  return <div {...props} className={cx('cs-card-body', className)} />;
+}
+/** A single divider separates card actions without creating a nested box. */
+export function CardActions({className, ...props}: HTMLAttributes<HTMLDivElement>) {
+  return <div {...props} className={cx('cs-card-actions', className)} />;
+}
+export function Toolbar({label, className, ...props}: HTMLAttributes<HTMLDivElement> & {label: string}) {
+  return <div {...props} role="group" aria-label={label} className={cx('cs-toolbar', className)} />;
+}
+export const ToolbarButton = forwardRef<HTMLButtonElement, ButtonProps>(function ToolbarButton({variant = 'ghost', ...props}, ref) {
+  return <Button {...props} ref={ref} variant={variant} />;
+});

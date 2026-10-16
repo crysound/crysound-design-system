@@ -1,7 +1,7 @@
 "use client";
 import type { ComponentProps, HTMLAttributes } from 'react';
 import { cx } from './utils';
-export type HeadingVariant = 'page' | 'section' | 'subsection';
+export type HeadingVariant = 'page' | 'section' | 'subsection' | 'display' | 'marketing-section';
 export interface HeadingProps extends ComponentProps<'h2'> {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   variant?: HeadingVariant;
@@ -13,7 +13,7 @@ export function Heading({level, variant = level === 1 ? 'page' : level === 2 ? '
 }
 export interface TextProps extends HTMLAttributes<HTMLElement> {
   as?: 'p' | 'span' | 'div';
-  variant?: 'body' | 'lead' | 'caption' | 'label';
+  variant?: 'body' | 'lead' | 'caption' | 'label' | 'intro';
   tone?: 'default' | 'muted';
 }
 export function Text({as: Tag = 'p', variant = 'body', tone = 'default', className, ...props}: TextProps) {

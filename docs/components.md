@@ -49,6 +49,33 @@ document.documentElement.dataset.customer = 'ocean';
 
 验收需覆盖长中文/英文、200%缩放、窄屏、明暗和客户主题、表单错误说明；组件样式不依赖文档站CSS。旧原始字号Token仍保留兼容，不推荐消费项目任意组合所有档位。
 
-文字角色已进入共享组件默认样式：表单label使用medium，提示/错误说明与表格元数据使用caption；表格正文、浮层说明、Accordion内容、Tabs面板和Alert描述使用body；菜单、Tabs触发器与树项目使用control（按密度14/13px，行高20px）。登录标题与SectionHeader lg为page；普通弹窗、Sheet和SectionHeader md为section，卡片与SectionHeader sm为subsection。图表、视频、头像和测量数字的专用排版保留。
+文字角色已进入共享组件默认样式：表单label使用medium，提示/错误说明与表格元数据使用caption；表格正文、浮层说明、Accordion内容、Tabs面板和Alert描述使用body；菜单、Tabs触发器与树项目使用control（按密度14px，行高20px）。登录标题与SectionHeader lg为page；普通弹窗、Sheet和SectionHeader md为section，卡片与SectionHeader sm为subsection。图表、视频、头像和测量数字的专用排版保留。
 
 Charts默认使用适中密度网格：纵轴主刻度之间补一条浅线，横轴仅在足够宽时补少量辅助线。纵轴刻度按至少44px、数值横轴按至少72px间距抽稀，保留首尾，不改变数据坐标或yDomain；yStep为候选刻度间隔，不保证每档都显示。minorGrid=false可关闭辅助网格；分类标签随宽度减少。
+
+## 八档字号与场景 · 2026-10-16
+
+用户确认采用12/14/16/18/20/24/30/36基础字号。此条覆盖此前page28/36及compact13px提案：page现为24/32，紧凑控件保持14/20。新增Heading display36/44（官网页面/首屏）、marketing-section30/40（官网区域）、Text intro18/28（重点导语）。官网卡片可用page、阅读正文用lead16/26；工作台section20/28、subsection16/24、body14/22、label14/20、caption12/18。行高、中文行宽及段长仍为工程建议，不宣称第三方官方参数或已完成全部产品验收。
+
+Accordion 动效参考 Claude Design 官网 FAQ（2026-10-16 实测）：内容采用 grid 行高与透明度400ms同步过渡；加号竖线250ms旋转90度并淡出，形成减号；曲线 cubic-bezier(.165,.84,.44,1)。保留 Radix 单项展开、键盘与禁用行为；收起内容 inert / aria-hidden，不可聚焦。减少动态效果时立即切换，不复制官网字体和展示尺度。
+
+Accordion 的动画容器与 Radix 尺寸测量节点分离，避免尺寸读取临时清除 transition 时长导致跳帧；保持相同的400ms曲线并允许中途反向切换。
+
+## LinkGroup 链接组
+
+官网页脚和链接目录使用共享LinkGroup，label为可访问分组名，items接受原生链接属性。悬停一项时仅同组其他项切换为cs-muted，当前项保持cs-text；颜色200ms ease，不缩放、位移、加粗。此为参考Claude Design官网反馈方式的CRYSOUND适配，分组淡化不宣称完全复刻其实现。键盘显示焦点环，不触发全组淡化；触摸保持正常文字，减少动态效果取消过渡，增强对比度取消淡化。每组独立，禁止应用于状态、错误和关键工作台操作。
+
+## 边界组合规则（已落实共享组件）
+
+Card默认outlined且无阴影；页面分组使用variant="plain"（标题和留白），嵌入分组可用variant="inset"（浅表面，无闭合边框）。CardBody提供内容间距，CardActions仅使用顶部单向分隔线。Toolbar为有名称的操作分组，ToolbarButton默认ghost并保留Button全部加载、禁用及键盘语义；关键次级操作显式variant="secondary"。不根据DOM父容器强制取消Input或Secondary按钮边框。阴影只在独立浮层或显式shadow属性时使用，内容卡片不默认抬升。
+
+```tsx
+<Card title="账号管理" variant="plain">
+  <CardBody>
+    <Card title="工作账号 A">
+      <CardBody>额度与状态</CardBody>
+      <CardActions><Toolbar label="账号操作"><ToolbarButton>查看用量</ToolbarButton></Toolbar></CardActions>
+    </Card>
+  </CardBody>
+</Card>
+```

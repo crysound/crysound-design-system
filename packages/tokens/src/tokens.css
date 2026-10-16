@@ -95,7 +95,7 @@
 }
 [data-density="compact"] {
   --cs-control-height: 32px;
-  --cs-font-size: 13px;
+  --cs-font-size: 14px;
 }
 /* Example customer theme; the accessible foreground is part of the override. */
 [data-customer="ocean"] {
@@ -358,8 +358,14 @@
 
 /* Proposed semantic typography pairs; raw size tokens remain compatible. */
 :root, [data-theme], [data-customer] {
-  --cs-type-page-size: 28px;
-  --cs-type-page-leading: 36px;
+  --cs-type-page-size: 24px;
+  --cs-type-page-leading: 32px;
+  --cs-type-display-size: 36px;
+  --cs-type-display-leading: 44px;
+  --cs-type-marketing-section-size: 30px;
+  --cs-type-marketing-section-leading: 40px;
+  --cs-type-intro-size: 18px;
+  --cs-type-intro-leading: 28px;
   --cs-type-section-size: 20px;
   --cs-type-section-leading: 28px;
   --cs-type-subsection-size: 16px;

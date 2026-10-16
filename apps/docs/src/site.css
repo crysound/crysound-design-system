@@ -172,7 +172,7 @@ main > section:not(.intro) {
   margin-bottom: 12px;
 }
 .swatches strong {
-  font-size: 13px;
+  font-size: 14px;
 }
 .swatches code {
   display: block;
@@ -358,7 +358,7 @@ pre {
 }
 aside nav a {
   padding: 7px 10px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .aside-note {
   border-top: 1px solid var(--cs-border);
@@ -470,7 +470,7 @@ main {
   align-items: center;
   text-decoration: none;
   padding: 8px 0;
-  font-size: 13px;
+  font-size: 14px;
   gap: 8px;
 }
 .component-index-group a:hover {
@@ -749,7 +749,7 @@ main {
     font-size: 12px;
   }
   .component-guidance p {
-    font-size: 13px;
+    font-size: 14px;
   }
   .two-col {
     grid-template-columns: 1fr;
@@ -904,3 +904,6 @@ main {
     margin-left: 5px;
   }
 }
+
+/* Accordion grows downward from a stable top edge. */
+.component-preview > .cs-accordion { align-self: flex-start; }

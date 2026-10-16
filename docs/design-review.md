@@ -133,4 +133,16 @@
 
 ## 共享文字角色迁移 · 2026-10-16
 
-继续将表单标签、辅助与错误说明、Tabs/树/菜单控件、表格正文与元数据、Accordion、Sheet/Dialog、Alert/Toast、SectionHeader、InlineCTA及登录页标题说明映射到角色Token。控件role跟随cs-font-size密度（14/13px），内容正文保持14/22，辅助12/18；页面级登录标题与SectionHeader lg使用page28/36。测量大数字、图表轴/图例、视频控制、日历数字和头像字形保留专用排版，不宣称全库所有文字完全相同。没有引入社区仓库字体或复制其组件行为。
+继续将表单标签、辅助与错误说明、Tabs/树/菜单控件、表格正文与元数据、Accordion、Sheet/Dialog、Alert/Toast、SectionHeader、InlineCTA及登录页标题说明映射到角色Token。控件role跟随cs-font-size密度（14px），内容正文保持14/22，辅助12/18；页面级登录标题与SectionHeader lg使用page28/36。测量大数字、图表轴/图例、视频控制、日历数字和头像字形保留专用排版，不宣称全库所有文字完全相同。没有引入社区仓库字体或复制其组件行为。
+
+## 八档字号与场景 · 2026-10-16
+
+用户确认采用12/14/16/18/20/24/30/36基础字号。此条覆盖此前page28/36及compact13px提案：page现为24/32，紧凑控件保持14/20。新增Heading display36/44（官网页面/首屏）、marketing-section30/40（官网区域）、Text intro18/28（重点导语）。官网卡片可用page、阅读正文用lead16/26；工作台section20/28、subsection16/24、body14/22、label14/20、caption12/18。行高、中文行宽及段长仍为工程建议，不宣称第三方官方参数或已完成全部产品验收。
+
+## 圆角组件映射与组合实景 · 2026-10-16
+
+补充组件当前默认与建议值对照，Card和Dialog当前4px分别与建议8/16px分栏，未改变共享默认。展示卡片内4px按钮、16/8px弹窗面板静态布局、20/12px官网容器三组建议预览；嵌套公式限定等距平行轮廓，独立控件不随父容器推导。使用语义Token，明暗及客户主题继承；不宣称Claude官方参数。
+
+## 取消文字晕开 · 2026-10-16
+
+按用户要求取消所有TextReveal逐字模糊/淡入效果，TabsContent直接渲染原始children。保留TextReveal与revealText导出兼容已有接入，但均即时显示完整内容；覆盖旧节点的动画样式。此条替代此前每字90ms文字揭示提案，保留Accordion和按钮等交互反馈。

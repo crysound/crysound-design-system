@@ -1,3 +1,4 @@
+import { BoundaryPreview } from "./boundary-preview";
 import { LogoGuidelines } from "./logo-guidelines";
 import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
 import { TypographyFoundations } from "./typography-foundations";
@@ -11,6 +12,7 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Button,
+  Tabs, TabsList, TabsTrigger, TabsContent,
   Input,
   Card,
   Metric,
@@ -314,6 +316,16 @@ npm pack -w @crysound/ui`}</code>
                 </div>
                 <span>品牌 · 语义 · 密度</span>
               </div>
+              <p className="foundation-intro">按当前任务查阅：先确定颜色与文字，再选择布局、材质和动效。每组保留来源、应用场景与接入示例。</p>
+              <Tabs defaultValue="colors" className="foundation-groups">
+                <TabsList aria-label="基础规范分组" className="foundation-group-tabs">
+                  <TabsTrigger value="colors">颜色与语义</TabsTrigger>
+                  <TabsTrigger value="type">字体与排版</TabsTrigger>
+                  <TabsTrigger value="layout">间距与圆角</TabsTrigger>
+                  <TabsTrigger value="material">边界与材质</TabsTrigger>
+                  <TabsTrigger value="motion">交互与动效</TabsTrigger>
+                </TabsList>
+                <TabsContent value="colors">
               <div className="swatches">
                 {[
                   ["品牌", "--cs-brand"],
@@ -381,13 +393,12 @@ npm pack -w @crysound/ui`}</code>
                 <span>基础间距 / 4px</span>
                 <span>圆角 / 4px</span>
               </div>
-              <TypographyFoundations />
-              <FoundationGallery />
-              <SpaceFoundations />
-              <RadiusFoundations />
-              <AlphaFoundations />
-              <SpringFoundations />
-              <GlassFoundations />
+                </TabsContent>
+                <TabsContent value="type"><TypographyFoundations /><details className="foundation-reference"><summary>原始字号 Token · 兼容与扩展</summary><FoundationGallery section="type" /></details></TabsContent>
+                <TabsContent value="layout"><SpaceFoundations /><details className="foundation-reference"><summary>间距速查与浮层层级</summary><FoundationGallery section="layout" /></details><RadiusFoundations /></TabsContent>
+                <TabsContent value="material"><BoundaryPreview /><AlphaFoundations /><GlassFoundations /></TabsContent>
+                <TabsContent value="motion"><SpringFoundations /></TabsContent>
+              </Tabs>
             </section>
             <section id="components">
               <div className="section-heading">

@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 const expected = new Map([
   ['.cs-label', 'label'], ['.cs-field label', 'label'], ['.cs-help', 'caption'], ['.cs-error', 'caption'],
   ['.cs-table', 'body'], ['.cs-table small', 'caption'], ['.cs-tabs-trigger', 'control'],
-  ['.cs-accordion-trigger', 'label'], ['.cs-accordion-content > div', 'body'],
+  ['.cs-accordion-trigger', 'label'], ['.cs-accordion-body', 'body'],
   ['.cs-dialog h2:not(.cs-heading)', 'section'], ['.cs-sheet h2:not(.cs-heading)', 'section'],
   ['.cs-alert-content > div', 'body'], ['.cs-login-card h2', 'page'],
   ['.cs-section-header-description', 'body'], ['.cs-inline-cta-content > div', 'body'],

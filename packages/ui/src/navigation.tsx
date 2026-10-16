@@ -1,13 +1,12 @@
 "use client";
-import { Children, isValidElement, useEffect, useRef, type ComponentProps, type ReactNode } from "react";
+import { Children, isValidElement, useEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
 import * as T from "@radix-ui/react-tabs";
 import * as A from "@radix-ui/react-accordion";
 import { Button } from "./index";
-import { revealText } from "./text-reveal";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className, children, ref, variant = "line", collapseInactiveLabels = false, ...props
+  className, children, ref, variant = "line", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
 }: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
@@ -73,7 +72,13 @@ export function TabsList({
     return () => { cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
   }, [variant]);
   const segmented = collapseInactiveLabels && variant === "pill" && Children.toArray(children).filter(child => isValidElement(child) && child.type === TabsTrigger).length === 3;
-  const content = <T.List {...props} data-compact-segmented={segmented || undefined} ref={element => {
+  const content = <T.List {...props} onPointerDownCapture={event => {
+    event.currentTarget.dataset.input = 'pointer';
+    onPointerDownCapture?.(event);
+  }} onKeyDownCapture={event => {
+    event.currentTarget.dataset.input = 'keyboard';
+    onKeyDownCapture?.(event);
+  }} data-compact-segmented={segmented || undefined} ref={element => {
     list.current = element;
     if (typeof ref === 'function') return ref(element);
     if (ref) ref.current = element;
@@ -93,7 +98,7 @@ export function TabsContent({
   className, children,
   ...props
 }: ComponentProps<typeof T.Content>) {
-  return <T.Content {...props} className={cx("cs-tabs-content", className)}>{revealText(children)}</T.Content>;
+  return <T.Content {...props} className={cx("cs-tabs-content", className)}>{children}</T.Content>;
 }
 export interface AccordionItem {
   value: string;
@@ -110,11 +115,13 @@ export function Accordion({
   defaultValue?: string;
   disabled?: boolean;
 }) {
+  const [value, setValue] = useState(defaultValue ?? "");
   return (
     <A.Root
       type="single"
       collapsible
-      defaultValue={defaultValue}
+      value={value}
+      onValueChange={setValue}
       disabled={disabled}
       className="cs-accordion"
     >
@@ -128,12 +135,14 @@ export function Accordion({
           <A.Header className="cs-accordion-header">
             <A.Trigger className="cs-accordion-trigger">
               {item.title}
-              <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"><path d="M5 12h14M12 5v14"/></svg></span>
+              <span className="cs-accordion-icon" aria-hidden="true"><span className="cs-accordion-bar"/><span className="cs-accordion-bar-vertical"/></span>
             </A.Trigger>
           </A.Header>
-          <A.Content className="cs-accordion-content">
-            <div>{item.content}</div>
-          </A.Content>
+          {/* Keep the animated grid outside Radix's measurement node: its layout
+              effect temporarily disables transitions when reading dimensions. */}
+          <div className="cs-accordion-content" data-state={value === item.value ? "open" : "closed"} inert={value !== item.value ? true : undefined} aria-hidden={value !== item.value ? true : undefined}>
+            <A.Content forceMount className="cs-accordion-clip"><div className="cs-accordion-body">{item.content}</div></A.Content>
+          </div>
         </A.Item>
       ))}
     </A.Root>

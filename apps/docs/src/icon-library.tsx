@@ -29,7 +29,7 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
   }
   return <article className="icon-library">
     <h1>{filesOnly ? "文件图标 / File icons" : "图标库 / Icons"}</h1>
-    <p className="icon-intro">{libraryEntries.length} 个 Untitled UI 开源线性图标，与产品组件统一使用。支持按名称搜索、分类浏览及复制 React 代码。</p>
+    <p className="icon-intro">{libraryEntries.length} 个开源线性图标，与产品组件统一使用。支持按名称搜索、分类浏览及复制 React 代码。</p>
     <div className="icon-guidance">常用尺寸 16 / 20 / 24 / 32px，默认继承文字颜色。纯装饰图标使用 aria-hidden；图标按钮应在按钮上提供 aria-label。</div>
     {filesOnly && <div className="file-type-examples" aria-label="常见文件类型">{[
       ["PDF", "报告文档", "File06"], ["DOCX", "文字文档", "File02"],

@@ -190,8 +190,10 @@ describe("navigation and overlay contracts", () => {
         <TabsContent value="b">日志内容</TabsContent>
       </Tabs>,
     );
-    screen.getByRole("tab", { name: "参数" }).focus();
+    await user.click(screen.getByRole("tab", { name: "参数" }));
+    expect(screen.getByRole("tablist", { name: "设备" })).toHaveAttribute("data-input", "pointer");
     await user.keyboard("{ArrowRight}");
+    expect(screen.getByRole("tablist", { name: "设备" })).toHaveAttribute("data-input", "keyboard");
     expect(
       await screen.findByRole("tabpanel", { name: "日志" }),
     ).toHaveTextContent("日志内容");
@@ -210,7 +212,10 @@ describe("navigation and overlay contracts", () => {
     await user.click(screen.getByRole("button", { name: "校准要求" }));
     expect(screen.getByText("预热后校准")).toBeVisible();
     await user.click(screen.getByRole("button", { name: "校准要求" }));
-    expect(screen.queryByText("预热后校准")).not.toBeInTheDocument();
+    expect(screen.getByText("预热后校准").closest(".cs-accordion-content")).toHaveAttribute("inert");
+    expect(screen.getByRole("button", { name: "校准要求" })).toHaveAttribute("aria-expanded", "false");
+    await user.keyboard("{Enter}");
+    expect(screen.getByText("预热后校准").closest(".cs-accordion-content")).not.toHaveAttribute("inert");
   });
   it("keeps a failed async confirmation open and permits retry", async () => {
     const user = userEvent.setup();
