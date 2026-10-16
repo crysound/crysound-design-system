@@ -10,7 +10,7 @@ export function GlassFoundations() {
   const [opaque, setOpaque] = useState(false);
   const [weight, setWeight] = useState<Weight>('regular');
   return <section className="radius-foundations glass-foundations" aria-labelledby="glass-heading">
-    <div className="space-section-heading"><h3 id="glass-heading">半透明材质 / Glass</h3><p>用材质区分悬浮工具层与内容层。背景保留轮廓，前景始终清晰；参考 apple-design 的层级原则，以下为 CRYSOUND Web 适配建议。</p></div>
+    <div className="space-section-heading"><h3 id="glass-heading">半透明材质 / Glass</h3><p>用材质区分悬浮工具层与内容层。背景保留轮廓，前景始终清晰。以下为 CRYSOUND Web 适配建议。</p></div>
     <div className="glass-preview-controls"><Tabs value={weight} onValueChange={value => setWeight(value as Weight)}><TabsList variant="pill" aria-label="预览材质厚度">{materials.map(([key,label]) => <TabsTrigger key={key} value={key}>{label}</TabsTrigger>)}</TabsList></Tabs><Checkbox label="不透明模式" checked={opaque} onCheckedChange={value => setOpaque(value === true)} /></div>
     <div className="glass-preview" role="region" aria-label="毛玻璃滚动预览" tabIndex={0}>
       <GlassSurface weight={weight} opaque={opaque} className="glass-preview-toolbar"><div><strong>采集任务</strong><span>实验室 A · 声学成像仪 01</span></div><span className="glass-preview-count">06 个任务</span></GlassSurface>
