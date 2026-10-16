@@ -81,6 +81,7 @@ export const docCategories = [
     description:
       "对话框、菜单、导航和数据表格——组合常见的产品任务与应用工作流。",
     ids: [
+      "resource-card",
       "metric-group",
       "filter-toolbar",
       "quota-card",

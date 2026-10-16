@@ -1,3 +1,4 @@
+import { ResourceCardDemo } from "./resource-card-demo";
 import { MetricGroupDemo } from "./metric-group-demo";
 import { SchedulingTableExample } from "./scheduling-table-example";
 import { WebsiteReference } from "./website-reference";
@@ -23,6 +24,7 @@ export function CompositionFoundations() {
     <h4>指标摘要 · 统一组合</h4><MetricGroupDemo/>
     <p className="cs-help">借鉴 open-claude-ui 的文字角色、弱边界和等宽数字思路；该仓库未提供这组业务指标模板，下面为 CRYSOUND 组合适配。</p>
     <CompositionExamples/>
+    <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
     <SchedulingTableExample/>
     <WebsiteReference/>
     <h4>基础状态验收</h4><div className="composition-state-row"><Button variant="secondary">默认 / 悬停 / 键盘焦点</Button><Button loading>处理中</Button><Button disabled>暂无权限</Button></div><Input label="错误状态示例" error="请填写任务名称。" aria-label="错误状态示例"/>

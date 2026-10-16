@@ -99,3 +99,7 @@ DataTable的columns.cell可返回TableCellText，标题用body14/22常规字重�
 MetricGroup以原生dl组织多个指标，items提供稳定id、label、value、unit、note；未知值用null。标准数值30/40、紧凑24/32，标签14/20、单位与备注12/18，数值medium并启用tabular-nums；全组共用一个表面和弱分隔线，不为每项再套Card。容器宽度决定5/3/2/1列，一组建议3–5项；无备注保留行位，长标签和数值自然换行，移动端不缩小单位来硬挤。阈值、成本估算、币种格式及数据统计由消费项目提供。
 
 参考社区open-claude-ui第一篇的表面、边界、文字角色思路及第八篇等宽数字约束；该仓库没有此业务指标组，不宣称Claude官方参数或同款组件。基础规范组合说明和Checkbox独立文档补充首行对齐、说明位置、组内间距与避免重复Card等规则。
+
+## 资源链接卡片
+
+ResourceCard与ResourceCardGroup参考https://claude.com/product/claude-code资源区（2026-10-16读取当前CSS）：原卡片24px圆角、32px内距，颜色200ms / 背景与阴影500ms ease；组hover时非hover卡片背景透明；全局focus-visible为2px实线+2px偏移。CRYSOUND适配为20px圆角、24px内距、20/28标题，采用语义表面与焦点色；键盘焦点也可触发组内表面退后，属于适配扩展。保持一个原生链接覆盖整卡，不嵌套交互元素，不给普通Card增加悬停抬升。减少动态效果与强制颜色有降级。

@@ -28,6 +28,8 @@ const define = (
   guidance,
 });
 export const catalog: ComponentDoc[] = [
+  define("resource-card", "ResourceCard", "资源链接卡片", "组合", "使用表面明度变化表达整张卡片可点击，键盘焦点明确可见。", [["href / title / source", "string / ReactNode / string", "必填"], ["external", "boolean", "false"], ["headingLevel", "2–6", "3"], ["ResourceCardGroup label", "string", "必填"]], '<ResourceCardGroup label="技术资源"><ResourceCard href="/docs" title="安装与接入" source="开发文档" /></ResourceCardGroup>', "参考Claude Code官网资源区：颜色200ms、背景500ms ease；同组其他卡片退为透明，当前卡片保持实色。键盘focus-visible显示2px焦点环、偏移2px；不抬升、不缩放、不改变字重。CRYSOUND适配使用20px圆角与系统字体。整卡仅一个链接，禁止嵌套按钮/链接；触摸不依赖hover，减少动态效果立即切换。"),
+
   define("metric-group", "MetricGroup", "指标组", "组合", "将多个指标组织为一块完整摘要区域，统一数字、单位与说明。", [["label / items", "string / MetricGroupItem[]", "必填"], ["density", "standard | compact", "standard"]], '<MetricGroup label="运营概览" items={[{id:"queue",label:"排队任务",value:53,unit:"个",note:"近1小时峰值69"}]} />', "一组优先3–5个同级指标，共用一个表面。标准数值30/40，紧凑24/32；单位和说明12/18，标签14/20。数值使用medium和等宽数字；长标签自然换行，未知值用null。不要每项再套Card、加阴影或不同颜色。数据阈值、计算和币种格式由消费项目提供。"),
 
   define("filter-toolbar", "FilterToolbar", "筛选工具栏", "组合", "受控搜索、筛选与重置的统一排列。", [["query / onQueryChange", "string / callback", "必填"], ["label / onReset", "string / callback", "必填"], ["filters / actions", "ReactNode", "可选"]], '<FilterToolbar label="任务筛选" query={query} onQueryChange={setQuery} onReset={resetFilters} />', "消费项目管理查询与筛选状态；窄屏分行，控件底部对齐。"),

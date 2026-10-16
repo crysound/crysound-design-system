@@ -798,3 +798,20 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 @container (max-width:380px) { .cs-metric-group-grid { grid-template-columns:1fr; } .cs-metric-group-item::after { display:none !important; } .cs-metric-group-item dt { min-height:0; margin-bottom:8px; } }
 
 .cs-metric-group-item:last-child::after { display:none !important; }
+
+/* Resource navigation: surface contrast carries feedback, never elevation. */
+.cs-resource-card-group { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; padding:8px; background:var(--cs-bg); width:100%; box-sizing:border-box; }
+.cs-resource-card { min-width:0; min-height:180px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; gap:32px; padding:24px; border:1px solid color-mix(in srgb,var(--cs-border) 65%,var(--cs-surface)); border-radius:var(--cs-radius-3xl); background:var(--cs-surface); color:var(--cs-text-heading); text-decoration:none; transition:color 200ms ease, background-color 500ms ease, box-shadow 500ms ease; }
+.cs-resource-card-title { margin:0; font-family:var(--cs-font); font-size:var(--cs-type-section-size); line-height:var(--cs-type-section-leading); font-weight:var(--cs-weight-medium); text-wrap:balance; overflow-wrap:anywhere; }
+.cs-resource-card-source { display:flex; gap:8px; align-items:center; color:var(--cs-muted); font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
+.cs-resource-card-source svg { flex-shrink:0; }
+.cs-resource-card:focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; background:var(--cs-surface); }
+@media(hover:hover) and (pointer:fine) {
+  .cs-resource-card-group:has(.cs-resource-card:hover) .cs-resource-card:not(:hover):not(:focus-visible) { background:transparent; }
+  .cs-resource-card:hover { background:var(--cs-surface); text-decoration:none; }
+}
+.cs-resource-card-group:has(.cs-resource-card:focus-visible) .cs-resource-card:not(:focus-visible):not(:hover) { background:transparent; }
+@media(max-width:1000px) { .cs-resource-card-group { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .cs-resource-card-group { grid-template-columns:1fr; } .cs-resource-card { min-height:160px; } }
+@media(prefers-reduced-motion:reduce) { .cs-resource-card { transition:none; } }
+@media(forced-colors:active) { .cs-resource-card:focus-visible { outline-color:Highlight; } }
