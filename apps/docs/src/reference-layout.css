@@ -1672,7 +1672,7 @@ body {
 
 /* Shared material owns background, blur and accessibility fallbacks. */
 .docs-topbar.cs-glass { border-width: 0 0 var(--cs-border-hairline, 1px); }
-.glass-foundations .space-section-heading p { max-width: 72ch; }
+.glass-foundations .space-section-heading p { max-width: none; }
 .glass-preview-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 24px 0 16px; }
 .glass-preview { height: 360px; overflow: auto; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-xl); background: var(--cs-subtle); scrollbar-gutter: stable; }
 .glass-preview:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 3px; }
