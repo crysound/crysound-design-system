@@ -1306,7 +1306,8 @@ button.cs-step-content { cursor: pointer; }
 
 /* Tabs keep a quiet in-place keyboard cue instead of a rectangular focus ring. */
 .cs-tabs-trigger:focus { outline: none; }
-.cs-tabs-trigger:focus-visible { outline: none; background: var(--cs-selected-bg); }
+.cs-tabs-trigger:focus-visible { outline: 1px dashed var(--cs-focus); outline-offset: -5px; }
+.cs-tabs-list--line .cs-tabs-trigger:focus-visible { background: transparent; }
 @media (forced-colors: active) {
   .cs-tabs-trigger:focus-visible { outline: 1px solid Highlight; outline-offset: -3px; }
 }
