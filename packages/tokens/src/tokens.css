@@ -355,3 +355,21 @@
   --cs-glass-saturation: 130%;
   --cs-glass-border: color-mix(in srgb, var(--cs-border) 65%, transparent);
 }
+
+/* Proposed semantic typography pairs; raw size tokens remain compatible. */
+:root, [data-theme], [data-customer] {
+  --cs-type-page-size: 28px;
+  --cs-type-page-leading: 36px;
+  --cs-type-section-size: 20px;
+  --cs-type-section-leading: 28px;
+  --cs-type-subsection-size: 16px;
+  --cs-type-subsection-leading: 24px;
+  --cs-type-body-size: 14px;
+  --cs-type-body-leading: 22px;
+  --cs-type-lead-size: 16px;
+  --cs-type-lead-leading: 26px;
+  --cs-type-caption-size: 12px;
+  --cs-type-caption-leading: 18px;
+  --cs-type-label-size: 14px;
+  --cs-type-label-leading: 20px;
+}

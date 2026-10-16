@@ -1,5 +1,6 @@
 import { LogoGuidelines } from "./logo-guidelines";
 import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
+import { TypographyFoundations } from "./typography-foundations";
 import { GlassFoundations } from "./glass-foundations";
 import { SpringFoundations } from "./spring-foundations";
 import { AlphaFoundations } from "./alpha-foundations";
@@ -380,6 +381,7 @@ npm pack -w @crysound/ui`}</code>
                 <span>基础间距 / 4px</span>
                 <span>圆角 / 4px</span>
               </div>
+              <TypographyFoundations />
               <FoundationGallery />
               <SpaceFoundations />
               <RadiusFoundations />

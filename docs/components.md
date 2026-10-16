@@ -42,3 +42,9 @@ document.documentElement.dataset.customer = 'ocean';
 - ToastProvider/useToast：应用级非阻断通知，支持关闭、时长与辅助操作；最多保留 5 条。
 - DataTable<T>：columns 的 accessor 提供搜索/排序原始值，cell 可自定义展示；getRowId 必须稳定且唯一。选择范围为当前页，已选状态跨页保留。
 - 新增 Badge、Avatar、Alert、Progress、Skeleton、Separator 共享主题 Token。Progress value=null 表示未知完成度。
+
+## 文字接入约定
+
+优先使用 Heading（level必填，variant为page/section/subsection）和 Text（body/lead/caption/label，tone为default/muted）。level决定HTML标题层级，variant决定视觉大小；不要为字体大小跳级。body默认14/22，长说明lead16/26，caption12/18；数字为工程建议，不来源于Claude截图。Text默认p，可as=span/div，label只是视觉角色，表单关联由Input等组件负责。组件内部不要额外覆盖font-size、line-height、font-weight；外部布局使用gap。密度不自动缩小这些内容文字角色，控件密度继续独立维护。导入tokens.css后再导入styles.css，Portal主题设在html。
+
+验收需覆盖长中文/英文、200%缩放、窄屏、明暗和客户主题、表单错误说明；组件样式不依赖文档站CSS。旧原始字号Token仍保留兼容，不推荐消费项目任意组合所有档位。

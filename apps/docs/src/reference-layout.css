@@ -1703,3 +1703,7 @@ body {
 .glass-code { margin-top: 24px; padding-top: 20px; border-top: var(--cs-border-hairline) solid var(--cs-border); }
 .glass-code summary { cursor: pointer; font-size: var(--cs-text-sm); color: var(--cs-brand); }
 @media (max-width: 640px) { .glass-material-specs, .glass-guidelines { grid-template-columns: 1fr; } .glass-material-specs > div { padding: 16px 0; } .glass-preview-toolbar { padding: 16px; } .glass-preview-content { padding: 16px; } }
+.type-role-preview { display: grid; justify-items: start; gap: 16px; padding: clamp(24px, 4vw, 40px); border: var(--cs-border-hairline) solid var(--cs-border); border-radius: var(--cs-radius-lg); background: var(--cs-surface); margin: 24px 0; }
+.type-role-preview > .cs-text { max-width: 60ch; }
+.type-role-group { display: grid; gap: 8px; margin: 8px 0; }
+.type-role-rules { margin-top: 24px; }

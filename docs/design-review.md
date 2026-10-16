@@ -126,3 +126,7 @@
 ## 半透明材质 · 2026-10-16
 
 参考本地apple-design技能的材质与层级、可读性及辅助偏好原则，新增GlassSurface及cs-glass类。light / regular / thick分别72%/12px、80%/16px、92%/24px，saturate130%，均为CRYSOUND Web工程提案，不宣称Apple原生参数或Liquid Glass复刻。背景基于cs-surface跟随明暗与客户主题。减少透明度、增强对比度、强制颜色、不支持backdrop-filter及opaque属性均降级实色；不自动保证背景对比度。文档顶部导航复用共享材质，常规数据内容保持不透明，未批量修改其他浮层。
+
+## 语义文字角色 · 2026-10-16
+
+用户提供Claude截图作为层级与阅读节奏参考，不以截图像素推断真实CSS或字体。新增Heading/Text及完整字号/行高角色：page28/36、section20/28、subsection16/24、lead16/26、body14/22、label14/20、caption12/18，均为CRYSOUND工程提案。保留原始字号Token兼容，内容角色不随控件密度缩小。卡片标题与描述、空状态标题、InstrumentDialog标题与描述改用角色Token；其余组件未声明已全面迁移。标题HTML层级与视觉尺寸分离，接入文档补充全局样式冲突和响应式验收约定。
