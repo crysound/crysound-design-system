@@ -187,7 +187,6 @@ body {
   right: 0;
   height: 56px;
   border-bottom: 1px solid var(--doc-line);
-  background: var(--doc-page);
   padding: 0 20px;
   z-index: 24;
   display: flex;
@@ -1671,15 +1670,10 @@ body {
 .device-detail-fields dt { color: var(--cs-muted); }
 .device-detail-fields dd { margin: 0; overflow-wrap: anywhere; }
 
-/* Fixed navigation glass; opaque fallback preserves text legibility. */
-@supports ((backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))) {
-  .docs-topbar {
-    background: color-mix(in srgb, var(--doc-page) 80%, transparent);
-    -webkit-backdrop-filter: blur(16px) saturate(130%);
-    backdrop-filter: blur(16px) saturate(130%);
-    border-bottom-color: color-mix(in srgb, var(--doc-line) 65%, transparent);
-  }
-}
-@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
-  .docs-topbar { background: var(--doc-page); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: var(--doc-line); }
-}
+/* Shared material owns background, blur and accessibility fallbacks. */
+.docs-topbar.cs-glass { border-width: 0 0 var(--cs-border-hairline, 1px); }
+.glass-material-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--cs-space-6); margin-top: var(--cs-space-6); }
+.glass-demo-scene { position: relative; overflow: hidden; min-height: 220px; border-radius: var(--cs-radius-xl); background: var(--cs-subtle); }
+.glass-demo-backdrop { display: grid; gap: 20px; padding: 24px; color: var(--cs-text); }
+.glass-demo-backdrop span:first-child { color: var(--cs-brand); font-size: 24px; font-weight: var(--cs-weight-semibold); }
+.glass-demo-material { position: absolute; inset: 40px 16px auto; display: grid; justify-items: start; gap: 12px; padding: 20px; border-radius: var(--cs-radius-lg); box-shadow: var(--cs-shadow-sm); }

@@ -343,3 +343,15 @@
 @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
   :root { --cds-ring-hairline: calc(1px / 3); }
 }
+
+/* Proposed web materials inspired by apple-design, not native Apple values. */
+:root, [data-theme], [data-customer] {
+  --cs-glass-light-bg: color-mix(in srgb, var(--cs-surface) 72%, transparent);
+  --cs-glass-regular-bg: color-mix(in srgb, var(--cs-surface) 80%, transparent);
+  --cs-glass-thick-bg: color-mix(in srgb, var(--cs-surface) 92%, transparent);
+  --cs-glass-light-blur: 12px;
+  --cs-glass-regular-blur: 16px;
+  --cs-glass-thick-blur: 24px;
+  --cs-glass-saturation: 130%;
+  --cs-glass-border: color-mix(in srgb, var(--cs-border) 65%, transparent);
+}

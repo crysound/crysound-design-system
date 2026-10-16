@@ -616,7 +616,7 @@ export function DocsHeader({
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
-    <header className="docs-topbar">
+    <header className="docs-topbar cs-glass cs-glass--regular">
       <div className="docs-mobile-brand">
         <DocsBrand />
       </div>

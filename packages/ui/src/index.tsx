@@ -314,3 +314,4 @@ export * from "./shadow";
 export * from "./action-link";
 export * from "./instrument-dialog";
 export * from "./motion-presets";
+export * from "./glass-surface";

@@ -122,3 +122,7 @@
 ## 弹簧预设 · 2026-10-15
 
 按用户片段导出 springButton（scale .92 / stiffness600 / damping30）、springPopover（.95/6px进入、4px退出 / 320/28）、springBadgeBounce（.8→1 / 380/18）。均为可选参数对象，getSpringPreset 接受消费方 useReducedMotion()，减少动态效果时取消变形并立即切换。UI库不引入Motion运行时；文档站按需依赖framer-motion进行交互展示。物理弹簧收敛不套用固定时长，既有Radix焦点管理保持原实现；预览面板不作为弹窗实现范例。
+
+## 半透明材质 · 2026-10-16
+
+参考本地apple-design技能的材质与层级、可读性及辅助偏好原则，新增GlassSurface及cs-glass类。light / regular / thick分别72%/12px、80%/16px、92%/24px，saturate130%，均为CRYSOUND Web工程提案，不宣称Apple原生参数或Liquid Glass复刻。背景基于cs-surface跟随明暗与客户主题。减少透明度、增强对比度、强制颜色、不支持backdrop-filter及opaque属性均降级实色；不自动保证背景对比度。文档顶部导航复用共享材质，常规数据内容保持不透明，未批量修改其他浮层。

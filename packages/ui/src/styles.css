@@ -616,3 +616,23 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
   .cs-waiting-glow { animation: none; box-shadow: var(--cs-shadow-sm); }
   .cs-linear-sweep::after { display: none; }
 }
+
+.cs-glass {
+  --cs-glass-bg: var(--cs-glass-regular-bg);
+  --cs-glass-blur: var(--cs-glass-regular-blur);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  border: var(--cs-border-hairline, 1px) solid var(--cs-glass-border);
+}
+.cs-glass--light { --cs-glass-bg: var(--cs-glass-light-bg); --cs-glass-blur: var(--cs-glass-light-blur); }
+.cs-glass--thick { --cs-glass-bg: var(--cs-glass-thick-bg); --cs-glass-blur: var(--cs-glass-thick-blur); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .cs-glass { background: var(--cs-glass-bg); -webkit-backdrop-filter: blur(var(--cs-glass-blur)) saturate(var(--cs-glass-saturation)); backdrop-filter: blur(var(--cs-glass-blur)) saturate(var(--cs-glass-saturation)); }
+}
+.cs-glass[data-opaque] { background: var(--cs-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .cs-glass { background: var(--cs-surface); -webkit-backdrop-filter: none; backdrop-filter: none; border-color: var(--cs-text); }
+}
+@media (forced-colors: active) {
+  .cs-glass { background: Canvas; color: CanvasText; border-color: CanvasText; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
