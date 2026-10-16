@@ -21,7 +21,8 @@
 .cs-input {
   font: inherit;
   font-family: var(--cs-font);
-  font-size: var(--cs-font-size);
+  font-size: var(--cs-type-control-size);
+  line-height: var(--cs-type-control-leading);
   border-radius: var(--cs-radius);
   min-height: var(--cs-control-height);
 }
@@ -77,7 +78,9 @@
   font-size: var(--cs-font-size);
 }
 .cs-field label {
-  font-weight: var(--cs-weight-semibold);
+  font-size: var(--cs-type-label-size);
+  line-height: var(--cs-type-label-leading);
+  font-weight: var(--cs-weight-medium);
 }
 .cs-input {
   padding: 8px 12px;
@@ -91,11 +94,15 @@
   border-color: var(--cs-danger-fg);
 }
 .cs-help {
-  font-size: 12px;
+
   color: var(--cs-muted);
+  font-size: var(--cs-type-caption-size);
+  line-height: var(--cs-type-caption-leading);
 }
 .cs-error {
   color: var(--cs-danger-fg);
+  font-size: var(--cs-type-caption-size);
+  line-height: var(--cs-type-caption-leading);
 }
 .cs-badge {
   display: inline-flex;
@@ -178,7 +185,8 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 14px;
+  font-size: var(--cs-type-body-size);
+  line-height: var(--cs-type-body-leading);
 }
 .cs-table td,
 .cs-table th {
@@ -196,8 +204,10 @@
 .cs-table small {
   display: block;
   color: var(--cs-muted);
-  font-size: 12px;
+
   margin-top: 5px;
+  font-size: var(--cs-type-caption-size);
+  line-height: var(--cs-type-caption-leading);
 }
 .cs-empty {
   text-align: center;
@@ -230,12 +240,17 @@
   box-shadow: var(--cs-shadow);
   font-family: var(--cs-font);
 }
-.cs-dialog h2 {
-  font-size: 20px;
+.cs-dialog h2:not(.cs-heading) {
+
   margin-top: 0;
+  font-size: var(--cs-type-section-size);
+  line-height: var(--cs-type-section-leading);
+  font-weight: var(--cs-weight-semibold);
 }
 .cs-dialog-description {
   color: var(--cs-muted);
+  font-size: var(--cs-type-body-size);
+  line-height: var(--cs-type-body-leading);
 }
 .cs-dialog .cs-button {
   margin-top: 16px;
@@ -414,8 +429,14 @@ select.cs-input.cs-select {
 }
 .cs-select-trigger > span { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cs-select-trigger > svg { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
-.cs-select-menu { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); line-height: 20px; }
-.cs-select-option { font-size: var(--cs-font-size); font-weight: var(--cs-weight-normal); }
+.cs-select-menu {  font-weight: var(--cs-weight-normal);
+  font-size: var(--cs-type-control-size);
+  line-height: var(--cs-type-control-leading);
+}
+.cs-select-option {  font-weight: var(--cs-weight-normal);
+  font-size: var(--cs-type-control-size);
+  line-height: var(--cs-type-control-leading);
+}
 
 /* Proposed instrument workflow dialog layout. */
 .cs-dialog.cs-instrument-dialog { width: min(560px, calc(100vw - 32px)); padding: 24px; max-height: calc(100dvh - 48px); overflow: auto; box-sizing: border-box; }
@@ -454,7 +475,10 @@ svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse
   border-color: color-mix(in srgb, var(--tone-fg) 40%, transparent);
 }
 .cs-alert-action .cs-button:focus-visible { outline-color: var(--tone-fg); }
-@media(max-width:540px) { .cs-alert { flex-wrap: wrap; } .cs-alert-content { flex: 1 1 200px; min-width: 0; } }
+@media(max-width:540px) { .cs-alert { flex-wrap: wrap;
+  font-size: var(--cs-type-body-size);
+  line-height: var(--cs-type-body-leading);
+} .cs-alert-content { flex: 1 1 200px; min-width: 0; } }
 
 .cs-instrument-dialog[data-state="closed"] { animation: cs-instrument-dialog-exit var(--cds-dur-base) var(--cds-ease-out) both; pointer-events: none; }
 .cs-instrument-dialog-close:active > svg,
@@ -521,7 +545,10 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-button { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-switch, .cs-checkbox, .cs-radio { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-switch-thumb, .cs-slider-thumb { transition: transform var(--cds-dur-snap) var(--cds-ease-snap); }
-.cs-tabs-trigger { transition: color var(--cds-dur-snap) var(--cds-ease-snap); }
+.cs-tabs-trigger { transition: color var(--cds-dur-snap) var(--cds-ease-snap);
+  font-size: var(--cs-type-control-size);
+  line-height: var(--cs-type-control-leading);
+}
 .cs-accordion-trigger > span, .cs-tree-toggle svg { transition: transform var(--cds-dur-base) var(--cds-ease-out); }
 .cs-popover[data-state="open"], .cs-dropdown[data-state="open"], .cs-select-menu[data-state="open"] { animation: cs-surface-enter var(--cds-dur-base) var(--cds-ease-out) both; }
 .cs-dialog[data-state="open"] { animation: cs-dialog-enter var(--cds-dur-base) var(--cds-ease-out) both; }
@@ -653,3 +680,9 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-card-header > div > p { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
 .cs-empty > h3, .cs-instrument-dialog-header h2 { font-size: var(--cs-type-section-size); line-height: var(--cs-type-section-leading); font-weight: var(--cs-weight-semibold); }
 .cs-instrument-dialog-header .cs-dialog-description { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
+
+.cs-tabs-content, .cs-sheet-body, .cs-empty > p { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
+.cs-choice p { font-size: var(--cs-type-caption-size); line-height: var(--cs-type-caption-leading); color: var(--cs-muted); }
+.cs-alert-content > strong, .cs-toast strong, .cs-popover > .cs-between > strong { font-size: var(--cs-type-label-size); line-height: var(--cs-type-label-leading); font-weight: var(--cs-weight-medium); }
+.cs-dialog-description { margin-top: 8px; }
+.cs-sheet > .cs-muted { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); margin-top: 8px; }

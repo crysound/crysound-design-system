@@ -48,3 +48,5 @@ document.documentElement.dataset.customer = 'ocean';
 优先使用 Heading（level必填，variant为page/section/subsection）和 Text（body/lead/caption/label，tone为default/muted）。level决定HTML标题层级，variant决定视觉大小；不要为字体大小跳级。body默认14/22，长说明lead16/26，caption12/18；数字为工程建议，不来源于Claude截图。Text默认p，可as=span/div，label只是视觉角色，表单关联由Input等组件负责。组件内部不要额外覆盖font-size、line-height、font-weight；外部布局使用gap。密度不自动缩小这些内容文字角色，控件密度继续独立维护。导入tokens.css后再导入styles.css，Portal主题设在html。
 
 验收需覆盖长中文/英文、200%缩放、窄屏、明暗和客户主题、表单错误说明；组件样式不依赖文档站CSS。旧原始字号Token仍保留兼容，不推荐消费项目任意组合所有档位。
+
+文字角色已进入共享组件默认样式：表单label使用medium，提示/错误说明与表格元数据使用caption；表格正文、浮层说明、Accordion内容、Tabs面板和Alert描述使用body；菜单、Tabs触发器与树项目使用control（按密度14/13px，行高20px）。登录标题与SectionHeader lg为page；普通弹窗、Sheet和SectionHeader md为section，卡片与SectionHeader sm为subsection。图表、视频、头像和测量数字的专用排版保留。

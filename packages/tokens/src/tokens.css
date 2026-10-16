@@ -373,3 +373,9 @@
   --cs-type-label-size: 14px;
   --cs-type-label-leading: 20px;
 }
+
+/* Dense controls may follow density; reading content keeps its role sizes. */
+:root, [data-theme], [data-customer], [data-density] {
+  --cs-type-control-size: var(--cs-font-size);
+  --cs-type-control-leading: 20px;
+}

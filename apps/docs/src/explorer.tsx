@@ -984,17 +984,17 @@ export function FoundationGallery() {
   return (
     <div className="foundation-gallery">
       <div>
-        <h3>字号与层级</h3>
-        <p className="cs-help">变量已统一提供，消费项目无需重复定义比例。</p>
+        <h3>原始字号 / 兼容与扩展</h3>
+        <p className="cs-help">原始字号保留兼容；常规接入优先使用上方文字角色，不按此表另行拼接样式。</p>
         <div className="type-specs">
           {[
             ["xs", "12px", "text extra small", "说明与辅助信息"],
             ["sm", "14px", "text small", "表单标签与紧凑正文"],
-            ["md", "16px", "text base", "默认正文"],
-            ["lg", "18px", "text large", "组件与面板标题"],
+            ["md", "16px", "text base", "阅读正文的原始字号"],
+            ["lg", "18px", "text large", "特殊场景扩展字号"],
             ["xl", "20px", "text extra large", "分组标题"],
-            ["2xl", "24px", "text 2x large", "内容区域标题"],
-            ["3xl", "30px", "text 3x large", "页面标题"],
+            ["2xl", "24px", "text 2x large", "扩展标题字号"],
+            ["3xl", "30px", "text 3x large", "扩展页面字号"],
             ["4xl", "36px", "text 4x large", "产品页面标题"],
           ].map(([token, size, label, text]) => (
             <div key={token}>

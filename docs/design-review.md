@@ -130,3 +130,7 @@
 ## 语义文字角色 · 2026-10-16
 
 用户提供Claude截图作为层级与阅读节奏参考，不以截图像素推断真实CSS或字体。新增Heading/Text及完整字号/行高角色：page28/36、section20/28、subsection16/24、lead16/26、body14/22、label14/20、caption12/18，均为CRYSOUND工程提案。保留原始字号Token兼容，内容角色不随控件密度缩小。卡片标题与描述、空状态标题、InstrumentDialog标题与描述改用角色Token；其余组件未声明已全面迁移。标题HTML层级与视觉尺寸分离，接入文档补充全局样式冲突和响应式验收约定。
+
+## 共享文字角色迁移 · 2026-10-16
+
+继续将表单标签、辅助与错误说明、Tabs/树/菜单控件、表格正文与元数据、Accordion、Sheet/Dialog、Alert/Toast、SectionHeader、InlineCTA及登录页标题说明映射到角色Token。控件role跟随cs-font-size密度（14/13px），内容正文保持14/22，辅助12/18；页面级登录标题与SectionHeader lg使用page28/36。测量大数字、图表轴/图例、视频控制、日历数字和头像字形保留专用排版，不宣称全库所有文字完全相同。没有引入社区仓库字体或复制其组件行为。
