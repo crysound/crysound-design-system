@@ -1672,8 +1672,34 @@ body {
 
 /* Shared material owns background, blur and accessibility fallbacks. */
 .docs-topbar.cs-glass { border-width: 0 0 var(--cs-border-hairline, 1px); }
-.glass-material-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--cs-space-6); margin-top: var(--cs-space-6); }
-.glass-demo-scene { position: relative; overflow: hidden; min-height: 220px; border-radius: var(--cs-radius-xl); background: var(--cs-subtle); }
-.glass-demo-backdrop { display: grid; gap: 20px; padding: 24px; color: var(--cs-text); }
-.glass-demo-backdrop span:first-child { color: var(--cs-brand); font-size: 24px; font-weight: var(--cs-weight-semibold); }
-.glass-demo-material { position: absolute; inset: 40px 16px auto; display: grid; justify-items: start; gap: 12px; padding: 20px; border-radius: var(--cs-radius-lg); box-shadow: var(--cs-shadow-sm); }
+.glass-foundations .space-section-heading p { max-width: 72ch; }
+.glass-preview-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 24px 0 16px; }
+.glass-preview { height: 360px; overflow: auto; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-xl); background: var(--cs-subtle); scrollbar-gutter: stable; }
+.glass-preview:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 3px; }
+.glass-preview-toolbar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 24px; border-width: 0 0 var(--cs-border-hairline); }
+.glass-preview-toolbar > div { display: grid; gap: 4px; }
+.glass-preview-toolbar strong { color: var(--cs-text-heading); font-size: var(--cs-text-sm); }
+.glass-preview-toolbar span { font-size: var(--cs-text-xs); }
+.glass-preview-count { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.glass-preview-content { max-width: 880px; margin: auto; padding: 24px; }
+.glass-preview-intro { padding: 20px 24px 24px; margin-bottom: 16px; background: var(--cs-brand-subtle); border-radius: var(--cs-radius-lg); }
+.glass-preview-intro > span { display: block; font-size: var(--cs-text-xs); color: var(--cs-brand); letter-spacing: .08em; margin-bottom: 12px; }
+.glass-preview-intro > strong { display: block; font-size: var(--cs-text-2xl); line-height: 1.4; font-weight: var(--cs-weight-medium); color: var(--cs-text-heading); }
+.glass-preview-intro p { margin: 12px 0 0; color: var(--cs-text); font-size: var(--cs-text-sm); }
+.glass-preview-task { display: flex; gap: 16px; align-items: center; padding: 18px 8px; border-bottom: var(--cs-border-hairline) solid var(--cs-border); }
+.glass-preview-index { font-variant-numeric: tabular-nums; color: var(--cs-muted); font-size: var(--cs-text-xs); }
+.glass-preview-task > div { display: grid; gap: 6px; flex: 1; min-width: 0; }
+.glass-preview-task strong { font-size: var(--cs-text-sm); font-weight: var(--cs-weight-medium); }
+.glass-preview-task > div > span, .glass-preview-task-state { font-size: var(--cs-text-xs); color: var(--cs-muted); }
+.glass-preview-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-size: var(--cs-text-xs); color: var(--cs-muted); }
+.glass-material-specs { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); margin: 32px 0; border-block: var(--cs-border-hairline) solid var(--cs-border); }
+.glass-material-specs > div { padding: 20px 24px 20px 0; }
+.glass-material-specs strong { display: block; font-size: var(--cs-text-sm); margin-bottom: 8px; }
+.glass-material-specs span { color: var(--cs-text-heading); font-size: var(--cs-text-lg); font-variant-numeric: tabular-nums; }
+.glass-material-specs p { font-size: var(--cs-text-sm); color: var(--cs-muted); margin: 8px 0 0; }
+.glass-guidelines { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 40px; }
+.glass-guidelines h4 { margin: 0 0 8px; font-size: var(--cs-text-sm); }
+.glass-guidelines p { margin: 0; font-size: var(--cs-text-sm); color: var(--cs-muted); line-height: 1.8; }
+.glass-code { margin-top: 24px; padding-top: 20px; border-top: var(--cs-border-hairline) solid var(--cs-border); }
+.glass-code summary { cursor: pointer; font-size: var(--cs-text-sm); color: var(--cs-brand); }
+@media (max-width: 640px) { .glass-material-specs, .glass-guidelines { grid-template-columns: 1fr; } .glass-material-specs > div { padding: 16px 0; } .glass-preview-toolbar { padding: 16px; } .glass-preview-content { padding: 16px; } }
