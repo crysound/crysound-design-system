@@ -1670,3 +1670,16 @@ body {
 .device-detail-fields > div { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: var(--cs-space-4); }
 .device-detail-fields dt { color: var(--cs-muted); }
 .device-detail-fields dd { margin: 0; overflow-wrap: anywhere; }
+
+/* Fixed navigation glass; opaque fallback preserves text legibility. */
+@supports ((backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))) {
+  .docs-topbar {
+    background: color-mix(in srgb, var(--doc-page) 80%, transparent);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    backdrop-filter: blur(16px) saturate(130%);
+    border-bottom-color: color-mix(in srgb, var(--doc-line) 65%, transparent);
+  }
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  .docs-topbar { background: var(--doc-page); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: var(--doc-line); }
+}
