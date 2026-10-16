@@ -337,3 +337,5 @@ export const ToolbarButton = forwardRef<HTMLButtonElement, ButtonProps>(function
 export * from './patterns';
 export * from './metric-group';
 export * from './resource-card';
+
+export * from './progress-list';

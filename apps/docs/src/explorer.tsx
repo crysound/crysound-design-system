@@ -1,3 +1,4 @@
+import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
 import { MetricGroupDemo } from "./metric-group-demo";
 import { CompositionExamples } from "./composition-foundations";
@@ -615,6 +616,8 @@ export function ComponentDemo({ id }: { id: string }) {
       return <InstrumentDialogDemo/>;
     case "resource-card":
       return <ResourceCardDemo/>;
+    case "progress-list":
+      return <ProgressListDemo/>;
     case "metric-group":
       return <MetricGroupDemo/>;
     case "filter-toolbar":

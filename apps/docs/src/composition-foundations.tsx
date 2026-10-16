@@ -1,3 +1,4 @@
+import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
 import { MetricGroupDemo } from "./metric-group-demo";
 import { SchedulingTableExample } from "./scheduling-table-example";
@@ -25,6 +26,7 @@ export function CompositionFoundations() {
     <p className="cs-help">指标组统一文字层级、弱边界与等宽数字，保持同组信息的阅读节奏一致。</p>
     <CompositionExamples/>
     <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
+    <section className="radius-foundations"><h4>进度列表 · 任务与详情</h4><p className="cs-help">任务、进度和日期按列对齐，共性提示集中展示。以下布局数值为工程建议，使用合成测量数据。</p><ProgressListDemo/></section>
     <SchedulingTableExample/>
     <WebsiteReference/>
     <h4>基础状态验收</h4><div className="composition-state-row"><Button variant="secondary">默认 / 悬停 / 键盘焦点</Button><Button loading>处理中</Button><Button disabled>暂无权限</Button></div><Input label="错误状态示例" error="请填写任务名称。" aria-label="错误状态示例"/>

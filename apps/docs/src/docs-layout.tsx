@@ -83,6 +83,7 @@ export const docCategories = [
     ids: [
       "resource-card",
       "metric-group",
+      "progress-list",
       "filter-toolbar",
       "quota-card",
       "detail-panel",
