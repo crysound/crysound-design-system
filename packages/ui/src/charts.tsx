@@ -22,7 +22,7 @@ function spacedTicks(values: number[], position: (value: number) => number, mini
 export const chartChannelColors: readonly string[] = Object.freeze(Array.from({length:64},(_,index)=>`var(--cs-chart-channel-${String(index+1).padStart(2,'0')})`));
 export function LineChart(props:ChartProps) {return <Chart {...props} kind="line"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
-function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,minorGrid=false,kind}:ChartProps&{kind:'line'|'bar'}) {
+function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,minorGrid=true,kind}:ChartProps&{kind:'line'|'bar'}) {
   const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);
   const visible=series.filter(item=>!hidden.includes(item.key));
   const values=data.flatMap(row=>visible.map(item=>row.values[item.key])).filter((n):n is number=>typeof n==='number'&&Number.isFinite(n));
@@ -54,6 +54,14 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
   const xTicks=numeric&&xScale==='log'?[20,50,100,200,500,1000,2000,5000,10000,20000].filter(n=>transformX(n)>=xMin&&transformX(n)<=xMax):numeric&&xScale==='linear'?Array.from({length:5},(_,i)=>xMin+(xMax-xMin)*i/4):[];
   const displayedYTicks = spacedTicks(ticks, y, 44);
   const displayedXTicks = spacedTicks(xTicks, value => left+(transformX(value)-xMin)/(xMax-xMin||1)*plotWidth, 72);
+  const minorYPositions = displayedYTicks.slice(0,-1).map((value,index) => (y(value)+y(displayedYTicks[index+1]))/2);
+  const minorXPositions = displayedXTicks.slice(0,-1).flatMap((value,index) => {
+    const start = left+(transformX(value)-xMin)/(xMax-xMin||1)*plotWidth;
+    const end = left+(transformX(displayedXTicks[index+1])-xMin)/(xMax-xMin||1)*plotWidth;
+    if (end-start < 120) return [];
+    const divisions = Math.min(4, Math.max(2, Math.floor((end-start)/150)));
+    return Array.from({length:divisions-1},(_,part)=>start+(end-start)*(part+1)/divisions);
+  });
   const categoryStride = Math.max(1, Math.ceil(data.length / Math.max(1, Math.floor(plotWidth / 72))));
   const hitLeft=(i:number)=>i===0?left:(x(i-1)+x(i))/2;
   const hitRight=(i:number)=>i===data.length-1?width-right:(x(i)+x(i+1))/2;
@@ -74,8 +82,8 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
           <text x={20} y={top+plotHeight/2} transform={`rotate(-90 20 ${top+plotHeight/2})`} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{yLabel??unit}</text>
           <text x={left+plotWidth/2} y={svgHeight-10} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{xLabel}</text>
           <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-chart-plot-bg)" stroke="var(--cs-chart-grid)"/>
-          {minorGrid && plotWidth / 20 >= 40 && Array.from({length:19},(_,i)=><line key={`minor-x-${i}`} x1={left+plotWidth*(i+1)/20} x2={left+plotWidth*(i+1)/20} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>)}
-          {minorGrid && plotHeight * stepY / (max-min) >= 64 && ticks.slice(0,-1).flatMap(value=>[1,2,3].map(part=><line key={`${value}-${part}`} x1={left} x2={width-right} y1={y(value+stepY*part/4)} y2={y(value+stepY*part/4)} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>))}
+          {minorGrid && minorXPositions.map((xx,index)=><line key={`minor-x-${index}`} data-grid="minor-x" x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5" opacity=".65"/>)}
+          {minorGrid && minorYPositions.map((yy,index)=><line key={`minor-y-${index}`} data-grid="minor-y" x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".5" opacity=".65"/>)}
           {displayedYTicks.map(value=>{const yy=y(value);return <g key={value} data-axis-tick="y"><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{format(value)}</text></g>;})}
           {displayedXTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value} data-axis-tick="x"><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{value>=1000?`${value/1000}k`:format(value)}</text></g>;})}
           {selected&&active!==undefined&&!loading&&<g className="cs-chart-crosshair" clipPath={`url(#${id}-clip)`} pointerEvents="none">

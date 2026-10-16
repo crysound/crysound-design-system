@@ -51,4 +51,4 @@ document.documentElement.dataset.customer = 'ocean';
 
 文字角色已进入共享组件默认样式：表单label使用medium，提示/错误说明与表格元数据使用caption；表格正文、浮层说明、Accordion内容、Tabs面板和Alert描述使用body；菜单、Tabs触发器与树项目使用control（按密度14/13px，行高20px）。登录标题与SectionHeader lg为page；普通弹窗、Sheet和SectionHeader md为section，卡片与SectionHeader sm为subsection。图表、视频、头像和测量数字的专用排版保留。
 
-Charts默认仅显示主网格。纵轴刻度按至少44px、数值横轴按至少72px间距抽稀，保留首尾，不改变数据坐标或yDomain；yStep为候选刻度间隔，不保证每档都显示。minorGrid=true可开启次级网格，仅在空间足够时显示；分类标签随宽度减少。
+Charts默认使用适中密度网格：纵轴主刻度之间补一条浅线，横轴仅在足够宽时补少量辅助线。纵轴刻度按至少44px、数值横轴按至少72px间距抽稀，保留首尾，不改变数据坐标或yDomain；yStep为候选刻度间隔，不保证每档都显示。minorGrid=false可关闭辅助网格；分类标签随宽度减少。
