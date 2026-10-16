@@ -15,7 +15,7 @@
     color var(--cs-duration-fast);
 }
 .cs-button:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 .cs-label {
   font-size: var(--cs-type-label-size);

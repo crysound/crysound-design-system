@@ -420,7 +420,7 @@ export function FileUpload({label,accept,multiple=false,maxSize=10*1024*1024,max
       </button>
     </div>
     <span id={`${id}-help`} className={error?'cs-error':'cs-help'} role={error?'alert':undefined}>{error||'仅本地选择，实际上传与进度由消费项目提供。'}</span>
-    {files.length>0&&<ul className="cs-upload-list">{files.map((file,i)=>{const percent=progress[file.name];const failure=errors[file.name];return <li key={`${file.name}-${file.lastModified}-${i}`}>
+    {files.length>0&&<ul className="cs-upload-list">{files.map((file,i)=>{const percent=progress[file.name];const failure=errors[file.name];return <li key={JSON.stringify([file.name,file.size,file.lastModified])}>
       <svg className="cs-upload-file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 12h8M8 16h6" /></svg>
       <div className="cs-upload-file-details"><strong>{file.name}</strong><span>{bytes(file.size)} · {failure?'上传失败':percent===undefined?'已选择':percent>=100?'上传完成':`上传中 ${Math.round(percent)}%`}</span>{failure?<span className="cs-error" role="alert">{failure}</span>:percent!==undefined&&<progress aria-label={`${file.name} 上传进度`} max="100" value={Math.max(0,Math.min(100,percent))}/>}</div>
       {failure&&onRetry&&<button type="button" disabled={disabled} onClick={()=>onRetry(file)}>重试</button>}

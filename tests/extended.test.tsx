@@ -114,6 +114,17 @@ describe("form interaction contracts", () => {
     );
     expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
   });
+  it("preserves existing attachment rows when another file is removed or progress changes", async () => {
+    const user = userEvent.setup();
+    const {rerender} = render(<FileUpload label="Attachments" multiple />);
+    await user.upload(screen.getByLabelText("Attachments"), [new File(["a"], "a.txt"), new File(["b"], "b.txt")]);
+    const row = screen.getByText("b.txt").closest("li");
+    await user.click(screen.getByRole("button", {name:"移除 a.txt"}));
+    expect(screen.getByText("b.txt").closest("li")).toBe(row);
+    rerender(<FileUpload label="Attachments" multiple progress={{"b.txt":50}} />);
+    expect(screen.getByText("b.txt").closest("li")).toBe(row);
+    expect(screen.getByRole("progressbar")).toHaveAttribute("value", "50");
+  });
   it("rejects oversized files before notifying the business layer", async () => {
     const user = userEvent.setup();
     const change = vi.fn();

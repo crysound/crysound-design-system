@@ -715,3 +715,23 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-card-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:16px 24px; border-top:1px solid var(--cs-border); }
 .cs-card[data-variant="plain"] > .cs-card-actions { padding-inline:0; margin-top:20px; }
 .cs-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+
+/* Subtle press feedback without shifting the control's layout position. */
+.cs-button { transition: background-color var(--cds-dur-fast) var(--cds-ease-out), color var(--cds-dur-fast) var(--cds-ease-out), border-color var(--cds-dur-fast) var(--cds-ease-out), transform var(--cds-dur-snap) var(--cds-ease-out); }
+/* Radix Presence retains closing surfaces until these exit animations end. */
+.cs-popover[data-state="closed"], .cs-dropdown[data-state="closed"], .cs-select-menu[data-state="closed"] { animation: cs-surface-exit var(--cds-dur-base) var(--cds-ease-out) both; pointer-events:none; }
+.cs-dialog[data-state="closed"] { animation: cs-dialog-exit var(--cds-dur-base) var(--cds-ease-out) both; pointer-events:none; }
+.cs-dialog-overlay[data-state="open"] { animation: cs-overlay-enter var(--cds-dur-base) var(--cds-ease-out) both; }
+.cs-dialog-overlay[data-state="closed"] { animation: cs-overlay-exit var(--cds-dur-base) var(--cds-ease-out) both; }
+@keyframes cs-surface-exit { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(4px); } }
+@keyframes cs-dialog-exit { from { opacity:1; transform:translate(-50%,-50%); } to { opacity:0; transform:translate(-50%,calc(-50% + 6px)); } }
+@keyframes cs-overlay-enter { from { opacity:0; } to { opacity:1; } }
+@keyframes cs-overlay-exit { from { opacity:1; } to { opacity:0; } }
+/* Stable file identity means existing rows do not replay when siblings change. */
+.cs-upload-list > li { animation: cs-attachment-enter var(--cds-dur-base) var(--cds-ease-out) both; }
+@keyframes cs-attachment-enter { from { opacity:0; } to { opacity:1; } }
+@media(prefers-reduced-motion:reduce) {
+  .cs-button { transition:none; }
+  .cs-button:active:not(:disabled) { transform:none; }
+  .cs-dialog-overlay[data-state], .cs-dialog[data-state], .cs-popover[data-state], .cs-dropdown[data-state], .cs-select-menu[data-state], .cs-upload-list > li { animation:none; }
+}
