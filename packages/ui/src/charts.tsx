@@ -4,14 +4,25 @@ export interface ChartDatum { label: string; x?: number; values: Record<string, 
 export interface ChartSeries { key: string; label: string; color?: string; channel?: number }
 export interface ChartProps {
   title: string; description?: string; data: ChartDatum[]; series: ChartSeries[]; unit?: string;
-  height?: number; loading?: boolean; barBaseline?: number;
+  height?: number; loading?: boolean; barBaseline?: number; minorGrid?: boolean;
   xScale?: 'category'|'linear'|'log'; xLabel?: string; yLabel?: string;
   xDomain?: [number, number]; yDomain?: [number, number]; yStep?: number; measurementInfo?: string[];
+}
+function spacedTicks(values: number[], position: (value: number) => number, minimumGap: number) {
+  if (values.length < 2) return values;
+  const result = [values[0]];
+  for (const value of values.slice(1, -1)) {
+    if (Math.abs(position(value) - position(result[result.length - 1])) >= minimumGap) result.push(value);
+  }
+  const last = values[values.length - 1];
+  if (result.length > 1 && Math.abs(position(last) - position(result[result.length - 1])) < minimumGap) result.pop();
+  result.push(last);
+  return result;
 }
 export const chartChannelColors: readonly string[] = Object.freeze(Array.from({length:64},(_,index)=>`var(--cs-chart-channel-${String(index+1).padStart(2,'0')})`));
 export function LineChart(props:ChartProps) {return <Chart {...props} kind="line"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
-function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,kind}:ChartProps&{kind:'line'|'bar'}) {
+function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,minorGrid=false,kind}:ChartProps&{kind:'line'|'bar'}) {
   const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);
   const visible=series.filter(item=>!hidden.includes(item.key));
   const values=data.flatMap(row=>visible.map(item=>row.values[item.key])).filter((n):n is number=>typeof n==='number'&&Number.isFinite(n));
@@ -41,6 +52,9 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
   const xMax=validXDomain?transformX(xDomain[1]):numeric&&data.length?Math.max(...data.map(row=>transformX(row.x!))):10;
   const x=(i:number)=>numeric?(xMax===xMin?left+plotWidth/2:left+(transformX(data[i].x!)-xMin)/(xMax-xMin)*plotWidth):left+step*(i+.5);
   const xTicks=numeric&&xScale==='log'?[20,50,100,200,500,1000,2000,5000,10000,20000].filter(n=>transformX(n)>=xMin&&transformX(n)<=xMax):numeric&&xScale==='linear'?Array.from({length:5},(_,i)=>xMin+(xMax-xMin)*i/4):[];
+  const displayedYTicks = spacedTicks(ticks, y, 44);
+  const displayedXTicks = spacedTicks(xTicks, value => left+(transformX(value)-xMin)/(xMax-xMin||1)*plotWidth, 72);
+  const categoryStride = Math.max(1, Math.ceil(data.length / Math.max(1, Math.floor(plotWidth / 72))));
   const hitLeft=(i:number)=>i===0?left:(x(i-1)+x(i))/2;
   const hitRight=(i:number)=>i===data.length-1?width-right:(x(i)+x(i+1))/2;
   const color=(item:ChartSeries)=>item.color??chartChannelColors[Number.isInteger(item.channel)&&item.channel!>=1&&item.channel!<=64?item.channel!-1:series.indexOf(item)%chartChannelColors.length];
@@ -60,10 +74,10 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
           <text x={20} y={top+plotHeight/2} transform={`rotate(-90 20 ${top+plotHeight/2})`} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{yLabel??unit}</text>
           <text x={left+plotWidth/2} y={svgHeight-10} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{xLabel}</text>
           <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-chart-plot-bg)" stroke="var(--cs-chart-grid)"/>
-          {Array.from({length:19},(_,i)=><line key={`minor-x-${i}`} x1={left+plotWidth*(i+1)/20} x2={left+plotWidth*(i+1)/20} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>)}
-          {ticks.slice(0,-1).flatMap(value=>[1,2,3].map(part=><line key={`${value}-${part}`} x1={left} x2={width-right} y1={y(value+stepY*part/4)} y2={y(value+stepY*part/4)} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>))}
-          {ticks.map(value=>{const yy=y(value);return <g key={value}><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth="1"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{format(value)}</text></g>;})}
-          {xTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value}><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth="1"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{value>=1000?`${value/1000}k`:format(value)}</text></g>;})}
+          {minorGrid && plotWidth / 20 >= 40 && Array.from({length:19},(_,i)=><line key={`minor-x-${i}`} x1={left+plotWidth*(i+1)/20} x2={left+plotWidth*(i+1)/20} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>)}
+          {minorGrid && plotHeight * stepY / (max-min) >= 64 && ticks.slice(0,-1).flatMap(value=>[1,2,3].map(part=><line key={`${value}-${part}`} x1={left} x2={width-right} y1={y(value+stepY*part/4)} y2={y(value+stepY*part/4)} stroke="var(--cs-chart-grid)" strokeWidth=".5"/>))}
+          {displayedYTicks.map(value=>{const yy=y(value);return <g key={value} data-axis-tick="y"><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{format(value)}</text></g>;})}
+          {displayedXTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value} data-axis-tick="x"><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{value>=1000?`${value/1000}k`:format(value)}</text></g>;})}
           {selected&&active!==undefined&&!loading&&<g className="cs-chart-crosshair" clipPath={`url(#${id}-clip)`} pointerEvents="none">
             <line x1={x(active)} x2={x(active)} y1={top} y2={top+plotHeight}/>
             {visible.map(item=>{const value=selected.values[item.key];return typeof value==='number'&&Number.isFinite(value)?<line key={item.key} x1={left} x2={width-right} y1={y(value)} y2={y(value)}/>:null;})}
@@ -71,7 +85,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
           {min<0&&max>=0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-chart-axis)" clipPath={`url(#${id}-clip)`}/>}
           {!loading&&kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="1.5" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
           {!loading&&data.map((row,i)=><g key={`${row.label}-${i}`}>
-            {(!xTicks.length&&(data.length<=10||i%Math.ceil(data.length/8)===0))&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
+            {(!xTicks.length&&i%categoryStride===0)&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
             {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(Number.isFinite(barBaseline)?barBaseline:0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(Number.isFinite(barBaseline)?barBaseline:0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="5" fill={color(item)} stroke="#334155" strokeWidth="1.5"/>:null;})}
             <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} onMouseEnter={()=>setActive(i)} onMouseMove={()=>setActive(i)} onFocus={()=>setActive(i)} onBlur={()=>setActive(undefined)} onKeyDown={event=>{if(event.key==='Escape'){setActive(undefined);return;}if(event.key==='Enter'||event.key===' '){event.preventDefault();setActive(i);return;}if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
           </g>)}

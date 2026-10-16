@@ -73,3 +73,12 @@ describe('charts',()=>{
   });
 
 });
+
+it('keeps dense axis endpoints while reducing labels and removes minor grid by default', () => {
+  const view = render(<LineChart title="稀疏标尺" height={300} yDomain={[-150,-40]} yStep={10} xScale="log" data={[{label:'20',x:20,values:{a:-130}},{label:'20000',x:20000,values:{a:-80}}]} series={[{key:'a',label:'通道'}]} />);
+  const labels = Array.from(view.container.querySelectorAll('[data-axis-tick="y"] text')).map(el => el.textContent);
+  expect(labels.length).toBeLessThanOrEqual(6);
+  expect(labels[0]).toBe('-150');
+  expect(labels.at(-1)).toBe('-40');
+  expect(view.container.querySelectorAll('line[stroke-width=".5"]')).toHaveLength(0);
+});
