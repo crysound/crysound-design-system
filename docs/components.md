@@ -89,3 +89,7 @@ Button按压缩放0.98，使用120ms恢复过渡，替代向下1px位移；禁�
 FilterToolbar（受控搜索、筛选插槽、重置回调）、QuotaCard（ready/loading/error/empty、未知额度、重试与操作区）、DetailPanel（原生dl字段、安全换行）、FormDialog（原生表单验证、异步提交、错误重试、取消和Radix焦点返回）均从@crysound/ui导出。API与业务验证由消费项目提供；FormDialog取消不代表取消业务请求，消费方需要时自行使用AbortController。旧提交结果不会关闭重新打开的弹窗。额度输入为0–100百分比，null/非有限值显示未知，不伪装为0%。基础规范“组合与验收”提供可操作演示、布局/长内容规则、状态主题清单、导入顺序、圆角迁移状态与动效使用表。
 
 ToolbarButton的Ghost默认采用中性正文色和medium字重，悬停时才增强；不与品牌主操作争抢注意力。QuotaCard使用20px内容边距、12px辅助说明，演示状态控件放在卡片外，不作为业务操作区。
+
+## 表格长标题
+
+DataTable的columns.cell可返回TableCellText，标题用body14/22常规字重，description放caption12/18；卡号独立列后不重复拼入标题。共享表格使用较轻分隔线、中性排序按钮与等宽数字。必要任务说明不截断；同一状态行不要同时使用粗体标题、品牌底块和高对比分割线。运营排程示例依据截图改编，未访问需登录的内部数据或部署到ops站点。

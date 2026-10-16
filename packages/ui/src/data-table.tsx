@@ -210,3 +210,8 @@ export function DataTable<T>({
     </div>
   );
 }
+
+/** Long titles remain readable without making the entire row bold. */
+export function TableCellText({children, description}: {children: ReactNode; description?: ReactNode}) {
+  return <div className="cs-table-cell-text"><div>{children}</div>{description && <small>{description}</small>}</div>;
+}

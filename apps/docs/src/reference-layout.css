@@ -1772,3 +1772,11 @@ body {
 .composition-examples > section > .cs-quota-card { width:100%; max-width:520px; }
 
 .composition-preview-control { width:180px; max-width:100%; }
+
+.scheduling-reference-table { min-width:800px; table-layout:fixed; }
+.scheduling-reference-table th:nth-child(1) { width:110px; }
+.scheduling-reference-table th:nth-child(3), .scheduling-reference-table th:nth-child(4) { width:84px; }
+.scheduling-reference-table th:nth-child(5), .scheduling-reference-table th:nth-child(6) { width:104px; }
+.scheduling-reference-table td, .scheduling-reference-table th { padding:14px 12px; vertical-align:top; }
+.scheduling-reference-table td:not(:nth-child(2)) { white-space:nowrap; font-size:var(--cs-type-body-size); }
+.scheduling-reference-warning { color:var(--cs-warning-fg); }

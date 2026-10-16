@@ -770,3 +770,12 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-quota-card .cs-pattern-meta { font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); }
 
 .cs-quota-card .cs-pattern-meta > * { font-size:inherit; line-height:inherit; }
+
+/* Data tables use quiet separators and neutral sorting controls. */
+.cs-table td, .cs-table th { border-top-color:color-mix(in srgb, var(--cs-border) 65%, var(--cs-surface)); }
+.cs-table thead th { font-weight:var(--cs-weight-medium); }
+.cs-table thead .cs-button--ghost { color:var(--cs-text); font-weight:var(--cs-weight-medium); }
+.cs-table td { font-variant-numeric:tabular-nums; }
+.cs-table-cell-text { font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); color:var(--cs-text-heading); font-weight:var(--cs-weight-normal); min-width:0; overflow-wrap:anywhere; }
+.cs-table-cell-text > div { max-width:60em; }
+.cs-table-cell-text small { font-weight:var(--cs-weight-normal); }

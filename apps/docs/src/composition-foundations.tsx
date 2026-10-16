@@ -1,3 +1,4 @@
+import { SchedulingTableExample } from "./scheduling-table-example";
 import { WebsiteReference } from "./website-reference";
 import { useState } from 'react';
 import { FilterToolbar, QuotaCard, DetailPanel, FormDialog, Button, Input, Select, Checkbox } from '../../../packages/ui/src/index';
@@ -19,6 +20,7 @@ export function CompositionFoundations() {
   return <section className="radius-foundations" aria-labelledby="composition-heading">
     <h3 id="composition-heading">组合模板与视觉验收</h3><p className="cs-help">四个共享组合提供稳定布局；演示不包含硬件协议、账号鉴权或业务 API。下面的布局数值为工程建议。</p>
     <CompositionExamples/>
+    <SchedulingTableExample/>
     <WebsiteReference/>
     <h4>基础状态验收</h4><div className="composition-state-row"><Button variant="secondary">默认 / 悬停 / 键盘焦点</Button><Button loading>处理中</Button><Button disabled>暂无权限</Button></div><Input label="错误状态示例" error="请填写任务名称。" aria-label="错误状态示例"/>
 
