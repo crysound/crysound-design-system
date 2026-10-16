@@ -1,6 +1,6 @@
 import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
-import { MetricGroupDemo } from "./metric-group-demo";
+import { MetricGroupDemo, StatusSummaryDemo } from "./metric-group-demo";
 import { SchedulingTableExample } from "./scheduling-table-example";
 import { WebsiteReference } from "./website-reference";
 import { useState } from 'react';
@@ -24,6 +24,7 @@ export function CompositionFoundations() {
     <h3 id="composition-heading">组合模板与视觉验收</h3><p className="cs-help">四个共享组合提供稳定布局；演示不包含硬件协议、账号鉴权或业务 API。下面的布局数值为工程建议。</p>
     <h4>指标摘要 · 统一组合</h4><MetricGroupDemo/>
     <p className="cs-help">指标组统一文字层级、弱边界与等宽数字，保持同组信息的阅读节奏一致。</p>
+    <section className="radius-foundations"><h4>状态摘要 · 概览与异常</h4><StatusSummaryDemo/><p className="cs-help">组合建议：标签14/20，核心数值24/32 medium，单位和说明12/18；一个摘要区域容纳3–5项。异常采用带文字的状态点，数值保持正常文字色，不叠加彩色结论和徽标。标题使用24/32，说明只保留一项原因；详细错误不可在业务详情中省略。</p></section>
     <CompositionExamples/>
     <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
     <section className="radius-foundations"><h4>进度列表 · 任务与详情</h4><p className="cs-help">任务、进度和日期按列对齐，共性提示集中展示。以下布局数值为工程建议，使用合成测量数据。</p><ProgressListDemo/></section>

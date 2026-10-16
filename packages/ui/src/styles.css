@@ -841,3 +841,13 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-progress-list-details { padding:0 8px 20px; font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); overflow-wrap:anywhere; }
 @container (max-width:640px) { .cs-progress-list-row { grid-template-columns:minmax(0,1fr) 24px; gap:8px 12px; } .cs-progress-list-task { grid-column:1; } .cs-progress-list-chevron { grid-column:2; grid-row:1; } .cs-progress-list-reading { grid-column:1; } .cs-progress-list-meta { grid-column:1; display:flex; gap:12px; flex-wrap:wrap; } }
 @media (prefers-reduced-motion:reduce) { summary.cs-progress-list-row,.cs-progress-list-chevron svg { transition:none; } }
+
+/* Status summaries share a surface and reserve color for explicit status, never whole readings. */
+.cs-metric-group[data-variant="summary"] .cs-metric-group-item { padding:20px 24px; }
+.cs-metric-group[data-variant="summary"] .cs-metric-group-item dt { min-height:0; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px 12px; }
+.cs-metric-group[data-variant="summary"] .cs-metric-group-reading { font-size:var(--cs-type-page-size); line-height:var(--cs-type-page-leading); }
+.cs-metric-group[data-variant="summary"] .cs-metric-group-note { margin-top:8px; }
+.cs-metric-group-status { display:inline-flex; align-items:center; gap:5px; font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); font-weight:var(--cs-weight-normal); color:var(--cs-muted); }
+.cs-metric-group-status > span { width:5px; height:5px; border-radius:var(--cs-radius-circle); background:currentColor; flex-shrink:0; }
+.cs-metric-group-status[data-tone="warning"] { color:var(--cs-warning-fg); }
+.cs-metric-group-status[data-tone="danger"] { color:var(--cs-danger-fg); }

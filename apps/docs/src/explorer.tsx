@@ -1,6 +1,6 @@
 import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
-import { MetricGroupDemo } from "./metric-group-demo";
+import { MetricGroupDemo, StatusSummaryDemo } from "./metric-group-demo";
 import { CompositionExamples } from "./composition-foundations";
 import { DeviceTableDemo } from "./device-table-demo";
 import { InstrumentDialogDemo } from "./instrument-dialog-demo";
@@ -619,7 +619,7 @@ export function ComponentDemo({ id }: { id: string }) {
     case "progress-list":
       return <ProgressListDemo/>;
     case "metric-group":
-      return <MetricGroupDemo/>;
+      return <div style={{width:"100%",display:"grid",gap:32}}><MetricGroupDemo/><StatusSummaryDemo/></div>;
     case "filter-toolbar":
     case "quota-card":
     case "detail-panel":
