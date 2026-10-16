@@ -1765,3 +1765,10 @@ body {
 .website-product-media svg { width:min(100%,160px); stroke:var(--cs-brand); stroke-width:1.5; }
 .website-example-footer { border-top:1px solid var(--cs-border); padding-top:24px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 @media(max-width:800px) { .website-example { padding:20px; } .website-example-hero { grid-template-columns:1fr; } .website-product-grid { grid-template-columns:1fr; } .website-example-heading { align-items:flex-start; flex-direction:column; } }
+
+.composition-examples > section { justify-content:flex-start; gap:16px; }
+.composition-examples > section > .composition-state-select { max-width:200px; }
+.composition-examples .cs-filter-toolbar + .cs-help { margin:0; }
+.composition-examples > section > .cs-quota-card { width:100%; max-width:520px; }
+
+.composition-preview-control { width:180px; max-width:100%; }

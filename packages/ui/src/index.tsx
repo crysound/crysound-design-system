@@ -331,7 +331,7 @@ export function CardActions({className, ...props}: HTMLAttributes<HTMLDivElement
 export function Toolbar({label, className, ...props}: HTMLAttributes<HTMLDivElement> & {label: string}) {
   return <div {...props} role="group" aria-label={label} className={cx('cs-toolbar', className)} />;
 }
-export const ToolbarButton = forwardRef<HTMLButtonElement, ButtonProps>(function ToolbarButton({variant = 'ghost', ...props}, ref) {
-  return <Button {...props} ref={ref} variant={variant} />;
+export const ToolbarButton = forwardRef<HTMLButtonElement, ButtonProps>(function ToolbarButton({variant = 'ghost', className, ...props}, ref) {
+  return <Button {...props} ref={ref} variant={variant} className={cx('cs-toolbar-button', className)} />;
 });
 export * from './patterns';

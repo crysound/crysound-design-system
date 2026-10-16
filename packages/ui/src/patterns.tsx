@@ -10,7 +10,7 @@ export interface FilterToolbarProps {
 export function FilterToolbar({label, query, onQueryChange, onReset, placeholder, filters, actions, disabled}: FilterToolbarProps) {
   return <div className="cs-filter-toolbar" role="group" aria-label={label}>
     <Input type="search" label="搜索" placeholder={placeholder} value={query} onChange={event => onQueryChange(event.target.value)} disabled={disabled}/>
-    <div className="cs-filter-controls">{filters}<ToolbarButton disabled={disabled} onClick={onReset}>重置</ToolbarButton>{actions}</div>
+    <div className="cs-filter-controls">{filters}<ToolbarButton disabled={disabled} onClick={onReset} iconStart={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>}>重置</ToolbarButton>{actions}</div>
   </div>;
 }
 export interface QuotaItem { id: string; label: string; remaining: number | null; reset?: string; }
@@ -19,7 +19,7 @@ export interface QuotaCardProps {
   state?: 'ready' | 'loading' | 'empty' | 'error'; error?: string; onRetry?: () => void; actions?: ReactNode;
 }
 export function QuotaCard({title, description, badge, status, quotas, state = 'ready', error, onRetry, actions}: QuotaCardProps) {
-  return <Card title={title} description={description} actions={<div className="cs-pattern-meta">{badge}{status}</div>} aria-busy={state === 'loading'}>
+  return <Card title={title} description={description} actions={<div className="cs-pattern-meta">{badge}{status}</div>} className="cs-quota-card" aria-busy={state === 'loading'}>
     <CardBody>
       {state === 'loading' ? <p role="status">正在加载额度…</p> : state === 'error' ? <div><p role="alert">{error || '额度加载失败，请重试。'}</p>{onRetry && <ToolbarButton onClick={onRetry}>重试</ToolbarButton>}</div> : state === 'empty' || !quotas.length ? <p className="cs-muted">暂无额度数据</p> : quotas.map(item => {
         const value = item.remaining !== null && Number.isFinite(item.remaining) ? Math.max(0, Math.min(100, item.remaining)) : null;

@@ -758,3 +758,15 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-form-dialog-actions { display:flex; gap:8px; justify-content:flex-end; padding-top:16px; border-top:1px solid var(--cs-border); }
 .cs-form-dialog-actions .cs-button { margin:0; }
 @media(max-width:600px) { .cs-filter-controls { width:100%; } .cs-detail-fields > div { grid-template-columns:1fr; gap:4px; } }
+
+/* Secondary toolbar actions stay neutral; brand is reserved for primary intent. */
+.cs-toolbar-button.cs-button--ghost { color:var(--cs-text); font-weight:var(--cs-weight-medium); padding-inline:10px; }
+.cs-toolbar-button.cs-button--ghost:hover:not(:disabled) { color:var(--cs-text-heading); background:var(--cs-subtle); }
+.cs-toolbar-button.cs-button--ghost:disabled { color:var(--cs-muted); }
+.cs-quota-card > .cs-card-header { padding:20px 20px 16px; align-items:flex-start; }
+.cs-quota-card > .cs-card-header > div > p { font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); margin-top:4px; }
+.cs-quota-card > .cs-card-body { padding:0 20px 20px; gap:20px; }
+.cs-quota-card > .cs-card-actions { padding:12px 20px; }
+.cs-quota-card .cs-pattern-meta { font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); }
+
+.cs-quota-card .cs-pattern-meta > * { font-size:inherit; line-height:inherit; }
