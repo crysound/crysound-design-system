@@ -1,3 +1,4 @@
+import { CompositionExamples } from "./composition-foundations";
 import { DeviceTableDemo } from "./device-table-demo";
 import { InstrumentDialogDemo } from "./instrument-dialog-demo";
 import { LoginDemo } from "./login-demo";
@@ -610,6 +611,11 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "instrument-dialog":
       return <InstrumentDialogDemo/>;
+    case "filter-toolbar":
+    case "quota-card":
+    case "detail-panel":
+    case "form-dialog":
+      return <CompositionExamples only={id}/>;
     case "toolbar":
       return <UI.Toolbar label="任务操作"><UI.ToolbarButton onClick={() => {window.location.hash = 'component/card';}}>查看详情</UI.ToolbarButton><UI.ToolbarButton variant="secondary" onClick={() => {window.location.hash = 'component/input';}}>编辑配置</UI.ToolbarButton><UI.ToolbarButton loading>正在处理</UI.ToolbarButton><UI.ToolbarButton disabled>暂无权限</UI.ToolbarButton></UI.Toolbar>;
     case "link-group":

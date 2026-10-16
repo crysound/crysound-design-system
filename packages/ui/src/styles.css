@@ -735,3 +735,26 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
   .cs-button:active:not(:disabled) { transform:none; }
   .cs-dialog-overlay[data-state], .cs-dialog[data-state], .cs-popover[data-state], .cs-dropdown[data-state], .cs-select-menu[data-state], .cs-upload-list > li { animation:none; }
 }
+
+/* Shared composition proposals: content typography never shrinks with density. */
+.cs-filter-toolbar { display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; }
+.cs-filter-toolbar > .cs-field { flex:1 1 240px; min-width:0; }
+.cs-filter-controls { display:flex; align-items:flex-end; gap:8px; flex-wrap:wrap; }
+.cs-pattern-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.cs-quota-item { min-width:0; font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
+.cs-quota-item > div { display:flex; gap:12px; justify-content:space-between; }
+.cs-quota-item strong { font-weight:var(--cs-weight-medium); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.cs-quota-item progress { appearance:none; display:block; width:100%; height:4px; margin:8px 0; border:0; border-radius:var(--cs-radius-pill); overflow:hidden; background:var(--cs-subtle); }
+.cs-quota-item progress::-webkit-progress-bar { background:var(--cs-subtle); }
+.cs-quota-item progress::-webkit-progress-value { background:var(--cs-brand); }
+.cs-quota-item progress::-moz-progress-bar { background:var(--cs-brand); }
+.cs-quota-item p { margin:0; color:var(--cs-muted); font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); }
+.cs-detail-fields { margin:0; display:grid; gap:16px; }
+.cs-detail-fields > div { display:grid; grid-template-columns:minmax(80px,1fr) minmax(0,2fr); gap:16px; font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
+.cs-detail-fields dt { color:var(--cs-muted); }
+.cs-detail-fields dd { margin:0; overflow-wrap:anywhere; min-width:0; font-variant-numeric:tabular-nums; }
+.cs-form-dialog { display:grid; gap:16px; margin-top:20px; }
+.cs-form-dialog fieldset { border:0; margin:0; padding:0; min-width:0; display:grid; gap:16px; }
+.cs-form-dialog-actions { display:flex; gap:8px; justify-content:flex-end; padding-top:16px; border-top:1px solid var(--cs-border); }
+.cs-form-dialog-actions .cs-button { margin:0; }
+@media(max-width:600px) { .cs-filter-controls { width:100%; } .cs-detail-fields > div { grid-template-columns:1fr; gap:4px; } }

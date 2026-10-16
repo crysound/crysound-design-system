@@ -81,6 +81,12 @@ export const docCategories = [
     description:
       "对话框、菜单、导航和数据表格——组合常见的产品任务与应用工作流。",
     ids: [
+      "filter-toolbar",
+      "quota-card",
+      "detail-panel",
+      "form-dialog",
+      "toolbar",
+      "link-group",
       "accordion",
       "alert",
       "alert-dialog",

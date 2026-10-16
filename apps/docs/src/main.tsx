@@ -1,3 +1,4 @@
+import { CompositionFoundations } from "./composition-foundations";
 import { BoundaryPreview } from "./boundary-preview";
 import { LogoGuidelines } from "./logo-guidelines";
 import { ChevronRight, LinkExternal01 } from "@untitledui/icons";
@@ -324,6 +325,7 @@ npm pack -w @crysound/ui`}</code>
                   <TabsTrigger value="layout">间距与圆角</TabsTrigger>
                   <TabsTrigger value="material">边界与材质</TabsTrigger>
                   <TabsTrigger value="motion">交互与动效</TabsTrigger>
+                  <TabsTrigger value="composition">组合与验收</TabsTrigger>
                 </TabsList>
                 <TabsContent value="colors">
               <div className="swatches">
@@ -398,6 +400,7 @@ npm pack -w @crysound/ui`}</code>
                 <TabsContent value="layout"><SpaceFoundations /><details className="foundation-reference"><summary>间距速查与浮层层级</summary><FoundationGallery section="layout" /></details><RadiusFoundations /></TabsContent>
                 <TabsContent value="material"><BoundaryPreview /><AlphaFoundations /><GlassFoundations /></TabsContent>
                 <TabsContent value="motion"><SpringFoundations /></TabsContent>
+                <TabsContent value="composition"><CompositionFoundations /></TabsContent>
               </Tabs>
             </section>
             <section id="components">

@@ -83,3 +83,7 @@ Card默认outlined且无阴影；页面分组使用variant="plain"（标题和�
 ## 原子交互反馈 · 2026-10-16
 
 Button按压缩放0.98，使用120ms恢复过渡，替代向下1px位移；禁用/加载不触发。Dialog、Popover、Dropdown及Select浮层采用200ms成对进出与遮罩淡入淡出，由Radix Presence管理退出生命周期，保持原焦点与关闭行为。附件行仅在新增挂载时200ms淡入，使用文件名/大小/修改时间稳定标识，删除前项或更新进度不重播其他附件。减少动态效果取消上述动画及按压缩放。常规文字不添加模糊与逐字揭示，静态卡片不添加抬升。参数为CRYSOUND适配建议。
+
+## 共享组合模板
+
+FilterToolbar（受控搜索、筛选插槽、重置回调）、QuotaCard（ready/loading/error/empty、未知额度、重试与操作区）、DetailPanel（原生dl字段、安全换行）、FormDialog（原生表单验证、异步提交、错误重试、取消和Radix焦点返回）均从@crysound/ui导出。API与业务验证由消费项目提供；FormDialog取消不代表取消业务请求，消费方需要时自行使用AbortController。旧提交结果不会关闭重新打开的弹窗。额度输入为0–100百分比，null/非有限值显示未知，不伪装为0%。基础规范“组合与验收”提供可操作演示、布局/长内容规则、状态主题清单、导入顺序、圆角迁移状态与动效使用表。
