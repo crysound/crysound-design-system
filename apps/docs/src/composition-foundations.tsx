@@ -22,14 +22,14 @@ export function CompositionFoundations() {
   return <section className="radius-foundations" aria-labelledby="composition-heading">
     <h3 id="composition-heading">组合模板与视觉验收</h3><p className="cs-help">四个共享组合提供稳定布局；演示不包含硬件协议、账号鉴权或业务 API。下面的布局数值为工程建议。</p>
     <h4>指标摘要 · 统一组合</h4><MetricGroupDemo/>
-    <p className="cs-help">借鉴 open-claude-ui 的文字角色、弱边界和等宽数字思路；该仓库未提供这组业务指标模板，下面为 CRYSOUND 组合适配。</p>
+    <p className="cs-help">指标组统一文字层级、弱边界与等宽数字，保持同组信息的阅读节奏一致。</p>
     <CompositionExamples/>
     <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
     <SchedulingTableExample/>
     <WebsiteReference/>
     <h4>基础状态验收</h4><div className="composition-state-row"><Button variant="secondary">默认 / 悬停 / 键盘焦点</Button><Button loading>处理中</Button><Button disabled>暂无权限</Button></div><Input label="错误状态示例" error="请填写任务名称。" aria-label="错误状态示例"/>
 
-    <details className="foundation-reference"><summary>组件组合规则：从零件到完整区域</summary><ul><li>指标组：一块表面承载3–5个同级指标；标签、数值、单位、备注各用固定文字角色，缺少备注时保留对齐空间。</li><li>表单与Checkbox：控件与首行标签对齐，多行帮助放在标签下方；同组选择项统一间距，不让说明改变控件位置。</li><li>标题与操作：标题承担分组，次级操作用ToolbarButton；不要让所有文字和操作都变成品牌色粗体。</li><li>卡片内部分组：优先间距与单向分隔线；输入框保留必要边界，不堆叠阴影和闭合框。</li><li>同一信息带共用数字格式、单位位置和状态语义；不要用字体大小代替重要性判断。</li><li>先看实际组合的长内容、明暗主题和窄容器，再确认单个组件参数。参考仓库为社区整理，参数不视为官方标准。</li></ul></details>
+    <details className="foundation-reference"><summary>组件组合规则：从零件到完整区域</summary><ul><li>指标组：一块表面承载3–5个同级指标；标签、数值、单位、备注各用固定文字角色，缺少备注时保留对齐空间。</li><li>表单与Checkbox：控件与首行标签对齐，多行帮助放在标签下方；同组选择项统一间距，不让说明改变控件位置。</li><li>标题与操作：标题承担分组，次级操作用ToolbarButton；不要让所有文字和操作都变成品牌色粗体。</li><li>卡片内部分组：优先间距与单向分隔线；输入框保留必要边界，不堆叠阴影和闭合框。</li><li>同一信息带共用数字格式、单位位置和状态语义；不要用字体大小代替重要性判断。</li><li>先看实际组合的长内容、明暗主题和窄容器，再确认单个组件参数。</li></ul></details>
     <h4>布局与长内容规则</h4>
     <div className="cs-table-scroll"><table className="cs-table"><thead><tr><th>场景</th><th>默认建议</th><th>验收重点</th></tr></thead><tbody>{[
       ['工作台布局','区块间距24px；卡片内容间距16px；标准控件40px、紧凑32px','窄屏换行，不把正文一起缩小'],

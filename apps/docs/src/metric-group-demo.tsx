@@ -1,10 +1,10 @@
 import { MetricGroup } from '../../../packages/ui/src/index';
 export function MetricGroupDemo() {
-  return <MetricGroup label="运营排程概览" items={[
-    {id:'merged',label:'今日合入',value:60,unit:'张卡',note:'已确认部分'},
-    {id:'capacity',label:'开发名额',value:'6 / 12',unit:'个',note:'剩余 6 个'},
-    {id:'queue',label:'排队任务',value:53,unit:'个',note:'近 1 小时峰值 69'},
-    {id:'cost',label:'今日服务器费用',value:'9.25',unit:'美元',note:'估算金额'},
-    {id:'remaining',label:'冲刺剩余',value:7,unit:'天',note:'目标 10-22'},
+  return <MetricGroup label="声学测量概览" items={[
+    {id:'devices',label:'在线设备',value:8,unit:'台',note:'设备连接状态'},
+    {id:'channels',label:'采集通道',value:'16 / 24',unit:'路',note:'已启用 / 总通道'},
+    {id:'rate',label:'采样率',value:48,unit:'kHz',note:'当前采集配置'},
+    {id:'duration',label:'测量时长',value:'12.5',unit:'分钟',note:'当前测量任务'},
+    {id:'reports',label:'生成报告',value:6,unit:'份',note:'本次测试批次'},
   ]}/>;
 }
