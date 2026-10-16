@@ -28,6 +28,8 @@ const define = (
   guidance,
 });
 export const catalog: ComponentDoc[] = [
+  define("metric-group", "MetricGroup", "指标组", "组合", "将多个指标组织为一块完整摘要区域，统一数字、单位与说明。", [["label / items", "string / MetricGroupItem[]", "必填"], ["density", "standard | compact", "standard"]], '<MetricGroup label="运营概览" items={[{id:"queue",label:"排队任务",value:53,unit:"个",note:"近1小时峰值69"}]} />', "一组优先3–5个同级指标，共用一个表面。标准数值30/40，紧凑24/32；单位和说明12/18，标签14/20。数值使用medium和等宽数字；长标签自然换行，未知值用null。不要每项再套Card、加阴影或不同颜色。数据阈值、计算和币种格式由消费项目提供。"),
+
   define("filter-toolbar", "FilterToolbar", "筛选工具栏", "组合", "受控搜索、筛选与重置的统一排列。", [["query / onQueryChange", "string / callback", "必填"], ["label / onReset", "string / callback", "必填"], ["filters / actions", "ReactNode", "可选"]], '<FilterToolbar label="任务筛选" query={query} onQueryChange={setQuery} onReset={resetFilters} />', "消费项目管理查询与筛选状态；窄屏分行，控件底部对齐。"),
   define("quota-card", "QuotaCard", "额度卡片", "组合", "统一额度、重置时间与加载错误等状态。", [["title / quotas", "string / QuotaItem[]", "必填"], ["state", "ready | loading | empty | error", "ready"], ["onRetry / actions", "callback / ReactNode", "可选"]], '<QuotaCard title="工作账号" quotas={[{id:"week", label:"本周剩余额度", remaining:59}]} />', "remaining为0–100百分比；未知值用null，不显示伪造的0%。加载、错误与重试由消费项目传入。"),
   define("detail-panel", "DetailPanel", "详情面板", "组合", "原生字段语义、长内容换行与统一操作区。", [["title / fields", "string / DetailField[]", "必填"], ["status / actions", "ReactNode", "可选"]], '<DetailPanel title="任务详情" fields={[{id:"device", label:"设备", value:"声学成像仪 01"}]} />', "字段id稳定唯一；长ID自然折行，必要说明不截断。"),
@@ -133,7 +135,7 @@ export const catalog: ComponentDoc[] = [
       ["description / disabled", "string / boolean", "—"],
     ],
     '<Checkbox label="保存原始数据" description="用于后续复核" defaultChecked />',
-    "一组选项允许多个同时生效时使用 Checkbox；单选用 RadioGroup。",
+    "一组选项允许多个同时生效时使用 Checkbox；单选用 RadioGroup。组合时控件与首行标签对齐，帮助说明放在标签下方；同组选项统一间距，避免每项都套Card。勾选状态只负责选择，不同时改变字号与字重。",
   ),
   define(
     "switch",

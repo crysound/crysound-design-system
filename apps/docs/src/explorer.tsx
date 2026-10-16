@@ -1,3 +1,4 @@
+import { MetricGroupDemo } from "./metric-group-demo";
 import { CompositionExamples } from "./composition-foundations";
 import { DeviceTableDemo } from "./device-table-demo";
 import { InstrumentDialogDemo } from "./instrument-dialog-demo";
@@ -611,6 +612,8 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "instrument-dialog":
       return <InstrumentDialogDemo/>;
+    case "metric-group":
+      return <MetricGroupDemo/>;
     case "filter-toolbar":
     case "quota-card":
     case "detail-panel":

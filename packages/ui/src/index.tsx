@@ -335,3 +335,4 @@ export const ToolbarButton = forwardRef<HTMLButtonElement, ButtonProps>(function
   return <Button {...props} ref={ref} variant={variant} className={cx('cs-toolbar-button', className)} />;
 });
 export * from './patterns';
+export * from './metric-group';
