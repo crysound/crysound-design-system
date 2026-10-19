@@ -659,6 +659,8 @@
   color: inherit;
 }
 .cs-data-table .cs-table td .cs-button { font-size:inherit; line-height:inherit; }
+.cs-data-table .cs-table td .cs-button--ghost { font-weight:var(--cs-weight-normal); text-decoration:none; text-underline-offset:var(--cs-space-0-5); }
+.cs-data-table .cs-table td .cs-button--ghost:is(:active,:focus-visible,[data-state="open"]) { text-decoration:underline; }
 .cs-data-table .cs-table th[aria-sort="ascending"] .cs-sort-icon,
 .cs-data-table .cs-table th[aria-sort="descending"] .cs-sort-icon { color:var(--cs-brand); }
 .cs-data-table tr[data-selected] {
