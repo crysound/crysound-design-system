@@ -10,7 +10,7 @@ export const ActionLink = forwardRef<HTMLAnchorElement, ActionLinkProps>(functio
 ) {
   return <a {...props} ref={ref} className={['cs-action-link', className].filter(Boolean).join(' ')} target={target ?? (external ? '_blank' : undefined)} rel={rel ?? (external || target === '_blank' ? 'noopener noreferrer' : undefined)}>
     <span>{children}</span>
-    {arrow && <svg className="cs-action-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {arrow && <svg className="cs-action-link-arrow" data-external={external || undefined} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d={external ? 'M7 17 17 7M7 7h10v10' : 'M5 12h14m-5-5 5 5-5 5'} />
     </svg>}
   </a>;
