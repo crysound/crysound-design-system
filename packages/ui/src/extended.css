@@ -876,10 +876,10 @@
 .cs-date-trigger[data-state="open"] > svg:last-child { transform: rotate(180deg); color: var(--cs-brand); }
 .cs-date-trigger:disabled { opacity: .5; cursor: not-allowed; }
 .cs-date-trigger[aria-invalid="true"] { border-color: var(--cs-danger-fg); }
-.cs-date-popover { width: 296px; max-width: calc(100vw - 24px); padding: 16px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: 12px; background: var(--cs-surface); color: var(--cs-text); box-shadow: var(--cs-shadow); z-index: var(--cs-z-popover); font-family: var(--cs-font); }
+.cs-date-popover { width: 296px; max-width: calc(100vw - 24px); padding: 16px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); background: var(--cs-surface); color: var(--cs-text); box-shadow: var(--cs-shadow); z-index: var(--cs-z-popover); font-family: var(--cs-font); }
 .cs-date-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .cs-date-header strong { font-size: 14px; font-weight: var(--cs-weight-medium); }
-.cs-date-header button, .cs-date-grid button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; color: var(--cs-text); background: transparent; font: inherit; font-size: 14px; cursor: pointer; }
+.cs-date-header button, .cs-date-grid button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--cs-radius); color: var(--cs-text); background: transparent; font: inherit; font-size: 14px; cursor: pointer; }
 .cs-date-weekdays, .cs-date-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; }
 .cs-date-weekdays { margin-bottom: 8px; color: var(--cs-muted); text-align: center; font-size: 12px; }
 .cs-date-grid button { width: 100%; aspect-ratio: 1; height: auto; }
@@ -889,7 +889,7 @@
 .cs-date-grid button[aria-pressed="true"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 .cs-date-grid button:disabled { opacity: .3; cursor: not-allowed; }
 .cs-date-footer { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--cs-border); }
-.cs-date-footer button { padding: 4px 8px; border: 0; background: transparent; color: var(--cs-brand); font: inherit; font-size: 14px; cursor: pointer; }
+.cs-date-footer button { border-radius: var(--cs-radius); padding: 4px 8px; border: 0; background: transparent; color: var(--cs-brand); font: inherit; font-size: 14px; cursor: pointer; }
 .cs-date-footer button:disabled { opacity: .4; cursor: not-allowed; }
 .cs-date-popover button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 1px; }
 
