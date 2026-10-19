@@ -1,3 +1,4 @@
+import { SceneStyles } from "./scene-styles";
 import { CompositionFoundations } from "./composition-foundations";
 import { BoundaryPreview } from "./boundary-preview";
 import { LogoGuidelines } from "./logo-guidelines";
@@ -29,6 +30,7 @@ import "../../../packages/tokens/src/tokens.css";
 import "../../../packages/ui/src/styles.css";
 import "./site.css";
 import "./reference-layout.css";
+import "./scene-styles.css";
 import {
   DocsBrand,
   DocsHeader,
@@ -191,7 +193,7 @@ function App() {
           }
         />
 
-        {route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
+        {route === "scene-styles" ? <SceneStyles /> : route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
           <React.Suspense fallback={<p role="status">正在加载图标库…</p>}>{route === "file-icons" ? <FileIconsPage /> : <IconLibrary />}</React.Suspense>
         ) : activeDoc ? (
           <ComponentPage

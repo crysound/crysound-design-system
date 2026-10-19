@@ -208,6 +208,7 @@ export function SidebarContent({
                 ["file-icons", "File icons", "文件图标"],
                 ["customization", "Customization", "主题与客户定制"],
                 ["patterns", "Product patterns", "产品模式"],
+                ["scene-styles", "Scene styles", "场景样板"],
               ].map(([id, name, zh]) => (
                 <a
                   key={id}
@@ -671,7 +672,7 @@ export function DocsHeader({
           ...(activeDoc ? [{ label: "组件", href: "#library" }] : []),
           { label: activeDoc?.name ?? ({
             logo: "Logo 规范", foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
-            installation: "安装与接入", patterns: "产品模式", customization: "主题与定制",
+            installation: "安装与接入", patterns: "产品模式", "scene-styles": "场景样板", customization: "主题与定制",
           } as Record<string, string>)[route] ?? "简介" },
         ]} />
       </div>
