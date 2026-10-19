@@ -1470,6 +1470,7 @@ button.cs-step-content { cursor: pointer; }
 @media(prefers-reduced-motion:reduce) { .cs-carousel-pagination-item,.cs-carousel-pagination-item > span { transition:none; } }
 
 .cs-action-button { min-height:28px; padding:0 10px; border:0; background:transparent; font-weight:var(--cs-weight-normal); cursor:pointer; }
+.cs-action-button > span::after { bottom:0; }
 .cs-data-table .cs-action-button { font-size:inherit; line-height:inherit; }
 .cs-action-button:disabled { opacity:.4; cursor:not-allowed; }
 .cs-action-button:disabled > span::after { transform:scaleX(0); }
