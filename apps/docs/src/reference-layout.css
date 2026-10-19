@@ -1780,3 +1780,9 @@ body {
 .scheduling-reference-table td, .scheduling-reference-table th { padding:14px 12px; vertical-align:top; }
 .scheduling-reference-table td:not(:nth-child(2)) { white-space:nowrap; font-size:var(--cs-type-body-size); }
 .scheduling-reference-warning { color:var(--cs-warning-fg); }
+
+@media (max-width:600px) {
+  .progress-steps-demo { gap:24px; }
+  .progress-steps-demo h3 { margin-bottom:16px; }
+  .progress-steps-demo .demo-row { margin-top:16px; gap:8px; }
+}

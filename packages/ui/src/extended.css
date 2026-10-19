@@ -967,13 +967,13 @@
 @keyframes cs-loading-bounce { 0%,60%,100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
 @media(prefers-reduced-motion:reduce) { .cs-loading-spin, .cs-loading-dots i { animation: none; } }
 
-.cs-progress-steps { width: 100%; }
+.cs-progress-steps { width: 100%; min-width:0; container-type:inline-size; }
 .cs-progress-steps ol { list-style: none; display: flex; padding: 0; margin: 0; gap: 24px; }
 .cs-progress-steps li { position: relative; flex: 1; min-width: 0; }
 .cs-step-content { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 12px; border: 0; padding: 0; margin: 0; background: transparent; color: var(--cs-text); font: inherit; text-align: left; width: 100%; }
 button.cs-step-content { cursor: pointer; }
 .cs-step-marker { display: grid; place-items: center; width: 28px; height: 28px; flex: 0 0 28px; border: 1px solid var(--cs-border); border-radius: 50%; background: var(--cs-surface); color: var(--cs-muted); font-size: 12px; font-weight: var(--cs-weight-medium); box-sizing: border-box; }
-.cs-step-copy { display: grid; gap: 4px; padding-top: 4px; min-width: 0; }
+.cs-step-copy { overflow-wrap:anywhere; display: grid; gap: 4px; padding-top: 4px; min-width: 0; }
 .cs-step-copy strong { font-size: 14px; font-weight: var(--cs-weight-medium); line-height: 20px; }
 .cs-step-copy small { font-size: 12px; line-height: 18px; color: var(--cs-muted); }
 .cs-progress-steps--horizontal .cs-step-content { flex-direction: column; gap: 8px; }
@@ -1352,4 +1352,14 @@ button.cs-step-content { cursor: pointer; }
 
 @media (prefers-reduced-motion: reduce) {
   .cs-accordion-content, .cs-accordion-bar-vertical { transition: none; }
+}
+
+/* Narrow containers use a compact vertical flow without shrinking reading text. */
+@container (max-width:520px) {
+  .cs-progress-steps ol { flex-direction:column; gap:12px; }
+  .cs-progress-steps .cs-step-content { flex-direction:row; align-items:flex-start; gap:10px; min-height:44px; padding:4px 0; box-sizing:border-box; }
+  .cs-progress-steps .cs-step-marker { width:24px; height:24px; flex-basis:24px; }
+  .cs-progress-steps .cs-step-marker svg { width:14px; height:14px; }
+  .cs-progress-steps .cs-step-copy { padding-top:2px; gap:2px; }
+  .cs-progress-steps li:not(:last-child)::after { left:11px; right:auto; top:34px; bottom:-8px; width:1px; height:auto; }
 }
