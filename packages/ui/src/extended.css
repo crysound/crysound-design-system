@@ -1673,3 +1673,4 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-gallery-shop-content p { height:48px; margin:8px 0; font-size:16px; line-height:24px; overflow:hidden; }
 .cs-gallery-shop-buy { position:absolute; bottom:24px; left:24px; width:116px; height:36px; padding:4px 16px; margin:0; font-size:16px; }
 @media(max-width:640px) { .cs-gallery-shop-card { height:210px; grid-template-columns:132px minmax(0,1fr); }.cs-gallery-shop-content { padding:16px 16px 64px; }.cs-gallery-shop-content h3 { min-height:48px; font-size:16px; line-height:22px; }.cs-gallery-shop-content strong { margin-top:2px; font-size:16px; line-height:20px; }.cs-gallery-shop-content p { display:none; }.cs-gallery-shop-buy { bottom:16px; left:16px; }.cs-gallery-shop-image img { height:100%; } }
+.cs-gallery-shop-image { background:var(--cs-table-header-bg); }
