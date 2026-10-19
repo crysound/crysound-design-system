@@ -1827,6 +1827,9 @@ body {
 
 .website-nav-search-results { display:grid; gap:12px; margin-top:20px; }.website-nav-search-results a { color:var(--cs-brand); font-size:14px; line-height:22px; }
 .website-gallery-examples { display:grid; gap:40px; }
+.website-gallery-notes { display:grid; gap:16px; }
+.website-gallery-notes > .website-control-details { margin:0; }
+.website-gallery-notes > .website-control-details:not([open]) > summary { margin:0; }
 .website-gallery-examples > section > h3 { margin:0 0 16px; font-size:14px; line-height:20px; font-weight:400; color:var(--cs-muted); }
 @media(min-width:641px) {
 .website-gallery-examples .cs-gallery-shop-card:first-child .cs-gallery-shop-image img { width:284px; height:188px; left:-22px; top:30px; }
