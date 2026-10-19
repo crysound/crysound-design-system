@@ -1789,3 +1789,5 @@ body {
 
 .preview-card-render--resource-card { transform:scale(.56); }
 .preview-card-render--form-dialog { transform:scale(.52); max-height:none; }
+
+.preview-card-render--instrument-dialog { transform:scale(.56); max-height:none; }
