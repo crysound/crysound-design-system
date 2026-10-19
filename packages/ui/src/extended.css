@@ -1453,3 +1453,6 @@ button.cs-step-content { cursor: pointer; }
 .cs-data-table .cs-sort-icon path { color:var(--cs-muted); }
 .cs-data-table .cs-sort-icon path[data-active] { color:var(--cs-brand); }
 .cs-data-table th[aria-sort="none"] .cs-button:is(:hover,:focus-visible) .cs-sort-icon path { color:var(--cs-brand); }
+
+.cs-table-footer-summary { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
+.cs-table-footer .cs-table-results { padding:0; min-height:0; background:transparent; }
