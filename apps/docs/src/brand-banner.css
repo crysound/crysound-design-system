@@ -119,8 +119,8 @@
 .brand-banner-thumbnails .brand-thumb-rack { position:absolute; width:54%; height:72%; right:0; }
 .brand-banner-carousel .brand-banner-controls > .cs-icon-button { opacity:1; pointer-events:auto; }
 .brand-banner-carousel .brand-banner-controls > .cs-icon-button svg { display:none; }
-.brand-banner-carousel .brand-banner-controls > .cs-icon-button::after { content:""; width:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); border-top:2px solid currentColor; border-right:2px solid currentColor; transform:rotate(45deg); }
-.brand-banner-carousel .brand-banner-controls > .cs-icon-button:first-child::after { transform:rotate(225deg); }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button::after { content:""; position:absolute; left:50%; top:50%; box-sizing:border-box; width:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); border-top:2px solid currentColor; border-right:2px solid currentColor; transform:translate(-50%,-50%) translateX(calc(-2 * 100cqw / 1714)) rotate(45deg); }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button:first-child::after { transform:translate(-50%,-50%) translateX(calc(2 * 100cqw / 1714)) rotate(225deg); }
 @container(max-width:640px) { .brand-banner-thumbnails { bottom:12px; gap:8px; padding:8px 16px; }.brand-banner-thumbnails button { width:36px; height:36px; padding:4px; } }
 /* Resting pagination is compact; only its own hover/focus reveals thumbnails. */
 .brand-banner-thumbnails { height:calc(28 * 100cqw / 1714); padding:calc(10 * 100cqw / 1714) calc(24 * 100cqw / 1714); gap:calc(6 * 100cqw / 1714); box-sizing:border-box; transition:height 180ms ease,padding 180ms ease,gap 180ms ease; }
