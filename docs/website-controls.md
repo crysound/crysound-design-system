@@ -23,3 +23,5 @@ images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非�
 轮播文档与品牌样板统一复用OfficialBanner内容组合，使用原官网的四组文案、产品图片、阴影和比例。共享Carousel提供切换状态、键盘与播放行为；controlsClassName/paginationClassName用于摆放原版覆盖式控件，previousLabel/nextLabel用于本地化入口名称。此样板第四组仍为静态产品图，不包含原站3D运行时。
 
 NavigationMenu参照用户指定的线上官网导航更新：brand/actions提供品牌与工具区域；catalog布局包含大类、子分类、产品网格和底部入口，links[].products与groups[].products控制相应内容。默认columns仍支持资源类的分组链接。面板与整个导航栏对齐，以本地主题变量呈现选中态和卡片边界。导航数据为代表性声学产品子集，不包含完整官网目录或商城逻辑。
+
+MediaGallery 的四种官网卡片、容器断点、缺字段占位和交付验证遵循 [官网卡片使用规则](./media-gallery.md)。该规则区分默认图片封面与数据空状态，不允许用虚构数据补齐卡片。
