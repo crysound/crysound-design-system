@@ -386,12 +386,12 @@
   --cs-type-control-leading: 20px;
 }
 
-/* General chart series share the existing instrument palette and ordering. */
+/* General charts use softer tonal steps of the existing palette; instrument channels stay unchanged. */
 :root {
-  --cs-chart-series-1: var(--cs-chart-channel-01);
-  --cs-chart-series-2: var(--cs-chart-channel-02);
-  --cs-chart-series-3: var(--cs-chart-channel-03);
-  --cs-chart-series-4: var(--cs-chart-channel-04);
-  --cs-chart-series-5: var(--cs-chart-channel-05);
-  --cs-chart-series-6: var(--cs-chart-channel-06);
+  --cs-chart-series-1: color-mix(in srgb, var(--cs-chart-channel-01) 68%, white);
+  --cs-chart-series-2: color-mix(in srgb, var(--cs-chart-channel-02) 68%, white);
+  --cs-chart-series-3: color-mix(in srgb, var(--cs-chart-channel-03) 68%, white);
+  --cs-chart-series-4: color-mix(in srgb, var(--cs-chart-channel-04) 68%, white);
+  --cs-chart-series-5: color-mix(in srgb, var(--cs-chart-channel-05) 68%, white);
+  --cs-chart-series-6: color-mix(in srgb, var(--cs-chart-channel-06) 68%, white);
 }
