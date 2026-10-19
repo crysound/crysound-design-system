@@ -31,7 +31,7 @@ it('filters product families and returns focus after closing details',async()=>{
   const user=userEvent.setup();render(<SceneStyles/>);await user.click(screen.getByRole('tab',{name:/品牌官网/}));
   await user.click(screen.getByRole('tab',{name:'Electroacoustic Test'}));
   expect(screen.queryByRole('heading',{name:'CRY5820 SonoDAQ Pro'})).not.toBeInTheDocument();
-  const trigger=screen.getByRole('button',{name:'查看系列'});await user.click(trigger);
+  const trigger=screen.getByRole('button',{name:'查看系列：CRY578 Bluetooth LE Audio Interface'});await user.click(trigger);
   expect(screen.getByRole('dialog')).toHaveTextContent('蓝牙音频测试');
   await user.keyboard('{Escape}');expect(screen.queryByRole('dialog')).not.toBeInTheDocument();expect(trigger).toHaveFocus();
 });
@@ -73,4 +73,12 @@ it('centers a separate diagonal cue beside solution actions and restores dialog 
  expect(arrow?.querySelector('path')).toHaveAttribute('d','M7 17 17 7M7 7h10v10');
  await user.click(trigger);expect(screen.getByRole('dialog')).toHaveTextContent('解决方案概览');
  await user.keyboard('{Escape}');expect(trigger).toHaveFocus();
+});
+
+it('matches the eight-card homepage product order and filters without filler cards',async()=>{
+ const user=userEvent.setup();const {container}=render(<SceneStandalone scene="brand"/>);
+ const cards=Array.from(container.querySelectorAll('.scene-product-card'));
+ expect(cards.map(card=>card.textContent)).toEqual(['CRY5820 SonoDAQ Pro','OpenTest','CRY8500 Series SonoCam Pi Acoustic Camera','CRY3018 Sound Calibrator','CRY578 Bluetooth LE Audio Interface','CRY8125 Advanced Ex Acoustic Imaging Camera','CRY2833 Sound Level Meter','CRY5820 SonoDAQ Pro']);
+ await user.click(screen.getByRole('tab',{name:'Sensors'}));
+ expect(container.querySelectorAll('.scene-product-card')).toHaveLength(1);
 });
