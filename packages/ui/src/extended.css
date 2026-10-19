@@ -1684,3 +1684,5 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-gallery-default-cover { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:var(--cs-table-header-bg); color:color-mix(in srgb,var(--cs-muted) 24%,var(--cs-surface)); pointer-events:none; }
 .cs-gallery-default-cover svg { width:48px; height:48px; flex:none; }
 .cs-gallery-tile-image,.cs-gallery-thumbnails button { position:relative; }
+.cs-gallery-card-picture,.cs-gallery-shop-image,.cs-gallery-tile-image { background:var(--cs-table-header-bg); }
+.cs-gallery-default-cover { background:inherit; }
