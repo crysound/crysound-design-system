@@ -1383,3 +1383,25 @@ button.cs-step-content { cursor: pointer; }
 .cs-donut-plot { background:var(--cs-chart-plot-bg); position:relative; display:grid; place-items:center; min-height:280px; }
 .cs-donut-plot svg { width:100%; max-width:420px; height:280px; }
 .cs-donut-plot > div { position:absolute; inset:0; display:grid; place-items:center; background:var(--cs-chart-plot-bg); color:var(--cs-chart-axis); font-size:14px; }
+/* Data table composition: quiet chrome, clear boundaries and semantic selection. */
+.cs-table-toolbar-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.cs-table-toolbar-actions .cs-button { min-height:32px; font-size:14px; font-weight:400; }
+.cs-table-columns { position:relative; font-size:14px; }.cs-table-columns > summary { display:flex; align-items:center; min-height:32px; cursor:pointer; padding:0 10px; border-radius:var(--cs-radius); color:var(--cs-text); }.cs-table-columns > summary:hover { background:var(--cs-subtle); }.cs-table-columns > div { position:absolute; right:0; top:calc(100% + 4px); z-index:5; width:200px; max-height:280px; overflow:auto; border:1px solid var(--cs-border); border-radius:var(--cs-radius); background:var(--cs-surface); padding:8px; box-shadow:var(--cs-shadow-md); }.cs-table-columns label { display:flex; align-items:center; gap:10px; padding:8px; }.cs-table-columns input { accent-color:var(--cs-brand); }
+.cs-table-filters { display:flex; flex-wrap:wrap; align-items:flex-end; gap:16px; padding:12px 20px; border-bottom:1px solid var(--cs-border); background:var(--cs-surface); }.cs-table-filters label { display:grid; gap:4px; color:var(--cs-muted); font-size:12px; }.cs-table-filters select { min-height:32px; min-width:140px; border:1px solid var(--cs-border); border-radius:var(--cs-radius); padding:0 10px; background:var(--cs-surface); color:var(--cs-text); font:inherit; font-size:14px; }
+.cs-table-results { display:flex; flex-wrap:wrap; align-items:center; min-height:40px; gap:12px; padding:4px 20px; color:var(--cs-muted); font-size:12px; background:var(--cs-surface); }
+.cs-data-table .cs-table { margin:0; table-layout:auto; }.cs-data-table .cs-table :is(th,td)[data-align="right"] { font-variant-numeric:tabular-nums; white-space:nowrap; }.cs-data-table .cs-table th[style*="right"] .cs-button { justify-content:flex-end; }
+.cs-data-table .cs-table-select-col { width:44px; min-width:44px; box-sizing:border-box; padding-inline:12px; position:sticky; left:0; z-index:1; background:var(--cs-surface); }.cs-data-table .cs-table th.cs-table-select-col { background:var(--cs-subtle); }
+.cs-data-table .cs-table [data-pinned] { position:sticky; z-index:1; background:var(--cs-surface); box-shadow:1px 0 var(--cs-border); }.cs-data-table .cs-table th[data-pinned] { background:var(--cs-subtle); }
+.cs-data-table .cs-table-scroll[data-sticky-header] thead th { position:sticky; top:0; z-index:2; background:var(--cs-subtle); box-shadow:0 1px var(--cs-border); }.cs-data-table .cs-table-scroll[data-sticky-header] thead :is(th[data-pinned],th.cs-table-select-col) { z-index:3; }
+.cs-data-table tr[data-selected] > :is(td[data-pinned],td.cs-table-select-col) { background:var(--cs-selected-bg); }
+.cs-table-state { min-height:180px; padding:32px 20px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; color:var(--cs-muted); font-size:14px; }.cs-table-state p { margin:0; }.cs-table-state strong { color:var(--cs-text-heading); font-weight:500; }
+.cs-data-table :where(summary,input,select):focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }
+@media(max-width:640px) { .cs-table-toolbar-actions { width:100%; }.cs-table-toolbar-actions .cs-button,.cs-table-columns > summary,.cs-table-filters select { min-height:44px; }.cs-table-filters label { flex:1; }.cs-table-filters select { width:100%; } }
+.cs-data-table .cs-table-toolbar .cs-input { min-height:32px; height:32px; font-size:14px; }
+.cs-table-toolbar .cs-label { font-size:12px; font-weight:400; }
+@media(max-width:640px) { .cs-data-table .cs-table-toolbar .cs-input { min-height:44px; height:44px; } }
+
+.cs-data-table .cs-table tbody td { background:var(--cs-surface); }
+.cs-data-table .cs-table tbody tr:hover td { background:var(--cs-item-hover-bg); }
+.cs-data-table .cs-table tbody tr[data-selected] td { background:var(--cs-selected-bg); }
+@media(max-width:640px) { .cs-data-table { --cs-table-pinned-left:auto; } }

@@ -509,15 +509,19 @@ export const catalog: ComponentDoc[] = [
     "DataTable",
     "数据表格",
     "数据",
-    "在本地数据中搜索、排序、分页和跨页选择。",
+    "面向监测点、噪声事件与测量记录，支持搜索、列筛选、三态排序、列显隐、固定表头/首列、跨页选择和 CSV 导出。",
     [
       ["data / columns / getRowId", "T[] / DataColumn<T>[] / callback", "必填"],
       ["caption", "string", "必填"],
       ["pageSize", "number", "5"],
       ["selectable / onSelectionChange", "boolean / callback", "false / —"],
+      ["columns[].align / width / filterable / pinned", "left | right | center / number / boolean / boolean", "左对齐；仅首个可见数据列可固定"],
+      ["columnVisibility / exportable / stickyHeader", "boolean", "false"],
+      ["maxHeight", "number", "—；表格区域滚动"],
+      ["loading / error / onRetry", "boolean / string / callback", "false / — / —"],
     ],
     '<DataTable caption="设备" data={[{id:"CS-001",name:"测试设备"}]} getRowId={row => row.id} columns={[{id:"name",header:"设备",accessor:row => row.name,sortable:true}]} selectable />',
-    "适合中小型客户端数据集；未实现服务端分页或虚拟滚动。排序使用 accessor 原始值，cell 负责展示。",
+    "适合中小型客户端数据集；未实现服务端分页或虚拟滚动。排序、筛选和导出使用 accessor 原始值，cell 负责展示；null 显示为缺失且排序置后。CSV 导出当前筛选的全部记录和可见列，字符串防公式注入。固定列需配置宽度。",
   ),
 ];
 export const groups = Array.from(new Set(catalog.map((c) => c.group)));

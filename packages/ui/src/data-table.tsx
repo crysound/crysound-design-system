@@ -1,217 +1,36 @@
 "use client";
-import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Button, EmptyState, Input } from "./index";
-import { Checkbox } from "./forms";
-import { Pagination } from "./navigation";
-export interface DataColumn<T> {
-  id: string;
-  header: string;
-  accessor: (row: T) => string | number;
-  cell?: (row: T) => ReactNode;
-  sortable?: boolean;
+import {useEffect,useMemo,useState,type ReactNode,type CSSProperties} from 'react';
+import {Button,EmptyState,Input} from './index';
+import {Checkbox} from './forms';
+import {Pagination} from './navigation';
+export interface DataColumn<T>{
+ id:string;header:string;accessor:(row:T)=>string|number|null;cell?:(row:T)=>ReactNode;sortable?:boolean;
+ align?:'left'|'right'|'center';width?:number;filterable?:boolean;exportable?:boolean;/** Only the first visible data column can be pinned. */ pinned?:boolean;
 }
-export interface DataTableProps<T> {
-  data: T[];
-  columns: DataColumn<T>[];
-  getRowId: (row: T) => string;
-  caption: string;
-  pageSize?: number;
-  searchPlaceholder?: string;
-  selectable?: boolean;
-  onSelectionChange?: (ids: string[]) => void;
-  emptyTitle?: string;
+export interface DataTableProps<T>{
+ data:T[];columns:DataColumn<T>[];getRowId:(row:T)=>string;caption:string;pageSize?:number;searchPlaceholder?:string;selectable?:boolean;
+ onSelectionChange?:(ids:string[])=>void;emptyTitle?:string;loading?:boolean;error?:string;onRetry?:()=>void;
+ columnVisibility?:boolean;exportable?:boolean;stickyHeader?:boolean;maxHeight?:number;
 }
-export function DataTable<T>({
-  data,
-  columns,
-  getRowId,
-  caption,
-  pageSize = 5,
-  searchPlaceholder = "搜索所有列…",
-  selectable = false,
-  onSelectionChange,
-  emptyTitle = "没有匹配记录",
-}: DataTableProps<T>) {
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [sort, setSort] = useState<{ id: string; direction: "asc" | "desc" }>();
-  const [selected, setSelected] = useState<string[]>([]);
-  const size = Math.max(1, Math.floor(pageSize));
-  const rows = useMemo(() => {
-    const filtered = data.filter((row) =>
-      columns.some((column) =>
-        String(column.accessor(row))
-          .toLocaleLowerCase()
-          .includes(query.toLocaleLowerCase()),
-      ),
-    );
-    if (!sort) return filtered;
-    const column = columns.find((c) => c.id === sort.id);
-    return column
-      ? [...filtered].sort((a, b) => {
-          const av = column.accessor(a),
-            bv = column.accessor(b);
-          const order =
-            typeof av === "number" && typeof bv === "number"
-              ? av - bv
-              : String(av).localeCompare(String(bv), undefined, {
-                  numeric: true,
-                });
-          return sort.direction === "asc" ? order : -order;
-        })
-      : filtered;
-  }, [data, columns, query, sort]);
-  const pageCount = Math.max(1, Math.ceil(rows.length / size));
-  const currentPage = Math.min(page, pageCount);
-  const visible = rows.slice((currentPage - 1) * size, currentPage * size);
-  const ids = visible.map(getRowId);
-  const checked = ids.length > 0 && ids.every((id) => selected.includes(id));
-  const mixed = ids.some((id) => selected.includes(id));
-  const select = (next: string[]) => {
-    setSelected(next);
-    onSelectionChange?.(next);
-  };
-  useEffect(() => {
-    const available = new Set(data.map(getRowId));
-    const next = selected.filter((id) => available.has(id));
-    if (next.length !== selected.length) {
-      setSelected(next);
-      onSelectionChange?.(next);
-    }
-  }, [data, getRowId, selected, onSelectionChange]);
-  return (
-    <div className="cs-data-table">
-      <div className="cs-table-toolbar">
-        <Input
-          label="搜索记录"
-          placeholder={searchPlaceholder}
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setPage(1);
-          }}
-        />
-        <span className="cs-help" role="status">
-          {rows.length} 条记录{selectable && ` · 已选 ${selected.length} 条`}
-        </span>
-      </div>
-      {rows.length ? (
-        <div className="cs-table-scroll">
-          <table className="cs-table">
-            <caption className="cs-sr-only">{caption}</caption>
-            <thead>
-              <tr>
-                {selectable && (
-                  <th scope="col">
-                    <Checkbox
-                      label={<span className="cs-sr-only">选择当前页</span>}
-                      checked={checked ? true : mixed ? "indeterminate" : false}
-                      onCheckedChange={(value) =>
-                        select(
-                          value === true
-                            ? Array.from(new Set([...selected, ...ids]))
-                            : selected.filter((id) => !ids.includes(id)),
-                        )
-                      }
-                    />
-                  </th>
-                )}
-                {columns.map((column) => (
-                  <th
-                    key={column.id}
-                    scope="col"
-                    aria-sort={
-                      sort?.id === column.id
-                        ? sort.direction === "asc"
-                          ? "ascending"
-                          : "descending"
-                        : column.sortable
-                          ? "none"
-                          : undefined
-                    }
-                  >
-                    {column.sortable ? (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          setSort({
-                            id: column.id,
-                            direction:
-                              sort?.id === column.id && sort.direction === "asc"
-                                ? "desc"
-                                : "asc",
-                          })
-                        }
-                      >
-                        {column.header}
-                        <svg className="cs-sort-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          {sort?.id !== column.id ? <><path d="M8 21V3L2 9" /><path d="M16 3v18l6-6" /></> : sort.direction === "asc" ? <path d="M12 21V3L6 9" /> : <path d="M12 3v18l6-6" />}
-                        </svg>
-                      </Button>
-                    ) : (
-                      column.header
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {visible.map((row) => (
-                <tr
-                  key={getRowId(row)}
-                  data-selected={selected.includes(getRowId(row)) || undefined}
-                >
-                  {selectable && (
-                    <td>
-                      <Checkbox
-                        label={
-                          <span className="cs-sr-only">
-                            选择记录 {getRowId(row)}
-                          </span>
-                        }
-                        checked={selected.includes(getRowId(row))}
-                        onCheckedChange={(value) =>
-                          select(
-                            value === true
-                              ? [...selected, getRowId(row)]
-                              : selected.filter((id) => id !== getRowId(row)),
-                          )
-                        }
-                      />
-                    </td>
-                  )}
-                  {columns.map((column) => (
-                    <td key={column.id}>
-                      {column.cell?.(row) ?? column.accessor(row)}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <EmptyState
-          title={emptyTitle}
-          description="请调整搜索词或检查数据来源。"
-        />
-      )}
-      <div className="cs-table-footer">
-        <span className="cs-help">
-          第 {currentPage} / {pageCount} 页
-        </span>
-        <Pagination
-          page={currentPage}
-          pageCount={pageCount}
-          onPageChange={setPage}
-        />
-      </div>
-    </div>
-  );
+/** Protect spreadsheet consumers while preserving numeric negative values. */
+export function tableCsvCell(value:string|number|null){const text=value===null?'':String(value);const safe=typeof value==='string'&&/^[\s]*[=+\-@\t\r]/.test(text)?`'${text}`:text;return `"${safe.replaceAll('"','""')}"`;}
+export function DataTable<T>({data,columns,getRowId,caption,pageSize=5,searchPlaceholder='搜索所有列…',selectable=false,onSelectionChange,emptyTitle='没有匹配记录',loading=false,error,onRetry,columnVisibility=false,exportable=false,stickyHeader=false,maxHeight}:DataTableProps<T>){
+ const [query,setQuery]=useState('');const [page,setPage]=useState(1);const [sort,setSort]=useState<{id:string;direction:'asc'|'desc'}>();const [selected,setSelected]=useState<string[]>([]);const [filters,setFilters]=useState<Record<string,string>>({});const [hidden,setHidden]=useState<string[]>([]);const [exportNotice,setExportNotice]=useState('');
+ const size=Number.isFinite(pageSize)?Math.max(1,Math.floor(pageSize)):5;const visibleColumns=columns.filter(c=>!hidden.includes(c.id));
+ const rows=useMemo(()=>{const filtered=data.filter(row=>columns.some(c=>String(c.accessor(row)??'').toLocaleLowerCase().includes(query.toLocaleLowerCase()))&&columns.every(c=>!filters[c.id]||String(c.accessor(row)??'')===filters[c.id]));if(!sort)return filtered;const c=columns.find(c=>c.id===sort.id);return c?[...filtered].sort((a,b)=>{const av=c.accessor(a),bv=c.accessor(b);if(av===null)return bv===null?0:1;if(bv===null)return -1;const order=typeof av==='number'&&typeof bv==='number'?av-bv:String(av).localeCompare(String(bv),undefined,{numeric:true});return sort.direction==='asc'?order:-order;}):filtered;},[data,columns,query,filters,sort]);
+ const pageCount=Math.max(1,Math.ceil(rows.length/size));const currentPage=Math.min(page,pageCount);const visible=rows.slice((currentPage-1)*size,currentPage*size);const ids=visible.map(getRowId);const checked=ids.length>0&&ids.every(id=>selected.includes(id));const mixed=ids.some(id=>selected.includes(id));
+ const select=(next:string[])=>{setSelected(next);onSelectionChange?.(next);};
+ useEffect(()=>{const available=new Set(data.map(getRowId));const next=selected.filter(id=>available.has(id));if(next.length!==selected.length){setSelected(next);onSelectionChange?.(next);}},[data,getRowId,selected,onSelectionChange]);
+ const reset=()=>{setQuery('');setFilters({});setSort(undefined);setHidden([]);setPage(1);setExportNotice('');};
+ const exportCsv=()=>{const exportColumns=visibleColumns.filter(c=>c.exportable!==false);const csv='\uFEFF'+[exportColumns.map(c=>tableCsvCell(c.header)).join(','),...rows.map(row=>exportColumns.map(c=>tableCsvCell(c.accessor(row))).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='table-records.csv';link.click();URL.revokeObjectURL(url);setExportNotice(`已导出当前筛选的 ${rows.length} 条记录`);};
+ const style=(c:DataColumn<T>,i:number):CSSProperties=>({textAlign:c.align??'left',width:c.width,minWidth:c.width,...(c.pinned&&i===0?{left:`var(--cs-table-pinned-left, ${selectable?44:0}px)`}:{})});
+ return <div className="cs-data-table" aria-busy={loading}>
+ <div className="cs-table-toolbar"><Input label="搜索记录" type="search" placeholder={searchPlaceholder} value={query} disabled={loading||!!error} onChange={e=>{setQuery(e.target.value);setPage(1);setExportNotice('');}}/><div className="cs-table-toolbar-actions">{columnVisibility&&<details className="cs-table-columns"><summary>显示列</summary><div>{columns.map(c=><label key={c.id}><input type="checkbox" checked={!hidden.includes(c.id)} disabled={!hidden.includes(c.id)&&visibleColumns.length===1} onChange={()=>setHidden(prev=>prev.includes(c.id)?prev.filter(id=>id!==c.id):[...prev,c.id])}/>{c.header}</label>)}</div></details>}<Button variant="ghost" size="sm" onClick={reset}>重置视图</Button>{exportable&&<Button variant="secondary" size="sm" onClick={exportCsv} disabled={loading||!!error||!rows.length}>导出 CSV</Button>}</div></div>
+ {columns.some(c=>c.filterable)&&<div className="cs-table-filters" aria-label="表格列筛选">{columns.filter(c=>c.filterable).map(c=><label key={c.id}>{c.header}<select aria-label={`筛选${c.header}`} value={filters[c.id]??''} disabled={loading||!!error} onChange={e=>{setFilters(prev=>({...prev,[c.id]:e.target.value}));setPage(1);setExportNotice('');}}><option value="">全部</option>{Array.from(new Set(data.map(row=>String(c.accessor(row)??'')))).filter(Boolean).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true})).map(value=><option key={value} value={value}>{value}</option>)}</select></label>)}</div>}
+ <div className="cs-table-results" role="status">{loading?'正在加载记录…':error?'记录加载失败':`${rows.length} 条记录${selectable?` · 已选 ${selected.length} 条（可跨页）`:''}`}{exportNotice&&` · ${exportNotice}`}{selected.length>0&&<Button variant="ghost" size="sm" onClick={()=>select([])}>清除选择</Button>}</div>
+ {loading?<div className="cs-table-state">正在加载表格数据…</div>:error?<div className="cs-table-state" role="alert"><strong>无法加载记录</strong><p>{error}</p>{onRetry&&<Button variant="secondary" onClick={onRetry}>重试</Button>}</div>:rows.length?<div className="cs-table-scroll" data-sticky-header={stickyHeader||undefined} style={maxHeight?{maxHeight}:undefined} tabIndex={maxHeight?0:undefined} aria-label={maxHeight?`${caption}滚动区域`:undefined}>
+ <table className="cs-table"><caption className="cs-sr-only">{caption}</caption><thead><tr>{selectable&&<th scope="col" className="cs-table-select-col"><Checkbox label={<span className="cs-sr-only">选择当前页</span>} checked={checked?true:mixed?'indeterminate':false} onCheckedChange={v=>select(v===true?Array.from(new Set([...selected,...ids])):selected.filter(id=>!ids.includes(id)))}/></th>}{visibleColumns.map((c,i)=><th key={c.id} scope="col" style={style(c,i)} data-pinned={c.pinned&&i===0||undefined} aria-sort={sort?.id===c.id?(sort.direction==='asc'?'ascending':'descending'):c.sortable?'none':undefined}>{c.sortable?<Button variant="ghost" size="sm" onClick={()=>{setSort(sort?.id!==c.id?{id:c.id,direction:'asc'}:sort.direction==='asc'?{id:c.id,direction:'desc'}:undefined);setPage(1);}}>{c.header}<svg className="cs-sort-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{sort?.id!==c.id?<><path d="M8 21V3L2 9"/><path d="M16 3v18l6-6"/></>:sort.direction==='asc'?<path d="M12 21V3L6 9"/>:<path d="M12 3v18l6-6"/>}</svg></Button>:c.header}</th>)}</tr></thead><tbody>{visible.map(row=><tr key={getRowId(row)} data-selected={selected.includes(getRowId(row))||undefined}>{selectable&&<td className="cs-table-select-col"><Checkbox label={<span className="cs-sr-only">选择记录 {getRowId(row)}</span>} checked={selected.includes(getRowId(row))} onCheckedChange={v=>select(v===true?Array.from(new Set([...selected,getRowId(row)])):selected.filter(id=>id!==getRowId(row)))}/></td>}{visibleColumns.map((c,i)=><td key={c.id} style={style(c,i)} data-pinned={c.pinned&&i===0||undefined} data-align={c.align}>{c.cell?.(row)??c.accessor(row)??'—'}</td>)}</tr>)}</tbody></table></div>:<EmptyState title={emptyTitle} description="请调整搜索词或列筛选，或检查数据来源。"/>}
+ {!loading&&!error&&<div className="cs-table-footer"><span className="cs-help">{rows.length?`${(currentPage-1)*size+1}–${Math.min(currentPage*size,rows.length)} / ${rows.length} 条 · `:''}第 {currentPage} / {pageCount} 页</span><Pagination page={currentPage} pageCount={pageCount} onPageChange={setPage}/></div>}</div>;
 }
-
 /** Long titles remain readable without making the entire row bold. */
-export function TableCellText({children, description}: {children: ReactNode; description?: ReactNode}) {
-  return <div className="cs-table-cell-text"><div>{children}</div>{description && <small>{description}</small>}</div>;
-}
+export function TableCellText({children,description}:{children:ReactNode;description?:ReactNode}){return <div className="cs-table-cell-text"><div>{children}</div>{description&&<small>{description}</small>}</div>;}

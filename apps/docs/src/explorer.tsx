@@ -1,3 +1,4 @@
+import { DataTableDemo } from "./data-table-demo";
 import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
 import { MetricGroupDemo, StatusSummaryDemo } from "./metric-group-demo";
@@ -708,16 +709,7 @@ export function ComponentDemo({ id }: { id: string }) {
     case "device-table":
       return <DeviceTableDemo devices={sampleDevices.slice(0, 3)} />;
     case "data-table":
-      return (
-        <DataTable
-          caption="演示设备数据"
-          data={sampleDevices}
-          columns={deviceColumns}
-          getRowId={(r) => r.id}
-          selectable
-          pageSize={4}
-        />
-      );
+      return <DataTableDemo />;
     default:
       return null;
   }
