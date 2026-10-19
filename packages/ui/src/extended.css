@@ -1315,10 +1315,12 @@ button.cs-step-content { cursor: pointer; }
 }
 
 .cs-action-link { display: inline-flex; align-items: center; gap: 6px; color: var(--cs-brand); font: inherit; font-size: 14px; line-height: 20px; text-decoration: none; border-radius: var(--cs-radius); }
-.cs-action-link > span { min-width: 0; }
+.cs-action-link > span { min-width:0; position:relative; }
+.cs-action-link > span::after { content:""; position:absolute; inset-inline:0; bottom:-3px; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left center; transition:transform var(--cds-dur-base) var(--cds-ease-out); }
 .cs-action-link-arrow { display: block; flex: 0 0 16px; }
 .cs-action-link:hover { color: var(--cs-brand-hover); }
-.cs-action-link:hover > span { text-decoration: underline; text-underline-offset: 3px; }
+.cs-action-link:is(:hover,:focus-visible) > span::after { transform:scaleX(1); }
+@media(prefers-reduced-motion:reduce) { .cs-action-link > span::after { transition:none; } }
 .cs-action-link:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 3px; }
 
 .cs-select-native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; clip-path: inset(50%); }
