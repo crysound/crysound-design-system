@@ -8,7 +8,7 @@ const identity:DataColumn<Row>={id:'name',header:'监测点 / 设备',accessor:r
 const location:DataColumn<Row>={id:'location',header:'区域',accessor:r=>r.location,sortable:true,filterable:true,width:140};
 const level:DataColumn<Row>={id:'level',header:'声级 / dB(A)',accessor:r=>r.level,sortable:true,align:'right',width:140,cell:r=>r.level===null?<span className="table-demo-missing">— <small>无读数</small></span>:r.level.toFixed(1)};
 const time:DataColumn<Row>={id:'time',header:'记录时间',accessor:r=>r.time,sortable:true,width:150};
-const action:DataColumn<Row>={id:'action',header:'操作',accessor:r=>r.id,exportable:false,width:90,cell:r=><Detail row={r}/>};
+const action:DataColumn<Row>={id:'action',header:'操作',align:'center',accessor:r=>r.id,exportable:false,width:90,cell:r=><Detail row={r}/>};
 const deviceColumns:DataColumn<Row>[]=[identity,location,{id:'status',header:'状态',accessor:r=>({online:'在线',offline:'离线',warning:'需关注',running:'运行中'})[r.status],sortable:true,filterable:true,width:120,cell:r=><StatusBadge status={r.status}/>},level,time,action];
 const eventColumns:DataColumn<Row>[]=[{...identity,header:'事件 / 编号',accessor:r=>r.kind,cell:r=><TableCellText description={r.id}>{r.kind}</TableCellText>},location,level,{id:'threshold',header:'演示阈值 / dB(A)',accessor:()=>65,align:'right',width:170},time,action];
 const measurementColumns:DataColumn<Row>[]=[{...identity,header:'测量任务 / 编号'},location,level,{id:'duration',header:'时长 / s',accessor:r=>r.duration,align:'right',sortable:true,width:120},time,action];
