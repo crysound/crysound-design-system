@@ -50,3 +50,15 @@ it('cycles all four official hero compositions and wraps to the first',async()=>
  await user.click(screen.getByRole('button',{name:'下一组产品展示'}));
  expect(screen.getByRole('button',{name:'数据采集'})).toHaveAttribute('aria-pressed','true');
 });
+it('searches brand products and restores focus when search closes',async()=>{
+ const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);
+ const trigger=screen.getByRole('button',{name:'Search'});
+ await user.click(trigger);
+ await user.type(screen.getByRole('searchbox',{name:'Search products'}),'SonoDAQ');
+ expect(screen.getByRole('dialog')).toHaveTextContent('CRY5820 SonoDAQ Pro');
+ expect(screen.getByRole('dialog')).not.toHaveTextContent('CRY578 Bluetooth LE Audio Interface');
+ await user.clear(screen.getByRole('searchbox',{name:'Search products'}));
+ await user.type(screen.getByRole('searchbox',{name:'Search products'}),'no-such-product');
+ expect(screen.getByRole('dialog')).toHaveTextContent('No products found.');
+ await user.keyboard('{Escape}');expect(trigger).toHaveFocus();
+});

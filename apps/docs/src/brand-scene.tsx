@@ -1,6 +1,6 @@
 import {useId,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,ArrowNarrowUpRight,ChevronDown} from '@untitledui/icons';
-import {Button,Dialog,DropdownMenu,Tabs,TabsList,TabsTrigger,TabsContent} from '../../../packages/ui/src/index';
+import {Button,Dialog,DropdownMenu,Input,Tabs,TabsList,TabsTrigger,TabsContent} from '../../../packages/ui/src/index';
 import './brand-banner.css';
 const slides=[
  {label:'数据采集',title:'DATA ACQUISITION',description:'Pioneering high-speed, precision signal acquisition technology, CRYSOUND deliver multi-channel synchronized DAQ cards, modular designs,',image:'',alt:'数据采集分析软件展示'},
@@ -24,19 +24,25 @@ const solutions=[
  {title:'Report work is repetitive',image:'solution-report.png',description:'Manual chart export, data processing, and report editing slow down formal testing and internal review.'},
 ];
 export function BrandSample(){
- const [hero,setHero]=useState(0);const [category,setCategory]=useState('all');
+ const [hero,setHero]=useState(0);const [category,setCategory]=useState('all');const [language,setLanguage]=useState('EN');const [search,setSearch]=useState('');
  const productSection=useRef<HTMLElement>(null);const solutionSection=useRef<HTMLElement>(null);const footer=useRef<HTMLElement>(null);
  const heroId=useId();const active=slides[hero];
  const scroll=(target:HTMLElement|null)=>target?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
  const showProducts=(id='all')=>{setCategory(id);scroll(productSection.current);};
  return <div className="scene-brand scene-brand-official" lang="en">
-  <header className="scene-brand-nav"><img src="/crysound-logo.svg" alt="CRYSOUND"/><nav aria-label="Brand website navigation">
+  <header className="scene-brand-nav brand-header"><img src="/crysound-logo.svg" alt="CRYSOUND"/><nav aria-label="Brand website navigation">
    <DropdownMenu label="产品导航" trigger={<Button variant="ghost" size="sm" iconEnd={<ChevronDown size={12}/>}>Products</Button>} items={categories.map(c=>({id:c.id,label:c.name,onSelect:()=>showProducts(c.id)}))}/>
    <Button variant="ghost" size="sm" iconEnd={<ChevronDown size={12}/>} onClick={()=>scroll(solutionSection.current)}>Solutions</Button>
    <Button variant="ghost" size="sm" iconEnd={<ChevronDown size={12}/>} onClick={()=>scroll(footer.current)}>Resources</Button>
    <Dialog title="Technical Support" description="CRYSOUND technical resources and assistance." trigger={<Button variant="ghost" size="sm" iconEnd={<ChevronDown size={12}/>}>Support</Button>}><p>Explore technical documentation and contact the CRYSOUND support team.</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">Visit CRYSOUND</a></Dialog>
    <Dialog title="Contact CRYSOUND" description="Explore acoustic measurement with CRYSOUND." trigger={<Button variant="ghost" size="sm" iconEnd={<ChevronDown size={12}/>}>Contact</Button>}><p>产品咨询与技术支持请访问 CRYSOUND 官网。</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">前往官网 <ArrowNarrowUpRight size={16}/></a></Dialog><Button variant="ghost" size="sm" onClick={()=>scroll(footer.current)}>About Us</Button>
-  </nav><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">访问官网 <ArrowNarrowUpRight size={16}/></a></header>
+  <a className="brand-header-shop" href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">Shop</a></nav>
+  <div className="brand-header-tools">
+   <DropdownMenu label="Language options" trigger={<Button variant="ghost" size="sm" className="brand-header-language" aria-label={`Language: ${language}`}><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true"><circle cx="10" cy="10" r="8.333"/><path d="M1.667 10h16.666M10 1.667c2.084 2.282 3.269 5.243 3.333 8.333-.064 3.09-1.249 6.051-3.333 8.333C7.916 16.051 6.731 13.09 6.667 10 6.731 6.91 7.916 3.949 10 1.667Z"/></svg><span>{language}</span></Button>} items={['EN','CN','FR','JA','ES'].map(code=>({id:code,label:code,onSelect:()=>setLanguage(code)}))}/>
+   <Dialog title="Cart" description="Your shopping cart" trigger={<Button variant="ghost" size="sm" aria-label="Cart"><img src="/scene-assets/header-cart.svg" alt=""/></Button>}><p>Your cart is empty.</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">Explore the CRYSOUND shop</a></Dialog>
+   <Dialog title="Account" description="CRYSOUND account" trigger={<Button variant="ghost" size="sm" aria-label="Account"><img src="/scene-assets/header-login.svg" alt=""/></Button>}><p>Manage your account on the CRYSOUND website.</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">Visit CRYSOUND</a></Dialog>
+   <Dialog title="Search" description="Find products" trigger={<Button variant="ghost" size="sm" aria-label="Search"><img src="/scene-assets/header-search.svg" alt=""/></Button>}><Input label="Search products" type="search" value={search} onChange={e=>setSearch(e.target.value)}/><ul className="brand-header-search-results">{products.filter(p=>!search||`${p.title} ${p.description}`.toLowerCase().includes(search.toLowerCase())).map(p=><li key={p.title}><strong>{p.title}</strong><p>{p.description}</p></li>)}</ul>{search&&!products.some(p=>`${p.title} ${p.description}`.toLowerCase().includes(search.toLowerCase()))&&<p>No products found.</p>}</Dialog>
+  </div></header>
   <section className="brand-banner" data-slide={hero} aria-label="产品展示" aria-roledescription="轮播图">
    <div className="brand-banner-copy" id={heroId}>{hero===0&&<span className="brand-banner-new">NEW</span>}<div className="brand-banner-text"><h2>{active.title}</h2><div className="brand-banner-description">{active.description.split("\n").map(line=><p key={line}>{line}</p>)}</div></div><Button onClick={()=>showProducts(hero===2||hero===3?'imaging':'daq')}>Learn More</Button></div>
    <div className="brand-banner-visual">{hero===0?<><img className="brand-banner-monitor" src="/scene-assets/hero-monitor.png" alt={active.alt}/><img className="brand-banner-rack" src="/scene-assets/hero-rack.png" alt="CRYSOUND 数据采集设备"/><img className="brand-banner-shadow brand-banner-shadow-one" src="/scene-assets/banner-shadow-1.svg" alt=""/><img className="brand-banner-shadow brand-banner-shadow-two" src="/scene-assets/banner-shadow-2.svg" alt=""/></>:<img className="brand-banner-product" src={`/scene-assets/${active.image}`} alt={active.alt}/>}</div>

@@ -59,3 +59,28 @@
  .brand-banner-controls > .cs-button.cs-button--sm { display:none; }
 }
 @media(prefers-reduced-motion:reduce) { .brand-banner-controls > .cs-button.cs-button--sm { transition:none; } }
+
+.scene-brand-official .scene-brand-nav.brand-header { box-sizing:border-box; display:flex; flex-wrap:nowrap; min-height:calc(72 * 100cqw / 1714); height:calc(72 * 100cqw / 1714); padding:0 calc(167 * 100cqw / 1714); gap:calc(40 * 100cqw / 1714); background:#fff; color:#333; border-bottom:1px solid #eee; font-family:CRYSOUNDBanner,sans-serif; }
+.scene-brand-official .scene-brand-nav.brand-header > img { width:calc(208 * 100cqw / 1714); height:auto; }
+.scene-brand-official .brand-header nav { display:flex; flex:1; flex-basis:auto; order:0; justify-content:flex-end; align-items:center; gap:calc(16 * 100cqw / 1714); padding:0; border:0; white-space:nowrap; }
+.scene-brand-official .brand-header nav .cs-button { min-height:calc(32 * 100cqw / 1714); padding:0; gap:calc(6 * 100cqw / 1714); color:#333; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }
+.scene-brand-official .brand-header nav .cs-button svg { width:calc(12 * 100cqw / 1714); height:calc(12 * 100cqw / 1714); }
+.scene-brand-official .brand-header-shop { display:inline-flex; align-items:center; justify-content:center; min-height:calc(32 * 100cqw / 1714); padding:0 calc(16 * 100cqw / 1714); border-radius:4px; background:#ecebf2; color:#333; text-decoration:none; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); }
+.brand-header-tools { display:flex; flex:0 0 auto; align-items:center; gap:calc(12 * 100cqw / 1714); }
+.scene-brand-official .brand-header-tools .cs-button.cs-button--sm { padding:0; min-height:calc(24 * 100cqw / 1714); height:calc(24 * 100cqw / 1714); color:#707070; background:transparent; font-family:inherit; font-size:calc(14 * 100cqw / 1714); line-height:calc(20 * 100cqw / 1714); font-weight:400; gap:calc(4 * 100cqw / 1714); }
+.scene-brand-official .brand-header-tools .cs-button img,.scene-brand-official .brand-header-tools .cs-button svg { display:block; width:calc(20 * 100cqw / 1714); height:calc(20 * 100cqw / 1714); flex-shrink:0; }
+.scene-brand-official .brand-header-tools .brand-header-language.cs-button { padding:0 calc(8 * 100cqw / 1714); border:1px solid #eee; border-radius:999px; }
+.brand-header-search-results { list-style:none; padding:0; margin:24px 0 0; display:grid; gap:16px; }
+.brand-header-search-results p { margin:4px 0 0; color:var(--cs-muted); }
+@container(max-width:640px) {
+ .scene-brand-official .scene-brand-nav.brand-header { height:auto; min-height:64px; padding:16px 20px; gap:16px; flex-wrap:wrap; }
+ .scene-brand-official .scene-brand-nav.brand-header > img { width:144px; }
+ .brand-header-tools { margin-left:auto; gap:8px; }
+ .scene-brand-official .brand-header-tools .cs-button.cs-button--sm { min-height:44px; height:44px; min-width:24px; font-size:14px; line-height:20px; gap:4px; }
+ .scene-brand-official .brand-header-tools .cs-button img,.scene-brand-official .brand-header-tools .cs-button svg { width:20px; height:20px; }
+ .scene-brand-official .brand-header-tools .brand-header-language.cs-button { padding-inline:8px; }
+ .scene-brand-official .brand-header nav { order:2; flex-basis:100%; overflow-x:auto; justify-content:flex-start; gap:20px; }
+ .scene-brand-official .brand-header nav .cs-button { min-height:44px; font-size:14px; line-height:20px; gap:4px; }
+ .scene-brand-official .brand-header nav .cs-button svg { width:12px; height:12px; }
+ .scene-brand-official .brand-header-shop { min-height:32px; padding-inline:16px; font-size:14px; line-height:20px; }
+}
