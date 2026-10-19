@@ -17,6 +17,15 @@ export const ActionLink = forwardRef<HTMLAnchorElement, ActionLinkProps>(functio
 });
 
 /** Button semantics for actions such as opening a dialog, sharing ActionLink motion. */
-export const ActionButton = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(function ActionButton(
- {children,className,type='button',...props},ref,
-){return <button {...props} ref={ref} type={type} className={['cs-action-link','cs-action-button',className].filter(Boolean).join(' ')}><span>{children}</span></button>;});
+export interface ActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Optional visual cue; does not change button semantics. */
+  arrow?: 'right' | 'up-right';
+}
+export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(function ActionButton(
+ {children,className,type='button',arrow,...props},ref,
+){return <button {...props} ref={ref} type={type} className={['cs-action-link','cs-action-button',className].filter(Boolean).join(' ')}>
+  <span>{children}</span>
+  {arrow && <svg className="cs-action-link-arrow" data-external={arrow === 'up-right' || undefined} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d={arrow === 'up-right' ? 'M7 17 17 7M7 7h10v10' : 'M5 12h14m-5-5 5 5-5 5'} />
+  </svg>}
+</button>;});

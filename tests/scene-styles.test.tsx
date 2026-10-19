@@ -63,3 +63,14 @@ it('searches brand products and restores focus when search closes',async()=>{
  await user.keyboard('{Escape}');expect(trigger).toHaveFocus();
 });
 it('includes featured products and a working Blogs carousel below products',async()=>{const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);expect(screen.getByRole('group',{name:'Featured Products'})).toBeInTheDocument();expect(screen.getByRole('heading',{name:'Blogs'})).toBeVisible();const carousel=screen.getByRole('region',{name:'Blogs articles'});expect(carousel).toHaveTextContent('SonoDAQ vs NI PXIe');await user.click(screen.getByRole('button',{name:'下一篇文章'}));expect(carousel).toHaveTextContent('CRYSOUND 10-Year Warranty');});
+
+it('centers a separate diagonal cue beside solution actions and restores dialog focus',async()=>{
+ const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);
+ const trigger=screen.getAllByRole('button',{name:'See More'}).find(button=>button.classList.contains('cs-action-button'))!;
+ expect(trigger.querySelector(':scope > span')).toHaveTextContent(/^See More$/);
+ const arrow=trigger.querySelector(':scope > svg');
+ expect(arrow).toHaveAttribute('aria-hidden','true');
+ expect(arrow?.querySelector('path')).toHaveAttribute('d','M7 17 17 7M7 7h10v10');
+ await user.click(trigger);expect(screen.getByRole('dialog')).toHaveTextContent('解决方案概览');
+ await user.keyboard('{Escape}');expect(trigger).toHaveFocus();
+});

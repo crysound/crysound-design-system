@@ -459,7 +459,7 @@
 .scene-brand-official .scene-brand-section-heading h3 { font-size:36px; line-height:44px; font-weight:700; }
 .scene-brand-official .scene-brand-section-heading p { margin-top:12px; font-size:16px; line-height:24px; }
 .scene-brand-official .scene-solution-gallery .cs-gallery-card-picture { margin-bottom:24px; }
-.scene-brand-official .scene-solution-gallery .cs-gallery-card-article h3 { font-size:24px; line-height:32px; font-weight:500; margin-bottom:12px; }
+.scene-brand-official .scene-solution-gallery .cs-gallery-card-article h3 { font-size:24px; line-height:32px; font-weight:500; min-height:96px; margin-bottom:12px; }
 .scene-brand-official .scene-solution-gallery .cs-gallery-card-article p { height:48px; font-size:16px; line-height:24px; margin-bottom:16px; }
 .scene-brand-official .scene-solution-gallery .cs-action-button { font-size:16px; line-height:24px; }
 @container(max-width:640px) { .scene-brand-official .scene-brand-solutions,.scene-brand-official .scene-brand-products { padding-top:40px; padding-bottom:40px; } }
