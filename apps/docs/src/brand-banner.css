@@ -1,0 +1,61 @@
+@font-face { font-family:CRYSOUNDBanner; src:url('/scene-assets/Manrope-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:CRYSOUNDBanner; src:url('/scene-assets/Manrope-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+/* Original homepage banner composition, scoped to the brand sample. */
+.brand-banner { position:relative; height:calc(512 * 100cqw / 1714); overflow:hidden; background:linear-gradient(81.0624deg,#f5f6f8 6.1269%,#e5eaf0 66.179%,#ebf2fa 99.578%); color:#333; font-family:CRYSOUNDBanner,sans-serif; }
+.brand-banner[data-slide="1"] { background:linear-gradient(81.0624deg,#f5f5f8 6.1269%,#e5e5f0 66.179%,#ecebfa 99.578%); }
+.brand-banner[data-slide="2"] { background:linear-gradient(81.0624deg,#f8f7f5 6.1269%,#eae6e0 66.179%,#eeebe5 99.578%); }
+.brand-banner[data-slide="3"] { background:linear-gradient(81.0624deg,#f8f8f8 6.1269%,#e8e8e8 66.179%,#ededed 99.578%); }
+.brand-banner-copy { position:absolute; top:50%; left:9.743291%; z-index:4; display:flex; width:calc(625 * 100cqw / 1714); max-width:calc(100% - calc(48 * 100cqw / 1714)); flex-direction:column; align-items:flex-start; gap:calc(12 * 100cqw / 1714); transform:translateY(-50%); }
+.brand-banner-text { display:flex; flex-direction:column; gap:calc(16 * 100cqw / 1714); }
+.brand-banner h2 { margin:0; color:#333; font-family:inherit; font-size:calc(36 * 100cqw / 1714); line-height:calc(40 * 100cqw / 1714); font-weight:700; letter-spacing:0; white-space:pre-line; }
+.brand-banner-description { width:calc(625 * 100cqw / 1714); max-width:100%; }
+.brand-banner-description p { margin:0; color:#707070; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }
+.brand-banner-new { display:inline-block; padding:calc(2 * 100cqw / 1714) calc(8 * 100cqw / 1714); border-radius:calc(4 * 100cqw / 1714); background:#ef4444; color:#fff; font-size:calc(12 * 100cqw / 1714); line-height:calc(16 * 100cqw / 1714); }
+.brand-banner-copy .cs-button { margin-top:calc(20 * 100cqw / 1714); height:calc(36 * 100cqw / 1714); min-height:calc(36 * 100cqw / 1714); padding:calc(6 * 100cqw / 1714) calc(24 * 100cqw / 1714); border:calc(1 * 100cqw / 1714) solid #170057; border-radius:calc(999 * 100cqw / 1714); background:#170057; color:#fff; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }
+.brand-banner-copy .cs-button:hover { background:#2b116d; }
+.brand-banner-visual { position:absolute; top:calc(62 * 100cqw / 1714); left:52.392065%; width:calc(522 * 100cqw / 1714); height:calc(340 * 100cqw / 1714); }
+.brand-banner-monitor { position:absolute; left:0; top:0.088235%; width:calc(319.629 * 100cqw / 1714); height:calc(310.411 * 100cqw / 1714); object-fit:contain; object-position:left top; z-index:3; }
+.brand-banner-rack { position:absolute; left:49.362069%; top:14.561765%; width:calc(264.237 * 100cqw / 1714); height:calc(211.19 * 100cqw / 1714); object-fit:contain; z-index:2; }
+.brand-banner-shadow { position:absolute; z-index:1; height:auto; }
+.brand-banner-shadow-one { width:calc(248.412 * 100cqw / 1714); left:6.050766%; top:73.566765%; }
+.brand-banner-shadow-two { width:calc(331.366 * 100cqw / 1714); left:42.869923%; top:57.933529%; }
+.brand-banner-product { position:absolute; display:block; max-width:none; }
+.brand-banner[data-slide="1"] .brand-banner-visual,.brand-banner[data-slide="2"] .brand-banner-visual { overflow:hidden; }
+.brand-banner[data-slide="1"] .brand-banner-product { top:-11.18%; left:-8.89%; width:114.72%; height:114.71%; object-fit:cover; }
+.brand-banner[data-slide="2"] .brand-banner-product { top:-4.17%; left:0; width:100.76%; height:109.8%; object-fit:cover; }
+.brand-banner[data-slide="3"] .brand-banner-product { inset:0; width:100%; height:100%; object-fit:contain; }
+.brand-banner-controls { position:absolute; inset:0; pointer-events:none; }
+.brand-banner-controls > .cs-button.cs-button--sm { position:absolute; top:calc(236 * 100cqw / 1714); width:calc(40 * 100cqw / 1714); min-height:calc(40 * 100cqw / 1714); padding:0; border-radius:50%; background:#0000002b; color:white; opacity:0; pointer-events:none; transition:opacity 180ms ease,background-color 180ms ease; }
+.brand-banner-controls > .cs-button.cs-button--sm:first-child { left:calc(32 * 100cqw / 1714); }
+.brand-banner-controls > .cs-button.cs-button--sm:last-child { right:calc(32 * 100cqw / 1714); }
+.brand-banner:is(:hover,:focus-within) .brand-banner-controls > .cs-button.cs-button--sm { opacity:1; pointer-events:auto; }
+.brand-banner-controls > .cs-button.cs-button--sm:hover { background:#0000004d; }
+.brand-banner-switch { position:absolute; bottom:calc(24 * 100cqw / 1714); left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:calc(6 * 100cqw / 1714); height:calc(28 * 100cqw / 1714); padding:0 calc(24 * 100cqw / 1714); border-radius:calc(999 * 100cqw / 1714); background:#0000001a; backdrop-filter:blur(calc(8 * 100cqw / 1714)); pointer-events:auto; }
+.brand-banner-switch .cs-button.cs-button--sm { padding:0; min-height:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); width:calc(8 * 100cqw / 1714); border:0; border-radius:calc(999 * 100cqw / 1714); background:#00000033; }
+.brand-banner-switch .cs-button.cs-button--sm[aria-pressed="true"] { width:calc(40 * 100cqw / 1714); background:#00000033; }
+.brand-banner-switch .cs-button.cs-button--sm span { display:block; width:100%; height:calc(8 * 100cqw / 1714); border-radius:inherit; }
+.brand-banner-switch .cs-button.cs-button--sm[aria-pressed="true"] span { width:calc(19 * 100cqw / 1714); background:#333; }
+@container(max-width:640px) {
+ .brand-banner { height:auto; min-height:512px; display:grid; gap:24px; padding:32px 20px 80px; }
+ .brand-banner-copy { position:static; width:min(640px,100%); max-width:100%; margin-inline:auto; transform:none; }
+ .brand-banner h2 { font-size:clamp(26px,5cqw,36px); line-height:1.15; overflow-wrap:anywhere; }
+ .brand-banner-description { width:100%; }
+ .brand-banner-description p { font-size:16px; line-height:24px; }
+ .brand-banner-new { font-size:12px; line-height:16px; padding:2px 8px; }
+ .brand-banner-copy { gap:12px; }
+ .brand-banner-text { gap:16px; }
+ .brand-banner-copy .cs-button { height:44px; font-size:16px; line-height:24px; padding:6px 24px; }
+ .brand-banner-switch { bottom:24px; height:28px; padding:0 24px; gap:6px; }
+ .brand-banner-switch .cs-button.cs-button--sm { width:8px; height:8px; min-height:8px; }
+ .brand-banner-switch .cs-button.cs-button--sm[aria-pressed="true"] { width:40px; }
+ .brand-banner-switch .cs-button.cs-button--sm span { height:8px; }
+ .brand-banner-switch .cs-button.cs-button--sm[aria-pressed="true"] span { width:19px; }
+ .brand-banner-copy .cs-button { min-height:44px; margin-top:8px; }
+ .brand-banner-visual { position:relative; inset:auto; transform:none; width:min(522px,100%); height:auto; aspect-ratio:522/340; margin:0 auto; }
+ .brand-banner-monitor { width:61.3%; height:91.2%; }
+ .brand-banner-rack { left:49.43%; top:14.7%; width:50.57%; height:62.06%; }
+ .brand-banner-shadow-one { width:30.46%; left:14.56%; top:86.76%; }
+ .brand-banner-shadow-two { width:46.36%; left:51.34%; top:71.18%; }
+ .brand-banner-controls > .cs-button.cs-button--sm { display:none; }
+}
+@media(prefers-reduced-motion:reduce) { .brand-banner-controls > .cs-button.cs-button--sm { transition:none; } }
