@@ -386,12 +386,12 @@
   --cs-type-control-leading: 20px;
 }
 
-/* Proposed general chart palette. Explicit instrument channel colours remain stable. */
+/* General chart series share the existing instrument palette and ordering. */
 :root {
-  --cs-chart-series-1: #5090dc;
-  --cs-chart-series-2: #e9a054;
-  --cs-chart-series-3: #6b9d78;
-  --cs-chart-series-4: #69b5c5;
-  --cs-chart-series-5: #c9bf45;
-  --cs-chart-series-6: #9b7db5;
+  --cs-chart-series-1: var(--cs-chart-channel-01);
+  --cs-chart-series-2: var(--cs-chart-channel-02);
+  --cs-chart-series-3: var(--cs-chart-channel-03);
+  --cs-chart-series-4: var(--cs-chart-channel-04);
+  --cs-chart-series-5: var(--cs-chart-channel-05);
+  --cs-chart-series-6: var(--cs-chart-channel-06);
 }
