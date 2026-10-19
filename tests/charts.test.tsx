@@ -84,3 +84,14 @@ it('keeps dense axis endpoints while reducing labels and adds one quiet subdivis
   view.rerender(<LineChart title="主网格" minorGrid={false} data={[]} series={[]} />);
   expect(view.container.querySelectorAll('[data-grid]')).toHaveLength(0);
 });
+
+it('preserves explicit colours and channel identity while using a general palette for other series',()=>{
+  const {container}=render(<LineChart title="Palette" data={[{label:'A',values:{custom:1,channel:2,general:3}}]} series={[{key:'custom',label:'Custom',color:'#123456'},{key:'channel',label:'Channel',channel:2},{key:'general',label:'General'}]}/>);
+  const paths=container.querySelectorAll('path[clip-path]');
+  expect(paths[0]).toHaveAttribute('stroke','#123456');
+  expect(paths[1]).toHaveAttribute('stroke','var(--cs-chart-channel-02)');
+  expect(paths[2]).toHaveAttribute('stroke','var(--cs-chart-series-3)');
+  const plot=container.querySelector('.cs-chart-plot')!;
+  const legend=container.querySelector('.cs-chart-legend')!;
+  expect(plot.compareDocumentPosition(legend) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+});

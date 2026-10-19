@@ -31,7 +31,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
   useEffect(() => {
     if (!plot.current) return;
     const element = plot.current;
-    const measure = () => setWidth(Math.max(320, Math.round(element.getBoundingClientRect().width)));
+    const measure = () => setWidth(Math.max(240, Math.round(element.getBoundingClientRect().width)));
     measure(); const observer = new ResizeObserver(measure); observer.observe(element);
     return () => observer.disconnect();
   }, []);
@@ -65,36 +65,36 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
   const categoryStride = Math.max(1, Math.ceil(data.length / Math.max(1, Math.floor(plotWidth / 72))));
   const hitLeft=(i:number)=>i===0?left:(x(i-1)+x(i))/2;
   const hitRight=(i:number)=>i===data.length-1?width-right:(x(i)+x(i+1))/2;
-  const color=(item:ChartSeries)=>item.color??chartChannelColors[Number.isInteger(item.channel)&&item.channel!>=1&&item.channel!<=64?item.channel!-1:series.indexOf(item)%chartChannelColors.length];
+  const color=(item:ChartSeries)=>item.color??(Number.isInteger(item.channel)&&item.channel!>=1&&item.channel!<=64?chartChannelColors[item.channel!-1]:`var(--cs-chart-series-${series.indexOf(item)%6+1})`);
   const selected=active===undefined?undefined:data[active];
   const cursorFormat=(n:number)=>new Intl.NumberFormat('zh-CN',{maximumFractionDigits:3}).format(n);
   const cursorValue=selected?visible.map(item=>selected.values[item.key]).find((value):value is number=>typeof value==='number'&&Number.isFinite(value)):undefined;
   const cursorY=cursorValue===undefined?top:Math.min(top+plotHeight,Math.max(top,y(cursorValue)));
   const format=(n:number)=>new Intl.NumberFormat('zh-CN',{maximumFractionDigits:2,notation:Math.abs(n)>=10000?'compact':'standard'}).format(n);
-  return <figure className="cs-chart" aria-labelledby={`${id}-title`}>
+  return <figure className="cs-chart" data-kind={kind} aria-labelledby={`${id}-title`}>
     <figcaption><strong id={`${id}-title`}>{title}</strong>{description&&<p>{description}</p>}</figcaption>
     {measurementInfo&&<div className="cs-chart-measurement-info">{measurementInfo.map(info=><span key={info}>{info}</span>)}</div>}
-    <div className="cs-chart-legend" role="group" aria-label={`${title} 数据序列`}>{series.map(item=><button key={item.key} type="button" aria-pressed={!hidden.includes(item.key)} onClick={()=>setHidden(current=>current.includes(item.key)?current.filter(key=>key!==item.key):[...current,item.key])}><span style={{background:color(item)}}/>{item.label}</button>)}</div>
+
     <>
       <div ref={plot} className="cs-chart-plot" onMouseLeave={()=>setActive(undefined)}>
         <svg viewBox={`0 0 ${width} ${svgHeight}`} width="100%" height={svgHeight} role="img" aria-label={`${title}，${kind==='line'?'折线图':'柱状图'}，${data.length} 组数据；详细数值见下方数据表`}>
           <defs><clipPath id={`${id}-clip`}><rect x={left} y={top} width={plotWidth} height={plotHeight}/></clipPath></defs>
           <text x={20} y={top+plotHeight/2} transform={`rotate(-90 20 ${top+plotHeight/2})`} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{yLabel??unit}</text>
           <text x={left+plotWidth/2} y={svgHeight-10} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{xLabel}</text>
-          <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-chart-plot-bg)" stroke="var(--cs-chart-grid)"/>
-          {minorGrid && minorXPositions.map((xx,index)=><line key={`minor-x-${index}`} data-grid="minor-x" x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5" opacity=".65"/>)}
-          {minorGrid && minorYPositions.map((yy,index)=><line key={`minor-y-${index}`} data-grid="minor-y" x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".5" opacity=".65"/>)}
-          {displayedYTicks.map(value=>{const yy=y(value);return <g key={value} data-axis-tick="y"><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{format(value)}</text></g>;})}
-          {displayedXTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value} data-axis-tick="x"><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".75"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{value>=1000?`${value/1000}k`:format(value)}</text></g>;})}
+          <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="var(--cs-chart-plot-bg)"/>
+          {minorGrid && minorXPositions.map((xx,index)=><line key={`minor-x-${index}`} data-grid="minor-x" x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth=".5" strokeDasharray="1 4" opacity=".4"/>)}
+          {minorGrid && minorYPositions.map((yy,index)=><line key={`minor-y-${index}`} data-grid="minor-y" x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth=".5" strokeDasharray="1 4" opacity=".4"/>)}
+          {displayedYTicks.map(value=>{const yy=y(value);return <g key={value} data-axis-tick="y"><line x1={left} x2={width-right} y1={yy} y2={yy} stroke="var(--cs-chart-grid)" strokeWidth="1" strokeDasharray="2 4"/><text x={left-10} y={yy+4} textAnchor="end" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{format(value)}</text></g>;})}
+          {displayedXTicks.map(value=>{const xx=left+(transformX(value)-xMin)/(xMax-xMin)*plotWidth;return <g key={value} data-axis-tick="x"><line x1={xx} x2={xx} y1={top} y2={top+plotHeight} stroke="var(--cs-chart-grid)" strokeWidth="1" strokeDasharray="2 4"/><text x={xx} y={top+plotHeight+20} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{value>=1000?`${value/1000}k`:format(value)}</text></g>;})}
           {selected&&active!==undefined&&!loading&&<g className="cs-chart-crosshair" clipPath={`url(#${id}-clip)`} pointerEvents="none">
             <line x1={x(active)} x2={x(active)} y1={top} y2={top+plotHeight}/>
             {visible.map(item=>{const value=selected.values[item.key];return typeof value==='number'&&Number.isFinite(value)?<line key={item.key} x1={left} x2={width-right} y1={y(value)} y2={y(value)}/>:null;})}
           </g>}
           {min<0&&max>=0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} stroke="var(--cs-chart-axis)" clipPath={`url(#${id}-clip)`}/>}
-          {!loading&&kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="1.5" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
+          {!loading&&kind==='line'&&visible.map(item=>{let path='';let connected=false;data.forEach((row,i)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n)){connected=false;return;}path+=`${connected?'L':'M'}${x(i)},${y(n)} `;connected=true;});return <path key={item.key} d={path} fill="none" stroke={color(item)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" clipPath={`url(#${id}-clip)`}/>;})}
           {!loading&&data.map((row,i)=><g key={`${row.label}-${i}`}>
             {(!xTicks.length&&i%categoryStride===0)&&<text x={x(i)} y={top+plotHeight+24} textAnchor="middle" fill="var(--cs-chart-axis)" fontSize="var(--cs-text-xs)">{row.label.length>10?row.label.slice(0,9)+'…':row.label}</text>}
-            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(Number.isFinite(barBaseline)?barBaseline:0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(Number.isFinite(barBaseline)?barBaseline:0)))} clipPath={`url(#${id}-clip)`} rx="0" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="5" fill={color(item)} stroke="#334155" strokeWidth="1.5"/>:null;})}
+            {visible.map((item,j)=>{const n=row.values[item.key];if(typeof n!=='number'||!Number.isFinite(n))return null;const barWidth=Math.min(36,step*.7/Math.max(1,visible.length));return kind==='bar'?<rect key={item.key} x={x(i)-visible.length*barWidth/2+j*barWidth} y={Math.min(y(Number.isFinite(barBaseline)?barBaseline:0),y(n))} width={Math.max(1,barWidth-3)} height={Math.max(1,Math.abs(y(n)-y(Number.isFinite(barBaseline)?barBaseline:0)))} clipPath={`url(#${id}-clip)`} rx="2" fill={color(item)} opacity={active===undefined||active===i?1:.55}/>:active===i?<circle key={item.key} cx={x(i)} cy={y(n)} r="4" fill={color(item)} stroke="var(--cs-chart-plot-bg)" strokeWidth="2"/>:null;})}
             <rect x={hitLeft(i)} y={top} width={Math.max(1,hitRight(i)-hitLeft(i))} height={plotHeight} fill="transparent" tabIndex={0} role="button" aria-label={`${row.label}：${visible.map(item=>`${item.label} ${typeof row.values[item.key]==='number'?row.values[item.key]:'无数据'} ${unit}`).join('，')}`} onMouseEnter={()=>setActive(i)} onMouseMove={()=>setActive(i)} onFocus={()=>setActive(i)} onBlur={()=>setActive(undefined)} onKeyDown={event=>{if(event.key==='Escape'){setActive(undefined);return;}if(event.key==='Enter'||event.key===' '){event.preventDefault();setActive(i);return;}if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=event.key==='ArrowRight'?event.currentTarget.parentElement?.nextElementSibling:event.currentTarget.parentElement?.previousElementSibling;next?.querySelector<SVGRectElement>('[role="button"]')?.focus();}}}/>
           </g>)}
         </svg>
@@ -104,6 +104,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
         </div>}
         {(loading||!data.length||!series.length)&&<div className="cs-chart-overlay" role={loading?'status':undefined}><span>{loading?'正在加载图表…':'暂无图表数据'}</span></div>}
       </div>
+    <div className="cs-chart-legend" role="group" aria-label={`${title} 数据序列`}>{series.map(item=><button key={item.key} type="button" aria-pressed={!hidden.includes(item.key)} onClick={()=>setHidden(current=>current.includes(item.key)?current.filter(key=>key!==item.key):[...current,item.key])}><span style={{background:color(item)}}/>{item.label}</button>)}</div>
       {!loading&&data.length>0&&series.length>0&&<><div className="cs-sr-only" aria-live="polite" aria-atomic="true">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>移动鼠标查看数值 · Tab / 方向键移动 · Esc 隐藏{unit?` · 单位 ${unit}`:''}</span>}</div>
       <details className="cs-chart-data"><summary>查看数据表</summary><div className="cs-table-scroll"><table className="cs-table"><caption className="cs-sr-only">{title}原始数据</caption><thead><tr><th>项目</th>{series.map(item=><th key={item.key}>{item.label}{unit?` (${unit})`:''}</th>)}</tr></thead><tbody>{data.map((row,i)=><tr key={i}><th scope="row">{row.label}</th>{series.map(item=><td key={item.key}>{typeof row.values[item.key]==='number'&&Number.isFinite(row.values[item.key])?format(row.values[item.key]!):'—'}</td>)}</tr>)}</tbody></table></div></details></>}
     </>

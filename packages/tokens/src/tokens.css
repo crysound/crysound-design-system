@@ -385,3 +385,13 @@
   --cs-type-control-size: var(--cs-font-size);
   --cs-type-control-leading: 20px;
 }
+
+/* Proposed general chart palette. Explicit instrument channel colours remain stable. */
+:root {
+  --cs-chart-series-1: #5090dc;
+  --cs-chart-series-2: #e9a054;
+  --cs-chart-series-3: #6b9d78;
+  --cs-chart-series-4: #69b5c5;
+  --cs-chart-series-5: #c9bf45;
+  --cs-chart-series-6: #9b7db5;
+}
