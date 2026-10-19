@@ -1695,3 +1695,11 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-gallery-shop-content h3 { max-width:340px; font-weight:500; }
 .cs-gallery-shop-card { height:272px; }
 @media(max-width:640px) { .cs-gallery-shop-card { height:210px; } }
+.cs-data-table .cs-table-toolbar { align-items:center; }
+.cs-table-title { margin:0; font-size:16px; line-height:24px; font-weight:500; color:var(--cs-heading); }
+.cs-table-toolbar-right { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:12px; margin-left:auto; min-width:0; }
+.cs-table-toolbar-right > .cs-field { width:260px; min-width:0; }
+.cs-table-toolbar-right > .cs-field > label { position:absolute; width:1px; height:1px; padding:0; margin:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.cs-data-table .cs-table-toolbar-right .cs-table-toolbar-actions { margin-left:0; width:auto; }
+.cs-data-table .cs-table-toolbar > .cs-table-filters { flex-basis:100%; }
+@media(max-width:640px) { .cs-table-toolbar-right { width:100%; margin-left:0; justify-content:flex-start; }.cs-table-toolbar-right > .cs-field { flex:1 1 200px; }.cs-data-table .cs-table-toolbar-right .cs-table-toolbar-actions { flex-wrap:wrap; } }
