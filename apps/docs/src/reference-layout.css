@@ -1810,3 +1810,19 @@ body {
 .website-icon-variants > div > span { font-size:12px; line-height:18px; color:var(--cs-muted); }
 .website-icon-demo > .cs-help { min-height:20px; margin:0; }
 .website-carousel-demo { max-width:none; }
+.website-navigation-demo { min-height:520px; }
+.website-navigation-language { display:inline-flex; align-items:center; gap:4px; padding:4px 8px; border:1px solid var(--cs-border); border-radius:var(--cs-radius-pill); color:var(--cs-muted); font-size:12px; line-height:20px; }
+.website-navigation-demo .cs-navigation-menu-link:last-child { background:var(--cs-subtle); border-radius:4px; }
+.website-navigation-demo .cs-navigation-menu-trigger,.website-navigation-demo .cs-navigation-menu-link { font-size:14px; padding-inline:8px; }
+.website-navigation-demo .cs-navigation-menu-items { gap:0; }
+@media(max-width:640px) { .website-navigation-demo { min-height:640px; } }
+.website-navigation-demo { container-type:inline-size; }
+@container(min-width:641px) and (max-width:1100px) {
+ .website-navigation-demo .cs-navigation-menu { flex-wrap:nowrap; gap:16px; }
+ .website-navigation-demo .cs-navigation-menu-brand img { width:132px; }
+ .website-navigation-demo .cs-navigation-menu-trigger,.website-navigation-demo .cs-navigation-menu-link { font-size:12px; padding-inline:6px; gap:4px; }
+ .website-navigation-demo .cs-navigation-menu-actions { gap:4px; }
+ .website-navigation-demo .cs-navigation-menu-trigger svg { width:12px; height:12px; }
+}
+
+.website-nav-search-results { display:grid; gap:12px; margin-top:20px; }.website-nav-search-results a { color:var(--cs-brand); font-size:14px; line-height:22px; }
