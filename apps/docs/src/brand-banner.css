@@ -95,3 +95,17 @@
  .brand-banner-switch .cs-carousel-pagination-item[aria-current] { width:40px; }
  .brand-banner-switch .cs-carousel-pagination-item[aria-current] > span { width:19px; }
 }
+/* The same official artwork is used by the shared Carousel documentation and brand scene. */
+.brand-banner-carousel { container-type:inline-size; width:100%; }
+.brand-banner-carousel > .cs-carousel-viewport { border-radius:0; }
+.brand-banner-carousel > .brand-banner-controls { position:absolute; inset:0; margin:0; pointer-events:none; display:block; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button { position:absolute; top:calc(236 * 100cqw / 1714); width:calc(40 * 100cqw / 1714); height:calc(40 * 100cqw / 1714); min-height:0; border-radius:50%; background:#0000002b; color:#fff; opacity:0; pointer-events:none; transition:opacity 180ms ease,background-color 180ms ease; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button:first-child { left:calc(32 * 100cqw / 1714); }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button:nth-of-type(2) { right:calc(32 * 100cqw / 1714); }
+.brand-banner-carousel:is(:hover,:focus-within) .brand-banner-controls > .cs-icon-button { opacity:1; pointer-events:auto; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button:hover { background:#0000004d; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button svg { width:calc(20 * 100cqw / 1714); height:calc(20 * 100cqw / 1714); }
+.brand-banner-carousel .brand-banner-switch { pointer-events:auto; }
+.brand-banner-carousel .cs-carousel-play { position:absolute; right:16px; bottom:16px; pointer-events:auto; background:var(--cs-surface); }
+@container(max-width:640px) { .brand-banner-carousel .brand-banner-controls > .cs-icon-button { display:none; }.brand-banner-carousel .cs-carousel-play { right:8px; bottom:8px; font-size:12px; padding:4px 8px; } }
+@media(prefers-reduced-motion:reduce) { .brand-banner-carousel .brand-banner-controls > .cs-icon-button { transition:none; } }

@@ -1809,3 +1809,4 @@ body {
 .website-icon-variants > div { display:grid; justify-items:center; gap:12px; min-width:64px; }
 .website-icon-variants > div > span { font-size:12px; line-height:18px; color:var(--cs-muted); }
 .website-icon-demo > .cs-help { min-height:20px; margin:0; }
+.website-carousel-demo { max-width:none; }

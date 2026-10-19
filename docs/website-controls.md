@@ -19,3 +19,5 @@ items 是 `{id,label,content}`。value/onValueChange 支持受控使用，defaul
 images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非受控索引，复用 Carousel 的切换行为；缩略图可点击并支持方向键与 Home/End。放大使用现有 Radix Dialog，关闭后焦点回到入口。图片请求失败展示重试入口；切换图片后独立处理错误。图库不自动播放，不执行图片上传或远程处理。
 
 文档示例采用当前 CRYSOUND 样板中已授权的本地产品素材，只用于展示组件，不声明同一产品的多角度实拍。
+
+轮播文档与品牌样板统一复用OfficialBanner内容组合，使用原官网的四组文案、产品图片、阴影和比例。共享Carousel提供切换状态、键盘与播放行为；controlsClassName/paginationClassName用于摆放原版覆盖式控件，previousLabel/nextLabel用于本地化入口名称。此样板第四组仍为静态产品图，不包含原站3D运行时。
