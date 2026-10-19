@@ -1,0 +1,5 @@
+import {act,cleanup,fireEvent,render,screen} from '@testing-library/react';
+import {afterEach,it,expect,vi} from 'vitest';
+import {NoiseMonitor} from '../apps/docs/src/noise-monitor';
+afterEach(()=>{cleanup();vi.useRealTimers();});
+it('advances simulated samples, freezes on pause and represents disconnection as missing data',()=>{vi.useFakeTimers();const view=render(<NoiseMonitor page="live"/>);expect(screen.getByText('模拟时间 00:59')).toBeInTheDocument();act(()=>vi.advanceTimersByTime(2000));expect(screen.getByText('模拟时间 01:01')).toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'暂停更新'}));act(()=>vi.advanceTimersByTime(3000));expect(screen.getByText('模拟时间 01:01')).toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'模拟断开连接'}));expect(view.container.querySelector('.noise-current strong')).toHaveTextContent('—');expect(view.container.querySelector('path[stroke="var(--cs-chart-channel-01)"]')).toHaveAttribute('d','');fireEvent.click(screen.getByRole('button',{name:'恢复模拟连接'}));fireEvent.change(screen.getByRole('spinbutton',{name:'演示阈值 / dB(A)'}),{target:{value:'90'}});expect(screen.getByText('当前窗口无阈值事件')).toBeVisible();});
