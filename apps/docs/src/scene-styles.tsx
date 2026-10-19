@@ -3,7 +3,7 @@ import {OpsScene} from './ops-scene';
 import {Activity, Server01, File02, Archive, ArrowRight, ArrowNarrowUpRight, Check, Download01, Play, PauseCircle, Settings01, Sliders04} from '@untitledui/icons';
 import {Tabs,TabsList,TabsTrigger,TabsContent,Button,Input,Select,StatusBadge,LineChart,Dialog,Progress,EmptyState} from '../../../packages/ui/src/index';
 const presets=[
-  {id:'precision',number:'01',name:'精密工作台',en:'Precision workspace',purpose:'实时噪声 · 监测点 · 阈值事件',rule:'正文14/22 · 控件32px · 分组16px · 清晰边界'},
+  {id:'precision',number:'01',name:'工作台',en:'Workspace',purpose:'实时噪声 · 监测点 · 阈值事件',rule:'正文14/22 · 控件32px · 分组16px · 清晰边界'},
   {id:'analytics',number:'02',name:'理性数据',en:'Analytical clarity',purpose:'质量分析 · 监测趋势 · 结果复核',rule:'正文14/22 · 指标30/40 · 分组24px · 弱分隔线'},
   {id:'brand',number:'03',name:'品牌展示',en:'Product storytelling',purpose:'品牌官网 · 产品系列 · 解决方案',rule:'标题36/44 · 正文16/26 · 区块48px · 图像主导'},
 ];
