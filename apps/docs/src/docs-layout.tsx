@@ -27,11 +27,21 @@ import { catalog, type ComponentDoc } from "./catalog";
 import {
   Breadcrumbs,
   Avatar,
+  ActionLink,
   Badge,
   Button,
   Checkbox,
   Input,
   Progress,
+  MetricGroup,
+  QuotaCard,
+  DetailPanel,
+  ResourceCard,
+  ProgressList,
+  Toolbar,
+  ToolbarButton,
+  LinkGroup,
+  FilterToolbar,
   RadioGroup,
   Pagination,
   LoadingIndicator,
@@ -262,6 +272,27 @@ export function SidebarContent({
 }
 export function PreviewThumbnail({ id }: { id: string }) {
   switch (id) {
+    case "action-link":
+      return <ActionLink href="#library">查看全部设备</ActionLink>;
+    case "resource-card":
+      return <ResourceCard href="#installation" title="安装与接入" source="开发文档"/>;
+    case "metric-group":
+      return <MetricGroup label="测量概览" density="compact" items={[{id:'devices',label:'在线设备',value:8,unit:'台',note:'当前连接状态'}]}/>;
+    case "progress-list":
+      return <ProgressList title="测量任务" items={[{id:'check',title:'通道检查',progress:80,progressLabel:'8 / 10',date:'10-19'}]}/>;
+    case "filter-toolbar":
+      return <FilterToolbar label="任务筛选" query="" onQueryChange={()=>{}} onReset={()=>{}}/>;
+    case "quota-card":
+      return <QuotaCard title="测量空间" quotas={[{id:'storage',label:'剩余容量',remaining:62,reset:'本周期可用'}]}/>;
+    case "detail-panel":
+      return <DetailPanel title="测量任务" fields={[{id:'device',label:'设备',value:'采集终端 01'},{id:'rate',label:'采样率',value:'48 kHz'}]}/>;
+    case "form-dialog":
+      return <div className="thumb-modal"><strong>编辑测量任务</strong><span>更新名称与测量配置。</span><Input label="任务名称" defaultValue="通道检查"/><footer className="thumb-row"><Button size="sm" variant="secondary">取消</Button><Button size="sm">保存</Button></footer></div>;
+    case "toolbar":
+      return <Toolbar label="任务操作"><ToolbarButton>刷新</ToolbarButton><ToolbarButton>导出</ToolbarButton><ToolbarButton>更多</ToolbarButton></Toolbar>;
+    case "link-group":
+      return <LinkGroup label="技术资源" items={[{id:'start',label:'快速开始',href:'#installation'},{id:'components',label:'组件文档',href:'#library'},{id:'guide',label:'使用指南',href:'#foundations'}]}/>;
+
     case "button":
       return (
         <div className="thumb-row">
