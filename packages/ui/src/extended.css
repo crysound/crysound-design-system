@@ -1519,3 +1519,8 @@ button.cs-step-content { cursor: pointer; }
 @media(pointer:coarse) { .cs-icon-button.cs-button { min-width:44px; min-height:44px; }.cs-carousel-play { min-height:44px; } }
 @media(prefers-reduced-motion:reduce) { .cs-navigation-menu-trigger svg { transition:none; }.cs-carousel-slide { animation:none; } }
 .cs-icon-button[aria-busy="true"] .cs-icon-button-glyph { display:none; }
+
+.cs-icon-button.cs-button { border-radius:var(--cs-radius-lg); }
+.cs-icon-button.cs-button--ghost { color:var(--cs-text-secondary); }
+.cs-icon-button.cs-button--ghost:hover:not(:disabled) { color:var(--cs-text-heading); background:var(--cs-item-hover-bg); }
+.cs-icon-button-glyph > svg { stroke-linecap:round; stroke-linejoin:round; }

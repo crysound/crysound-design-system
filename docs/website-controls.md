@@ -4,7 +4,7 @@
 
 ## IconButton
 
-`label` 为必填的可访问名称；继承 Button 的 variant、size、disabled、loading、onClick 等属性，支持 ref。默认36px，sm28px，lg48px；触屏点击区至少44px。默认显示 Tooltip，可用 tooltip=false 关闭。
+`label` 为必填的可访问名称；继承 Button 的 variant、size、disabled、loading、onClick 等属性，支持 ref。默认ghost轻量样式，使用中性色文字及悬停浅底；需要强调时显式设置primary。默认36px，sm28px，lg48px；触屏点击区至少44px。默认显示 Tooltip，可用 tooltip=false 关闭。
 
 ## NavigationMenu
 

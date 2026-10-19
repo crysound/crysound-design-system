@@ -1803,3 +1803,9 @@ body {
 .website-control-slide img { width:100%; height:260px; object-fit:contain; }
 .website-control-details { margin-top:32px; }.website-control-details > summary { cursor:pointer; margin-bottom:16px; }
 @media(max-width:640px) { .website-control-slide { grid-template-columns:1fr; padding:24px; }.website-control-slide h3 { font-size:24px; line-height:32px; }.website-control-slide img { height:200px; } }
+
+.website-icon-demo { display:grid; justify-items:center; gap:20px; }
+.website-icon-variants { display:flex; flex-wrap:wrap; justify-content:center; gap:32px; }
+.website-icon-variants > div { display:grid; justify-items:center; gap:12px; min-width:64px; }
+.website-icon-variants > div > span { font-size:12px; line-height:18px; color:var(--cs-muted); }
+.website-icon-demo > .cs-help { min-height:20px; margin:0; }
