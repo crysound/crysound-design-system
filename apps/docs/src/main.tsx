@@ -1,4 +1,4 @@
-import { SceneStyles } from "./scene-styles";
+import { SceneStyles, SceneStandalone } from "./scene-styles";
 import { CompositionFoundations } from "./composition-foundations";
 import { BoundaryPreview } from "./boundary-preview";
 import { LogoGuidelines } from "./logo-guidelines";
@@ -154,6 +154,7 @@ function App() {
       ? `${activeDoc.name} · CRYSOUND Design System`
       : "CRYSOUND Design System";
   }, [activeDoc]);
+  if (route.startsWith("scene/")) return <SceneStandalone key={route} scene={route.slice(6)} />;
   return (
     <div className="shell">
       <a

@@ -2,7 +2,7 @@ import React from 'react';
 import {afterEach,it,expect,vi} from 'vitest';
 import {render,screen,cleanup} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {SceneStyles} from '../apps/docs/src/scene-styles';
+import {SceneStyles,SceneStandalone} from '../apps/docs/src/scene-styles';
 afterEach(()=>{cleanup();vi.restoreAllMocks();});
 it('selects devices and locks configuration until measurement stops',async()=>{
   const user=userEvent.setup();render(<SceneStyles/>);
@@ -34,3 +34,5 @@ it('filters product families and returns focus after closing details',async()=>{
   expect(screen.getByRole('dialog')).toHaveTextContent('蓝牙音频测试');
   await user.keyboard('{Escape}');expect(screen.queryByRole('dialog')).not.toBeInTheDocument();expect(trigger).toHaveFocus();
 });
+
+it("opens a standalone scene with explicit scene navigation",()=>{render(<SceneStandalone scene="analytics"/>);expect(screen.getByRole("heading",{name:"测量质量概览"})).toBeVisible();expect(screen.getByRole("link",{name:"理性数据"})).toHaveAttribute("aria-current","page");expect(screen.getByRole("link",{name:"品牌展示"})).toHaveAttribute("href","#scene/brand");});
