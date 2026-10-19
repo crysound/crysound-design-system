@@ -437,3 +437,9 @@
  .scene-brand-official .scene-brand-nav nav { overflow-x:auto; justify-content:flex-start; }
  .scene-brand-official .scene-brand-nav .cs-button { white-space:nowrap; flex-shrink:0; }
 }
+.scene-brand-official .scene-solution-gallery { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+.scene-solution-gallery .cs-gallery-card { background:transparent; }
+.scene-solution-gallery .cs-gallery-card-article h3 { font-family:inherit; }
+.scene-solution-gallery .cs-action-button { position:relative; z-index:2; margin:0; font-size:16px; line-height:24px; font-weight:400; }
+@media(max-width:1000px) { .scene-brand-official .scene-solution-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:640px) { .scene-brand-official .scene-solution-gallery { grid-template-columns:1fr; } }
