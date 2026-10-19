@@ -1,10 +1,10 @@
-import {Button,DataTable,Dialog,Progress,TableCellText,type DataColumn} from '../../../packages/ui/src/index';
+import {ActionButton,Button,DataTable,Dialog,Progress,TableCellText,type DataColumn} from '../../../packages/ui/src/index';
 
 export type BusinessView='cloud'|'resources'|'general';
 type Value=string|number|null;
 type DetailEntry=[string,Value];
 function RecordDetail({id,title,entries}:{id:string;title:string;entries:DetailEntry[]}){
- return <Dialog title={title} description={`${id} · 本地合成示例`} trigger={<Button variant="ghost" size="sm" aria-label={`查看 ${id}`}>查看</Button>}><dl className="table-demo-detail">{entries.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value??'—'}</dd></div>)}</dl><p>用于验证表格组合；未连接云端服务或设备。</p></Dialog>;
+ return <Dialog title={title} description={`${id} · 本地合成示例`} trigger={<ActionButton aria-label={`查看 ${id}`}>查看</ActionButton>}><dl className="table-demo-detail">{entries.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value??'—'}</dd></div>)}</dl><p>用于验证表格组合；未连接云端服务或设备。</p></Dialog>;
 }
 function StateText({value}:{value:string}){return <span className="table-demo-state" data-tone={['失败','离线','需处理','已逾期'].includes(value)?'danger':['已完成','可用','已交付'].includes(value)?'success':'neutral'}><span aria-hidden="true">●</span>{value}</span>;}
 function Capacity({value,label}:{value:number;label:string}){return <div className="table-demo-capacity"><span>{value}%</span><Progress value={value} label={label} showValue={false}/></div>;}

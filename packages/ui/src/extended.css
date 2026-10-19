@@ -660,7 +660,7 @@
 }
 .cs-data-table .cs-table td .cs-button { font-size:inherit; line-height:inherit; }
 .cs-data-table .cs-table td .cs-button--ghost { font-weight:var(--cs-weight-normal); text-decoration:none; text-underline-offset:var(--cs-space-0-5); }
-.cs-data-table .cs-table td .cs-button--ghost:is(:active,:focus-visible,[data-state="open"]) { text-decoration:underline; }
+
 .cs-data-table .cs-table th[aria-sort="ascending"] .cs-sort-icon,
 .cs-data-table .cs-table th[aria-sort="descending"] .cs-sort-icon { color:var(--cs-brand); }
 .cs-data-table tr[data-selected] {
@@ -1324,7 +1324,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-action-link:is(:hover,:focus-visible) .cs-action-link-arrow { transform:translateX(var(--cs-space-1)); }
 .cs-action-link:is(:hover,:focus-visible) .cs-action-link-arrow[data-external] { transform:translate(var(--cs-space-0-5), calc(var(--cs-space-0-5) * -1)); }
 .cs-action-link:hover { color: var(--cs-brand-hover); }
-.cs-action-link:is(:hover,:focus-visible) > span::after { transform:scaleX(1); }
+.cs-action-link:is(:hover,:focus-visible,:active,[data-state="open"]) > span::after { transform:scaleX(1); }
 @media(prefers-reduced-motion:reduce) {
   .cs-action-link > span::after, .cs-action-link-arrow { transition:none; }
   .cs-action-link:is(:hover,:focus-visible) .cs-action-link-arrow { transform:none; }
@@ -1468,3 +1468,8 @@ button.cs-step-content { cursor: pointer; }
 .cs-carousel-pagination-item:disabled { opacity:.4; cursor:not-allowed; }
 @media(pointer:coarse) { .cs-carousel-pagination-item { min-width:44px; height:44px; } }
 @media(prefers-reduced-motion:reduce) { .cs-carousel-pagination-item,.cs-carousel-pagination-item > span { transition:none; } }
+
+.cs-action-button { min-height:28px; padding:0 10px; border:0; background:transparent; font-weight:var(--cs-weight-normal); cursor:pointer; }
+.cs-data-table .cs-action-button { font-size:inherit; line-height:inherit; }
+.cs-action-button:disabled { opacity:.4; cursor:not-allowed; }
+.cs-action-button:disabled > span::after { transform:scaleX(0); }

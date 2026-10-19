@@ -1,4 +1,4 @@
-import { forwardRef, type AnchorHTMLAttributes } from 'react';
+import { forwardRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes } from 'react';
 export interface ActionLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** External navigation uses a distinct diagonal arrow. */
   external?: boolean;
@@ -15,3 +15,8 @@ export const ActionLink = forwardRef<HTMLAnchorElement, ActionLinkProps>(functio
     </svg>}
   </a>;
 });
+
+/** Button semantics for actions such as opening a dialog, sharing ActionLink motion. */
+export const ActionButton = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(function ActionButton(
+ {children,className,type='button',...props},ref,
+){return <button {...props} ref={ref} type={type} className={['cs-action-link','cs-action-button',className].filter(Boolean).join(' ')}><span>{children}</span></button>;});
