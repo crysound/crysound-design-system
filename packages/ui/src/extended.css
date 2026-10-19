@@ -1618,3 +1618,15 @@ button.cs-step-content { cursor: pointer; }
 @media(max-width:480px) { .cs-gallery-shop-card { grid-template-columns:1fr; }.cs-gallery-shop-image { min-height:180px; }.cs-gallery-shop-image img { height:180px; }.cs-gallery-shop-content { padding:20px; } }
 @media(prefers-reduced-motion:reduce) { .cs-gallery-shop-card,.cs-gallery-shop-buy { transition:none; } }
 .cs-gallery-shop-image { overflow:hidden; }
+/* Website article cards: 24/32 heading, two-line summary and whole-card motion. */
+.cs-gallery-cards-article { grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),340px)); gap:24px; }
+.cs-gallery-card-article .cs-gallery-card-picture { aspect-ratio:16/9; margin-bottom:24px; }
+.cs-gallery-card-article .cs-gallery-card-picture img { transform:scale(1); transition:transform 650ms cubic-bezier(.22,1,.36,1); }
+.cs-gallery-card-article:hover .cs-gallery-card-picture img,.cs-gallery-card-article:focus-within .cs-gallery-card-picture img { transform:scale(1.02); }
+.cs-gallery-card-article .cs-gallery-card-category { font-size:12px; line-height:16px; padding:2px 4px; margin-bottom:4px; }
+.cs-gallery-card-article h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; min-height:96px; margin:0 0 8px; font-size:24px; line-height:32px; font-weight:600; }
+.cs-gallery-card-article time { margin:0; font-size:16px; line-height:24px; }
+.cs-gallery-card-article p { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; height:48px; margin:8px 0 16px; font-size:16px; line-height:24px; }
+.cs-gallery-card-article .cs-gallery-card-primary::after { content:""; position:absolute; inset:0; z-index:1; }
+.cs-gallery-card-article .cs-gallery-card-more { position:relative; z-index:2; margin-top:0; font-size:16px; line-height:24px; }
+@media(prefers-reduced-motion:reduce) { .cs-gallery-card-article .cs-gallery-card-picture img { transition:none; } }
