@@ -4,7 +4,7 @@ import { MetricGroupDemo, StatusSummaryDemo } from "./metric-group-demo";
 import { SchedulingTableExample } from "./scheduling-table-example";
 import { WebsiteReference } from "./website-reference";
 import { useState } from 'react';
-import { FilterToolbar, QuotaCard, DetailPanel, FormDialog, Button, Input, Select, Checkbox } from '../../../packages/ui/src/index';
+import { Card, CardBody, Progress, FilterToolbar, QuotaCard, DetailPanel, FormDialog, Button, Input, Select, Checkbox } from '../../../packages/ui/src/index';
 
 export function CompositionExamples({only}: {only?: string}) {
   const [query, setQuery] = useState('');
@@ -25,6 +25,7 @@ export function CompositionFoundations() {
     <h4>指标摘要 · 统一组合</h4><MetricGroupDemo/>
     <p className="cs-help">指标组统一文字层级、弱边界与等宽数字，保持同组信息的阅读节奏一致。</p>
     <section className="radius-foundations"><h4>状态摘要 · 概览与异常</h4><StatusSummaryDemo/><p className="cs-help">组合建议：标签14/20，核心数值24/32 medium，单位和说明12/18；一个摘要区域容纳3–5项。异常采用带文字的状态点，数值保持正常文字色，不叠加彩色结论和徽标。标题使用24/32，说明只保留一项原因；详细错误不可在业务详情中省略。</p></section>
+    <section className="radius-foundations"><h4>连续卡片 · 边界完整性</h4><p className="cs-help">每张有边框卡片保持四边与圆角完整；首项、换行后的首项都不取消上边框。分组用外部标题和间距，卡片间使用gap。</p><div className="card-boundary-example">{[{name:'采集设备 01',value:42,note:'实验室 A · 16 路采集'},{name:'采集设备 02',value:68,note:'较长说明自然换行，保持卡片边界完整，不使用负边距覆盖上边框。'}].map(item=><Card key={item.name} title={item.name}><CardBody><Progress value={item.value} label="采集进度"/><p className="cs-help" style={{margin:0}}>{item.note}</p></CardBody></Card>)}</div><p className="cs-help">接入检查：避免section:first-child等全局边框重置、负margin、父容器裁切和绝对定位遮挡。仅用plain/inset显式选择无边框容器；不要通过行列位置判断卡片边界。</p></section>
     <CompositionExamples/>
     <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
     <section className="radius-foundations"><h4>进度列表 · 任务与详情</h4><p className="cs-help">任务、进度和日期按列对齐，共性提示集中展示。以下布局数值为工程建议，使用合成测量数据。</p><ProgressListDemo/></section>
@@ -42,7 +43,7 @@ export function CompositionFoundations() {
       ['预览截断','仅用于可打开完整内容的列表摘要','必须提供查看完整内容的入口'],
     ].map(row=><tr key={row[0]}>{row.map(cell=><td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div>
     <details className="foundation-reference"><summary>状态与主题验收清单</summary><ul><li>正常、悬停、按压、键盘焦点、加载、禁用、错误、空数据分别验证。</li><li>错误必须可恢复；加载不能重复提交；未知额度不得显示为0%。</li><li>亮色、深色、客户主题检查正文、边界、进度和浮层；主题设在根元素并传播到Portal。</li><li>320px窄屏、200%缩放、长中文与英文ID检查溢出；Tab/Shift+Tab、Esc及关闭后焦点返回检查。</li><li>系统减少动态效果时无位移和呼吸；触摸设备不依赖hover获取必要信息。</li></ul></details>
-    <details className="foundation-reference"><summary>消费项目接入</summary><pre className="space-code"><code>{`import { FilterToolbar, QuotaCard, DetailPanel, FormDialog } from '@crysound/ui';
+    <details className="foundation-reference"><summary>消费项目接入</summary><pre className="space-code"><code>{`import { Card, CardBody, Progress, FilterToolbar, QuotaCard, DetailPanel, FormDialog } from '@crysound/ui';
 import '@crysound/tokens/tokens.css';
 import '@crysound/ui/styles.css';
 

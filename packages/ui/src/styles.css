@@ -138,6 +138,8 @@
   color: var(--cs-danger-fg);
 }
 .cs-card {
+  box-sizing:border-box;
+  min-width:0;
   border: 1px solid var(--cs-border);
   border-radius: var(--cs-radius);
   background: var(--cs-surface);
@@ -708,6 +710,8 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 
 /* Boundary composition: flat content, explicit borders for independent controls. */
 .cs-card:not([data-shadow]) { box-shadow: none; }
+/* Outlined is an explicit component boundary, independent of list position. */
+.cs-card[data-variant="outlined"] { border:1px solid var(--cs-border); }
 .cs-card[data-variant="plain"] { border:0; background:transparent; overflow:visible; }
 .cs-card[data-variant="inset"] { border:0; background:var(--cs-subtle); }
 .cs-card[data-variant="plain"] > .cs-card-header { padding:0 0 20px; }

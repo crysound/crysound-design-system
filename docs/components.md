@@ -103,3 +103,12 @@ MetricGroup以原生dl组织多个指标，items提供稳定id、label、value�
 ## 资源链接卡片
 
 ResourceCard与ResourceCardGroup参考https://claude.com/product/claude-code资源区（2026-10-16读取当前CSS）：原卡片24px圆角、32px内距，颜色200ms / 背景与阴影500ms ease；组hover时非hover卡片背景透明；全局focus-visible为2px实线+2px偏移。CRYSOUND适配为20px圆角、24px内距、20/28标题，采用语义表面与焦点色；键盘焦点也可触发组内表面退后，属于适配扩展。保持一个原生链接覆盖整卡，不嵌套交互元素，不给普通Card增加悬停抬升。减少动态效果与强制颜色有降级。
+
+
+## 连续卡片边界
+
+outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，不根据first-child、nth-child或所在行取消边框。plain/inset继续保持无边框；这不是对消费项目任意CSS的强制隔离。
+
+分隔线应限定在列表、表格或CardActions内部，避免全局 `section:first-child { border-top:0 }` 等规则命中整张卡片。网格使用gap，不用负margin拼接闭合卡片；排查父容器overflow、绝对定位层、白色遮罩及尺寸计算。不要用额外outline或伪元素叠画边框掩盖来源。
+
+验收连续卡片的首项、换行首项、长说明与空说明，检查四个圆角和四边。截图只能定位现象；消费页仍需检查实际computed style及遮挡元素，不能仅凭截图确认根因。
