@@ -19,6 +19,8 @@
 .scene-appbar { height:56px; display:flex; align-items:center; gap:24px; padding:0 24px; border-bottom:1px solid var(--cs-border); font-size:12px; }
 .scene-appmark { display:flex; align-items:center; gap:8px; color:var(--cs-brand); white-space:nowrap; }
 .scene-appmark strong { font-weight:600; font-size:14px; }
+.scene-app-logo { display:block; width:164px; height:auto; }
+[data-theme="dark"] .scene-app-logo { filter:brightness(0) invert(1); }
 .scene-appbar-location { padding-left:24px; border-left:1px solid var(--cs-border); color:var(--cs-muted); }
 .scene-appbar-end { display:flex; align-items:center; gap:8px; margin-left:auto; color:var(--cs-muted); white-space:nowrap; }
 .scene-avatar { margin-left:12px; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; color:var(--cs-brand); background:var(--cs-selected-bg); }
