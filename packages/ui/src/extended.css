@@ -1399,9 +1399,9 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-table-results { display:flex; flex-wrap:wrap; align-items:center; min-height:40px; gap:12px; padding:4px 20px; color:var(--cs-muted); font-size:12px; background:var(--cs-surface); }
 .cs-data-table .cs-table { margin:0; table-layout:auto; }.cs-data-table .cs-table :is(th,td)[data-align="right"] { font-variant-numeric:tabular-nums; white-space:nowrap; }
-.cs-data-table .cs-table-select-col { width:44px; min-width:44px; box-sizing:border-box; padding-inline:12px; position:sticky; left:0; z-index:1; background:var(--cs-surface); }.cs-data-table .cs-table th.cs-table-select-col { background:var(--cs-subtle); }
-.cs-data-table .cs-table [data-pinned] { position:sticky; z-index:1; background:var(--cs-surface); box-shadow:1px 0 var(--cs-border); }.cs-data-table .cs-table th[data-pinned] { background:var(--cs-subtle); }
-.cs-data-table .cs-table-scroll[data-sticky-header] thead th { position:sticky; top:0; z-index:2; background:var(--cs-subtle); box-shadow:0 1px var(--cs-border); }.cs-data-table .cs-table-scroll[data-sticky-header] thead :is(th[data-pinned],th.cs-table-select-col) { z-index:3; }
+.cs-data-table .cs-table-select-col { width:44px; min-width:44px; box-sizing:border-box; padding-inline:12px; position:sticky; left:0; z-index:1; background:var(--cs-surface); }.cs-data-table .cs-table th.cs-table-select-col { background:var(--cs-table-header-bg); }
+.cs-data-table .cs-table [data-pinned] { position:sticky; z-index:1; background:var(--cs-surface); box-shadow:1px 0 var(--cs-border); }.cs-data-table .cs-table th[data-pinned] { background:var(--cs-table-header-bg); }
+.cs-data-table .cs-table-scroll[data-sticky-header] thead th { position:sticky; top:0; z-index:2; background:var(--cs-table-header-bg); box-shadow:0 1px var(--cs-border); }.cs-data-table .cs-table-scroll[data-sticky-header] thead :is(th[data-pinned],th.cs-table-select-col) { z-index:3; }
 .cs-data-table tr[data-selected] > :is(td[data-pinned],td.cs-table-select-col) { background:var(--cs-selected-bg); }
 .cs-table-state { min-height:180px; padding:32px 20px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; color:var(--cs-muted); font-size:14px; }.cs-table-state p { margin:0; }.cs-table-state strong { color:var(--cs-text-heading); font-weight:500; }
 .cs-data-table :where(summary,input,select):focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }

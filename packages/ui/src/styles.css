@@ -196,7 +196,7 @@
   border-top: 1px solid var(--cs-border);
 }
 .cs-table thead {
-  background: var(--cs-subtle);
+  background: var(--cs-table-header-bg);
   font-size: inherit;
   color: var(--cs-text);
 }

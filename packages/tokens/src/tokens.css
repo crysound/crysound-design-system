@@ -36,6 +36,7 @@
   --cs-bg: #f9f9f9;
   --cs-surface: #fff;
   --cs-subtle: #f6f6fc;
+  --cs-table-header-bg: #f5f5f5;
   --cs-text: var(--cs-slate-700);
   --cs-text-heading: var(--cs-slate-900);
   --cs-text-secondary: var(--cs-slate-700);
@@ -75,6 +76,7 @@
   --cs-bg: #111111;
   --cs-surface: #1c1c1c;
   --cs-subtle: #292929;
+  --cs-table-header-bg: #262626;
   --cs-text: #e5e5e5;
   --cs-text-heading: #fafafa;
   --cs-text-secondary: #e5e5e5;
