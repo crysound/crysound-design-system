@@ -62,3 +62,4 @@ it('searches brand products and restores focus when search closes',async()=>{
  expect(screen.getByRole('dialog')).toHaveTextContent('No products found.');
  await user.keyboard('{Escape}');expect(trigger).toHaveFocus();
 });
+it('includes featured products and a working Blogs carousel below products',async()=>{const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);expect(screen.getByRole('group',{name:'Featured Products'})).toBeInTheDocument();expect(screen.getByRole('heading',{name:'Blogs'})).toBeVisible();const carousel=screen.getByRole('region',{name:'Blogs articles'});expect(carousel).toHaveTextContent('SonoDAQ vs NI PXIe');await user.click(screen.getByRole('button',{name:'下一篇文章'}));expect(carousel).toHaveTextContent('CRYSOUND 10-Year Warranty');});
