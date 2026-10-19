@@ -47,7 +47,7 @@ const generalColumns:DataColumn<GeneralRow>[]=[
  {id:'action',header:'操作',align:'center',accessor:r=>r.id,exportable:false,width:90,cell:r=><RecordDetail id={r.id} title="事项详情" entries={[["事项",r.name],["负责人",r.owner],["部门",r.department],["状态",r.status],["截止日期",r.due],["预算",`¥${r.budget.toLocaleString('zh-CN')}`]]}/>},
 ];
 export function BusinessTable({view,state,onRetry,onSelectionChange}:{view:BusinessView;state:string;onRetry:()=>void;onSelectionChange:(ids:string[])=>void}){
- const props={selectable:true,columnVisibility:true,exportable:true,stickyHeader:true,maxHeight:420,pageSize:6,loading:state==='loading',error:state==='error'?'演示数据加载失败，请重试。':undefined,onRetry,onSelectionChange,searchPlaceholder:'搜索名称、编号或字段内容…'};
+ const props={selectable:true,columnVisibility:true,exportable:view==='general',stickyHeader:true,maxHeight:420,pageSize:6,loading:state==='loading',error:state==='error'?'演示数据加载失败，请重试。':undefined,onRetry,onSelectionChange,searchPlaceholder:'搜索名称、编号或字段内容…'};
  if(view==='cloud')return <DataTable {...props} caption="声像云端任务列表" columns={cloudColumns} data={state==='empty'?[]:cloudRows} getRowId={r=>r.id}/>;
  if(view==='resources')return <DataTable {...props} caption="设备与算力资源列表" columns={resourceColumns} data={state==='empty'?[]:resourceRows} getRowId={r=>r.id}/>;
  return <DataTable {...props} caption="通用项目事项列表" columns={generalColumns} data={state==='empty'?[]:generalRows} getRowId={r=>r.id}/>;

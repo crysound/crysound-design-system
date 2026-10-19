@@ -34,3 +34,4 @@ it('clears scene selection and uses search for a small general table',async()=>{
  expect(screen.getByText('5 条记录 · 已选 0 条（可跨页）')).toBeVisible();
  expect(screen.getByRole('table',{name:'通用项目事项列表'})).toHaveTextContent('1,200');
 });
+it('enables export only in the configured business scenes',async()=>{const user=userEvent.setup();render(<DataTableDemo/>);expect(screen.queryByRole('button',{name:'导出 CSV'})).not.toBeInTheDocument();await user.click(screen.getByRole('tab',{name:'通用事项'}));expect(screen.getByRole('button',{name:'导出 CSV'})).toBeVisible();await user.click(screen.getByRole('tab',{name:'噪声事件'}));expect(screen.queryByRole('button',{name:'导出 CSV'})).not.toBeInTheDocument();await user.click(screen.getByRole('tab',{name:'测量记录'}));expect(screen.getByRole('button',{name:'导出 CSV'})).toBeVisible();});
