@@ -1432,3 +1432,7 @@ button.cs-step-content { cursor: pointer; }
 /* Sortable headers keep neutral hover feedback rather than inheriting brand-tinted ghost buttons. */
 .cs-data-table .cs-table th:has(.cs-button):hover { background:color-mix(in srgb,var(--cs-table-header-bg) 80%,var(--cs-border)); }
 .cs-data-table .cs-table th .cs-button--ghost:hover:not(:disabled) { background:transparent; }
+/* Compact paired title/identifier rows without reducing type size. */
+.cs-data-table .cs-table tbody td { padding-block:10px; }
+.cs-data-table .cs-table-cell-text { line-height:20px; }
+.cs-data-table .cs-table-cell-text small { display:block; margin-top:2px; line-height:18px; }
