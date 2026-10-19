@@ -1439,3 +1439,7 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-data-table .cs-table th .cs-button--ghost:hover:not(:disabled) { color:inherit; }
 .cs-data-table .cs-table th .cs-button:is(:hover,:focus-visible) .cs-sort-icon { color:var(--cs-brand); }
+
+.cs-data-table .cs-sort-icon path { color:var(--cs-muted); }
+.cs-data-table .cs-sort-icon path[data-active] { color:var(--cs-brand); }
+.cs-data-table th[aria-sort="none"] .cs-button:is(:hover,:focus-visible) .cs-sort-icon path { color:var(--cs-brand); }
