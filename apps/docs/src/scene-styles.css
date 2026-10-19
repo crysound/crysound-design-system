@@ -291,3 +291,7 @@
 .ops-topbar { gap:3px; }
 .ops-topbar > .cs-button { width:44px; height:44px; min-width:44px; min-height:44px; padding:0; flex:0 0 44px; }
 .ops-topbar > strong { padding-left:16px; }
+/* Monitoring toolbar uses one control density for selectors and actions. */
+.noise-controls .cs-select-trigger,.noise-controls > .cs-button { height:32px; min-height:32px; box-sizing:border-box; font-size:14px; line-height:20px; font-weight:400; padding-inline:12px; }
+.noise-controls .cs-label { font-size:12px; line-height:18px; font-weight:400; color:var(--cs-muted); }
+@container(max-width:760px) { .noise-controls .cs-select-trigger,.noise-controls > .cs-button { height:44px; min-height:44px; } }
