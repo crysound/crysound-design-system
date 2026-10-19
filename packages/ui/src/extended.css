@@ -658,6 +658,7 @@
   font-size: inherit;
   color: inherit;
 }
+.cs-data-table .cs-table td .cs-button { font-size:inherit; line-height:inherit; }
 .cs-data-table .cs-table th[aria-sort="ascending"] .cs-sort-icon,
 .cs-data-table .cs-table th[aria-sort="descending"] .cs-sort-icon { color:var(--cs-brand); }
 .cs-data-table tr[data-selected] {
