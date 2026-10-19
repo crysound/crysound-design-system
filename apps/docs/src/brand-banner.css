@@ -122,3 +122,23 @@
 .brand-banner-carousel .brand-banner-controls > .cs-icon-button::after { content:""; width:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); border-top:2px solid currentColor; border-right:2px solid currentColor; transform:rotate(45deg); }
 .brand-banner-carousel .brand-banner-controls > .cs-icon-button:first-child::after { transform:rotate(225deg); }
 @container(max-width:640px) { .brand-banner-thumbnails { bottom:12px; gap:8px; padding:8px 16px; }.brand-banner-thumbnails button { width:36px; height:36px; padding:4px; } }
+/* Resting pagination is compact; only its own hover/focus reveals thumbnails. */
+.brand-banner-thumbnails { height:calc(28 * 100cqw / 1714); padding:calc(10 * 100cqw / 1714) calc(24 * 100cqw / 1714); gap:calc(6 * 100cqw / 1714); box-sizing:border-box; transition:height 180ms ease,padding 180ms ease,gap 180ms ease; }
+.brand-banner-thumbnails button { width:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); padding:0; border:0; border-radius:999px; overflow:hidden; flex-shrink:0; background:#00000033; transition:width 180ms ease,height 180ms ease,border-radius 180ms ease,background-color 180ms ease; }
+.brand-banner-thumbnails button[aria-current] { width:calc(40 * 100cqw / 1714); background:#00000033; }
+.brand-banner-thumbnails button[aria-current]::after { content:""; position:absolute; inset:0 auto 0 0; width:calc(20 * 100cqw / 1714); border-radius:inherit; background:#333; transition:opacity 150ms ease; }
+.brand-banner-thumbnails img { opacity:0; transition:opacity 150ms ease; }
+.brand-banner-thumbnails:is(:hover,:focus-within) { height:calc(68 * 100cqw / 1714); padding:calc(10 * 100cqw / 1714) calc(32 * 100cqw / 1714); gap:calc(8 * 100cqw / 1714); }
+.brand-banner-thumbnails:is(:hover,:focus-within) button { width:calc(48 * 100cqw / 1714); height:calc(48 * 100cqw / 1714); padding:calc(4 * 100cqw / 1714); border:1px solid transparent; border-radius:2px; background:#ffffff40; }
+.brand-banner-thumbnails:is(:hover,:focus-within) button[aria-current] { border-color:var(--cs-brand); background:#ffffff80; }
+.brand-banner-thumbnails:is(:hover,:focus-within) img { opacity:1; }
+.brand-banner-thumbnails:is(:hover,:focus-within) button::after { opacity:0; }
+@container(max-width:640px) {
+ .brand-banner-thumbnails { height:28px; padding:10px 24px; gap:6px; }
+ .brand-banner-thumbnails button { width:8px; height:8px; }
+ .brand-banner-thumbnails button[aria-current] { width:40px; }
+ .brand-banner-thumbnails button[aria-current]::after { width:20px; }
+ .brand-banner-thumbnails:is(:hover,:focus-within) { height:60px; padding:8px 16px; gap:8px; }
+ .brand-banner-thumbnails:is(:hover,:focus-within) button { width:44px; height:44px; padding:4px; }
+}
+@media(prefers-reduced-motion:reduce) { .brand-banner-thumbnails,.brand-banner-thumbnails button,.brand-banner-thumbnails img,.brand-banner-thumbnails button::after { transition:none; } }
