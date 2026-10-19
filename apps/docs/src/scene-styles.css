@@ -96,7 +96,6 @@
 .scene-analysis-table { width:100%; border-collapse:collapse; font-size:14px; line-height:22px; text-align:left; font-variant-numeric:tabular-nums; }
 .scene-analysis-table th { font-weight:400; color:var(--cs-muted); padding:8px 10px; }
 .scene-analysis-table td { padding:11px 10px; border-bottom:1px solid color-mix(in srgb,var(--cs-border) 60%,var(--cs-surface)); }
-.scene-analysis-table tbody tr:first-child { background:color-mix(in srgb,var(--cs-success-bg) 60%,var(--cs-surface)); }
 .scene-analysis-table td:not(:first-child),.scene-analysis-table th:not(:first-child) { text-align:right; }
 .scene-analysis-insight { border-left:1px solid var(--cs-border); padding-left:26px; }
 .scene-analysis-insight h3 { font-size:18px; line-height:28px; font-weight:500; margin:8px 0; color:var(--cs-text-heading); }
