@@ -1686,3 +1686,12 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-gallery-tile-image,.cs-gallery-thumbnails button { position:relative; }
 .cs-gallery-card-picture,.cs-gallery-shop-image,.cs-gallery-tile-image { background:var(--cs-table-header-bg); }
 .cs-gallery-default-cover { background:inherit; }
+.cs-gallery-shop-card { font-family:var(--cs-gallery-font-family,inherit); }
+.cs-gallery-shop-content h3 { height:auto; min-height:0; display:block; overflow:visible; font-size:24px; line-height:32px; font-weight:400; }
+.cs-gallery-shop-content strong { margin-top:12px; font-size:18px; line-height:24px; font-weight:600; }
+.cs-gallery-shop-content p { margin-top:12px; font-size:16px; line-height:24px; }
+.cs-gallery-shop-buy { font-weight:400; }
+@media(max-width:640px) { .cs-gallery-shop-content h3 { height:auto; min-height:0; font-size:16px; line-height:22px; }.cs-gallery-shop-content strong { margin-top:8px; font-size:16px; line-height:20px; } }
+.cs-gallery-shop-content h3 { max-width:340px; font-weight:500; }
+.cs-gallery-shop-card { height:272px; }
+@media(max-width:640px) { .cs-gallery-shop-card { height:210px; } }

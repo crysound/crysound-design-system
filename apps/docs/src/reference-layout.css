@@ -1833,3 +1833,8 @@ body {
 .website-gallery-examples .cs-gallery-shop-card:nth-child(2) .cs-gallery-shop-image img { width:188px; height:188px; left:22px; top:28px; }
 }
 .website-gallery-examples .cs-gallery-shop-card:hover .cs-gallery-shop-image img,.website-gallery-examples .cs-gallery-shop-card:focus-within .cs-gallery-shop-image img { transform:scale(1.04)!important; }
+.website-gallery-examples { --cs-gallery-font-family:CRYSOUNDCard,Arial,sans-serif; }
+@font-face { font-family:CRYSOUNDCard; src:url('/scene-assets/Manrope-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:CRYSOUNDCard; src:url('/scene-assets/Manrope-Semibold.otf') format('opentype'); font-weight:600; font-display:swap; }
+
+@font-face { font-family:CRYSOUNDCard; src:url('/scene-assets/Manrope-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
