@@ -355,7 +355,7 @@ const columns = [
 describe("data table contracts", () => {
   it("sorts numbers numerically in both directions", async () => {
     render(
-      <DataTable
+      <DataTable searchMode="always" filterMode="always"
         caption="记录"
         data={data}
         columns={columns}
@@ -377,7 +377,7 @@ describe("data table contracts", () => {
     const user = userEvent.setup();
     const selection = vi.fn();
     render(
-      <DataTable
+      <DataTable searchMode="always" filterMode="always"
         caption="记录"
         data={data}
         columns={columns}
@@ -401,7 +401,7 @@ describe("data table contracts", () => {
   it("resets the page when searching and announces empty results", async () => {
     const user = userEvent.setup();
     render(
-      <DataTable
+      <DataTable searchMode="always" filterMode="always"
         caption="记录"
         data={data}
         columns={columns}

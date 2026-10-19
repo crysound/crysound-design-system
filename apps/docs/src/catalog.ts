@@ -517,6 +517,7 @@ export const catalog: ComponentDoc[] = [
       ["data / columns / getRowId", "T[] / DataColumn<T>[] / callback", "必填"],
       ["caption", "string", "必填"],
       ["pageSize", "number", "5"],
+      ["searchMode / filterMode", "auto | always | never", "auto；搜索≥10条，筛选≥20条"],
       ["selectable / onSelectionChange", "boolean / callback", "false / —"],
       ["columns[].align / width / filterable / pinned", "left | right | center / number / boolean / boolean", "左对齐；仅首个可见数据列可固定"],
       ["columnVisibility / exportable / stickyHeader", "boolean", "false"],

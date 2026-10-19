@@ -5,8 +5,7 @@ import {DataTableDemo} from '../apps/docs/src/data-table-demo';
 afterEach(cleanup);
 it('filters cloud failures and opens their actual record details',async()=>{
  const user=userEvent.setup();render(<DataTableDemo/>);
- await user.click(screen.getByRole('button',{name:'云端状态 全部'}));
- await user.click(screen.getByRole('menuitemradio',{name:'失败'}));
+ await user.type(screen.getByRole('searchbox',{name:'搜索记录'}),'失败');
  const table=screen.getByRole('table',{name:'声像云端任务列表'});
  expect(within(table).queryByRole('progressbar')).not.toBeInTheDocument();
  expect(table).toHaveTextContent('文件校验失败');
@@ -25,13 +24,13 @@ it('preserves overloaded readings and represents disconnected resources without 
  expect(disconnected).toHaveTextContent('无读数');
  expect(within(disconnected).queryByRole('progressbar')).not.toBeInTheDocument();
 });
-it('clears scene selection and retains independent generic filters',async()=>{
+it('clears scene selection and uses search for a small general table',async()=>{
  const user=userEvent.setup();render(<DataTableDemo/>);
  await user.click(screen.getByRole('checkbox',{name:'选择记录 CL-001'}));
  await user.click(screen.getByRole('tab',{name:'通用事项'}));
  expect(screen.getByText('15 条记录 · 已选 0 条（可跨页）')).toBeVisible();
- await user.click(screen.getByRole('button',{name:'部门 全部'}));
- await user.click(screen.getByRole('menuitemradio',{name:'质量'}));
+ expect(screen.queryByRole('button',{name:'部门 全部'})).not.toBeInTheDocument();
+ await user.type(screen.getByRole('searchbox',{name:'搜索记录'}),'研发');
  expect(screen.getByText('5 条记录 · 已选 0 条（可跨页）')).toBeVisible();
- expect(screen.getByRole('table',{name:'通用项目事项列表'})).toHaveTextContent('2,050');
+ expect(screen.getByRole('table',{name:'通用项目事项列表'})).toHaveTextContent('1,200');
 });
