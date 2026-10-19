@@ -10,12 +10,12 @@
   --doc-hover: #fafafa;
 }
 [data-theme="dark"] {
-  --doc-page: #111019;
-  --doc-subtle: #1b1923;
-  --doc-line: #302c3c;
+  --doc-page: #111111;
+  --doc-subtle: #1b1b1b;
+  --doc-line: #303030;
   --doc-text: var(--cs-text);
   --doc-muted: var(--cs-muted);
-  --doc-hover: #24212e;
+  --doc-hover: #242424;
 }
 body {
   background: var(--doc-page);
