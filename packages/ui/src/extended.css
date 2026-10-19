@@ -1630,3 +1630,10 @@ button.cs-step-content { cursor: pointer; }
 .cs-gallery-card-article .cs-gallery-card-primary::after { content:""; position:absolute; inset:0; z-index:1; }
 .cs-gallery-card-article .cs-gallery-card-more { position:relative; z-index:2; margin-top:0; font-size:16px; line-height:24px; }
 @media(prefers-reduced-motion:reduce) { .cs-gallery-card-article .cs-gallery-card-picture img { transition:none; } }
+/* Keep specification cards at the website's compact catalogue size. */
+.cs-gallery-cards-details { grid-template-columns:repeat(auto-fit,minmax(min(100%,304px),304px)); gap:24px; }
+.cs-gallery-card-details { padding:16px; }
+.cs-gallery-card-details .cs-gallery-card-picture { aspect-ratio:1/1; }
+.cs-gallery-card-details .cs-gallery-card-picture img { inset:20px; width:calc(100% - 40px); height:calc(100% - 40px); }
+.cs-gallery-card-details h3 { font-size:20px; line-height:28px; min-height:56px; margin:12px 0 24px; }
+.cs-gallery-card-details > a.cs-gallery-card-details { padding:4px 16px; }
