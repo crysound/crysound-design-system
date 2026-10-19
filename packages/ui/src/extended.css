@@ -1380,3 +1380,6 @@ button.cs-step-content { cursor: pointer; }
 .cs-chart-legend button { min-height:28px; padding:2px 4px; border-radius:var(--cs-radius); }
 .cs-chart-legend button:hover { background:var(--cs-item-hover-bg); }
 @media(max-width:540px) { .cs-chart { padding:16px 12px; } .cs-chart-legend { gap:8px 12px; } }
+.cs-donut-plot { background:var(--cs-chart-plot-bg); position:relative; display:grid; place-items:center; min-height:280px; }
+.cs-donut-plot svg { width:100%; max-width:420px; height:280px; }
+.cs-donut-plot > div { position:absolute; inset:0; display:grid; place-items:center; background:var(--cs-chart-plot-bg); color:var(--cs-chart-axis); font-size:14px; }
