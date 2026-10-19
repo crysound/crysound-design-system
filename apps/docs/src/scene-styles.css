@@ -391,3 +391,49 @@
  .scene-brand-official .scene-brand-nav nav { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; }
  .scene-brand-official .scene-brand-nav nav .cs-button { min-width:0; width:100%; padding-inline:4px; }
 }
+
+/* Match the official site's centered content shell within the embedded sample. */
+.scene-brand-official { --scene-page-inset:clamp(24px, 9.6cqw, 160px); background:var(--cs-surface); }
+.scene-brand-official .scene-brand-nav { padding-inline:var(--scene-page-inset); min-height:72px; gap:24px; }
+.scene-brand-official .scene-brand-nav img { width:180px; }
+.scene-brand-official .scene-brand-nav nav { justify-content:flex-end; gap:8px; }
+.scene-brand-official .scene-brand-nav .cs-button { padding-inline:8px; gap:4px; }
+.scene-brand-official .scene-brand-nav > a { display:none; }
+.scene-brand-official .scene-official-hero { box-sizing:border-box; grid-template-columns:52% 48%; min-height:400px; height:30cqw; max-height:512px; padding:40px var(--scene-page-inset) 64px; }
+.scene-brand-official .scene-official-copy h2 { font-size:36px; line-height:44px; letter-spacing:-.025em; }
+.scene-brand-official .scene-official-copy p { line-height:24px; margin-bottom:32px; }
+.scene-brand-official .scene-official-visual { height:100%; max-height:340px; }
+.scene-brand-official .scene-official-monitor { width:61.2%; height:100%; object-position:left center; z-index:2; }
+.scene-brand-official .scene-official-rack { width:50.6%; height:68%; right:0; bottom:16%; z-index:1; }
+.scene-brand-official .scene-brand-solutions,.scene-brand-official .scene-brand-products { padding:64px var(--scene-page-inset); }
+.scene-brand-official .scene-brand-section-heading h3 { font-size:36px; line-height:44px; }
+.scene-brand-official .scene-solution-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:24px; }
+.scene-brand-official .scene-solution-grid article { background:transparent; overflow:visible; border-radius:0; }
+.scene-brand-official .scene-solution-grid article > img { aspect-ratio:1.7; border-radius:var(--cs-radius-lg); }
+.scene-brand-official .scene-solution-grid article > div { padding:24px 0 0; }
+.scene-brand-official .scene-solution-grid h4 { font-size:24px; line-height:32px; margin-bottom:12px; }
+.scene-brand-official .scene-solution-grid p { font-size:16px; line-height:24px; }
+.scene-brand-official .scene-product-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+.scene-brand-official .scene-brand-footer { padding-inline:var(--scene-page-inset); }
+@container(max-width:1100px) {
+ .scene-brand-official .scene-brand-nav { padding-inline:24px; gap:16px; }
+ .scene-brand-official .scene-brand-nav img { width:144px; }
+ .scene-brand-official .scene-brand-nav nav { gap:0; }
+ .scene-brand-official .scene-brand-nav .cs-button { font-size:12px; padding-inline:6px; }
+ .scene-brand-official .scene-solution-grid h4 { font-size:20px; line-height:28px; }
+ .scene-brand-official .scene-solution-grid p { font-size:14px; line-height:22px; }
+}
+@container(max-width:900px) {
+ .scene-brand-official .scene-brand-nav nav { flex-basis:100%; justify-content:space-between; }
+ .scene-brand-official .scene-official-copy h2 { font-size:30px; line-height:40px; }
+ .scene-brand-official .scene-solution-grid,.scene-brand-official .scene-product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@container(max-width:640px) {
+ .scene-brand-official .scene-official-hero { height:auto; max-height:none; grid-template-columns:1fr; padding:32px 24px 80px; }
+ .scene-brand-official .scene-official-visual { height:240px; }
+ .scene-brand-official .scene-brand-solutions,.scene-brand-official .scene-brand-products { padding:40px 24px; }
+ .scene-brand-official .scene-brand-section-heading h3 { font-size:30px; line-height:40px; }
+ .scene-brand-official .scene-solution-grid,.scene-brand-official .scene-product-grid { grid-template-columns:1fr; }
+ .scene-brand-official .scene-brand-nav nav { overflow-x:auto; justify-content:flex-start; }
+ .scene-brand-official .scene-brand-nav .cs-button { white-space:nowrap; flex-shrink:0; }
+}

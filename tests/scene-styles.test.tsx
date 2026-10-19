@@ -29,7 +29,7 @@ it('switches analysis units and exports the current chart data',async()=>{
 });
 it('filters product families and returns focus after closing details',async()=>{
   const user=userEvent.setup();render(<SceneStyles/>);await user.click(screen.getByRole('tab',{name:/品牌官网/}));
-  await user.click(screen.getByRole('tab',{name:'音频测试'}));
+  await user.click(screen.getByRole('tab',{name:'Electroacoustic Test'}));
   expect(screen.queryByRole('heading',{name:'CRY5820 SonoDAQ Pro'})).not.toBeInTheDocument();
   const trigger=screen.getByRole('button',{name:'查看系列'});await user.click(trigger);
   expect(screen.getByRole('dialog')).toHaveTextContent('蓝牙音频测试');
