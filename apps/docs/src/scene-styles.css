@@ -287,3 +287,7 @@
 @container(max-width:760px) { .noise-readouts { grid-template-columns:1fr; gap:20px; }.noise-readouts article { border-left:0; border-top:1px solid var(--cs-border); padding:16px 0 0; }.noise-controls { flex-wrap:wrap; width:100%; }.noise-controls .cs-field { width:100%; }.noise-live-status { flex-wrap:wrap; }.noise-live-status > span:last-child { margin-left:14px; }.noise-controls .cs-button,.noise-settings .cs-button { min-height:44px; }.noise-point { min-height:44px; } }
 
 .noise-current strong { font-size:36px; line-height:44px; }
+/* 18px icon centered in a 44px target: 13px inner space + 3px gap = 16px. */
+.ops-topbar { gap:3px; }
+.ops-topbar > .cs-button { width:44px; height:44px; min-width:44px; min-height:44px; padding:0; flex:0 0 44px; }
+.ops-topbar > strong { padding-left:16px; }
