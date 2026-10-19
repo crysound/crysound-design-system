@@ -1333,7 +1333,9 @@ button.cs-step-content { cursor: pointer; }
   font-size: var(--cs-type-control-size);
   line-height: var(--cs-type-control-leading);
 }
-.cs-select-trigger svg { flex-shrink: 0; }
+.cs-select-trigger > svg { flex-shrink: 0; transition:transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-select-trigger[data-state="open"] > svg { transform:rotate(180deg); }
+@media(prefers-reduced-motion:reduce) { .cs-select-trigger > svg { transition:none; } }
 .cs-select-trigger:focus, .cs-select-trigger:focus-visible, .cs-select-trigger[data-state="open"] { outline: none; box-shadow: none; border-color: var(--cs-brand); }
 .cs-select-trigger[aria-invalid="true"] { border-color: var(--cs-danger-fg); }
 .cs-select-menu { min-width: var(--radix-dropdown-menu-trigger-width); max-height: var(--radix-dropdown-menu-content-available-height); overflow: auto; padding: 4px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); background: var(--cs-surface); color: var(--cs-text); box-shadow: var(--cs-shadow-md); z-index: var(--cs-z-popover); font-family: var(--cs-font);
