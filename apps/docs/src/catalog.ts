@@ -509,7 +509,7 @@ export const catalog: ComponentDoc[] = [
     "DataTable",
     "数据表格",
     "数据",
-    "面向监测点、噪声事件与测量记录，支持搜索、列筛选、三态排序、列显隐、固定表头/首列、跨页选择和 CSV 导出。",
+    "面向声像云端、设备与算力、声学测量及通用事项，支持搜索、列筛选、三态排序、列显隐、固定表头/首列、跨页选择和 CSV 导出。",
     [
       ["data / columns / getRowId", "T[] / DataColumn<T>[] / callback", "必填"],
       ["caption", "string", "必填"],

@@ -299,3 +299,18 @@
 @media(max-width:640px) { .table-demo-heading { flex-direction:column; align-items:stretch; }.table-demo-heading > .cs-field { width:100%; } }
 .table-demo { padding:24px; }
 @media(max-width:640px) { .table-demo { padding:16px; } }
+
+/* Business grids use shared controls and semantic states, never per-row status fills. */
+.table-demo-state { display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-size:14px; }
+.table-demo-state > span { font-size:10px; }
+.table-demo-state[data-tone="success"] { color:var(--cs-success-fg); }
+.table-demo-state[data-tone="danger"] { color:var(--cs-danger-fg); }
+.table-demo-muted,.table-demo-load small { color:var(--cs-muted); }
+.table-demo-capacity { min-width:100px; display:grid; gap:6px; font-variant-numeric:tabular-nums; }
+.table-demo-capacity > span { text-align:right; }
+.table-demo-capacity .cs-between { display:none; }
+.table-demo-capacity .cs-field { gap:0; }
+.table-demo-load[data-warning] .cs-progress-indicator { background:var(--cs-warning-fg); }
+.table-demo-load small { display:block; margin-top:4px; font-size:12px; }
+.table-demo .cs-tabs-list { overflow-x:auto; flex-wrap:nowrap; }
+.table-demo .cs-tabs-trigger { flex-shrink:0; }
