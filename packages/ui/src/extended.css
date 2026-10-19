@@ -1425,7 +1425,7 @@ button.cs-step-content { cursor: pointer; }
  .cs-data-table .cs-table-toolbar-actions { margin-left:0; width:100%; flex-wrap:wrap; }
 }
 
-/* Header and cell alignment share the column contract. Numeric sort icons precede labels. */
+/* Header and cell alignment share the column contract; labels always precede sort icons. */
 .cs-data-table .cs-table th .cs-button { width:100%; justify-content:flex-start; text-align:inherit; }
-.cs-data-table .cs-table th[data-align="right"] .cs-button { flex-direction:row-reverse; justify-content:flex-start; }
+.cs-data-table .cs-table th[data-align="right"] .cs-button { flex-direction:row; justify-content:flex-end; }
 .cs-data-table .cs-table th[data-align="center"] .cs-button { justify-content:center; }
