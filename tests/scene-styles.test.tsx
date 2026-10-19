@@ -6,6 +6,7 @@ import {SceneStyles,SceneStandalone} from '../apps/docs/src/scene-styles';
 afterEach(()=>{cleanup();vi.restoreAllMocks();});
 it('selects devices and locks configuration until measurement stops',async()=>{
   const user=userEvent.setup();render(<SceneStyles/>);
+  await user.click(screen.getByRole('button',{name:'测量配置'}));
   await user.click(screen.getByRole('button',{name:/产线采集终端 DAQ-02/}));
   expect(screen.getByRole('button',{name:/产线采集终端 DAQ-02/})).toHaveAttribute('aria-pressed','true');
   await user.click(screen.getByRole('button',{name:'开始测量'}));
@@ -37,3 +38,4 @@ it('filters product families and returns focus after closing details',async()=>{
 
 it("opens a standalone scene with explicit scene navigation",()=>{render(<SceneStandalone scene="analytics"/>);expect(screen.getByRole("heading",{name:"测量质量概览"})).toBeVisible();expect(screen.getByRole("link",{name:"理性数据"})).toHaveAttribute("aria-current","page");expect(screen.getByRole("link",{name:"品牌展示"})).toHaveAttribute("href","#scene/brand");});
 it('switches brand product imagery using explicit product controls',async()=>{const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);await user.click(screen.getByRole('button',{name:'声学成像'}));expect(screen.getByRole('button',{name:'声学成像'})).toHaveAttribute('aria-pressed','true');expect(screen.getByRole('img',{name:'SonoCam Pi 声学成像产品'})).toBeVisible();expect(screen.queryByRole('img',{name:'数据采集分析软件展示'})).not.toBeInTheDocument();await user.click(screen.getByRole('button',{name:'便携检测'}));expect(screen.getByRole('img',{name:'SonoCam Pocket 声学成像产品'})).toBeVisible();});
+it('switches operations views, filters tasks and collapses navigation',async()=>{const user=userEvent.setup();render(<SceneStandalone scene="precision"/>);expect(screen.getByRole('heading',{name:'测量任务流水线'})).toBeVisible();await user.click(screen.getByRole('button',{name:'收起侧栏'}));expect(screen.getByRole('button',{name:'展开侧栏'})).toBeVisible();await user.click(screen.getByRole('tab',{name:'配置'}));expect(screen.getByRole('tabpanel')).toHaveTextContent('产线设备校验');expect(screen.getByRole('tabpanel')).not.toHaveTextContent('环境声级记录');await user.click(screen.getByRole('button',{name:'资源'}));expect(screen.getByRole('heading',{name:'采集点状态'})).toBeVisible();expect(screen.getByRole('button',{name:'资源'})).toHaveAttribute('aria-current','page');});
