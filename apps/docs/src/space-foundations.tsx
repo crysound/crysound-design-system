@@ -24,7 +24,7 @@ export function SpaceFoundations() {
     ].map(row=><tr key={row[0]}>{row.map(cell=><td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div>
     <h3>紧凑与舒适密度</h3>
     <div className="space-density-grid">{[['compact','紧凑','32px','8px','16px'],['comfortable','舒适','40px','12px','24px']].map(([mode,label,height,gap,padding])=><div className="space-density" key={mode}><strong>{label} / {mode}</strong><p>控件高度 {height} · 组件间距 {gap} · 内容内距 {padding}</p><div className="space-density-preview" style={{padding,gap}}><span style={{height}}>测量任务</span><span style={{height}}>设备配置</span></div></div>)}</div>
-    <p className="cs-help">密度只调整布局与控件，不改变字号阶梯。手机上建议保证交互区域至少 44px；不要用空格或换行符撑开布局。</p>
+    <p className="cs-help">按钮默认高度36px；表单控件沿用对应密度。密度只调整布局与控件，不改变字号阶梯。手机上建议保证交互区域至少 44px；不要用空格或换行符撑开布局。</p>
     <h3>接入示例</h3>
     <pre className="space-code"><code>{`.measurement-panel {\n  display: grid;\n  gap: var(--cs-space-6);\n  padding: var(--cs-space-6);\n}\n\n@media (max-width: 639px) {\n  .measurement-panel { padding: var(--cs-space-4); }\n}`}</code></pre>
   </section>;

@@ -27,6 +27,7 @@
   min-height: var(--cs-control-height);
 }
 .cs-button {
+  min-height: var(--cs-button-height);
   display: inline-flex;
   align-items: center;
   justify-content: center;

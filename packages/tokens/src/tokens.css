@@ -65,6 +65,7 @@
   --cs-space-6: 24px;
   --cs-space-8: 32px;
   --cs-control-height: 40px;
+  --cs-button-height: 36px;
   --cs-font-size: 14px;
   --cs-shadow: 0 8px 32px #17005714;
 }
@@ -97,6 +98,7 @@
 }
 [data-density="compact"] {
   --cs-control-height: 32px;
+  --cs-button-height: 32px;
   --cs-font-size: 14px;
 }
 /* Example customer theme; the accessible foreground is part of the override. */

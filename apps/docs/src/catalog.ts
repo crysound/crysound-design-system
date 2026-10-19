@@ -59,7 +59,7 @@ export const catalog: ComponentDoc[] = [
     "Button",
     "按钮",
     "操作",
-    "用明确的操作层级、尺寸和反馈承载主要任务。",
+    "默认按钮高度36px，用明确的操作层级、尺寸和反馈承载主要任务。",
     [
       ["variant", "primary | secondary | ghost | danger", "primary"],
       ["size", "sm | md | lg", "md"],

@@ -115,3 +115,5 @@ outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，�
 
 
 工作台页面底色使用 --cs-bg（light/software为#f8fafc），内容卡片使用 --cs-surface（白色）；--cs-subtle用于局部辅助区域。不要把Slate 200或更深的控件灰色铺满整个工作区，也不要通过加深背景代替分组。接入应用如仍使用硬编码#e2e8f0，需改为语义令牌才能同步本调整。
+
+按钮默认md高度按用户要求改为36px，使用独立的cs-button-height语义Token；紧凑密度保留32px。sm/lg及移动触摸场景继续由显式尺寸约束，输入框等表单控件不随按钮调整。
