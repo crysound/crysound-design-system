@@ -1429,3 +1429,6 @@ button.cs-step-content { cursor: pointer; }
 .cs-data-table .cs-table th .cs-button { width:100%; justify-content:flex-start; text-align:inherit; }
 .cs-data-table .cs-table th[data-align="right"] .cs-button { flex-direction:row; justify-content:flex-end; }
 .cs-data-table .cs-table th[data-align="center"] .cs-button { justify-content:center; }
+/* Sortable headers keep neutral hover feedback rather than inheriting brand-tinted ghost buttons. */
+.cs-data-table .cs-table th:has(.cs-button):hover { background:color-mix(in srgb,var(--cs-table-header-bg) 80%,var(--cs-border)); }
+.cs-data-table .cs-table th .cs-button--ghost:hover:not(:disabled) { background:transparent; }
