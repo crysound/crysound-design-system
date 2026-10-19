@@ -73,7 +73,6 @@ export const docCategories = [
       "button",
       "icon-button",
       "navigation-menu",
-      "carousel",
       "media-gallery",
       "action-link",
       "carousel-pagination",
@@ -287,7 +286,6 @@ export function PreviewThumbnail({ id }: { id: string }) {
       return <div className="thumb-modal"><strong>通道校准</strong><span>确认设备连接后开始校准。</span><div style={{display:'flex',justifyContent:'space-between',gap:12}}><span>采集设备 01</span><StatusBadge status="online"/></div><Progress value={66} label="校准进度"/><div className="thumb-row"><Button size="sm" variant="secondary">取消</Button><Button size="sm">开始校准</Button></div></div>;
     case "icon-button":return <IconButtonDemo/>;
     case "navigation-menu":return <span>Products · Solutions · Resources</span>;
-    case "carousel":return <CarouselPagination count={3} value={1} onValueChange={()=>{}}/>;
     case "media-gallery":return <img src="/scene-assets/sonodaq.png" alt="产品图片画廊" style={{width:120,height:80,objectFit:'contain'}}/>;
     case "carousel-pagination":
       return <CarouselPagination count={6} value={3} onValueChange={()=>{}}/>;
