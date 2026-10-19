@@ -109,3 +109,16 @@
 .brand-banner-carousel .cs-carousel-play { position:absolute; right:16px; bottom:16px; pointer-events:auto; background:var(--cs-surface); }
 @container(max-width:640px) { .brand-banner-carousel .brand-banner-controls > .cs-icon-button { display:none; }.brand-banner-carousel .cs-carousel-play { right:8px; bottom:8px; font-size:12px; padding:4px 8px; } }
 @media(prefers-reduced-motion:reduce) { .brand-banner-carousel .brand-banner-controls > .cs-icon-button { transition:none; } }
+.brand-banner-shell { position:relative; container-type:inline-size; }
+.brand-banner-thumbnails { position:absolute; left:50%; bottom:calc(24 * 100cqw / 1714); transform:translateX(-50%); display:flex; align-items:center; gap:calc(8 * 100cqw / 1714); padding:calc(10 * 100cqw / 1714) calc(30 * 100cqw / 1714); border-radius:999px; background:#0000001a; }
+.brand-banner-thumbnails button { position:relative; display:flex; align-items:center; justify-content:center; width:calc(48 * 100cqw / 1714); height:calc(48 * 100cqw / 1714); padding:calc(4 * 100cqw / 1714); border:1px solid transparent; border-radius:2px; background:#ffffff40; cursor:pointer; }
+.brand-banner-thumbnails button[aria-current] { border-color:var(--cs-brand); background:#ffffff80; }
+.brand-banner-thumbnails button:focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }
+.brand-banner-thumbnails img { width:100%; height:100%; object-fit:contain; }
+.brand-banner-thumbnails button:first-child > img:first-child { width:80%; margin-right:20%; }
+.brand-banner-thumbnails .brand-thumb-rack { position:absolute; width:54%; height:72%; right:0; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button { opacity:1; pointer-events:auto; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button svg { display:none; }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button::after { content:""; width:calc(8 * 100cqw / 1714); height:calc(8 * 100cqw / 1714); border-top:2px solid currentColor; border-right:2px solid currentColor; transform:rotate(45deg); }
+.brand-banner-carousel .brand-banner-controls > .cs-icon-button:first-child::after { transform:rotate(225deg); }
+@container(max-width:640px) { .brand-banner-thumbnails { bottom:12px; gap:8px; padding:8px 16px; }.brand-banner-thumbnails button { width:36px; height:36px; padding:4px; } }
