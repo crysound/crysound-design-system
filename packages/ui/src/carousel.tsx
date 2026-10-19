@@ -1,0 +1,20 @@
+import {useEffect,useId,useRef,useState,type ReactNode} from 'react';
+import {CarouselPagination} from './carousel-pagination';
+import {IconButton} from './icon-button';
+export interface CarouselItem {id:string;label:string;content:ReactNode;}
+export interface CarouselProps {items:CarouselItem[];label:string;value?:number;defaultValue?:number;onValueChange?:(value:number)=>void;loop?:boolean;pagination?:boolean;autoPlay?:boolean;interval?:number;className?:string;}
+const Arrow=({back=false}:{back?:boolean})=><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d={back?'M19 12H5m7-7-7 7 7 7':'M5 12h14m-7-7 7 7-7 7'}/></svg>;
+export function Carousel({items,label,value,defaultValue=0,onValueChange,loop=true,pagination=true,autoPlay=false,interval=5000,className}:CarouselProps){
+ const id=useId();const pointerRunning=useRef(false);const [internal,setInternal]=useState(defaultValue);const [running,setRunning]=useState(autoPlay);const [hover,setHover]=useState(false);const [hidden,setHidden]=useState(false);const [reduced,setReduced]=useState(false);
+ const index=Math.max(0,Math.min(items.length-1,Math.floor(Number.isFinite(value??internal)?(value??internal):0)));
+ const change=(next:number)=>{if(next===index)return;if(value===undefined)setInternal(next);onValueChange?.(next);};
+ useEffect(()=>{setRunning(autoPlay);},[autoPlay]);
+ useEffect(()=>{const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');const update=()=>setReduced(media?.matches??false);const visibility=()=>setHidden(document.hidden);update();visibility();media?.addEventListener('change',update);document.addEventListener('visibilitychange',visibility);return()=>{media?.removeEventListener('change',update);document.removeEventListener('visibilitychange',visibility);};},[]);
+ useEffect(()=>{if(!running||hover||hidden||reduced||items.length<2||(!loop&&index===items.length-1))return;const timer=window.setInterval(()=>change((index+1)%items.length),Math.max(1000,Number.isFinite(interval)?interval:5000));return()=>window.clearInterval(timer);},[running,hover,hidden,reduced,index,items.length,loop,interval,value,onValueChange]);
+ useEffect(()=>{if(!loop&&items.length>0&&index===items.length-1)setRunning(false);},[loop,index,items.length]);
+ const next=(delta:number)=>{const n=index+delta;change(loop?(n+items.length)%items.length:Math.max(0,Math.min(items.length-1,n)));};
+ return <section className={['cs-carousel',className].filter(Boolean).join(' ')} aria-label={label} aria-roledescription="轮播图" onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onFocusCapture={()=>setRunning(false)} onKeyDown={e=>{if(e.target!==e.currentTarget||items.length<2)return;if(e.key==='ArrowRight'){e.preventDefault();next(1);}else if(e.key==='ArrowLeft'){e.preventDefault();next(-1);}}} tabIndex={items.length>1?0:undefined}>
+ {!items.length?<div className="cs-carousel-empty">暂无内容</div>:<div className="cs-carousel-viewport" id={id} aria-live={running?'off':'polite'} aria-atomic="true"><div key={items[index].id} className="cs-carousel-slide" role="group" aria-roledescription="幻灯片" aria-label={`${index+1} / ${items.length} · ${items[index].label}`}>{items[index].content}</div></div>}
+ {items.length>1&&<div className="cs-carousel-controls"><IconButton label="上一张" tooltip={false} variant="ghost" disabled={!loop&&index===0} onClick={()=>next(-1)}><Arrow back/></IconButton>{pagination&&<CarouselPagination count={items.length} value={index} onValueChange={change} labels={items.map(i=>i.label)} controls={id}/>}<IconButton label="下一张" tooltip={false} variant="ghost" disabled={!loop&&index===items.length-1} onClick={()=>next(1)}><Arrow/></IconButton>{autoPlay&&<button type="button" className="cs-carousel-play" disabled={reduced} onPointerDown={()=>{pointerRunning.current=running;}} onClick={e=>setRunning(e.detail>0?!pointerRunning.current:!running)}>{reduced?'已减少动态效果':running?'暂停轮播':'播放轮播'}</button>}</div>}
+ </section>;
+}

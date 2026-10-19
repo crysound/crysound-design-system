@@ -340,3 +340,7 @@ export * from './resource-card';
 
 export * from './progress-list';
 export * from './carousel-pagination';
+export * from './icon-button';
+export * from './navigation-menu';
+export * from './carousel';
+export * from './media-gallery';
