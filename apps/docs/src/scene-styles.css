@@ -154,7 +154,7 @@
 .scene-brand-orbit { background:#f8f9fb; border-color:#e5e7eb; }
 
 /* Full-page scene previews retain the same component and theme contracts. */
-.scene-expand { color:var(--cs-brand); font-size:14px; text-decoration:none; }
+.scene-expand { display:inline-flex; align-items:center; gap:6px; width:fit-content; color:var(--cs-brand); font-size:14px; text-decoration:none; }
 .scene-standalone { min-height:100vh; background:var(--cs-surface); color:var(--cs-text); }
 .scene-preview-nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 24px; border-bottom:1px solid var(--cs-border); font-size:12px; }
 .scene-preview-nav a { color:var(--cs-muted); text-decoration:none; padding:8px; display:inline-flex; align-items:center; }
