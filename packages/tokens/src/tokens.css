@@ -111,9 +111,9 @@
   --cs-focus: #95baff;
 }
 
-/* OpenTest software surface profile; preserve the shared brand. */
+/* Software surface profile: light canvas adaptation; original extraction recorded in design-review. */
 [data-context="software"][data-theme="light"] {
-  --cs-bg: #e2e8f0;
+  --cs-bg: #f8fafc;
   --cs-surface: #fff;
   --cs-subtle: #f1f5f9;
   --cs-text: var(--cs-slate-700);

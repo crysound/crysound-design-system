@@ -112,3 +112,6 @@ outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，�
 分隔线应限定在列表、表格或CardActions内部，避免全局 `section:first-child { border-top:0 }` 等规则命中整张卡片。网格使用gap，不用负margin拼接闭合卡片；排查父容器overflow、绝对定位层、白色遮罩及尺寸计算。不要用额外outline或伪元素叠画边框掩盖来源。
 
 验收连续卡片的首项、换行首项、长说明与空说明，检查四个圆角和四边。截图只能定位现象；消费页仍需检查实际computed style及遮挡元素，不能仅凭截图确认根因。
+
+
+工作台页面底色使用 --cs-bg（light/software为#f8fafc），内容卡片使用 --cs-surface（白色）；--cs-subtle用于局部辅助区域。不要把Slate 200或更深的控件灰色铺满整个工作区，也不要通过加深背景代替分组。接入应用如仍使用硬编码#e2e8f0，需改为语义令牌才能同步本调整。

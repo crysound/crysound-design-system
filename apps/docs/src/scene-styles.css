@@ -31,7 +31,7 @@
 .scene-work-nav .scene-nav-current { background:var(--cs-selected-bg); color:var(--cs-selected-fg); justify-content:flex-start !important; font-weight:500; }
 .scene-project-note { margin-top:auto; padding:24px 8px 0; font-size:12px; line-height:20px; }
 .scene-project-note small { color:var(--cs-muted); }
-.scene-work-body { padding:28px 24px 0; }
+.scene-work-body { padding:28px 24px 0; background:var(--cs-bg); }
 .scene-page-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; }
 .scene-page-heading h2 { font-size:24px; line-height:32px; font-weight:600; color:var(--cs-text-heading); margin:4px 0 6px; }
 .scene-page-heading p { margin:0; font-size:12px; line-height:20px; color:var(--cs-muted); }

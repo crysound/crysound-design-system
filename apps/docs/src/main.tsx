@@ -188,7 +188,7 @@ function App() {
             <div className="docs-settings-fields">
               <ThemeSelect label="界面密度" value={density} onValueChange={setDensity} options={[{ value: "comfortable", label: "舒适 / 40px" }, { value: "compact", label: "紧凑 / 32px" }]} />
               <ThemeSelect label="客户主题" value={customer} onValueChange={setCustomer} options={[{ value: "crysound", label: "CRYSOUND" }, { value: "ocean", label: "Ocean 示例" }]} />
-              <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "软件 / Slate 灰" }]} />
+              <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "工作台 / 浅灰底" }]} />
             </div>
           }
         />
@@ -593,7 +593,7 @@ npm pack -w @crysound/ui`}</code>
                 description="调整应用级主题，页面和弹窗同步变化。"
               >
                 <div className="example controls">
-                  <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "软件 / Slate 灰" }]} />
+                  <ThemeSelect label="应用表面" value={context} onValueChange={setContext} options={[{ value: "website", label: "官网 / 中性灰" }, { value: "software", label: "工作台 / 浅灰底" }]} />
                   <ThemeSelect label="客户主题" value={customer} onValueChange={setCustomer} options={[{ value: "crysound", label: "CRYSOUND 提案" }, { value: "ocean", label: "Ocean 客户示例" }]} />
                   <ThemeSelect label="界面密度" value={density} onValueChange={setDensity} options={[{ value: "comfortable", label: "舒适 / 40px" }, { value: "compact", label: "紧凑 / 32px" }]} />
                 </div>
