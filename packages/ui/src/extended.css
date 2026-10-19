@@ -1387,9 +1387,14 @@ button.cs-step-content { cursor: pointer; }
 .cs-table-toolbar-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .cs-table-toolbar-actions .cs-button { min-height:32px; font-size:14px; font-weight:400; }
 .cs-table-column-options { display:grid; gap:12px; max-height:280px; overflow:auto; padding-top:16px; }
-.cs-table-filters { display:flex; flex-wrap:wrap; align-items:flex-end; gap:16px; padding:12px 20px; border-bottom:1px solid var(--cs-border); background:var(--cs-surface); }
-.cs-table-filters .cs-field { min-width:140px; }
+.cs-data-table .cs-table-toolbar { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:flex-start; gap:12px; padding:12px 16px; }
+.cs-data-table .cs-table-toolbar > .cs-field { flex:1 1 180px; min-width:180px; max-width:260px; width:auto; }
+.cs-table-filters { display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px; background:var(--cs-surface); }
+.cs-data-table .cs-table-filters .cs-field { flex:0 1 120px; width:120px; min-width:110px; }
+.cs-data-table .cs-table-toolbar-actions { margin-left:auto; flex-wrap:nowrap; }
+.cs-data-table .cs-table-toolbar .cs-field > label { color:var(--cs-muted); font-size:12px; font-weight:400; }
 .cs-data-table .cs-table-filters .cs-select-trigger { min-height:32px; height:32px; }
+
 .cs-table-results { display:flex; flex-wrap:wrap; align-items:center; min-height:40px; gap:12px; padding:4px 20px; color:var(--cs-muted); font-size:12px; background:var(--cs-surface); }
 .cs-data-table .cs-table { margin:0; table-layout:auto; }.cs-data-table .cs-table :is(th,td)[data-align="right"] { font-variant-numeric:tabular-nums; white-space:nowrap; }.cs-data-table .cs-table th[style*="right"] .cs-button { justify-content:flex-end; }
 .cs-data-table .cs-table-select-col { width:44px; min-width:44px; box-sizing:border-box; padding-inline:12px; position:sticky; left:0; z-index:1; background:var(--cs-surface); }.cs-data-table .cs-table th.cs-table-select-col { background:var(--cs-subtle); }
@@ -1409,3 +1414,11 @@ button.cs-step-content { cursor: pointer; }
 @media(max-width:640px) { .cs-data-table { --cs-table-pinned-left:auto; } }
 
 .cs-data-table .cs-table th { white-space:nowrap; }
+
+@media(max-width:640px) {
+ .cs-data-table .cs-table-toolbar { flex-direction:row; align-items:flex-end; gap:12px; }
+ .cs-data-table .cs-table-toolbar > .cs-field { flex-basis:100%; max-width:none; width:100%; min-width:0; }
+ .cs-data-table .cs-table-filters { width:100%; }
+ .cs-data-table .cs-table-filters .cs-field { flex:1 1 120px; min-width:0; width:auto; }
+ .cs-data-table .cs-table-toolbar-actions { margin-left:0; width:100%; flex-wrap:wrap; }
+}
