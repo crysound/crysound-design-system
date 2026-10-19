@@ -339,3 +339,4 @@ export * from './metric-group';
 export * from './resource-card';
 
 export * from './progress-list';
+export * from './carousel-pagination';

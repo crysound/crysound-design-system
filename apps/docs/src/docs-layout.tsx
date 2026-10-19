@@ -28,6 +28,7 @@ import {
   Breadcrumbs,
   Avatar,
   ActionLink,
+  CarouselPagination,
   Badge,
   Button,
   Checkbox,
@@ -70,6 +71,7 @@ export const docCategories = [
       "badge",
       "button",
       "action-link",
+      "carousel-pagination",
       "checkbox",
       "combobox",
       "input",
@@ -278,6 +280,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
       return <div className="thumb-row">{(['xs','md','xl'] as const).map(level=><Shadow key={level} level={level} style={{width:64,height:64,display:'grid',placeItems:'center',borderRadius:'var(--cs-radius-lg)',fontSize:12}}>{level}</Shadow>)}</div>;
     case "instrument-dialog":
       return <div className="thumb-modal"><strong>通道校准</strong><span>确认设备连接后开始校准。</span><div style={{display:'flex',justifyContent:'space-between',gap:12}}><span>采集设备 01</span><StatusBadge status="online"/></div><Progress value={66} label="校准进度"/><div className="thumb-row"><Button size="sm" variant="secondary">取消</Button><Button size="sm">开始校准</Button></div></div>;
+    case "carousel-pagination":
+      return <CarouselPagination count={6} value={5} onValueChange={()=>{}}/>;
     case "action-link":
       return <ActionLink href="#library">查看全部设备</ActionLink>;
     case "resource-card":

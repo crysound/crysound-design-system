@@ -1456,3 +1456,15 @@ button.cs-step-content { cursor: pointer; }
 
 .cs-table-footer-summary { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
 .cs-table-footer .cs-table-results { padding:0; min-height:0; background:transparent; }
+
+.cs-carousel-pagination { display:inline-flex; align-items:center; gap:0; }
+.cs-carousel-pagination-item { display:grid; place-items:center; width:32px; height:32px; padding:0; border:0; border-radius:var(--cs-radius-pill); color:var(--cs-text-heading); background:transparent; cursor:pointer; transition:width var(--cds-dur-base) var(--cds-ease-out); }
+.cs-carousel-pagination-item > span { display:block; width:8px; height:8px; border-radius:var(--cs-radius-pill); background:var(--cs-border); transition:width var(--cds-dur-base) var(--cds-ease-out),background-color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-carousel-pagination-item[aria-current] { width:48px; }
+.cs-carousel-pagination-item[aria-current] > span { width:24px; background:currentColor; }
+.cs-carousel-pagination-item:hover:not(:disabled) > span { background:var(--cs-muted); }
+.cs-carousel-pagination-item[aria-current]:hover:not(:disabled) > span { background:currentColor; }
+.cs-carousel-pagination-item:focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }
+.cs-carousel-pagination-item:disabled { opacity:.4; cursor:not-allowed; }
+@media(pointer:coarse) { .cs-carousel-pagination-item { min-width:44px; height:44px; } }
+@media(prefers-reduced-motion:reduce) { .cs-carousel-pagination-item,.cs-carousel-pagination-item > span { transition:none; } }

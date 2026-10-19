@@ -630,6 +630,8 @@ export function ComponentDemo({ id }: { id: string }) {
       return <UI.Toolbar label="任务操作"><UI.ToolbarButton onClick={() => {window.location.hash = 'component/card';}}>查看详情</UI.ToolbarButton><UI.ToolbarButton variant="secondary" onClick={() => {window.location.hash = 'component/input';}}>编辑配置</UI.ToolbarButton><UI.ToolbarButton loading>正在处理</UI.ToolbarButton><UI.ToolbarButton disabled>暂无权限</UI.ToolbarButton></UI.Toolbar>;
     case "link-group":
       return <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 48, width: '100%', maxWidth: 560}}><UI.LinkGroup label="产品与方案" items={[{label: '声学成像', href: '#patterns'}, {label: '声学测试', href: '#component/line-bar-charts'}, {label: '产品概览', href: '#library'}]}/><UI.LinkGroup label="开发与支持" items={[{label: '安装与接入', href: '#installation'}, {label: '基础规范', href: '#foundations'}, {label: '图标库', href: '#icons'}]}/></div>;
+    case "carousel-pagination":
+      return <CarouselPaginationDemo/>;
     case "action-link":
       return <div className="demo-row"><UI.ActionLink href="#patterns">全部样本</UI.ActionLink><UI.ActionLink href="#component/card">查看详情</UI.ActionLink><UI.ActionLink href="https://www.crysound.com" external>产品官网</UI.ActionLink><UI.ActionLink href="#library" arrow={false}>浏览组件</UI.ActionLink></div>;
     case "shadow":
@@ -1054,3 +1056,5 @@ export function FoundationGallery({ section = "all" }: { section?: "all" | "type
     </div>
   );
 }
+
+function CarouselPaginationDemo(){const [value,setValue]=useState(5);return <div className="demo-stack"><UI.CarouselPagination count={6} value={value} onValueChange={setValue}/><p className="cs-help" role="status">第 {value+1} / 6 张</p></div>;}
