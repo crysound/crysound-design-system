@@ -157,7 +157,7 @@ body {
   justify-content: space-between;
   gap: 6px;
   min-height: 32px;
-  padding: 5px 8px;
+  padding: var(--cs-space-1-5) 8px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: var(--cs-weight-medium);
@@ -225,7 +225,7 @@ body {
 .docs-nav-heading:focus-visible,
 .preview-card-caption:focus-visible {
   outline: 2px solid var(--cs-focus);
-  outline-offset: 3px;
+  outline-offset: var(--cs-space-1);
 }
 .docs-action {
   display: inline-flex;
@@ -233,7 +233,7 @@ body {
   justify-content: center;
   gap: 8px;
   min-height: 36px;
-  padding: 7px 12px;
+  padding: var(--cs-space-2) 12px;
   background: var(--cs-brand);
   border: 1px solid var(--cs-brand);
   border-radius: 8px;
@@ -267,7 +267,7 @@ body {
 }
 .docs-settings-fields label {
   display: grid;
-  gap: 7px;
+  gap: var(--cs-space-2);
   font-size: 12px;
   font-weight: var(--cs-weight-medium);
 }
@@ -307,7 +307,7 @@ body {
 .library-category {
   padding: 48px 0;
   border-bottom: 1px dashed var(--doc-line);
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--cs-space-24);
 }
 .library-category h2 {
   font-size: 16px;
@@ -332,7 +332,7 @@ body {
   position: relative;
   border: 1px solid var(--doc-line);
   border-radius: 12px;
-  padding: 3px;
+  padding: var(--cs-space-1);
   background: var(--doc-page);
   box-shadow: 0 1px 2px #10182803;
   transition:
@@ -383,7 +383,7 @@ body {
 }
 .preview-card-caption {
   display: grid;
-  gap: 3px;
+  gap: var(--cs-space-1);
   padding: 12px 12px 10px;
   text-decoration: none;
   color: var(--doc-text);
@@ -424,7 +424,7 @@ body {
   width: 210px;
   font-size: 12px;
   display: grid;
-  gap: 5px;
+  gap: var(--cs-space-1-5);
 }
 .thumb-input > div {
   background: var(--cs-surface);
@@ -450,7 +450,7 @@ body {
 }
 .thumb-metric {
   display: grid;
-  gap: 9px;
+  gap: var(--cs-space-2-5);
   justify-items: start;
 }
 .thumb-metric > span {
@@ -468,7 +468,7 @@ body {
   color: var(--cs-muted);
 }
 .thumb-pages span {
-  padding: 5px 8px;
+  padding: var(--cs-space-1-5) 8px;
   border: 1px solid var(--cs-border);
   border-radius: 4px;
   background: var(--cs-surface);
@@ -496,7 +496,7 @@ body {
 }
 .thumb-alert small {
   font-size: var(--cs-text-xs);
-  margin-top: 5px;
+  margin-top: var(--cs-space-1-5);
 }
 .thumb-mini-card,
 .thumb-modal {
@@ -571,7 +571,7 @@ body {
   background: var(--cs-surface);
   border: 1px solid var(--cs-border);
   box-shadow: -10px 0 20px #10182808;
-  margin-left: 60px;
+  margin-left: var(--cs-space-16);
 }
 .thumb-drawer strong {
   font-size: 14px;
@@ -605,7 +605,7 @@ body {
 .thumb-empty {
   display: grid;
   justify-items: center;
-  gap: 7px;
+  gap: var(--cs-space-2);
   padding: 14px;
   font-size: 12px;
   color: var(--cs-muted);
@@ -858,7 +858,7 @@ body {
   font-size: var(--cs-text-xs);
   line-height: 16px;
   font-weight: var(--cs-weight-semibold);
-  padding: 1px 4px;
+  padding: var(--cs-space-0-5) 4px;
   color: var(--doc-muted);
 }
 .reference-component-heading > p {
@@ -915,8 +915,8 @@ body {
 .reference-resource-links a {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding: 1px 4px;
+  gap: var(--cs-space-1);
+  padding: var(--cs-space-0-5) 4px;
   border: 1px solid var(--doc-line);
   border-radius: 4px;
   color: var(--doc-muted);
@@ -958,7 +958,7 @@ body {
 .reference-example-tools .cs-tabs-trigger {
   font-size: 14px;
   line-height: 20px;
-  padding: 7px 12px;
+  padding: var(--cs-space-2) 12px;
   color: var(--doc-muted);
   font-weight: var(--cs-weight-medium);
   min-height: 34px;
@@ -968,7 +968,7 @@ body {
   box-shadow: 0 1px 2px #1018280d;
   border-radius: 7px;
   outline: 1px solid var(--cs-border);
-  outline-offset: -1px;
+  outline-offset: calc(var(--cs-space-0-5) * -1);
   color: var(--doc-text);
 }
 .reference-example > div > .cs-tabs-content {
@@ -1030,7 +1030,7 @@ body {
   border-top: 1px dashed var(--doc-line);
   margin-top: 48px;
   padding-top: 48px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--cs-space-24);
 }
 .reference-installation > h2,
 .reference-variants > h2,
@@ -1068,7 +1068,7 @@ body {
     0 0 0 5px var(--doc-subtle),
     0 0 0 6px var(--doc-line);
   margin: 6px 6px 0;
-  padding: 22px 20px;
+  padding: var(--cs-space-6) 20px;
   font-size: 14px;
   line-height: 24px;
   color: var(--doc-muted);
@@ -1114,7 +1114,7 @@ body {
 .docs-text-button:focus-visible,
 .docs-square-button:focus-visible {
   outline: 2px solid var(--cs-focus);
-  outline-offset: 3px;
+  outline-offset: var(--cs-space-1);
 }
 @media (max-width: 1023px) {
   .reference-title-row {
@@ -1162,14 +1162,14 @@ body {
     font-size: 14px;
   }
   .reference-example-tools {
-    gap: 5px;
+    gap: var(--cs-space-1-5);
   }
   .reference-example-tools > .docs-icon-button:first-child {
     display: none;
   }
   .reference-example-tools .cs-tabs-trigger {
     font-size: 12px;
-    padding: 6px 9px;
+    padding: 6px var(--cs-space-2-5);
     min-height: 30px;
   }
   .reference-preview {
@@ -1196,7 +1196,7 @@ body {
   }
   .reference-install-code {
     font-size: 12px;
-    padding: 18px 14px;
+    padding: var(--cs-space-5) 14px;
   }
   .reference-component-page .component-guidance {
     padding-top: 32px;
@@ -1301,7 +1301,7 @@ body {
   }
   .reference-example-tools .cs-tabs-trigger {
     font-size: 14px;
-    padding: 7px 12px;
+    padding: var(--cs-space-2) 12px;
     min-height: 34px;
   }
   .reference-preview {
@@ -1327,7 +1327,7 @@ body {
   .reference-title-actions .docs-text-button {
     display: inline-flex;
     font-size: 14px;
-    padding: 4px 3px;
+    padding: 4px var(--cs-space-1);
     gap: 4px;
   }
   .reference-title-row > div:first-child {
@@ -1528,7 +1528,7 @@ body {
 .file-format-card > div { display:flex; gap:12px; }
 .file-format-card button { padding:4px 0; border:0; background:transparent; font:inherit; font-size: var(--cs-text-xs); color:var(--cs-muted); cursor:pointer; }
 .file-format-card button:hover { color:var(--cs-brand); }
-.file-format-card button:focus-visible { outline:2px solid var(--cs-brand); outline-offset:3px; }
+.file-format-card button:focus-visible { outline:2px solid var(--cs-brand); outline-offset:var(--cs-space-1); }
 
 .video-demo { width: 100%; max-width: 640px; display: grid; gap: 16px; }
 
@@ -1628,7 +1628,7 @@ body {
 .charts-demo-status > summary { cursor: pointer; }
 .charts-demo-status > .charts-demo-states { margin-top: 16px; }
 
-.logo-guidelines { padding: 72px 32px 48px; color: var(--cs-text); }
+.logo-guidelines { padding: var(--cs-space-20) 32px 48px; color: var(--cs-text); }
 .logo-guidelines > header { margin-bottom: 40px; }
 .logo-guidelines h1 { margin: 0; font-size: 24px; line-height: 32px; color: var(--cs-text-heading); }
 .logo-guidelines > header > p { margin: 20px 0 0; font-size: 16px; line-height: 24px; color: var(--cs-muted); }
@@ -1676,8 +1676,8 @@ body {
 .glass-foundations .space-section-heading p { max-width: none; }
 .glass-preview-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 24px 0 16px; }
 .glass-preview { height: 360px; overflow: auto; border: 1px solid var(--cs-border); border-radius: var(--cs-radius-xl); background: var(--cs-subtle); scrollbar-gutter: stable; }
-.glass-preview:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 3px; }
-.glass-preview-toolbar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 24px; border-width: 0 0 var(--cs-border-hairline); }
+.glass-preview:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-1); }
+.glass-preview-toolbar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: var(--cs-space-5) 24px; border-width: 0 0 var(--cs-border-hairline); }
 .glass-preview-toolbar > div { display: grid; gap: 4px; }
 .glass-preview-toolbar strong { color: var(--cs-text-heading); font-size: var(--cs-text-sm); }
 .glass-preview-toolbar span { font-size: var(--cs-text-xs); }
@@ -1687,7 +1687,7 @@ body {
 .glass-preview-intro > span { display: block; font-size: var(--cs-text-xs); color: var(--cs-brand); letter-spacing: .08em; margin-bottom: 12px; }
 .glass-preview-intro > strong { display: block; font-size: var(--cs-text-2xl); line-height: 1.4; font-weight: var(--cs-weight-medium); color: var(--cs-text-heading); }
 .glass-preview-intro p { margin: 12px 0 0; color: var(--cs-text); font-size: var(--cs-text-sm); }
-.glass-preview-task { display: flex; gap: 16px; align-items: center; padding: 18px 8px; border-bottom: var(--cs-border-hairline) solid var(--cs-border); }
+.glass-preview-task { display: flex; gap: 16px; align-items: center; padding: var(--cs-space-5) 8px; border-bottom: var(--cs-border-hairline) solid var(--cs-border); }
 .glass-preview-index { font-variant-numeric: tabular-nums; color: var(--cs-muted); font-size: var(--cs-text-xs); }
 .glass-preview-task > div { display: grid; gap: 6px; flex: 1; min-width: 0; }
 .glass-preview-task strong { font-size: var(--cs-text-sm); font-weight: var(--cs-weight-medium); }

@@ -15,7 +15,7 @@
     "tokens:sync": "node scripts/sync-tokens.mjs",
     "registry:build": "node scripts/build-registry.mjs",
     "registry:check": "node scripts/validate-registry.mjs",
-    "styles:check": "node scripts/validate-selection-styles.mjs && node scripts/validate-typography.mjs"
+    "styles:check": "node scripts/validate-selection-styles.mjs && node scripts/validate-typography.mjs && node scripts/validate-spacing.mjs"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.8.0",

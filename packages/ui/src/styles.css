@@ -70,7 +70,7 @@
 .cs-input:focus-visible,
 .cs-dialog:focus-visible {
   outline: 2px solid var(--cs-focus);
-  outline-offset: 3px;
+  outline-offset: var(--cs-space-1);
 }
 .cs-field {
   display: grid;
@@ -109,7 +109,7 @@
   align-items: center;
   gap: 6px;
   border-radius: 99px;
-  padding: 4px 9px;
+  padding: 4px var(--cs-space-2-5);
   font-size: 12px;
   white-space: nowrap;
   background: var(--cs-subtle);
@@ -207,7 +207,7 @@
   display: block;
   color: var(--cs-muted);
 
-  margin-top: 5px;
+  margin-top: var(--cs-space-1-5);
   font-size: var(--cs-type-caption-size);
   line-height: var(--cs-type-caption-leading);
 }
@@ -604,7 +604,7 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-icon-inline--offset-2 { vertical-align: -2px; }
 
 /* Action text shares the column's leading edge; expand hit area without moving text. */
-.cs-device-table .cs-button--ghost { padding: 0 12px; margin-left: -13px; }
+.cs-device-table .cs-button--ghost { padding: 0 12px; margin-left: calc(var(--cs-space-3-5) * -1); }
 
 /* Optional communication and asynchronous feedback motion. */
 @keyframes message-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -702,7 +702,7 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 @media (hover: hover) and (pointer: fine) {
   .cs-link-group-list:has(.cs-link-group-link:hover) .cs-link-group-link:not(:hover):not(:focus-visible) { color: var(--cs-muted); }
 }
-.cs-link-group-link:focus-visible { color: var(--cs-text); outline: 2px solid var(--cs-focus); outline-offset: 3px; border-radius: var(--cs-radius); }
+.cs-link-group-link:focus-visible { color: var(--cs-text); outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-1); border-radius: var(--cs-radius); }
 @media (prefers-reduced-motion: reduce) { .cs-link-group-link { transition: none; } }
 @media (prefers-contrast: more), (forced-colors: active) {
   .cs-link-group-list:has(.cs-link-group-link:hover) .cs-link-group-link:not(:hover):not(:focus-visible) { color: var(--cs-text); }
@@ -852,7 +852,7 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-metric-group[data-variant="summary"] .cs-metric-group-item dt { min-height:0; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px 12px; }
 .cs-metric-group[data-variant="summary"] .cs-metric-group-reading { font-size:var(--cs-type-page-size); line-height:var(--cs-type-page-leading); }
 .cs-metric-group[data-variant="summary"] .cs-metric-group-note { margin-top:8px; }
-.cs-metric-group-status { display:inline-flex; align-items:center; gap:5px; font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); font-weight:var(--cs-weight-normal); color:var(--cs-muted); }
+.cs-metric-group-status { display:inline-flex; align-items:center; gap:var(--cs-space-1-5); font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); font-weight:var(--cs-weight-normal); color:var(--cs-muted); }
 .cs-metric-group-status > span { width:5px; height:5px; border-radius:var(--cs-radius-circle); background:currentColor; flex-shrink:0; }
 .cs-metric-group-status[data-tone="warning"] { color:var(--cs-warning-fg); }
 .cs-metric-group-status[data-tone="danger"] { color:var(--cs-danger-fg); }

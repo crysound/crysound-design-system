@@ -21,7 +21,7 @@ export function Tooltip({
       <TooltipPrimitive.Root>
         <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
-          <TooltipPrimitive.Content className="cs-tooltip" sideOffset={7}>
+          <TooltipPrimitive.Content className="cs-tooltip" sideOffset={8}>
             {content}
             <TooltipPrimitive.Arrow className="cs-tooltip-arrow" />
           </TooltipPrimitive.Content>

@@ -6,7 +6,7 @@ const scale = [
 ] as const;
 export function SpaceFoundations() {
   return <section className="space-foundations" aria-label="基础空间规范">
-    <div className="space-section-heading"><h3>基础空间 / Spacing</h3><p>以 4px 为基线，2px 半步用于图标、边框与微调。原始 4–32px 基线来自 Figma，其余档位与场景规则为扩展建议。</p></div>
+    <div className="space-section-heading"><h3>基础空间 / Spacing</h3><p>以 4px 为基线，2px 半步用于图标、边框与微调。间距必须使用下列基础刻度，不使用奇数或小数像素。原始 4–32px 基线来自 Figma，其余档位与场景规则为扩展建议。</p></div>
     <div className="space-scale-grid">{scale.map(([token, px]) => <div className="space-scale-row" key={token}><code>--cs-space-{token}</code><div className="space-bar-track"><span style={{ width:`var(--cs-space-${token})` }} /></div><small>{px}px</small></div>)}</div>
     <h3>按场景使用</h3>
     <div className="space-usage-grid">{[

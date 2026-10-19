@@ -23,7 +23,7 @@ textarea {
   font-family: inherit;
 }
 select {
-  padding: 7px 10px;
+  padding: var(--cs-space-2) 10px;
   background: var(--cs-surface);
   color: var(--cs-text);
   border: 1px solid var(--cs-border);
@@ -32,7 +32,7 @@ select {
 select:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--cs-focus);
-  outline-offset: 3px;
+  outline-offset: var(--cs-space-1);
 }
 .shell {
   display: grid;
@@ -64,7 +64,7 @@ a:focus-visible {
 .version {
   font-size: var(--cs-text-xs);
   color: var(--cs-muted);
-  margin: 20px 0 42px;
+  margin: 20px 0 var(--cs-space-11);
 }
 .docs-nav {
   display: grid;
@@ -118,7 +118,7 @@ h1 {
   font-weight: var(--cs-weight-semibold);
   letter-spacing: normal;
   line-height: 1.2;
-  margin: 22px 0;
+  margin: var(--cs-space-6) 0;
 }
 h2 {
   font-size: 25px;
@@ -135,7 +135,7 @@ h2 {
 .intro-meta {
   display: flex;
   gap: 28px;
-  margin-top: 30px;
+  margin-top: var(--cs-space-8);
   color: var(--cs-muted);
   font-size: 12px;
 }
@@ -339,7 +339,7 @@ pre {
 }
 .docs-sidebar {
   height: 100dvh;
-  padding: 28px 20px 18px;
+  padding: 28px 20px var(--cs-space-5);
 }
 .brand {
   font-size: 22px;
@@ -354,10 +354,10 @@ pre {
   overflow: auto;
   flex: 1;
   scrollbar-width: thin;
-  padding-right: 5px;
+  padding-right: var(--cs-space-1-5);
 }
 aside nav a {
-  padding: 7px 10px;
+  padding: var(--cs-space-2) 10px;
   font-size: 14px;
 }
 .aside-note {
@@ -366,7 +366,7 @@ aside nav a {
   margin-top: 16px;
 }
 .component-search {
-  margin: 22px 0;
+  margin: var(--cs-space-6) 0;
 }
 .component-search label {
   font-size: var(--cs-text-xs);
@@ -389,7 +389,7 @@ aside nav a {
   font-size: var(--cs-text-xs);
   font-weight: var(--cs-weight-semibold);
   color: var(--cs-muted);
-  padding: 0 10px 7px;
+  padding: 0 10px var(--cs-space-2);
 }
 .catalog-group-label > span {
   font-weight: 400;
@@ -415,7 +415,7 @@ main {
   max-width: 1320px;
 }
 .topbar {
-  padding: 18px 0;
+  padding: var(--cs-space-5) 0;
 }
 .topbar-divider {
   margin: 0 12px;
@@ -740,7 +740,7 @@ main {
   }
   .component-tabs-bar > .cs-button {
     font-size: var(--cs-text-xs);
-    padding: 0 5px;
+    padding: 0 var(--cs-space-1-5);
   }
   .component-index-group {
     padding: 16px;
@@ -755,7 +755,7 @@ main {
     grid-template-columns: 1fr;
   }
   .code-block {
-    padding: 18px;
+    padding: var(--cs-space-5);
     font-size: var(--cs-text-xs);
   }
 }
@@ -859,7 +859,7 @@ main {
 .topbar-settings {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--cs-space-5);
 }
 .topbar-settings label {
   font-size: var(--cs-text-xs);
@@ -901,7 +901,7 @@ main {
     font-size: var(--cs-text-xs);
   }
   .topbar-settings select {
-    margin-left: 5px;
+    margin-left: var(--cs-space-1-5);
   }
 }
 
