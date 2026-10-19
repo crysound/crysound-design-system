@@ -1828,3 +1828,8 @@ body {
 .website-nav-search-results { display:grid; gap:12px; margin-top:20px; }.website-nav-search-results a { color:var(--cs-brand); font-size:14px; line-height:22px; }
 .website-gallery-examples { display:grid; gap:40px; }
 .website-gallery-examples > section > h3 { margin:0 0 16px; font-size:14px; line-height:20px; font-weight:400; color:var(--cs-muted); }
+@media(min-width:641px) {
+.website-gallery-examples .cs-gallery-shop-card:first-child .cs-gallery-shop-image img { width:284px; height:188px; left:-22px; top:30px; }
+.website-gallery-examples .cs-gallery-shop-card:nth-child(2) .cs-gallery-shop-image img { width:188px; height:188px; left:22px; top:28px; }
+}
+.website-gallery-examples .cs-gallery-shop-card:hover .cs-gallery-shop-image img,.website-gallery-examples .cs-gallery-shop-card:focus-within .cs-gallery-shop-image img { transform:scale(1.04)!important; }
