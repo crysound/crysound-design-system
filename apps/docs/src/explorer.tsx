@@ -1057,4 +1057,4 @@ export function FoundationGallery({ section = "all" }: { section?: "all" | "type
   );
 }
 
-function CarouselPaginationDemo(){const [value,setValue]=useState(5);return <div className="demo-stack"><UI.CarouselPagination count={6} value={value} onValueChange={setValue}/><p className="cs-help" role="status">第 {value+1} / 6 张</p></div>;}
+function CarouselPaginationDemo(){const [value,setValue]=useState(3);return <div className="demo-stack"><UI.CarouselPagination count={6} value={value} onValueChange={setValue}/><p className="cs-help" role="status">第 {value+1} / 6 张</p></div>;}
