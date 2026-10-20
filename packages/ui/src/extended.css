@@ -1773,3 +1773,8 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-checkbox[data-state="checked"] .cs-checkbox-check,.cs-checkbox[data-state="indeterminate"] .cs-checkbox-mixed { stroke-dashoffset:0; opacity:1; transform:scale(1); }
 @media(prefers-reduced-motion:reduce) { .cs-checkbox { transition:none; }.cs-checkbox-check,.cs-checkbox-mixed { transition:none; transform:none; } }
 @media(forced-colors:active) { .cs-checkbox[data-state="checked"],.cs-checkbox[data-state="indeterminate"] { color:HighlightText; background:Highlight; border-color:Highlight; } }
+
+/* Website icon actions: neutral at rest, brand on hover or keyboard focus. */
+.cs-icon-button.cs-icon-button--brand-ghost { color:var(--cs-text-secondary); background:transparent; transition:color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-icon-button.cs-icon-button--brand-ghost:is(:hover,:focus-visible):not(:disabled) { color:var(--cs-brand); background:transparent; }
+@media(prefers-reduced-motion:reduce) { .cs-icon-button.cs-icon-button--brand-ghost { transition:none; } }
