@@ -1860,26 +1860,19 @@ body {
 @media(prefers-reduced-motion:reduce) { .floating-toc-demo-content { scroll-behavior:auto; } }
 
 .pagination-demo { width:100%; max-width:800px; container:pagination-example / inline-size; }
-.pagination-demo > .cs-field { width:min(100%,320px); margin-bottom:24px; }
 .pagination-demo-carousel { position:relative; }
 .pagination-demo-slide { position:relative; overflow:hidden; border-radius:8px; border:1px solid var(--cs-border); background:var(--cs-surface); }
 .pagination-demo-slide > img { display:block; width:100%; aspect-ratio:16/7; object-fit:cover; }
 .pagination-demo-copy h3 { margin:0 0 8px; font-family:var(--cs-font); font-size:24px; line-height:32px; font-weight:600; color:var(--cs-text); }
 .pagination-demo-copy p { margin:0; font-size:16px; line-height:24px; color:var(--cs-muted); }
-.pagination-demo-image .pagination-demo-copy { position:absolute; top:24px; left:24px; max-width:min(440px,calc(100% - 48px)); padding:16px; border-radius:4px; background:color-mix(in srgb,var(--cs-surface) 94%,transparent); }
-.pagination-demo-image > .cs-carousel-controls { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); flex-wrap:nowrap; width:max-content; max-width:calc(100% - 32px); margin:0; padding:4px 8px; gap:12px; border:1px solid var(--cs-border); border-radius:999px; background:var(--cs-surface); }
-.pagination-demo .cs-carousel-play { flex:none; min-height:32px; padding:4px 12px; }
 .pagination-demo-card .pagination-demo-slide { display:grid; grid-template-columns:40% minmax(0,1fr); }
 .pagination-demo-card .pagination-demo-slide > img { height:100%; aspect-ratio:auto; min-height:240px; }
 .pagination-demo-card .pagination-demo-copy { padding:32px; align-self:center; }
 .pagination-demo-card > .cs-carousel-controls { margin-top:24px; }
 @container pagination-example (max-width:480px) {
- .pagination-demo-image .pagination-demo-copy { position:static; max-width:none; padding:20px; background:var(--cs-surface); }
- .pagination-demo-image > .cs-carousel-controls { position:static; transform:none; width:auto; max-width:none; margin:16px 0 0; padding:0; border:0; border-radius:0; background:transparent; flex-wrap:wrap; }
  .pagination-demo-card .pagination-demo-slide { grid-template-columns:1fr; }
  .pagination-demo-card .pagination-demo-slide > img { aspect-ratio:16/9; min-height:0; height:auto; }
  .pagination-demo-card .pagination-demo-copy { padding:20px; }
  .pagination-demo-copy h3 { font-size:20px; line-height:28px; }
  .pagination-demo-copy p { font-size:14px; line-height:22px; }
 }
-@media(pointer:coarse) { .pagination-demo .cs-carousel-play { min-height:44px; } }

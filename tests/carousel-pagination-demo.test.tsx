@@ -11,13 +11,12 @@ it('shows automatic content rotation and stops after manual pagination focus',()
  const target=screen.getByRole('button',{name:'Acoustic analysis'});fireEvent.focus(target);fireEvent.click(target);
  expect(target).toHaveAttribute('aria-current','true');
  act(()=>vi.advanceTimersByTime(10000));expect(screen.getByRole('group',{name:'3 / 3 · Acoustic analysis'})).toBeVisible();
- expect(screen.getByRole('button',{name:'播放轮播'})).toBeVisible();
+ expect(screen.queryByRole('button',{name:/播放轮播|暂停轮播/})).not.toBeInTheDocument();
 });
-it('resets the content when switching from an image to a below-content layout',()=>{
+it('keeps only the card layout with pagination and usage rules',()=>{
  const {container}=render(<CarouselPaginationDemo/>);
- fireEvent.change(container.querySelector('select')!,{target:{value:'card'}});
  expect(container.querySelector('.pagination-demo-card')).toBeInTheDocument();
- expect(container.querySelector('.pagination-demo-image')).not.toBeInTheDocument();
- expect(screen.getByText('第 1 / 3 张 · 每5秒切换；悬停暂缓，聚焦后停止，可手动继续播放。')).toBeVisible();
+ expect(container.querySelector('select,.pagination-demo-image,.cs-carousel-play')).toBeNull();
+ expect(screen.getByRole('group',{name:'轮播分页'})).toBeVisible();
  expect(screen.getByText('轮播与分页位置规则')).toBeVisible();
 });
