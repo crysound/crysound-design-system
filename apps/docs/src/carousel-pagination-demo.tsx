@@ -3,11 +3,8 @@ import {Carousel} from '../../../packages/ui/src/index';
 const examples=[1,2,3].map(number=>({id:`image-${number}`,label:`默认图片 ${number}`,number}));
 function DefaultImage({number}:{number:number}){
  return <div className="pagination-demo-slide">
-  <svg className="pagination-demo-placeholder" viewBox="0 0 1600 900" role="img" aria-label={`默认图片 ${number}（16:9）`}>
-   <svg x="752" y="354" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
-   </svg>
-   <text x="800" y="510" textAnchor="middle" className="pagination-demo-placeholder-ratio">16:9</text>
+  <svg className="pagination-demo-placeholder" viewBox="0 0 1600 900" role="img" aria-label={`默认图片 ${number}（CRYSOUND）`}>
+   <image className="pagination-demo-logo" href="/crysound-logo.svg" x="560" y="418" width="480" height="64" aria-hidden="true"/>
    <text x="1540" y="840" textAnchor="end" className="pagination-demo-placeholder-index">{String(number).padStart(2,'0')}</text>
   </svg>
  </div>;

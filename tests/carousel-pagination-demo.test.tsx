@@ -15,7 +15,7 @@ it('shows automatic content rotation and stops after manual pagination focus',()
 });
 it('shows default 16:9 images with pagination and usage rules',()=>{
  const {container}=render(<CarouselPaginationDemo/>);
- expect(screen.getByRole('img',{name:'默认图片 1（16:9）'})).toHaveAttribute('viewBox','0 0 1600 900');
+ expect(screen.getByRole('img',{name:'默认图片 1（CRYSOUND）'})).toHaveAttribute('viewBox','0 0 1600 900');
  expect(container.querySelector('select,.pagination-demo-copy,.pagination-demo-skeleton-example,.cs-skeleton,.cs-carousel-play')).toBeNull();
  expect(screen.getByRole('group',{name:'轮播分页'})).toBeVisible();
  expect(screen.getByText('轮播与分页位置规则')).toBeVisible();
