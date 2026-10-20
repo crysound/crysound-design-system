@@ -1846,7 +1846,7 @@ body {
 }
 
 .floating-toc-demo { width:100%; max-width:960px; }
-.floating-toc-demo-stage { position:relative; display:grid; grid-template-columns:64px minmax(0,1fr); border:1px solid var(--cs-border); border-radius:8px; background:var(--cs-bg); }
+.floating-toc-demo-stage { position:relative; display:grid; grid-template-columns:64px minmax(0,1fr); border:1px solid var(--cs-border); border-radius:8px; background:var(--cs-surface); }
 .floating-toc-demo-stage > aside { position:relative; z-index:2; padding:64px 0 0 24px; }
 .floating-toc-demo-content { height:420px; overflow:auto; padding:24px; scroll-behavior:smooth; }
 .floating-toc-demo-content > section { position:relative; min-height:360px; padding:32px 0; border-top:1px solid var(--cs-border); }
