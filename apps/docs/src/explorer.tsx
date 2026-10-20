@@ -336,7 +336,7 @@ export function ComponentDemo({ id }: { id: string }) {
                 <TabsTrigger value="day">今天</TabsTrigger><TabsTrigger value="week">本周</TabsTrigger>
               </TabsList><TabsContent value="day">今日任务视图</TabsContent><TabsContent value="week">本周任务视图</TabsContent>
             </Tabs></div>
-            <div><p className="cs-help">公司官网专用 · 99999px</p><Tabs defaultValue="day">
+            <div><p className="cs-help">品牌官网专用 · 99999px</p><Tabs defaultValue="day">
               <TabsList variant="pill" shape="capsule" aria-label="官网时间范围">
                 <TabsTrigger value="day">今天</TabsTrigger><TabsTrigger value="week">本周</TabsTrigger>
               </TabsList><TabsContent value="day">今日任务视图</TabsContent><TabsContent value="week">本周任务视图</TabsContent>

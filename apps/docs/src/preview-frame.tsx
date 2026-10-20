@@ -100,8 +100,8 @@ export function LeadExample({ id }: { id: string }) {
       return (
         <div className="demo-stack">
           {(['rounded','capsule'] as const).map(shape=><div key={shape}>
-            <p className="cs-help">{shape==='rounded'?'系统默认 · 常规圆角':'公司官网专用 · 99999px'}</p>
-            <div className="demo-row" role="group" aria-label={shape==='rounded'?'系统默认按钮':'公司官网按钮'}>
+            <p className="cs-help">{shape==='rounded'?'系统默认 · 常规圆角':'品牌官网专用 · 99999px'}</p>
+            <div className="demo-row" role="group" aria-label={shape==='rounded'?'系统默认按钮':'品牌官网按钮'}>
               <Button shape={shape} variant="danger" onClick={()=>toast({title:"危险操作示例"})}>删除任务</Button>
               <Button shape={shape} variant="secondary" onClick={()=>toast({title:"配置已暂存"})}>暂存配置</Button>
               <Button shape={shape} iconStart={<Check size={18}/>} onClick={()=>toast({title:"已触发采集示例",description:"不会连接真实设备。"})}>开始采集</Button>

@@ -46,6 +46,6 @@ styles:check 包含 validate-spacing.mjs，覆盖 packages/ui/src 和 apps/docs/
 
 TabsList 的 indicatorMode="static" 使用选中项自身的白色表面与阴影，不测量或绘制移动滑块，适用于长分类条等需要稳定选中背景的容器；默认 animated 保持原有缓动。两者保留 Radix 键盘和选中语义。
 
-TabsList variant="pill" 保留 shape="rounded" 默认几何；shape="capsule" 复用现有 --cs-radius-pill（99999px）同时作用于底槽、选中项、指示器，仅限公司官网显式使用，不改变软件/工作台默认样式。
+TabsList variant="pill" 保留 shape="rounded" 默认几何；shape="capsule" 复用现有 --cs-radius-pill（99999px）同时作用于底槽、选中项、指示器，仅限品牌官网显式使用，不改变软件/工作台默认样式。
 
-Button 同样以 shape="rounded" 为默认；shape="capsule" 仅供公司官网显式使用，复用 --cs-radius-pill（99999px），不覆盖主/次/危险层级、尺寸、加载、禁用与键盘行为。
+Button 同样以 shape="rounded" 为默认；shape="capsule" 仅供品牌官网显式使用，复用 --cs-radius-pill（99999px），不覆盖主/次/危险层级、尺寸、加载、禁用与键盘行为。
