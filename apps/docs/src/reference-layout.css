@@ -1887,7 +1887,8 @@ body {
 .pagination-demo-placeholder text { fill:currentColor; font-family:var(--cs-font); font-weight:var(--cs-weight-normal); }
 .pagination-demo-placeholder-ratio { font-size:32px; }
 .pagination-demo-placeholder-index { font-size:28px; }
-.pagination-demo-carousel > .cs-carousel-controls { margin-top:24px; }
+/* Proposed visual gap: 20px to the dots, including their 32px hit area. */
+.pagination-demo-carousel > .cs-carousel-controls { margin-top:8px; }
 
 .docs-nav-section--single { padding-bottom:8px; margin-bottom:8px; }
 .templates-page { padding:36px 32px 64px; max-width:1600px; margin:auto; color:var(--cs-text); }

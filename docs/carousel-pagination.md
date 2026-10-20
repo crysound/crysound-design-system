@@ -41,4 +41,6 @@
 
 实现参考[Open Claude UI的MediaLightboxViewer](https://github.com/Caho1/open-claude-ui/blob/main/code-examples/MediaLightboxViewer.tsx)中保留画廊轨道与提前加载相邻图片的思路，未引入额外依赖。
 
+默认图片示例的建议间距：图片到分页点击区域为8px，桌面端到可见圆点为20px（32px点击区域内含12px留白）；触屏保留44px点击区域。该间距仅应用于此紧凑示例。
+
 默认图片仅用于演示轮播与分页；不包含营销文案或加载骨架。实际业务图片由消费页面替换，继续保持16:9比例与固定分页位置。
