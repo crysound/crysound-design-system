@@ -1,4 +1,5 @@
-import { SceneStyles, SceneStandalone } from "./scene-styles";
+import { SceneStandalone } from "./scene-styles";
+import {TemplatesLibrary,canonicalTemplateRoute} from "./templates-library";
 import { CompositionFoundations } from "./composition-foundations";
 import { BoundaryPreview } from "./boundary-preview";
 import { LogoGuidelines } from "./logo-guidelines";
@@ -17,12 +18,8 @@ import {
   Tabs, TabsList, TabsTrigger, TabsContent,
   Input,
   Card,
-  Metric,
-  DeviceTable,
   Dialog,
   StatusBadge,
-  EmptyState,
-  DataTable,
   Badge,
   type Device,
 } from "../../../packages/ui/src/index";
@@ -43,9 +40,6 @@ import { catalog, groups } from "./catalog";
 import {
   ComponentPage,
   FoundationGallery,
-  MeasurementForm,
-  sampleDevices,
-  deviceColumns,
   ToastProvider,
 } from "./explorer";
 const FileIconsPage = React.lazy(() => import("./file-icons-page"));
@@ -89,7 +83,7 @@ function savedSetting(
 }
 function App() {
   const [route, setRoute] = useState(
-    window.location.hash.slice(1) || "overview",
+    canonicalTemplateRoute(window.location.hash.slice(1) || "overview"),
   );
   const [searchOpen, setSearchOpen] = useState(false);
   React.useEffect(() => {
@@ -108,7 +102,13 @@ function App() {
   }, []);
   const activeDoc = catalog.find((item) => route === `component/${item.id}`);
   React.useEffect(() => {
-    const onHash = () => setRoute(window.location.hash.slice(1) || "overview");
+    const onHash = () => {
+      const raw=window.location.hash.slice(1)||"overview";
+      const next=canonicalTemplateRoute(raw);
+      if(next!==raw)window.history.replaceState(null,'',`#${next}`);
+      setRoute(next);
+    };
+    onHash();
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
@@ -152,8 +152,8 @@ function App() {
   React.useEffect(() => {
     document.title = activeDoc
       ? `${activeDoc.name} · CRYSOUND Design System`
-      : "CRYSOUND Design System";
-  }, [activeDoc]);
+      : route.startsWith("templates") ? "样板库 · CRYSOUND Design System" : "CRYSOUND Design System";
+  }, [activeDoc,route]);
   if (route.startsWith("scene/")) return <SceneStandalone key={route} scene={route.slice(6)} />;
   return (
     <div className="shell">
@@ -194,7 +194,7 @@ function App() {
           }
         />
 
-        {route === "scene-styles" ? <SceneStyles /> : route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
+        {["templates","templates/scenes"].includes(route) ? <TemplatesLibrary view={route==="templates/scenes"?"scenes":"tasks"}/> : route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
           <React.Suspense fallback={<p role="status">正在加载图标库…</p>}>{route === "file-icons" ? <FileIconsPage /> : <IconLibrary />}</React.Suspense>
         ) : activeDoc ? (
           <ComponentPage
@@ -472,114 +472,6 @@ npm pack -w @crysound/ui`}</code>
                     <StatusBadge key={s} status={s} />
                   ))}
                 </div>
-              </Card>
-            </section>
-            <section id="patterns">
-              <div className="section-heading">
-                <div>
-                  <div className="eyebrow">03 / PRODUCT PATTERNS</div>
-                  <h2>为测量工作流而设计</h2>
-                </div>
-                <span>演示数据</span>
-              </div>
-              <Card
-                title="测量任务配置"
-                description="实际组合表单、选择器、滑块与验证反馈。"
-              >
-                <div className="example">
-                  <MeasurementForm />
-                </div>
-              </Card>
-              <Card
-                title="设备数据工作台"
-                description="支持搜索、排序、分页和跨页选择，全部使用演示数据。"
-              >
-                <DataTable
-                  caption="演示设备工作台"
-                  data={sampleDevices}
-                  columns={deviceColumns}
-                  getRowId={(row) => row.id}
-                  selectable
-                  pageSize={4}
-                />
-              </Card>
-              <div className="metrics">
-                <Card title="声压级">
-                  <Metric
-                    label="当前读数"
-                    animate
-                    value="68.4"
-                    unit="dB SPL"
-                    note="演示数据 · 非实时采集"
-                  />
-                </Card>
-                <Card title="设备连接">
-                  <Metric
-                    label="在线设备"
-                    animate
-                    value="2"
-                    unit="/ 3"
-                    note="运行中设备计入在线"
-                  />
-                </Card>
-                <Card title="采样设置">
-                  <Metric
-                    label="采样率"
-                    animate
-                    value="48"
-                    unit="kHz"
-                    note="演示配置"
-                  />
-                </Card>
-              </div>
-              <Card title="设备管理" description="设备、位置与运行状态">
-                <DeviceTable
-                  devices={devices.filter((d) =>
-                    `${d.name}${d.id}`
-                      .toLowerCase()
-                      .includes(query.toLowerCase()),
-                  )}
-                  onSelect={setSelected}
-                />
-              </Card>
-              {selected && (
-                <Card
-                  title={selected.name}
-                  description={`${selected.id} · ${selected.location}`}
-                  actions={
-                    <Button
-                      variant="ghost"
-                      onClick={() => setSelected(undefined)}
-                    >
-                      收起
-                    </Button>
-                  }
-                >
-                  <div className="example">
-                    <StatusBadge status={selected.status} />
-                    <p>
-                      设备详情示例。业务集成时在此接入连接、校准和测量记录。
-                    </p>
-                  </div>
-                </Card>
-              )}
-              <Card title="空状态">
-                <EmptyState
-                  title="尚未创建测量任务"
-                  description="连接设备后，创建第一个测量任务。"
-                  action={
-                    <Dialog
-                      trigger={<Button>创建任务示例</Button>}
-                      title="创建测量任务"
-                      description="此流程展示组件组合方式。"
-                    >
-                      <Input
-                        label="任务名称"
-                        placeholder="例如：产线噪声检测"
-                      />
-                    </Dialog>
-                  }
-                />
               </Card>
             </section>
             <section id="customization">

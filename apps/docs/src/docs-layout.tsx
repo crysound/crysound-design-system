@@ -70,8 +70,8 @@ const docSections = [
     links: [["foundations", "Foundations", "基础规范"], ["logo", "Logo guidelines", "标志规范"], ["icons", "Icons", "图标库"], ["file-icons", "File icons", "文件图标"], ["customization", "Customization", "主题与客户定制"]],
   },
   {
-    id: "patterns-templates", name: "模式与样板", english: "Patterns & templates",
-    links: [["patterns", "Product patterns", "产品模式"], ["scene-styles", "Scene styles", "场景样板"]],
+    id: "templates", name: "样板库", english: "Templates",
+    links: [["templates", "Templates", "样板库"]],
   },
 ] as const;
 export const docCategories = [
@@ -210,6 +210,7 @@ export function SidebarContent({
       )}
       <nav aria-label="设计系统文档" className="docs-nav">
         {docSections.map(section=>{
+          if(section.id==='templates')return <div className="docs-nav-section docs-nav-section--single" key={section.id}><div className="docs-nav-links"><a href="#templates" aria-current={route==='templates'||route.startsWith('templates/')?'page':undefined} onClick={onNavigate}>Templates<span>样板库</span></a></div></div>;
           const open=!collapsed.includes(section.id);
           return <div className="docs-nav-section" key={section.id}>
             <button className="docs-nav-heading" title={section.name} onClick={()=>toggle(section.id)} aria-expanded={open} aria-controls={`${sidebarId}-${section.id}`}>
@@ -664,7 +665,7 @@ export function DocsHeader({
   settings: ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const docSection=docSections.find(section=>section.links.some(([id])=>id===route));
+  const docSection=docSections.find(section=>section.links.some(([id])=>id===route||(id==='templates'&&route.startsWith('templates/'))));
   return (
     <header className="docs-topbar cs-glass cs-glass--regular">
       <div className="docs-mobile-brand">
@@ -676,7 +677,7 @@ export function DocsHeader({
           ...(activeDoc ? [{ label: "组件", href: "#library" }] : []),
           { label: activeDoc?.name ?? ({
             logo: "Logo 规范", foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
-            installation: "安装与接入", patterns: "产品模式", "scene-styles": "场景样板", customization: "主题与定制",
+            installation: "安装与接入", templates: "任务组合", "templates/scenes": "完整场景", customization: "主题与定制",
           } as Record<string, string>)[route] ?? "简介" },
         ]} />
       </div>
