@@ -497,3 +497,10 @@
 /* Layout stays with the scene; card and heading presentation stays with shared UI. */
 .scene-brand-solutions { --cs-gallery-font-family:var(--cs-font); font-family:var(--cs-font); }
 .scene-brand-solutions > .cs-section-header { margin-bottom:32px; }
+/* Adjacent homepage sections share one 64px gap rather than stacking 80px twice. */
+.scene-brand-official .scene-brand-solutions { padding-bottom:32px; }
+.scene-brand-official .scene-brand-products { padding-top:32px; }
+@container(max-width:640px) {
+ .scene-brand-official .scene-brand-solutions { padding-bottom:24px; }
+ .scene-brand-official .scene-brand-products { padding-top:24px; }
+}
