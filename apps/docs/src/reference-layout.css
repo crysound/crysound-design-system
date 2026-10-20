@@ -1865,7 +1865,7 @@ body {
 .pagination-demo-slide > img { display:block; width:100%; aspect-ratio:16/7; object-fit:cover; }
 .pagination-demo-copy h3 { margin:0 0 8px; font-family:var(--cs-font); font-size:24px; line-height:32px; font-weight:600; color:var(--cs-text); }
 .pagination-demo-copy p { margin:0; font-size:16px; line-height:24px; color:var(--cs-muted); }
-.pagination-demo-card .pagination-demo-slide { display:grid; grid-template-columns:40% minmax(0,1fr); }
+.pagination-demo-card .pagination-demo-slide { display:grid; grid-template-columns:40% minmax(0,1fr); height:100%; box-sizing:border-box; }
 .pagination-demo-card .pagination-demo-slide > img { height:100%; aspect-ratio:auto; min-height:240px; }
 .pagination-demo-card .pagination-demo-copy { padding:32px; align-self:center; }
 .pagination-demo-card > .cs-carousel-controls { margin-top:24px; }
