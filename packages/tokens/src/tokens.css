@@ -399,3 +399,9 @@
   --cs-chart-series-5: oklch(73% 0.14 86);
   --cs-chart-series-6: oklch(65% 0.12 220);
 }
+
+/* Proposed media surface roles reuse existing theme surfaces; no new sampled colors. */
+:root, [data-theme], [data-customer] {
+  --cs-media-bg: var(--cs-surface);
+  --cs-media-muted-bg: var(--cs-bg);
+}
