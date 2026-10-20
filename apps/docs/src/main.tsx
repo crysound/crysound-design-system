@@ -194,7 +194,7 @@ function App() {
           }
         />
 
-        {["templates","templates/scenes"].includes(route) ? <TemplatesLibrary view={route==="templates/scenes"?"scenes":"tasks"}/> : route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
+        {route === "templates" ? <TemplatesLibrary/> : route === "logo" ? <LogoGuidelines /> : ["icons", "file-icons"].includes(route) ? (
           <React.Suspense fallback={<p role="status">正在加载图标库…</p>}>{route === "file-icons" ? <FileIconsPage /> : <IconLibrary />}</React.Suspense>
         ) : activeDoc ? (
           <ComponentPage

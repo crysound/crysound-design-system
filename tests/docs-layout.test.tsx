@@ -84,7 +84,7 @@ it("switches an example between preview and code and delegates the theme toggle"
 });
 
 it("keeps documentation sections independent and exposes one templates destination",async()=>{
-  const user=userEvent.setup();const onNavigate=vi.fn();render(<SidebarContent route="templates/scenes" onNavigate={onNavigate}/>);
+  const user=userEvent.setup();const onNavigate=vi.fn();render(<SidebarContent route="templates" onNavigate={onNavigate}/>);
   const gettingStarted=screen.getByRole('button',{name:'Getting started'});
   gettingStarted.focus();await user.keyboard('{Enter}');
   expect(gettingStarted).toHaveAttribute('aria-expanded','false');

@@ -1893,9 +1893,5 @@ body {
 
 .docs-nav-section--single { padding-bottom:8px; margin-bottom:8px; }
 .templates-page { padding:36px 32px 64px; max-width:1600px; margin:auto; color:var(--cs-text); }
-.templates-description { margin:20px 0 24px; color:var(--cs-muted); font-size:14px; line-height:22px; }
 .templates-page .scene-styles-page--embedded { padding:0; max-width:none; }
-.template-task-patterns > .section-heading { margin-bottom:24px; }
-.template-task-patterns > .section-heading h2 { margin:0; font-size:20px; line-height:28px; }
-.template-task-patterns > .cs-card { margin-bottom:24px; }
 @media(max-width:600px) { .templates-page { padding:24px 16px 40px; } }

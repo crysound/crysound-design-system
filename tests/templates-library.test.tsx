@@ -1,23 +1,25 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {afterEach,it,expect} from 'vitest';
 import {cleanup,render,screen,within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {ToastProvider} from '../packages/ui/src/index';
 import {TemplatesLibrary,canonicalTemplateRoute} from '../apps/docs/src/templates-library';
 afterEach(cleanup);
-it.each([['patterns','templates'],['scene-styles','templates/scenes'],['templates','templates'],['templates/scenes','templates/scenes'],['scene/brand','scene/brand']])('normalizes %s without changing standalone scene routes',(input,result)=>{expect(canonicalTemplateRoute(input)).toBe(result);});
-it('switches from task combinations to complete scenes with a single page heading',async()=>{
- const user=userEvent.setup();function Example(){const [view,setView]=useState<'tasks'|'scenes'>('tasks');return <ToastProvider><TemplatesLibrary view={view} onViewChange={setView}/></ToastProvider>;}
- render(<Example/>);
+it.each([['patterns','templates'],['scene-styles','templates'],['templates','templates'],['templates/scenes','templates'],['scene/brand','scene/brand']])('normalizes %s without changing standalone scene routes',(input,result)=>{expect(canonicalTemplateRoute(input)).toBe(result);});
+it('opens directly to scene templates and preserves scene switching and preview links',async()=>{
+ const user=userEvent.setup();
+ render(<TemplatesLibrary/>);
  expect(screen.getByRole('heading',{name:'样板库',level:1})).toBeVisible();
- expect(screen.getByRole('table',{name:'演示设备工作台'})).toBeVisible();
- await user.click(screen.getByRole('tab',{name:'完整场景'}));
  expect(screen.getAllByRole('heading',{level:1})).toHaveLength(1);
- expect(screen.queryByRole('table',{name:'演示设备工作台'})).not.toBeInTheDocument();
+ expect(screen.queryByRole('tablist',{name:'样板类型'})).not.toBeInTheDocument();
+ expect(screen.queryByRole('tab',{name:'任务组合'})).not.toBeInTheDocument();
+ expect(screen.getByRole('heading',{name:'噪声实时监测'})).toBeVisible();
  const sceneTabs=screen.getByRole('tablist',{name:'场景样板风格'});
+ expect(within(sceneTabs).getAllByRole('tab')).toHaveLength(3);
  await user.click(within(sceneTabs).getByRole('tab',{name:/数据看板/}));
  expect(screen.getByRole('heading',{name:'测量质量概览'})).toBeVisible();
  expect(screen.getByRole('link',{name:'展开样板'})).toHaveAttribute('href','#scene/analytics');
- await user.click(screen.getByRole('tab',{name:'任务组合'}));
- expect(screen.getByRole('table',{name:'演示设备工作台'})).toBeVisible();
+ await user.click(within(sceneTabs).getByRole('tab',{name:/测量工作台/}));
+ expect(screen.getByRole('heading',{name:'噪声实时监测'})).toBeVisible();
+ expect(screen.getByRole('link',{name:'展开样板'})).toHaveAttribute('href','#scene/precision');
+ expect(screen.getByRole('link',{name:'返回样板库'})).toHaveAttribute('href','#templates');
 });
