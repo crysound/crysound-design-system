@@ -72,7 +72,6 @@ export const docCategories = [
       "badge",
       "button",
       "icon-button",
-      "media-gallery",
       "action-link",
       "carousel-pagination",
       "floating-toc",
@@ -96,8 +95,9 @@ export const docCategories = [
     name: "应用组件",
     english: "Application UI components",
     description:
-      "对话框、菜单、导航和数据表格——组合常见的产品任务与应用工作流。",
+      "内容卡片、图片画廊、对话框、菜单、导航和数据表格——组合常见的内容展示、产品任务与应用工作流。",
     ids: [
+      "media-gallery",
       "resource-card",
       "metric-group",
       "progress-list",
