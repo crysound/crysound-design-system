@@ -288,7 +288,7 @@
 }
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] {
   background: var(--cs-surface);
-  box-shadow: var(--cs-shadow-sm);
+  box-shadow: var(--cs-tabs-thumb-shadow,var(--cs-shadow-sm));
 }
 .cs-tabs-content {
   padding-top: 20px;
@@ -1226,7 +1226,7 @@ button.cs-step-content { cursor: pointer; }
 }
 .cs-tabs-indicator { position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; z-index: 0; background: var(--cs-brand); }
 .cs-tabs-list[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { border-color: transparent; }
-.cs-tabs-list--pill .cs-tabs-indicator { background: var(--cs-selected-bg); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow-sm); }
+.cs-tabs-list--pill .cs-tabs-indicator { background: var(--cs-selected-bg); border-radius: var(--cs-radius); box-shadow: var(--cs-tabs-thumb-shadow,var(--cs-shadow-sm)); }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; box-shadow: none; }
 .cs-tabs-content[data-state="active"] { animation: none; }
 @keyframes cs-tab-content-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
@@ -1260,7 +1260,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-tabs-list--pill .cs-tabs-indicator,
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] {
   background: var(--cs-surface);
-  box-shadow: var(--cs-shadow-sm);
+  box-shadow: var(--cs-tabs-thumb-shadow,var(--cs-shadow-sm));
 }
 .cs-tabs-list--pill .cs-tabs-trigger[data-state="active"] { color: var(--cs-selected-fg); }
 .cs-tabs-list--pill[data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background: transparent; box-shadow: none; }
@@ -1804,6 +1804,7 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 @media(prefers-reduced-motion:reduce) { .cs-radio.cs-radio,.cs-radio-dot { transition:none; } }
 
 /* Company website only: same segmented treatment with fully rounded geometry. */
+.cs-tabs-list--pill[data-shape="capsule"] { --cs-tabs-thumb-shadow:0 0 2px color-mix(in srgb,var(--cs-text) 12%,transparent); padding:var(--cs-space-1); }
 .cs-tabs-list--pill[data-shape="capsule"],
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger,
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-indicator { border-radius:var(--cs-radius-pill); }
