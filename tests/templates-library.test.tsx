@@ -14,10 +14,14 @@ it('opens directly to scene templates and preserves scene switching and preview 
  expect(screen.queryByRole('tab',{name:'任务组合'})).not.toBeInTheDocument();
  expect(screen.getByRole('heading',{name:'噪声实时监测'})).toBeVisible();
  const sceneTabs=screen.getByRole('tablist',{name:'场景样板风格'});
- expect(within(sceneTabs).getAllByRole('tab')).toHaveLength(3);
+ expect(within(sceneTabs).getAllByRole('tab')).toHaveLength(4);
  await user.click(within(sceneTabs).getByRole('tab',{name:/数据看板/}));
  expect(screen.getByRole('heading',{name:'测量质量概览'})).toBeVisible();
  expect(screen.getByRole('link',{name:'展开样板'})).toHaveAttribute('href','#scene/analytics');
+ await user.click(within(sceneTabs).getByRole('tab',{name:/OpenTest 客户端/}));
+ expect(screen.getByRole('region',{name:'OpenTest 客户端工作区'})).toBeVisible();
+ expect(screen.getByRole('link',{name:'展开样板'})).toHaveAttribute('href','#scene/opentest');
+ expect(within(sceneTabs).getAllByRole('tab').at(-1)).toHaveTextContent('OpenTest 客户端');
  await user.click(within(sceneTabs).getByRole('tab',{name:/测量工作台/}));
  expect(screen.getByRole('heading',{name:'噪声实时监测'})).toBeVisible();
  expect(screen.getByRole('link',{name:'展开样板'})).toHaveAttribute('href','#scene/precision');
