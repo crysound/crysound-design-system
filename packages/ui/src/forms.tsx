@@ -76,10 +76,11 @@ export const Textarea = forwardRef<
 });
 export const Select = forwardRef<
   HTMLSelectElement,
-  SelectHTMLAttributes<HTMLSelectElement> & FieldProps
+  SelectHTMLAttributes<HTMLSelectElement> & FieldProps & {hideLabel?: boolean}
 >(function Select(
   {
     label,
+    hideLabel = false,
     hint,
     error,
     id,
@@ -109,10 +110,10 @@ export const Select = forwardRef<
   const description = [described, (error || hint) && `${field}-help`].filter(Boolean).join(' ') || undefined;
   // Preserve native multi-select, grouped options and custom child contracts.
   if (props.multiple || props.size || Children.toArray(children).some(child => !isValidElement(child) || child.type !== 'option')) {
-    return <div className="cs-field"><label htmlFor={field}>{label}</label><select {...props} ref={ref} id={field} className={cx('cs-input cs-select',className)} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>{children}</select><Help id={`${field}-help`} error={error} hint={hint}/></div>;
+    return <div className="cs-field"><label className={hideLabel?'cs-sr-only':undefined} htmlFor={field}>{label}</label><select {...props} ref={ref} id={field} className={cx('cs-input cs-select',className)} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>{children}</select><Help id={`${field}-help`} error={error} hint={hint}/></div>;
   }
   return <div className="cs-field">
-    <label id={`${field}-label`} htmlFor={field}>{label}</label>
+    <label className={hideLabel?'cs-sr-only':undefined} id={`${field}-label`} htmlFor={field}>{label}</label>
     <select {...props} ref={node => { native.current = node; if(typeof ref === 'function') ref(node); else if(ref) ref.current = node; }}
       className="cs-select-native" aria-hidden="true" tabIndex={-1} value={value}
       onChange={event => {setCurrent(event.target.value); props.onChange?.(event);}}

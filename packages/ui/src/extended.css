@@ -954,6 +954,16 @@
 .cs-chart-data summary { cursor: pointer; color: var(--cs-brand); }
 .cs-chart-data .cs-table { margin-top: 12px; }
 .cs-chart-data .cs-table :is(th,td) { padding: 8px 12px; font-size: 12px; }
+.cs-chart[data-variant="instrument"] { padding:4px; border-radius:0; overflow:auto; }
+.cs-chart[data-variant="instrument"] figcaption { margin-bottom:4px; }
+.cs-chart[data-variant="instrument"] figcaption > strong { font-size:14px; line-height:20px; font-weight:var(--cs-weight-medium); }
+.cs-chart[data-variant="instrument"] .cs-chart-legend { order:1; justify-content:flex-end; gap:8px; padding:0; margin:0 4px 4px; }
+.cs-chart[data-variant="instrument"] .cs-chart-legend span { width:10px; height:10px; flex-basis:10px; }
+.cs-chart[data-variant="instrument"] .cs-chart-data { margin-top:4px; }
+.cs-chart[data-variant="instrument"] .cs-chart-plot svg :is([data-grid], [data-axis-tick]) line { stroke-dasharray:none; }
+.cs-tabs-list--pill[data-tone="brand"] .cs-tabs-trigger[data-state="active"] { background:var(--cs-brand); color:var(--cs-on-brand); box-shadow:none; }
+.cs-tabs-list--pill[data-tone="brand"] .cs-tabs-indicator { background:var(--cs-brand); box-shadow:none; }
+.cs-tabs-list--pill[data-tone="brand"][data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background:transparent; }
 .cs-chart-legend button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; }
 @media(max-width:540px) { .cs-chart { padding: 12px; } }
 

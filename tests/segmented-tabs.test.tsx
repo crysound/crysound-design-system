@@ -23,7 +23,7 @@ it('leaves two-item and line lists unwrapped', () => {
 
 it('keeps static segmented selection independent of a measured indicator',async()=>{
  const user=userEvent.setup();
- const {container}=render(<Tabs defaultValue="a"><TabsList variant="pill" indicatorMode="static" aria-label="分类"><TabsTrigger value="a">第一项</TabsTrigger><TabsTrigger value="b" disabled>禁用项</TabsTrigger><TabsTrigger value="c">最后一项</TabsTrigger></TabsList><TabsContent value="a">全部内容</TabsContent><TabsContent value="c">筛选内容</TabsContent></Tabs>);
+ const {container}=render(<Tabs defaultValue="a"><TabsList variant="pill" tone="brand" indicatorMode="static" aria-label="分类"><TabsTrigger value="a">第一项</TabsTrigger><TabsTrigger value="b" disabled>禁用项</TabsTrigger><TabsTrigger value="c">最后一项</TabsTrigger></TabsList><TabsContent value="a">全部内容</TabsContent><TabsContent value="c">筛选内容</TabsContent></Tabs>);
  expect(container.querySelector('.cs-tabs-indicator')).toBeNull();
  await user.click(screen.getByRole('tab',{name:'最后一项'}));
  expect(screen.getByRole('tab',{name:'最后一项'})).toHaveAttribute('aria-selected','true');

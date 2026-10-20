@@ -7,6 +7,7 @@ export interface ChartProps {
   height?: number; loading?: boolean; barBaseline?: number; minorGrid?: boolean;
   xScale?: 'category'|'linear'|'log'; xLabel?: string; yLabel?: string;
   xDomain?: [number, number]; yDomain?: [number, number]; yStep?: number; measurementInfo?: string[];
+  variant?: 'default'|'instrument'; emptyLabel?: string;
 }
 function spacedTicks(values: number[], position: (value: number) => number, minimumGap: number) {
   if (values.length < 2) return values;
@@ -25,7 +26,7 @@ export function AreaChart(props:ChartProps) {return <Chart {...props} kind="area
 export function ScatterChart(props:ChartProps) {return <Chart {...props} kind="scatter"/>;}
 export function StackedBarChart(props:ChartProps) {return <Chart {...props} kind="stacked"/>;}
 export function BarChart(props:ChartProps) {return <Chart {...props} kind="bar"/>;}
-function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,minorGrid=true,kind}:ChartProps&{kind:'line'|'bar'|'area'|'scatter'|'stacked'}) {
+function Chart({title,description,data,series,unit='',height=300,loading=false,barBaseline=0,xScale='category',xLabel,yLabel,xDomain,yDomain,yStep,measurementInfo,minorGrid=true,variant='default',emptyLabel='暂无图表数据',kind}:ChartProps&{kind:'line'|'bar'|'area'|'scatter'|'stacked'}) {
   const id=useId();const [active,setActive]=useState<number | undefined>(undefined);const [hidden,setHidden]=useState<string[]>([]);
   const visible=series.filter(item=>!hidden.includes(item.key));
   const values=data.flatMap(row=>visible.map(item=>row.values[item.key])).filter((n):n is number=>typeof n==='number'&&Number.isFinite(n));
@@ -76,7 +77,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
   const cursorValue=selected?visible.map(item=>selected.values[item.key]).find((value):value is number=>typeof value==='number'&&Number.isFinite(value)):undefined;
   const cursorY=cursorValue===undefined?top:Math.min(top+plotHeight,Math.max(top,y(cursorValue)));
   const format=(n:number)=>new Intl.NumberFormat('zh-CN',{maximumFractionDigits:2,notation:Math.abs(n)>=10000?'compact':'standard'}).format(n);
-  return <figure className="cs-chart" data-kind={kind} aria-labelledby={`${id}-title`}>
+  return <figure className="cs-chart" data-kind={kind} data-variant={variant} aria-labelledby={`${id}-title`}>
     <figcaption><strong id={`${id}-title`}>{title}</strong>{description&&<p>{description}</p>}</figcaption>
     {measurementInfo&&<div className="cs-chart-measurement-info">{measurementInfo.map(info=><span key={info}>{info}</span>)}</div>}
 
@@ -107,7 +108,7 @@ function Chart({title,description,data,series,unit='',height=300,loading=false,b
           <div className="cs-chart-tooltip-title">{typeof selected.x==='number'&&xLabel?.includes('Hz')?`${cursorFormat(selected.x)} Hz`:selected.label}</div>
           {visible.map(item=><div className="cs-chart-tooltip-row" key={item.key}><span className="cs-chart-tooltip-dot" style={{background:color(item)}}/><span>{item.label}</span><strong>{typeof selected.values[item.key]==='number'&&Number.isFinite(selected.values[item.key])?cursorFormat(selected.values[item.key]!):'—'} {unit}</strong></div>)}
         </div>}
-        {(loading||!data.length||!series.length)&&<div className="cs-chart-overlay" role={loading?'status':undefined}><span>{loading?'正在加载图表…':'暂无图表数据'}</span></div>}
+        {(loading||!data.length||!series.length)&&<div className="cs-chart-overlay" role={loading?'status':undefined}><span>{loading?'正在加载图表…':emptyLabel}</span></div>}
       </div>
     <div className="cs-chart-legend" role="group" aria-label={`${title} 数据序列`}>{series.map(item=><button key={item.key} type="button" aria-pressed={!hidden.includes(item.key)} onClick={()=>setHidden(current=>current.includes(item.key)?current.filter(key=>key!==item.key):[...current,item.key])}><span style={{background:color(item)}}/>{item.label}</button>)}</div>
       {!loading&&data.length>0&&series.length>0&&<><div className="cs-sr-only" aria-live="polite" aria-atomic="true">{selected?<><strong>{selected.label}</strong>{visible.map(item=><span key={item.key}>{item.label}：{typeof selected.values[item.key]==='number'?cursorFormat(selected.values[item.key]!):'—'} {unit}</span>)}</>:<span>移动鼠标查看数值 · Tab / 方向键移动 · Esc 隐藏{unit?` · 单位 ${unit}`:''}</span>}</div>

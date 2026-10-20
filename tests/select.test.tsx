@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { afterEach, it, expect, vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import { Select } from '../packages/ui/src/index';
 afterEach(cleanup);
 it('submits the selected value and keeps controlled selection and errors',()=>{
@@ -18,4 +19,13 @@ it('disables the visible trigger and preserves the forwarded native ref',()=>{
   render(<Select label="类型" disabled ref={ref}><option value="a">血清</option></Select>);
   expect(screen.getByRole('button')).toBeDisabled();
   expect(ref.current).toBeInstanceOf(HTMLSelectElement);
+});
+
+it('keeps a visually hidden field label available during menu selection and form submission',async()=>{
+ const user=userEvent.setup();
+ const {container}=render(<form><Select label="Input signal" hideLabel name="signal" defaultValue="acoustic"><option value="acoustic">Acoustic</option><option value="voltage">Voltage</option></Select></form>);
+ await user.click(screen.getByRole('button',{name:'Input signal Acoustic'}));
+ await user.click(screen.getByRole('menuitemradio',{name:'Voltage'}));
+ expect(screen.getByRole('button',{name:'Input signal Voltage'})).toHaveFocus();
+ expect(new FormData(container.querySelector('form')!).get('signal')).toBe('voltage');
 });

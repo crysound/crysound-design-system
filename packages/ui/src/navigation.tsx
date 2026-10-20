@@ -6,8 +6,8 @@ import { Button } from "./index";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className, children, ref, variant = "line", shape = "rounded", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
-}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; shape?: "rounded" | "capsule"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
+  className, children, ref, variant = "line", shape = "rounded", tone = "default", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
+}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; shape?: "rounded" | "capsule"; tone?: "default" | "brand"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -83,7 +83,7 @@ export function TabsList({
     list.current = element;
     if (typeof ref === 'function') return ref(element);
     if (ref) ref.current = element;
-  }} className={cx("cs-tabs-list", `cs-tabs-list--${variant}`, className)}>
+  }} data-tone={tone} className={cx("cs-tabs-list", `cs-tabs-list--${variant}`, className)}>
     {indicatorMode === "animated" && <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />}
     {children}
   </T.List>;

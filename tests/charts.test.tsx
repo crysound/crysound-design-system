@@ -95,3 +95,14 @@ it('preserves explicit colours and channel identity while using a general palett
   const legend=container.querySelector('.cs-chart-legend')!;
   expect(plot.compareDocumentPosition(legend) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 });
+
+it('retains empty, loading and accessible data transitions in an instrument plot',()=>{
+ const {rerender}=render(<LineChart variant="instrument" emptyLabel="No acquired data" title="Scope" data={[]} series={series}/>);
+ expect(screen.getByText('No acquired data')).toBeVisible();
+ rerender(<LineChart variant="instrument" emptyLabel="No acquired data" title="Scope" loading data={[]} series={series}/>);
+ expect(screen.getByRole('status')).toHaveTextContent('正在加载图表');
+ rerender(<LineChart variant="instrument" emptyLabel="No acquired data" title="Scope" data={[{label:'1 ms',values:{a:.5}}]} series={series}/>);
+ fireEvent.focus(screen.getByRole('button',{name:/1 ms：测点 A 0.5/}));
+ expect(screen.queryByText('No acquired data')).not.toBeInTheDocument();
+ expect(screen.getByRole('table',{hidden:true})).toHaveTextContent('0.5');
+});

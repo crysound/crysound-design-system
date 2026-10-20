@@ -121,3 +121,8 @@ outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，�
 ## Checkbox 勾选动效
 
 参考用户指定的 HeroUI Checkbox Button Group 公开演示交互，独立实现共享 Radix Checkbox 指示器。用常驻、aria-hidden 的 SVG 对号和横线路径替代文字字形；选中时绘入并淡入，取消时反向收回并淡出，使用现有 `--cds-dur-base`（200ms）与 `--cds-ease-out`。CSS transition 可在快速切换时从当前显示值反向，不延迟实际 checked 状态。不复制商业组件源码，也不引入动画依赖。`prefers-reduced-motion: reduce` 取消路径、缩放及透明度过渡；受控/非受控、部分选中、禁用、键盘、表单提交与 reset 保持 Radix 语义。
+
+
+## 桌面仪器布局适配
+
+Select的`hideLabel`只隐藏视觉标签，保留可访问名称与原生select表单语义。TabsList的`tone="brand"`为显式品牌实心选中项，默认tone不变。LineChart的`variant="instrument"`压缩外边距、采用直角与顶部图例；`emptyLabel`可明确未采集或断连状态，加载语义与键盘读数保持。均为兼容新增属性，消费项目仍负责数据和硬件流程。
