@@ -142,7 +142,7 @@ export const catalog: ComponentDoc[] = [
       ["description / disabled", "string / boolean", "—"],
     ],
     '<Checkbox label="保存原始数据" description="用于后续复核" defaultChecked />',
-    "一组选项允许多个同时生效时使用 Checkbox；单选用 RadioGroup。组合时控件与首行标签对齐，帮助说明放在标签下方；同组选项统一间距，避免每项都套Card。勾选状态只负责选择，不同时改变字号与字重。",
+    "一组选项允许多个同时生效时使用 Checkbox；单选用 RadioGroup。组合时控件与首行标签对齐，帮助说明放在标签下方；同组选项统一间距，避免每项都套Card。勾选状态只负责选择，不同时改变字号与字重。对号使用常驻SVG路径，选中绘入、取消收回并淡出；支持快速反向切换，部分选中使用横线；减少动态效果时即时切换。",
   ),
   define(
     "switch",

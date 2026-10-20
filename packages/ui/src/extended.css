@@ -1764,3 +1764,12 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 }
 @media(prefers-reduced-motion:reduce) { .cs-floating-toc-mark,.cs-floating-toc-label { transition:none; } }
 @media(forced-colors:active) { .cs-floating-toc-mark { background:CanvasText; }.cs-floating-toc-item[aria-current] .cs-floating-toc-mark { background:Highlight; } }
+
+/* Persistent paths make checked and unchecked transitions reversible. */
+.cs-checkbox { transition:background-color var(--cds-dur-base) var(--cds-ease-out),border-color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-checkbox .cs-checkbox-indicator { display:grid; place-items:center; width:100%; height:100%; pointer-events:none; }
+.cs-checkbox-indicator svg { display:block; overflow:visible; }
+.cs-checkbox-check,.cs-checkbox-mixed { stroke-dasharray:1; stroke-dashoffset:1; opacity:0; transform:scale(.85); transform-origin:8px 8px; transition:stroke-dashoffset var(--cds-dur-base) var(--cds-ease-out),opacity var(--cds-dur-base) var(--cds-ease-out),transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-checkbox[data-state="checked"] .cs-checkbox-check,.cs-checkbox[data-state="indeterminate"] .cs-checkbox-mixed { stroke-dashoffset:0; opacity:1; transform:scale(1); }
+@media(prefers-reduced-motion:reduce) { .cs-checkbox { transition:none; }.cs-checkbox-check,.cs-checkbox-mixed { transition:none; transform:none; } }
+@media(forced-colors:active) { .cs-checkbox[data-state="checked"],.cs-checkbox[data-state="indeterminate"] { color:HighlightText; background:Highlight; border-color:Highlight; } }

@@ -158,8 +158,11 @@ export function Checkbox({
         }
         className={cx("cs-checkbox", className)}
       >
-        <C.Indicator>
-          {props.checked === "indeterminate" ? "−" : "✓"}
+        <C.Indicator forceMount className="cs-checkbox-indicator" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path className="cs-checkbox-check" d="m3.5 8 3 3 6-6" pathLength="1" />
+            <path className="cs-checkbox-mixed" d="M4 8h8" pathLength="1" />
+          </svg>
         </C.Indicator>
       </C.Root>
       <div>

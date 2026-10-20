@@ -117,3 +117,7 @@ outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，�
 工作台页面底色使用 --cs-bg（light/software为#f8fafc），内容卡片使用 --cs-surface（白色）；--cs-subtle用于局部辅助区域。不要把Slate 200或更深的控件灰色铺满整个工作区，也不要通过加深背景代替分组。接入应用如仍使用硬编码#e2e8f0，需改为语义令牌才能同步本调整。
 
 按钮默认md高度按用户要求改为36px，使用独立的cs-button-height语义Token；紧凑密度保留32px。sm/lg及移动触摸场景继续由显式尺寸约束，输入框等表单控件不随按钮调整。
+
+## Checkbox 勾选动效
+
+参考用户指定的 HeroUI Checkbox Button Group 公开演示交互，独立实现共享 Radix Checkbox 指示器。用常驻、aria-hidden 的 SVG 对号和横线路径替代文字字形；选中时绘入并淡入，取消时反向收回并淡出，使用现有 `--cds-dur-base`（200ms）与 `--cds-ease-out`。CSS transition 可在快速切换时从当前显示值反向，不延迟实际 checked 状态。不复制商业组件源码，也不引入动画依赖。`prefers-reduced-motion: reduce` 取消路径、缩放及透明度过渡；受控/非受控、部分选中、禁用、键盘、表单提交与 reset 保持 Radix 语义。
