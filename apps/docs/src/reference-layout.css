@@ -1888,7 +1888,7 @@ body {
 @media(max-width:900px),(pointer:coarse) { .floating-toc-demo-stage { display:block; }.floating-toc-demo-stage > aside { padding:0; border-bottom:1px solid var(--cs-border); }.floating-toc-demo-content { height:360px; padding:16px; }.floating-toc-demo-content h3 { font-size:24px; line-height:32px; } }
 @media(prefers-reduced-motion:reduce) { .floating-toc-demo-content { scroll-behavior:auto; } }
 
-.pagination-demo { width:100%; max-width:800px; }
+.pagination-demo { width:100%; max-width:560px; }
 .pagination-demo-carousel { position:relative; }
 .pagination-demo-slide { width:100%; aspect-ratio:16/9; box-sizing:border-box; overflow:hidden; border-radius:8px; border:1px solid var(--cs-border); background:var(--cs-subtle); color:var(--cs-muted); }
 .pagination-demo-placeholder { display:block; width:100%; height:100%; }
