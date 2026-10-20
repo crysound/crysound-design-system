@@ -242,7 +242,7 @@ export function RadioGroup({
               }
               className="cs-radio"
             >
-              <R.Indicator className="cs-radio-dot" />
+              <R.Indicator forceMount className="cs-radio-dot" aria-hidden="true" />
             </R.Item>
             <div>
               <label htmlFor={`${id}-${i}`}>{option.label}</label>

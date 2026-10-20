@@ -170,7 +170,7 @@ export const catalog: ComponentDoc[] = [
       ["orientation", "horizontal | vertical", "vertical"],
     ],
     '<RadioGroup label="频率计权" defaultValue="a" options={[{value:"a",label:"A 计权"},{value:"z",label:"Z 计权"}]} />',
-    "用方向键切换选项。标签要描述选择影响，避免只给难理解的缩写。",
+    "用方向键切换选项。选中圆点以200ms缓出缩放、淡入淡出，外圈颜色同步过渡；取消也有退场动画，快速切换可反向过渡。减少动态效果时即时切换。标签要描述选择影响，避免只给难理解的缩写。",
   ),
   define(
     "slider",

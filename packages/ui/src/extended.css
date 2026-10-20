@@ -1778,3 +1778,9 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 .cs-icon-button.cs-icon-button--brand-ghost { color:var(--cs-text-secondary); background:transparent; transition:color var(--cds-dur-base) var(--cds-ease-out); }
 .cs-icon-button.cs-icon-button--brand-ghost:is(:hover,:focus-visible):not(:disabled) { color:var(--cs-brand); background:transparent; }
 @media(prefers-reduced-motion:reduce) { .cs-icon-button.cs-icon-button--brand-ghost { transition:none; } }
+
+/* Keep the dot mounted so selection and deselection can reverse smoothly. */
+.cs-radio.cs-radio { transition:background-color var(--cds-dur-base) var(--cds-ease-out),border-color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-radio-dot { opacity:0; transform:scale(0); transform-origin:center; transition:transform var(--cds-dur-base) var(--cds-ease-out),opacity var(--cds-dur-base) var(--cds-ease-out); }
+.cs-radio[data-state="checked"] .cs-radio-dot { opacity:1; transform:scale(1); }
+@media(prefers-reduced-motion:reduce) { .cs-radio.cs-radio,.cs-radio-dot { transition:none; } }

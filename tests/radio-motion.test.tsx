@@ -1,0 +1,23 @@
+import React from 'react';
+import {afterEach,it,expect} from 'vitest';
+import {cleanup,render,screen,waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {RadioGroup} from '../packages/ui/src/forms';
+afterEach(cleanup);
+it('retains both dots through keyboard selection and skips disabled options',async()=>{
+ const user=userEvent.setup();
+ const {container}=render(<form><RadioGroup label="计权" name="weighting" defaultValue="a" options={[{value:'a',label:'A'},{value:'c',label:'C',disabled:true},{value:'z',label:'Z'}]}/></form>);
+ const dots=Array.from(container.querySelectorAll('.cs-radio-dot'));
+ expect(dots).toHaveLength(3);
+ await user.tab();expect(screen.getByRole('radio',{name:'A'})).toHaveFocus();
+ await user.keyboard('{ArrowDown>}');
+ await waitFor(()=>expect(screen.getByRole('radio',{name:'Z'})).toBeChecked());await user.keyboard('{/ArrowDown}');
+ expect(screen.getByRole('radio',{name:'C'})).toBeDisabled();
+ expect(new FormData(container.querySelector('form')!).get('weighting')).toBe('z');
+ expect(Array.from(container.querySelectorAll('.cs-radio-dot'))).toEqual(dots);
+ expect(dots[0]).toHaveAttribute('data-state','unchecked');
+ expect(dots[2]).toHaveAttribute('data-state','checked');
+ await user.keyboard('{ArrowUp>}');
+ await waitFor(()=>expect(screen.getByRole('radio',{name:'A'})).toBeChecked());await user.keyboard('{/ArrowUp}');
+ expect(Array.from(container.querySelectorAll('.cs-radio-dot'))).toEqual(dots);
+});
