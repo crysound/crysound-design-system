@@ -1,7 +1,5 @@
-@font-face { font-family:CRYSOUNDBanner; src:url('/scene-assets/Manrope-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:CRYSOUNDBanner; src:url('/scene-assets/Manrope-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
 /* Original homepage banner composition, scoped to the brand sample. */
-.brand-banner { position:relative; height:calc(512 * 100cqw / 1714); overflow:hidden; background:linear-gradient(81.0624deg,#f5f6f8 6.1269%,#e5eaf0 66.179%,#ebf2fa 99.578%); color:#333; font-family:CRYSOUNDBanner,sans-serif; }
+.brand-banner { position:relative; height:calc(512 * 100cqw / 1714); overflow:hidden; background:linear-gradient(81.0624deg,#f5f6f8 6.1269%,#e5eaf0 66.179%,#ebf2fa 99.578%); color:#333; font-family:var(--cs-font); }
 .brand-banner[data-slide="1"] { background:linear-gradient(81.0624deg,#f5f5f8 6.1269%,#e5e5f0 66.179%,#ecebfa 99.578%); }
 .brand-banner[data-slide="2"] { background:linear-gradient(81.0624deg,#f8f7f5 6.1269%,#eae6e0 66.179%,#eeebe5 99.578%); }
 .brand-banner[data-slide="3"] { background:linear-gradient(81.0624deg,#f8f8f8 6.1269%,#e8e8e8 66.179%,#ededed 99.578%); }
@@ -60,7 +58,7 @@
 }
 @media(prefers-reduced-motion:reduce) { .brand-banner-controls > .cs-button.cs-button--sm { transition:none; } }
 
-.scene-brand-official .scene-brand-nav.brand-header { box-sizing:border-box; display:flex; flex-wrap:nowrap; min-height:calc(72 * 100cqw / 1714); height:calc(72 * 100cqw / 1714); padding:0 calc(167 * 100cqw / 1714); gap:calc(40 * 100cqw / 1714); background:#fff; color:#333; border-bottom:1px solid #eee; font-family:CRYSOUNDBanner,sans-serif; }
+.scene-brand-official .scene-brand-nav.brand-header { box-sizing:border-box; display:flex; flex-wrap:nowrap; min-height:calc(72 * 100cqw / 1714); height:calc(72 * 100cqw / 1714); padding:0 calc(167 * 100cqw / 1714); gap:calc(40 * 100cqw / 1714); background:#fff; color:#333; border-bottom:1px solid #eee; font-family:var(--cs-font); }
 .scene-brand-official .scene-brand-nav.brand-header > img { width:calc(208 * 100cqw / 1714); height:auto; }
 .scene-brand-official .brand-header nav { display:flex; flex:1; flex-basis:auto; order:0; justify-content:flex-end; align-items:center; gap:calc(16 * 100cqw / 1714); padding:0; border:0; white-space:nowrap; }
 .scene-brand-official .brand-header nav .cs-button { min-height:calc(32 * 100cqw / 1714); padding:0; gap:calc(6 * 100cqw / 1714); color:#333; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }

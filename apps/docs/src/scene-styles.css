@@ -446,8 +446,8 @@
 .brand-design-preview { position:relative; width:100%; overflow:hidden; }
 .brand-design-canvas { width:1714px; transform-origin:top left; container-type:inline-size; }
 .scene-standalone > .scene-sample[data-scene="brand"] { max-width:none; }
-/* The brand page uses one website font system throughout. */
-.scene-brand-official { --cs-gallery-font-family:CRYSOUNDCard,Arial,sans-serif; font-family:CRYSOUNDCard,Arial,sans-serif; }
+/* Website samples inherit the existing system font, including gallery cards. */
+.scene-brand-official { --cs-gallery-font-family:var(--cs-font); font-family:var(--cs-font); }
 .scene-brand-official .scene-brand-section-heading { margin-bottom:32px; }
 .scene-brand-official .scene-brand-solutions,.scene-brand-official .scene-brand-products { padding-top:80px; padding-bottom:80px; }
 .scene-brand-official .scene-brand-section-heading h3 { font-size:36px; line-height:44px; font-weight:700; }
@@ -457,12 +457,11 @@
 @container cs-gallery (max-width:359px) { .scene-brand-official .scene-solution-gallery { grid-template-columns:1fr; } }
 .scene-brand-featured,.scene-brand-blogs { padding:0 var(--scene-page-inset) 80px; scroll-margin-top:80px; }
 .scene-brand-featured .cs-gallery-shop-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
-.scene-brand-featured { --cs-gallery-font-family:CRYSOUNDCard,Arial,sans-serif; }
 .scene-brand-featured .cs-gallery-shop-card:first-child .cs-gallery-shop-image img { width:284px; height:188px; left:-22px; top:30px; }
 .scene-brand-featured .cs-gallery-shop-card:nth-child(2) .cs-gallery-shop-image img { width:188px; height:188px; left:22px; top:28px; }
 .scene-brand-featured .cs-gallery-shop-card:is(:hover,:focus-within) img { transform:scale(1.04); }
 .scene-brand-blogs .scene-blog-gallery { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
-.scene-brand-blogs .cs-gallery-card { background:transparent; font-family:CRYSOUNDCard,Arial,sans-serif; }
+.scene-brand-blogs .cs-gallery-card { background:transparent; }
 .scene-blog-carousel > .cs-carousel-viewport { overflow:hidden; }
 .scene-blog-carousel > .cs-carousel-controls { margin-top:32px; }
 .scene-blog-carousel .cs-gallery-card-primary::after { cursor:pointer; }
@@ -471,7 +470,7 @@
 @container cs-gallery (max-width:675px) { .scene-brand-featured .cs-gallery-shop-card .cs-gallery-shop-image img { inset:0; width:100%; height:100%; } }
 .scene-standalone:has(.scene-brand) { max-width:none; width:100%; padding:0; }
 /* Homepage Products: source screenshot composition, 328 × 314 cards. */
-.scene-brand-official .scene-brand-products { background:var(--cs-surface); font-family:CRYSOUNDCard,Arial,sans-serif; }
+.scene-brand-official .scene-brand-products { background:var(--cs-surface); }
 .scene-brand-official .scene-brand-products .cs-tabs-content { padding-top:32px; }
 .scene-brand-official .scene-product-grid { padding:0; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
 .scene-product-grid article { container-type:inline-size; }
@@ -495,7 +494,6 @@
 @container(max-width:480px) { .scene-brand-official .scene-product-grid { grid-template-columns:1fr; } }
 
 /* Layout stays with the scene; card and heading presentation stays with shared UI. */
-.scene-brand-solutions { --cs-gallery-font-family:var(--cs-font); font-family:var(--cs-font); }
 .scene-brand-solutions > .cs-section-header { margin-bottom:32px; }
 /* Adjacent homepage sections share one 64px gap rather than stacking 80px twice. */
 .scene-brand-official .scene-brand-solutions { padding-bottom:32px; }
