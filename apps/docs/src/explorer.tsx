@@ -1,3 +1,4 @@
+import {CarouselPaginationDemo} from './carousel-pagination-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import { DataTableDemo } from "./data-table-demo";
@@ -1061,5 +1062,3 @@ export function FoundationGallery({ section = "all" }: { section?: "all" | "type
     </div>
   );
 }
-
-function CarouselPaginationDemo(){const [value,setValue]=useState(3);return <div className="demo-stack"><UI.CarouselPagination count={6} value={value} onValueChange={setValue}/></div>;}
