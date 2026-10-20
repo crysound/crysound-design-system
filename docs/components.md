@@ -130,3 +130,5 @@ Select的`hideLabel`只隐藏视觉标签，保留可访问名称与原生select
 ## 呼吸加载动画
 
 LoadingIndicator新增`variant="pulse"`，使用系统品牌/中性语义色、3秒轻微缩放与光晕呼吸。`animate=false`及系统减少动态效果均关闭循环，保留图形与任务文字；`role=status`只宣读任务标签，装饰图形不重复播报。参考社区Open Claude UI的呼吸状态灯方向，尺寸与光晕是CRYSOUND工程适配，不宣称Claude官方参数。原有spinner/ring/dots默认与API保持兼容，详见[加载指示器](./loading-indicator.md)。
+
+按用户要求新增`variant="logo"`，嵌入公司标准图形标志的原始矢量路径。四边依次明暗、中心常驻，3秒循环；暂停和减少动态效果恢复完整静态Logo。与图库默认封面复用内部CrysoundMark，不依赖文档站资产URL，沿用现有尺寸、配色和可访问状态契约。
