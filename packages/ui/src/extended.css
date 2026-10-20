@@ -1612,6 +1612,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-gallery-shop-content strong { color:var(--cs-brand); font-size:16px; line-height:24px; font-weight:600; }
 .cs-gallery-shop-content p { margin:0 0 12px; color:var(--cs-text-secondary); font-size:14px; line-height:22px; }
 .cs-gallery-shop-buy { box-sizing:border-box; margin-top:auto; text-decoration:none; }
+.cs-gallery-shop-card:is(:hover,:focus-within) .cs-gallery-shop-buy.cs-button--secondary { background:var(--cs-brand); color:var(--cs-on-brand); border-color:var(--cs-brand); }
 .cs-gallery-shop-card a:not(.cs-gallery-shop-buy):focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }
 @media(max-width:1000px) { .cs-gallery-shop-grid { grid-template-columns:1fr; } }
 @media(max-width:480px) { .cs-gallery-shop-card { grid-template-columns:1fr; }.cs-gallery-shop-image { min-height:180px; }.cs-gallery-shop-image img { height:180px; }.cs-gallery-shop-content { padding:20px; } }
