@@ -1,5 +1,5 @@
 import {IconButtonDemo} from './website-controls-demo';
-import { useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import {
   SearchLg,
   ChevronDown,
@@ -181,6 +181,7 @@ export function SidebarContent({
   searchFocus?: boolean;
   showSearch?: boolean;
 }) {
+  const sidebarId=useId();
   const [query, setQuery] = useState("");
   const [collapsed, setCollapsed] = useState<string[]>([]);
   const toggle = (id: string) =>
@@ -211,10 +212,10 @@ export function SidebarContent({
         {docSections.map(section=>{
           const open=!collapsed.includes(section.id);
           return <div className="docs-nav-section" key={section.id}>
-            <button className="docs-nav-heading" title={section.name} onClick={()=>toggle(section.id)} aria-expanded={open}>
+            <button className="docs-nav-heading" title={section.name} onClick={()=>toggle(section.id)} aria-expanded={open} aria-controls={`${sidebarId}-${section.id}`}>
               {section.english}<ChevronDown size={14} aria-hidden="true"/>
             </button>
-            {open&&<div className="docs-nav-links">{section.links.map(([id,name,zh])=><a key={id} href={`#${id}`} aria-current={route===id?'page':undefined} onClick={onNavigate}>{name}<span>{zh}</span></a>)}</div>}
+            <div className="docs-nav-content" id={`${sidebarId}-${section.id}`} aria-hidden={!open||undefined} inert={!open||undefined}><div className="docs-nav-links">{section.links.map(([id,name,zh])=><a key={id} href={`#${id}`} aria-current={route===id?'page':undefined} onClick={onNavigate}>{name}<span>{zh}</span></a>)}</div></div>
           </div>;
         })}
         {docCategories.map((category) => {
@@ -229,11 +230,12 @@ export function SidebarContent({
                 className="docs-nav-heading"
                 onClick={() => toggle(category.id)}
                 aria-expanded={open}
+                aria-controls={`${sidebarId}-${category.id}`}
               >
                 {category.english}
                 <ChevronDown size={14} aria-hidden="true" />
               </button>
-              {open && (
+              <div className="docs-nav-content" id={`${sidebarId}-${category.id}`} aria-hidden={!open||undefined} inert={!open||undefined}>
                 <div className="docs-nav-links">
                   {category.id === "base" && !query && (
                     <a
@@ -258,7 +260,7 @@ export function SidebarContent({
                     </a>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

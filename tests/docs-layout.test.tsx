@@ -13,7 +13,14 @@ it("collapses component groups without losing current-route semantics", async ()
     "aria-current",
     "page",
   );
-  await user.click(screen.getByRole("button", { name: "Base components" }));
+  const originalInputLink=screen.getByRole("link", { name: "Input 输入框" });
+  const baseHeading=screen.getByRole("button", { name: "Base components" });
+  await user.click(baseHeading);
+  expect(originalInputLink).toBeInTheDocument();
+  const panel=document.getElementById(baseHeading.getAttribute('aria-controls')!);
+  expect(panel).toHaveAttribute('inert');
+  expect(panel).toHaveAttribute('aria-hidden','true');
+  expect(baseHeading).toHaveFocus();
   expect(
     screen.queryByRole("link", { name: "Input 输入框" }),
   ).not.toBeInTheDocument();
@@ -23,6 +30,10 @@ it("collapses component groups without losing current-route semantics", async ()
   expect(
     screen.getByRole("link", { name: "DataTable 数据表格" }),
   ).toBeInTheDocument();
+  await user.keyboard(' ');
+  expect(screen.getByRole("link", { name: "Input 输入框" })).toBe(originalInputLink);
+  expect(panel).not.toHaveAttribute('inert');
+  expect(baseHeading).toHaveFocus();
 });
 it("filters the component search and dismisses it after choosing a result", async () => {
   const user = userEvent.setup();
