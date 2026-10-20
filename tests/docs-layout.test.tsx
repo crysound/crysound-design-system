@@ -71,3 +71,20 @@ it("switches an example between preview and code and delegates the theme toggle"
   );
   expect(toggle).toHaveBeenCalledOnce();
 });
+
+it("keeps documentation sections independent and preserves selected links and navigation",async()=>{
+  const user=userEvent.setup();const onNavigate=vi.fn();render(<SidebarContent route="patterns" onNavigate={onNavigate}/>);
+  const gettingStarted=screen.getByRole('button',{name:'Getting started'});
+  gettingStarted.focus();await user.keyboard('{Enter}');
+  expect(gettingStarted).toHaveAttribute('aria-expanded','false');
+  expect(screen.queryByRole('link',{name:'Overview 简介'})).not.toBeInTheDocument();
+  expect(screen.getByRole('link',{name:'Foundations 基础规范'})).toBeVisible();
+  expect(screen.getByRole('link',{name:'Product patterns 产品模式'})).toHaveAttribute('aria-current','page');
+  await user.click(screen.getByRole('link',{name:'Product patterns 产品模式'}));expect(onNavigate).toHaveBeenCalledOnce();
+  await user.click(screen.getByRole('button',{name:'Patterns & templates'}));
+  expect(screen.queryByRole('link',{name:'Scene styles 场景样板'})).not.toBeInTheDocument();
+  expect(screen.getByRole('link',{name:'MediaGallery 图片画廊'})).toBeVisible();
+  await user.click(screen.getByRole('button',{name:'Patterns & templates'}));
+  expect(screen.getByRole('link',{name:'Product patterns 产品模式'})).toHaveAttribute('href','#patterns');
+  expect(screen.getByRole('link',{name:'Product patterns 产品模式'})).toHaveAttribute('aria-current','page');
+});

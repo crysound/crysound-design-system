@@ -60,6 +60,20 @@ import {
   Popover,
   Sheet,
 } from "../../../packages/ui/src/index";
+const docSections = [
+  {
+    id: "getting-started", name: "入门指南", english: "Getting started",
+    links: [["overview", "Overview", "简介"], ["installation", "Installation", "安装与接入"]],
+  },
+  {
+    id: "design-foundations", name: "设计基础", english: "Design foundations",
+    links: [["foundations", "Foundations", "基础规范"], ["logo", "Logo guidelines", "标志规范"], ["icons", "Icons", "图标库"], ["file-icons", "File icons", "文件图标"], ["customization", "Customization", "主题与客户定制"]],
+  },
+  {
+    id: "patterns-templates", name: "模式与样板", english: "Patterns & templates",
+    links: [["patterns", "Product patterns", "产品模式"], ["scene-styles", "Scene styles", "场景样板"]],
+  },
+] as const;
 export const docCategories = [
   {
     id: "base",
@@ -194,40 +208,15 @@ export function SidebarContent({
         </label>
       )}
       <nav aria-label="设计系统文档" className="docs-nav">
-        <div className="docs-nav-section">
-          <button
-            className="docs-nav-heading"
-            onClick={() => toggle("documentation")}
-            aria-expanded={!collapsed.includes("documentation")}
-          >
-            Documentation
-            <ChevronDown size={14} aria-hidden="true" />
-          </button>
-          {!collapsed.includes("documentation") && (
-            <div className="docs-nav-links">
-              {[
-                ["overview", "Overview", "简介"],
-                ["installation", "Installation", "安装与接入"],
-                ["foundations", "Foundations", "基础规范"],
-                ["logo", "Logo guidelines", "标志规范"],
-                ["icons", "Icons", "图标库"],
-                ["file-icons", "File icons", "文件图标"],
-                ["customization", "Customization", "主题与客户定制"],
-                ["patterns", "Product patterns", "产品模式"],
-                ["scene-styles", "Scene styles", "场景样板"],
-              ].map(([id, name, zh]) => (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  aria-current={route === id ? "page" : undefined}
-                  onClick={onNavigate}
-                >
-                  {name}<span>{zh}</span>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
+        {docSections.map(section=>{
+          const open=!collapsed.includes(section.id);
+          return <div className="docs-nav-section" key={section.id}>
+            <button className="docs-nav-heading" title={section.name} onClick={()=>toggle(section.id)} aria-expanded={open}>
+              {section.english}<ChevronDown size={14} aria-hidden="true"/>
+            </button>
+            {open&&<div className="docs-nav-links">{section.links.map(([id,name,zh])=><a key={id} href={`#${id}`} aria-current={route===id?'page':undefined} onClick={onNavigate}>{name}<span>{zh}</span></a>)}</div>}
+          </div>;
+        })}
         {docCategories.map((category) => {
           const items = category.ids
             .map((id) => filtered.find((item) => item.id === id))
@@ -673,6 +662,7 @@ export function DocsHeader({
   settings: ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const docSection=docSections.find(section=>section.links.some(([id])=>id===route));
   return (
     <header className="docs-topbar cs-glass cs-glass--regular">
       <div className="docs-mobile-brand">
@@ -680,7 +670,7 @@ export function DocsHeader({
       </div>
       <div className="docs-header-breadcrumbs">
         <Breadcrumbs label="当前位置" items={[
-          { label: activeDoc ? categoryFor(activeDoc.id).name : "组件", href: "#library" },
+          { label: activeDoc ? categoryFor(activeDoc.id).name : docSection?.name ?? "组件", href: docSection ? `#${docSection.links[0][0]}` : "#library" },
           ...(activeDoc ? [{ label: "组件", href: "#library" }] : []),
           { label: activeDoc?.name ?? ({
             logo: "Logo 规范", foundations: "基础规范", icons: "图标库", "file-icons": "File icons 文件图标",
