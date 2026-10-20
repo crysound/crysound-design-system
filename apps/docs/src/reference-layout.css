@@ -1892,6 +1892,6 @@ body {
 .pagination-demo-carousel > .cs-carousel-controls { margin-top:8px; }
 
 .docs-nav-section--single { padding-bottom:8px; margin-bottom:8px; }
-.templates-page { padding:36px 32px 64px; max-width:1600px; margin:auto; color:var(--cs-text); }
+.templates-page { padding:0 0 64px; color:var(--cs-text); }
 .templates-page .scene-styles-page--embedded { padding:0; max-width:none; }
-@media(max-width:600px) { .templates-page { padding:24px 16px 40px; } }
+@media(max-width:600px) { .templates-page { padding-bottom:40px; } }
