@@ -220,7 +220,7 @@ export const catalog: ComponentDoc[] = [
       ["TabsTrigger value / disabled", "string / boolean", "必填 / false"],
     ],
     '<Tabs defaultValue="parameters"><TabsList aria-label="设备内容"><TabsTrigger value="parameters">参数</TabsTrigger><TabsTrigger value="logs">日志</TabsTrigger></TabsList><TabsContent value="parameters">参数配置</TabsContent><TabsContent value="logs">运行日志</TabsContent></Tabs>',
-    "方向键移动，面板内容独立关联。保留常规圆角作为系统默认；仅品牌官网可显式启用shape=capsule，底槽、选中项及指示器统一使用99999px圆角，其余颜色与交互规则相同。导航去不同 URL 的主菜单不应冒充 Tabs。",
+    "方向键移动，面板内容独立关联。保留常规圆角作为系统默认；仅品牌官网可显式启用shape=capsule，底槽、选中项及指示器统一使用99999px圆角，其余颜色与交互规则相同。品牌官网Products产品分类使用pill + capsule + indicatorMode=static，示例与样板保持一致。导航去不同 URL 的主菜单不应冒充 Tabs。",
   ),
   define(
     "accordion",
