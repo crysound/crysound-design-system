@@ -1785,3 +1785,8 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 .cs-radio-dot { opacity:0; transform:scale(0); transform-origin:center; transition:transform var(--cds-dur-base) var(--cds-ease-out),opacity var(--cds-dur-base) var(--cds-ease-out); }
 .cs-radio[data-state="checked"] .cs-radio-dot { opacity:1; transform:scale(1); }
 @media(prefers-reduced-motion:reduce) { .cs-radio.cs-radio,.cs-radio-dot { transition:none; } }
+
+/* Company website only: same segmented treatment with fully rounded geometry. */
+.cs-tabs-list--pill[data-shape="capsule"],
+.cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger,
+.cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-indicator { border-radius:var(--cs-radius-pill); }

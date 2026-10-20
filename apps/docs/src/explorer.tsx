@@ -330,14 +330,18 @@ export function ComponentDemo({ id }: { id: string }) {
             <TabsContent value="details">详情视图</TabsContent>
             <TabsContent value="history">历史视图</TabsContent>
           </Tabs></div>
-          <Tabs defaultValue="day">
-            <TabsList variant="pill" aria-label="时间范围">
-              <TabsTrigger value="day">今天</TabsTrigger>
-              <TabsTrigger value="week">本周</TabsTrigger>
-            </TabsList>
-            <TabsContent value="day">今日任务视图</TabsContent>
-            <TabsContent value="week">本周任务视图</TabsContent>
-          </Tabs>
+          <div className="demo-row" style={{alignItems:"flex-start"}}>
+            <div><p className="cs-help">系统默认 · 常规圆角</p><Tabs defaultValue="day">
+              <TabsList variant="pill" aria-label="时间范围">
+                <TabsTrigger value="day">今天</TabsTrigger><TabsTrigger value="week">本周</TabsTrigger>
+              </TabsList><TabsContent value="day">今日任务视图</TabsContent><TabsContent value="week">本周任务视图</TabsContent>
+            </Tabs></div>
+            <div><p className="cs-help">公司官网专用 · 99999px</p><Tabs defaultValue="day">
+              <TabsList variant="pill" shape="capsule" aria-label="官网时间范围">
+                <TabsTrigger value="day">今天</TabsTrigger><TabsTrigger value="week">本周</TabsTrigger>
+              </TabsList><TabsContent value="day">今日任务视图</TabsContent><TabsContent value="week">本周任务视图</TabsContent>
+            </Tabs></div>
+          </div>
         </Stack>
       );
     case "accordion":

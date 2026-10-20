@@ -213,12 +213,13 @@ export const catalog: ComponentDoc[] = [
     [
       ["Tabs value / defaultValue", "string", "—"],
       ["TabsList variant", "line | pill", "line"],
+      ["TabsList shape", "rounded | capsule；仅 pill 生效", "rounded；capsule 仅用于公司官网"],
       ["TabsList collapseInactiveLabels", "boolean；三项 pill 在 ≤254px 收起未激活标签", "false"],
       ["TabsTrigger icon", "ReactNode；收起时保留图标，无图标项保留文字", "—"],
       ["TabsTrigger value / disabled", "string / boolean", "必填 / false"],
     ],
     '<Tabs defaultValue="parameters"><TabsList aria-label="设备内容"><TabsTrigger value="parameters">参数</TabsTrigger><TabsTrigger value="logs">日志</TabsTrigger></TabsList><TabsContent value="parameters">参数配置</TabsContent><TabsContent value="logs">运行日志</TabsContent></Tabs>',
-    "方向键移动，面板内容独立关联。导航去不同 URL 的主菜单不应冒充 Tabs。",
+    "方向键移动，面板内容独立关联。保留常规圆角作为系统默认；仅公司官网可显式启用shape=capsule，底槽、选中项及指示器统一使用99999px圆角，其余颜色与交互规则相同。导航去不同 URL 的主菜单不应冒充 Tabs。",
   ),
   define(
     "accordion",

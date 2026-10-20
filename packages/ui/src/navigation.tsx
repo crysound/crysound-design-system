@@ -6,8 +6,8 @@ import { Button } from "./index";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className, children, ref, variant = "line", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
-}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
+  className, children, ref, variant = "line", shape = "rounded", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
+}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; shape?: "rounded" | "capsule"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -79,7 +79,7 @@ export function TabsList({
   }} onKeyDownCapture={event => {
     event.currentTarget.dataset.input = 'keyboard';
     onKeyDownCapture?.(event);
-  }} data-indicator-mode={indicatorMode} data-compact-segmented={segmented || undefined} ref={element => {
+  }} data-shape={variant === "pill" ? shape : undefined} data-indicator-mode={indicatorMode} data-compact-segmented={segmented || undefined} ref={element => {
     list.current = element;
     if (typeof ref === 'function') return ref(element);
     if (ref) ref.current = element;

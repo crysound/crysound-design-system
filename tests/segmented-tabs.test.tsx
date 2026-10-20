@@ -32,3 +32,13 @@ it('keeps static segmented selection independent of a measured indicator',async(
  expect(screen.getByRole('tab',{name:'第一项'})).toHaveFocus();
  expect(screen.getByRole('tab',{name:'禁用项'})).toBeDisabled();
 });
+it('keeps website capsule geometry opt-in while preserving tab selection',async()=>{
+ const user=userEvent.setup();
+ render(<><Tabs defaultValue="today"><TabsList variant="pill" aria-label="默认时间"><TabsTrigger value="today">今天</TabsTrigger><TabsTrigger value="week">本周</TabsTrigger></TabsList><TabsContent value="today">默认今天</TabsContent><TabsContent value="week">默认本周</TabsContent></Tabs><Tabs defaultValue="today"><TabsList variant="pill" shape="capsule" aria-label="官网时间"><TabsTrigger value="today">今日</TabsTrigger><TabsTrigger value="week">本周官网</TabsTrigger></TabsList><TabsContent value="today">官网今天</TabsContent><TabsContent value="week">官网本周</TabsContent></Tabs></>);
+ expect(screen.getByRole('tablist',{name:'默认时间'})).toHaveAttribute('data-shape','rounded');
+ expect(screen.getByRole('tablist',{name:'官网时间'})).toHaveAttribute('data-shape','capsule');
+ await user.click(screen.getByRole('tab',{name:'本周官网'}));
+ expect(screen.getByRole('tab',{name:'本周官网'})).toHaveAttribute('aria-selected','true');
+ expect(screen.getByText('官网本周')).toBeVisible();
+ expect(screen.getByRole('tab',{name:'今天'})).toHaveAttribute('aria-selected','true');
+});
