@@ -412,7 +412,8 @@ describe("data table contracts", () => {
     await user.click(screen.getByRole("button", { name: "下一页" }));
     await user.type(screen.getByRole("searchbox", { name: "搜索记录" }), "Gamma");
     expect(screen.getByRole("table")).toHaveTextContent("Gamma");
-    expect(screen.getByText(/第 1 \/ 1 页/)).toBeInTheDocument();
+    expect(screen.queryByRole("navigation", {name:"分页"})).not.toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent("1 条记录");
     await user.clear(screen.getByRole("searchbox", { name: "搜索记录" }));
     await user.type(
       screen.getByRole("searchbox", { name: "搜索记录" }),

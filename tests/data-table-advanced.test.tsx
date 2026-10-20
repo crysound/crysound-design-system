@@ -12,3 +12,55 @@ it('exports filtered records and only visible columns',async()=>{const user=user
 it('replaces stale rows with loading or retryable errors',async()=>{const user=userEvent.setup();const retry=vi.fn();const {rerender}=render(<DataTable searchMode="always" filterMode="always" caption="设备" data={data} columns={columns} getRowId={r=>r.id} loading exportable/>);expect(screen.queryByRole('table')).not.toBeInTheDocument();expect(screen.getByRole('button',{name:'导出 CSV'})).toBeDisabled();rerender(<DataTable searchMode="always" filterMode="always" caption="设备" data={data} columns={columns} getRowId={r=>r.id} error="连接已断开" onRetry={retry}/>);expect(screen.getByRole('alert')).toHaveTextContent('连接已断开');await user.click(screen.getByRole('button',{name:'重试'}));expect(retry).toHaveBeenCalledOnce();});
 
 it('adapts controls to source size and retains active filters after narrowing',async()=>{const user=userEvent.setup();const {rerender}=render(<DataTable caption="设备" data={data} columns={columns} getRowId={r=>r.id}/>);expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();expect(screen.queryByRole('button',{name:'重置视图'})).not.toBeInTheDocument();expect(screen.queryByRole('button',{name:'区域 全部'})).not.toBeInTheDocument();const many=Array.from({length:20},(_,i)=>({...data[i%3],id:String(i)}));rerender(<DataTable caption="设备" data={many.slice(0,10)} columns={columns} getRowId={r=>r.id}/>);expect(screen.getByRole('searchbox')).toBeVisible();expect(screen.queryByRole('button',{name:'区域 全部'})).not.toBeInTheDocument();rerender(<DataTable caption="设备" data={many} columns={columns} getRowId={r=>r.id}/>);await user.click(screen.getByRole('button',{name:'区域 全部'}));await user.click(screen.getByRole('menuitemradio',{name:'产线'}));expect(screen.getByRole('button',{name:'区域 产线'})).toBeVisible();expect(screen.getByRole('button',{name:'重置视图'})).toBeVisible();rerender(<DataTable caption="设备" data={many.slice(0,3)} columns={columns} getRowId={r=>r.id}/>);expect(screen.getByRole('button',{name:'区域 产线'})).toBeVisible();});
+
+it.each([0,1,2,3])('hides the entire footer for %i rows fitting on one page',count=>{
+ const {container}=render(<DataTable caption="设备" data={data.slice(0,count)} columns={columns} getRowId={r=>r.id} pageSize={3}/>);
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.queryByRole('button',{name:'下一页'})).not.toBeInTheDocument();
+ expect(screen.getByRole('status')).toHaveTextContent(`${count} 条记录`);
+});
+it('hides pagination after searching and restores it when the query is cleared',async()=>{
+ const user=userEvent.setup();const {container}=render(<DataTable caption="设备" data={data} columns={columns} getRowId={r=>r.id} pageSize={2} searchMode="always"/>);
+ expect(container.querySelector('.cs-table-footer')).toBeInTheDocument();
+ await user.click(screen.getByRole('button',{name:'下一页'}));
+ await user.type(screen.getByRole('searchbox',{name:'搜索记录'}),'丙');
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.getByRole('table')).toHaveTextContent('设备丙');
+ await user.clear(screen.getByRole('searchbox',{name:'搜索记录'}));
+ expect(container.querySelector('.cs-table-footer')).toBeInTheDocument();
+ expect(screen.getByText('1–2 / 3 条 · 第 1 / 2 页')).toBeVisible();
+ await user.type(screen.getByRole('searchbox',{name:'搜索记录'}),'不存在');
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.getByText('没有匹配记录')).toBeVisible();
+});
+it('keeps hidden selections clearable in the toolbar when filters leave one page',async()=>{
+ const user=userEvent.setup();const onSelectionChange=vi.fn();const {container}=render(<DataTable caption="设备" data={data} columns={columns} getRowId={r=>r.id} pageSize={1} selectable filterMode="always" onSelectionChange={onSelectionChange}/>);
+ await user.click(screen.getByRole('checkbox',{name:'选择记录 a'}));
+ await user.click(screen.getByRole('button',{name:'下一页'}));
+ await user.click(screen.getByRole('checkbox',{name:'选择记录 b'}));
+ await user.click(screen.getByRole('button',{name:'区域 全部'}));
+ await user.click(screen.getByRole('menuitemradio',{name:'产线'}));
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.getByText('已选 2 条')).toBeVisible();
+ expect(screen.getByRole('checkbox',{name:'选择记录 b'})).toBeChecked();
+ await user.click(screen.getByRole('button',{name:'清除选择'}));
+ expect(onSelectionChange).toHaveBeenLastCalledWith([]);
+ expect(screen.queryByRole('button',{name:'清除选择'})).not.toBeInTheDocument();
+ expect(screen.getByRole('checkbox',{name:'选择记录 b'})).not.toBeChecked();
+});
+it('clamps the page when data shrinks and hides the footer during pending or failed loads',async()=>{
+ const user=userEvent.setup();const props={caption:'设备',columns,getRowId:(r:typeof data[number])=>r.id,pageSize:1};
+ const {rerender,container}=render(<DataTable {...props} data={data}/>);
+ await user.click(screen.getByRole('button',{name:'下一页'}));
+ await user.click(screen.getByRole('button',{name:'下一页'}));
+ rerender(<DataTable {...props} data={data.slice(0,2)}/>);
+ expect(screen.getByText('2–2 / 2 条 · 第 2 / 2 页')).toBeVisible();
+ rerender(<DataTable {...props} data={data.slice(0,1)}/>);
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.getByRole('table')).toHaveTextContent('设备甲');
+ rerender(<DataTable {...props} data={data} loading/>);
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ rerender(<DataTable {...props} data={data} error="加载失败"/>);
+ expect(container.querySelector('.cs-table-footer')).not.toBeInTheDocument();
+ expect(screen.getByRole('alert')).toHaveTextContent('加载失败');
+});

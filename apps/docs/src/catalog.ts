@@ -519,7 +519,7 @@ export const catalog: ComponentDoc[] = [
     [
       ["data / columns / getRowId", "T[] / DataColumn<T>[] / callback", "必填"],
       ["caption", "string", "必填"],
-      ["pageSize", "number", "5"],
+      ["pageSize", "number", "5；结果数不超过此值时隐藏分页栏"],
       ["searchMode / filterMode", "auto | always | never", "auto；搜索≥10条，筛选≥20条"],
       ["selectable / onSelectionChange", "boolean / callback", "false / —"],
       ["columns[].align / width / filterable / pinned", "left | right | center / number / boolean / boolean", "左对齐；仅首个可见数据列可固定"],
@@ -528,7 +528,7 @@ export const catalog: ComponentDoc[] = [
       ["loading / error / onRetry", "boolean / string / callback", "false / — / —"],
     ],
     '<DataTable caption="设备" data={[{id:"CS-001",name:"测试设备"}]} getRowId={row => row.id} columns={[{id:"name",header:"设备",accessor:row => row.name,sortable:true}]} selectable />',
-    "适合中小型客户端数据集；未实现服务端分页或虚拟滚动。排序、筛选和导出使用 accessor 原始值，cell 负责展示；null 显示为缺失且排序置后。CSV 导出当前筛选的全部记录和可见列，字符串防公式注入。固定列需配置宽度。",
+    "适合中小型客户端数据集；未实现服务端分页或虚拟滚动。搜索、筛选后的结果数不超过pageSize时隐藏整个分页栏，超过一页才显示；单页的已选数量与清除选择移至工具栏。排序、筛选和导出使用 accessor 原始值，cell 负责展示；null 显示为缺失且排序置后。CSV 导出当前筛选的全部记录和可见列，字符串防公式注入。固定列需配置宽度。",
   ),
 ];
 export const groups = Array.from(new Set(catalog.map((c) => c.group)));
