@@ -1876,3 +1876,15 @@ body {
  .pagination-demo-copy h3 { font-size:20px; line-height:28px; }
  .pagination-demo-copy p { font-size:14px; line-height:22px; }
 }
+
+.pagination-demo-skeleton-example { margin-top:32px; }
+.pagination-demo-skeleton-heading { margin:0 0 12px; color:var(--cs-text); font-size:14px; line-height:20px; font-weight:500; }
+.pagination-demo-skeleton-cover { min-height:240px; }
+.pagination-demo-skeleton-title { display:flex; align-items:center; height:32px; margin-bottom:8px; }
+.pagination-demo-skeleton-line { display:flex; align-items:center; height:24px; }
+.pagination-demo-skeleton-pagination { min-height:32px; gap:8px; }
+@container pagination-example (max-width:480px) {
+ .pagination-demo-skeleton-cover { min-height:0; aspect-ratio:16/9; }
+ .pagination-demo-skeleton-title { height:28px; }
+ .pagination-demo-skeleton-line { height:22px; }
+}

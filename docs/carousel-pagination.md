@@ -40,3 +40,5 @@
 切换前等待目标页图片加载并完成decode（不支持decode时等待load）；等待期间保留原画面。快速再次选择只提交最新目标，旧的异步结果不会覆盖它；图片加载或decode失败不会锁死切换，失败展示由内容组件负责。示例三张图片提前加载。非当前页使用aria-hidden和inert，避免重复播报和隐藏链接进入Tab顺序。减少动态效果时关闭轨道过渡，自动播放、悬停暂缓及聚焦停止规则保留。
 
 实现参考[Open Claude UI的MediaLightboxViewer](https://github.com/Caho1/open-claude-ui/blob/main/code-examples/MediaLightboxViewer.tsx)中保留画廊轨道与提前加载相邻图片的思路，未引入额外依赖。
+
+骨架示例复用共享Skeleton，以同样的图文布局、图片比例与底部分页占位表达加载状态；占位图形不接收焦点，不提供可点击的假分页，容器标记aria-busy。它仅作为文档加载示例，不改变自动轮播行为。
