@@ -353,7 +353,7 @@
 .scene-solution-grid p { font-size:14px; line-height:22px; color:var(--cs-muted); margin:0 0 16px; }
 .scene-solution-grid .cs-button { margin-left:-10px; }
 .scene-brand-official .scene-brand-products { padding-top:16px; }
-.scene-brand-official .scene-brand-products .cs-tabs-list { overflow-x:auto; flex-wrap:nowrap; }
+.scene-brand-official .scene-brand-products .cs-tabs-list { max-width:100%; overflow-x:auto; flex-wrap:nowrap; }
 .scene-brand-official .scene-product-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px 24px; }
 .scene-brand-official .scene-product-image { height:210px; margin-bottom:16px; background:var(--cs-subtle); border-radius:var(--cs-radius-lg); }
 .scene-brand-official .scene-product-image img { height:180px; width:88%; object-fit:contain; }
@@ -473,10 +473,6 @@
 /* Homepage Products: source screenshot composition, 328 × 314 cards. */
 .scene-brand-official .scene-brand-products { background:var(--cs-surface); font-family:CRYSOUNDCard,Arial,sans-serif; }
 .scene-brand-official .scene-brand-section-heading > .cs-action-link { padding:0; min-height:24px; color:var(--cs-brand); font-family:inherit; font-size:16px; line-height:24px; font-weight:400; }
-.scene-brand-official .scene-brand-products .cs-tabs-list { width:max-content; max-width:100%; border:0; border-radius:999px; background:var(--cs-table-header-bg); padding:6px; gap:6px; }
-.scene-brand-official .scene-brand-products .cs-tabs-trigger { height:32px; padding:4px 16px; border:0; border-radius:999px; font:inherit; font-size:16px; line-height:24px; font-weight:400; color:var(--cs-text); }
-.scene-brand-official .scene-brand-products .cs-tabs-trigger[data-state="active"] { background:var(--cs-brand); color:var(--cs-on-brand); box-shadow:none; }
-.scene-brand-products .cs-tabs-indicator { display:none; }
 .scene-brand-official .scene-brand-products .cs-tabs-content { padding-top:32px; }
 .scene-brand-official .scene-product-grid { padding:0; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
 .scene-product-grid article { container-type:inline-size; }
