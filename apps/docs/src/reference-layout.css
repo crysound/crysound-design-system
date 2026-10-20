@@ -147,6 +147,23 @@ body {
 .docs-nav-heading[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
+/* Proposed compact rhythm: 32px headings with 8px separation on each side of the divider. */
+.docs-nav-section:has(> .docs-nav-heading[aria-expanded="false"]) {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.docs-nav-heading[aria-expanded="false"] {
+  min-height: 32px;
+  padding: 8px;
+  line-height: 16px;
+}
+.docs-nav-section:last-child:has(> .docs-nav-heading[aria-expanded="false"]) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+@media (pointer: coarse) {
+  .docs-nav-heading[aria-expanded="false"] { min-height: 44px; }
+}
 .docs-nav-links {
   display: grid;
   gap: 2px;
