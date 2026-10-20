@@ -126,3 +126,7 @@ outlined卡片的四边由 `.cs-card[data-variant="outlined"]` 明确维护，�
 ## 桌面仪器布局适配
 
 Select的`hideLabel`只隐藏视觉标签，保留可访问名称与原生select表单语义。TabsList的`tone="brand"`为显式品牌实心选中项，默认tone不变。LineChart的`variant="instrument"`压缩外边距、采用直角与顶部图例；`emptyLabel`可明确未采集或断连状态，加载语义与键盘读数保持。均为兼容新增属性，消费项目仍负责数据和硬件流程。
+
+## 呼吸加载动画
+
+LoadingIndicator新增`variant="pulse"`，使用系统品牌/中性语义色、3秒轻微缩放与光晕呼吸。`animate=false`及系统减少动态效果均关闭循环，保留图形与任务文字；`role=status`只宣读任务标签，装饰图形不重复播报。参考社区Open Claude UI的呼吸状态灯方向，尺寸与光晕是CRYSOUND工程适配，不宣称Claude官方参数。原有spinner/ring/dots默认与API保持兼容，详见[加载指示器](./loading-indicator.md)。

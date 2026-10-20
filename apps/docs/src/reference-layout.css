@@ -1586,6 +1586,8 @@ body {
 .loading-demo-row > div { display: grid; gap: 12px; }
 .loading-demo-row small { color: var(--cs-muted); font-size: var(--cs-text-xs); }
 .loading-demo-panel { min-height: 120px; display: grid; place-items: center; background: var(--cs-subtle); border-radius: 8px; padding: 16px; }
+.loading-demo-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px; }
+.loading-demo .loading-demo-heading h3 { margin:0; }
 
 .progress-steps-demo { width: 100%; display: grid; gap: 32px; }
 .progress-steps-demo h3 { margin: 0 0 24px; font-size: 14px; font-weight: var(--cs-weight-medium); }

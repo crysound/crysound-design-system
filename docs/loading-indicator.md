@@ -1,0 +1,25 @@
+# 加载指示器
+
+复用 `LoadingIndicator`，新增 `variant="pulse"` 呼吸加载；组件入口仍为“加载指示器”，不另建同义组件。
+
+```tsx
+<LoadingIndicator variant="pulse" label="正在读取测量数据…" />
+```
+
+## 视觉与来源
+
+参考社区 [Open Claude UI 的 StatusIndicators](https://github.com/Caho1/open-claude-ui/blob/main/code-examples/StatusIndicators.tsx) 对呼吸状态灯的描述，采用轻微缩放、低幅度明度变化和3秒循环的方向。这是社区实现参考，不是 Anthropic 官方设计规范，也未复制 Claude 品牌图形、字体或陶土橙。
+
+CRYSOUND 的 Pulse 由稳定圆点与柔和光晕组成：中心缩放0.86–1、透明度0.72–1；光晕缩放0.72–1、透明度0.08–0.16，均为3秒 ease-in-out 循环。光晕和透明度是工程适配建议。容器尺寸沿用 sm16 / md24 / lg40px，不推挤相邻内容；颜色使用品牌或中性语义色，文字沿用系统字体和14/20层级。没有增加依赖或修改基础 Token。
+
+## 使用与状态
+
+- 等待时长未知时使用加载指示器；进度已知时使用 Progress；内容结构占位使用 Skeleton。
+- `label` 描述真实的当前任务，不伪造进度。消费应用在真实加载期间挂载组件，结束后切换内容，失败时提供错误信息和重试。
+- `showLabel={false}` 只隐藏可见说明，仍保留一个 `role="status"` 的文字反馈；图形对辅助技术隐藏。不要在动画每帧更新 label。
+- `animate={false}` 让任一变体静止。系统 `prefers-reduced-motion: reduce` 同样关闭全部循环，保留圆点与任务说明；不是隐藏状态或假装加载完成。
+- 不把组件用于实时采样、硬件在线或成功状态；这些仍使用对应的状态徽标。消费应用按自己的数据边界设置 `aria-busy`，不把整个页面永久标记为忙碌。
+
+## 文档与验证
+
+组件页提供可播放/暂停的 Pulse、三种尺寸、品牌/中性配色和仅图形用法；保留旋转、圆环与跳点。检查明暗主题、客户覆盖、窄屏、循环不同时间点与减少动态效果，并验证标签更新、暂停时的可访问反馈和无重复播报节点。无需计时器、帧监听或 JavaScript 动画循环。
