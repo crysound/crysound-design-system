@@ -456,7 +456,7 @@
 .brand-design-canvas { width:1714px; transform-origin:top left; container-type:inline-size; }
 .scene-standalone > .scene-sample[data-scene="brand"] { max-width:none; }
 /* The brand page uses one website font system throughout. */
-.scene-brand-official { font-family:CRYSOUNDCard,Arial,sans-serif; }
+.scene-brand-official { --cs-gallery-font-family:CRYSOUNDCard,Arial,sans-serif; font-family:CRYSOUNDCard,Arial,sans-serif; }
 .scene-brand-official .scene-brand-section-heading { margin-bottom:32px; }
 .scene-brand-official .scene-brand-solutions,.scene-brand-official .scene-brand-products { padding-top:80px; padding-bottom:80px; }
 .scene-brand-official .scene-brand-section-heading h3 { font-size:36px; line-height:44px; font-weight:700; }
