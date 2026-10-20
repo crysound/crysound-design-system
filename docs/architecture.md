@@ -43,3 +43,5 @@ html[data-customer="example"] {
 间距采用 tokens.css 的 cs-space 刻度：4px基线与2px半步（0、2、4、6、8、10、12、14、16、20、24、28、32等）。margin、padding、gap、浮层间隔、焦点偏移不使用奇数或小数像素。普通间距优先引用对应语义空间变量。布局中大尺寸定位按结构尺寸约束，仍禁止奇数像素。边框细线、图标描边、字号/行高、阴影、容器尺寸与百分比属于各自规范，不当作间距批量替换。
 
 styles:check 包含 validate-spacing.mjs，覆盖 packages/ui/src 和 apps/docs/src 的 CSS 声明、React 内联 style 字面值与浮层 sideOffset/alignOffset/collisionPadding。普通流布局96px以内的间距必须命中基础刻度，所有固定像素间距都检查奇数与小数。动态表达式仍需按空间变量编写并进行视觉验证。
+
+TabsList 的 indicatorMode="static" 使用选中项自身的白色表面与阴影，不测量或绘制移动滑块，适用于长分类条等需要稳定选中背景的容器；默认 animated 保持原有缓动。两者保留 Radix 键盘和选中语义。

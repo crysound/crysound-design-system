@@ -6,11 +6,12 @@ import { Button } from "./index";
 import { cx } from "./utils";
 export const Tabs = T.Root;
 export function TabsList({
-  className, children, ref, variant = "line", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
-}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; collapseInactiveLabels?: boolean }) {
+  className, children, ref, variant = "line", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
+}: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
   useEffect(() => {
+    if (indicatorMode === "static") return;
     const root = list.current;
     const bar = indicator.current;
     if (!root || !bar) return;
@@ -69,8 +70,8 @@ export function TabsList({
     const reduce = () => { if (media?.matches) snap(); };
     media?.addEventListener('change', reduce);
     measure();
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
-  }, [variant]);
+    return () => { delete root.dataset.indicatorReady; cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
+  }, [variant, indicatorMode]);
   const segmented = collapseInactiveLabels && variant === "pill" && Children.toArray(children).filter(child => isValidElement(child) && child.type === TabsTrigger).length === 3;
   const content = <T.List {...props} onPointerDownCapture={event => {
     event.currentTarget.dataset.input = 'pointer';
@@ -78,12 +79,12 @@ export function TabsList({
   }} onKeyDownCapture={event => {
     event.currentTarget.dataset.input = 'keyboard';
     onKeyDownCapture?.(event);
-  }} data-compact-segmented={segmented || undefined} ref={element => {
+  }} data-indicator-mode={indicatorMode} data-compact-segmented={segmented || undefined} ref={element => {
     list.current = element;
     if (typeof ref === 'function') return ref(element);
     if (ref) ref.current = element;
   }} className={cx("cs-tabs-list", `cs-tabs-list--${variant}`, className)}>
-    <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />
+    {indicatorMode === "animated" && <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />}
     {children}
   </T.List>;
   return segmented ? <div className="cs-tabs-container">{content}</div> : content;
