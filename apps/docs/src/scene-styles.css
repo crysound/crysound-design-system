@@ -485,7 +485,7 @@
 .scene-standalone:has(.scene-brand) { max-width:none; width:100%; padding:0; }
 /* Homepage Products: source screenshot composition, 328 × 314 cards. */
 .scene-brand-official .scene-brand-products { background:var(--cs-surface); font-family:CRYSOUNDCard,Arial,sans-serif; }
-.scene-brand-products .scene-products-more { --scene-products-link:#4096ff; color:var(--scene-products-link); font-size:16px; line-height:24px; font-weight:400; }
+.scene-brand-official .scene-brand-section-heading > .cs-action-link { padding:0; min-height:24px; color:var(--cs-brand); font-family:inherit; font-size:16px; line-height:24px; font-weight:400; }
 .scene-brand-official .scene-brand-products .cs-tabs-list { width:max-content; max-width:100%; border:0; border-radius:999px; background:var(--cs-table-header-bg); padding:6px; gap:6px; }
 .scene-brand-official .scene-brand-products .cs-tabs-trigger { height:32px; padding:4px 16px; border:0; border-radius:999px; font:inherit; font-size:16px; line-height:24px; font-weight:400; color:var(--cs-text); }
 .scene-brand-official .scene-brand-products .cs-tabs-trigger[data-state="active"] { background:var(--cs-brand); color:var(--cs-on-brand); box-shadow:none; }
