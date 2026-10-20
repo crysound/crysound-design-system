@@ -120,12 +120,14 @@ body {
   display: block;
 }
 .docs-nav-section {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  /* Proposed compact rhythm: 8px on each side of every group divider. */
+  padding-bottom: 8px;
+  margin-bottom: 8px;
   border-bottom: 1px dashed var(--doc-line);
-  transition: padding-bottom var(--cds-dur-sheet) var(--cds-ease-snap), margin-bottom var(--cds-dur-sheet) var(--cds-ease-snap);
 }
 .docs-nav-section:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
   border: 0;
 }
 .docs-nav-heading {
@@ -153,15 +155,6 @@ body {
 .docs-nav-heading[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
-/* Proposed compact rhythm: 32px headings with 8px separation on each side of the divider. */
-.docs-nav-section:has(> .docs-nav-heading[aria-expanded="false"]) {
-  padding-bottom: 8px;
-  margin-bottom: 8px;
-}
-.docs-nav-section:last-child:has(> .docs-nav-heading[aria-expanded="false"]) {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
 @media (pointer: coarse) {
   .docs-nav-heading { min-height: 44px; }
 }
@@ -178,7 +171,7 @@ body {
   gap: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
-  .docs-nav-section, .docs-nav-content, .docs-nav-heading svg { transition: none; }
+  .docs-nav-content, .docs-nav-heading svg { transition: none; }
 }
 .docs-nav-links a {
   display: flex;
