@@ -1623,8 +1623,8 @@ button.cs-step-content { cursor: pointer; }
 .cs-gallery-card-article .cs-gallery-card-picture { aspect-ratio:16/9; margin-bottom:24px; }
 .cs-gallery-card-article .cs-gallery-card-picture img { transform:scale(1); transition:transform 650ms cubic-bezier(.22,1,.36,1); }
 .cs-gallery-card-article:hover .cs-gallery-card-picture img,.cs-gallery-card-article:focus-within .cs-gallery-card-picture img { transform:scale(1.02); }
-.cs-gallery-card-article .cs-gallery-card-category { font-size:12px; line-height:16px; padding:2px 4px; margin-bottom:4px; }
-.cs-gallery-card-article h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; min-height:96px; margin:0 0 8px; font-size:24px; line-height:32px; font-weight:600; }
+.cs-gallery-card-article .cs-gallery-card-category { max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; font-size:12px; line-height:16px; padding:2px 4px; margin-bottom:4px; }
+.cs-gallery-card-article h3 { overflow-wrap:anywhere; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; min-height:96px; margin:0 0 8px; font-size:24px; line-height:32px; font-weight:600; }
 .cs-gallery-card-article time { margin:0; font-size:16px; line-height:24px; }
 .cs-gallery-card-article p { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; height:48px; margin:8px 0 16px; font-size:16px; line-height:24px; }
 .cs-gallery-card-article .cs-gallery-card-primary::after { content:""; position:absolute; inset:0; z-index:1; }
@@ -1706,7 +1706,6 @@ article.cs-gallery-card-details { height:448px; box-sizing:border-box; padding:0
 /* Named container: gallery behaviour follows its available column, not the window. */
 .cs-gallery-layout { container:cs-gallery / inline-size; min-width:0; width:100%; }
 .cs-gallery-card-date { display:block; height:24px; color:var(--cs-muted); font-size:16px; line-height:24px; }
-.cs-gallery-card-article .cs-gallery-slot-empty { visibility:hidden; min-height:20px; box-sizing:border-box; }
 .cs-gallery-card h3,.cs-gallery-shop-content h3 { overflow-wrap:anywhere; }
 .cs-gallery-card-product h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
 .cs-gallery-expanded { position:relative; min-height:240px; }
