@@ -1,3 +1,4 @@
+import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import { DataTableDemo } from "./data-table-demo";
 import { ProgressListDemo } from './progress-list-demo';
@@ -633,6 +634,7 @@ export function ComponentDemo({ id }: { id: string }) {
       return <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 48, width: '100%', maxWidth: 560}}><UI.LinkGroup label="产品与方案" items={[{label: '声学成像', href: '#patterns'}, {label: '声学测试', href: '#component/line-bar-charts'}, {label: '产品概览', href: '#library'}]}/><UI.LinkGroup label="开发与支持" items={[{label: '安装与接入', href: '#installation'}, {label: '基础规范', href: '#foundations'}, {label: '图标库', href: '#icons'}]}/></div>;
     case "icon-button":return <IconButtonDemo/>;
     case "media-gallery":return <MediaGalleryDemo/>;
+    case "floating-toc":return <FloatingTocDemo/>;
     case "carousel-pagination":
       return <CarouselPaginationDemo/>;
     case "action-link":

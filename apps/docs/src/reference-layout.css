@@ -1844,3 +1844,18 @@ body {
 @container cs-gallery (max-width:675px) {
  .website-gallery-examples .cs-gallery-shop-card .cs-gallery-shop-image img { inset:0; width:100%; height:100%; }
 }
+
+.floating-toc-demo { width:100%; max-width:960px; }
+.floating-toc-demo-stage { position:relative; display:grid; grid-template-columns:64px minmax(0,1fr); border:1px solid var(--cs-border); border-radius:8px; background:var(--cs-bg); }
+.floating-toc-demo-stage > aside { position:relative; z-index:2; padding:64px 0 0 24px; }
+.floating-toc-demo-content { height:420px; overflow:auto; padding:24px; scroll-behavior:smooth; }
+.floating-toc-demo-content > section { position:relative; min-height:360px; padding:32px 0; border-top:1px solid var(--cs-border); }
+.floating-toc-demo-content h3 { margin:0 0 16px; font-size:30px; line-height:40px; font-weight:600; color:var(--cs-text); }
+.floating-toc-demo-content p { margin:0; max-width:48ch; color:var(--cs-muted); font-size:16px; line-height:26px; }
+.floating-toc-demo-number { display:block; margin-bottom:8px; color:var(--cs-muted); font-size:14px; }
+.floating-toc-demo-example { display:grid; justify-items:center; gap:8px; margin-top:32px; color:var(--cs-muted); font-size:18px; }
+.floating-toc-demo-example small { font-size:14px; }
+.floating-toc-demo-example > div { display:flex; align-items:end; justify-content:center; gap:8px; width:100%; height:64px; border-bottom:1px solid var(--cs-border); }
+.floating-toc-demo-example i { width:24px; height:20%; background:var(--cs-border); }.floating-toc-demo-example i:nth-child(2n) { height:60%; }.floating-toc-demo-example i:nth-child(3) { height:90%; background:var(--cs-muted); }
+@media(max-width:900px),(pointer:coarse) { .floating-toc-demo-stage { display:block; }.floating-toc-demo-stage > aside { padding:0; border-bottom:1px solid var(--cs-border); }.floating-toc-demo-content { height:360px; padding:16px; }.floating-toc-demo-content h3 { font-size:24px; line-height:32px; } }
+@media(prefers-reduced-motion:reduce) { .floating-toc-demo-content { scroll-behavior:auto; } }

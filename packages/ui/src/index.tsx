@@ -344,3 +344,4 @@ export * from './icon-button';
 export * from './navigation-menu';
 export * from './carousel';
 export * from './media-gallery';
+export * from './floating-toc';
