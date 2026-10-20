@@ -1399,7 +1399,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-table-toolbar-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .cs-table-toolbar-actions .cs-button { min-height:32px; font-size:14px; font-weight:400; }
 .cs-table-column-options { display:grid; gap:12px; max-height:280px; overflow:auto; padding-top:16px; }
-.cs-data-table .cs-table-toolbar { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:flex-start; gap:12px; padding:12px 16px; }
+.cs-data-table .cs-table-toolbar { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:flex-start; gap:12px; padding:12px var(--cs-table-gutter,16px); }
 .cs-data-table .cs-table-toolbar > .cs-field { flex:1 1 180px; min-width:180px; max-width:260px; width:auto; }
 .cs-table-filters { display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px; background:var(--cs-surface); }
 .cs-data-table .cs-table-filters .cs-field { flex:0 1 120px; width:120px; min-width:110px; }
@@ -1790,3 +1790,10 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 .cs-tabs-list--pill[data-shape="capsule"],
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger,
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-indicator { border-radius:var(--cs-radius-pill); }
+
+/* Embedded tables share the surrounding Card header's content gutter. */
+.cs-card > .cs-data-table { --cs-table-gutter:var(--cs-space-6); }
+.cs-card > .cs-data-table .cs-table-footer { padding-inline:var(--cs-table-gutter); }
+.cs-card > .cs-data-table .cs-table tr > :first-child { padding-inline-start:var(--cs-table-gutter); }
+.cs-card > .cs-data-table .cs-table tr > :last-child { padding-inline-end:var(--cs-table-gutter); }
+.cs-card > .cs-data-table .cs-table-select-col { width:calc(var(--cs-table-gutter) + 32px); min-width:calc(var(--cs-table-gutter) + 32px); }
