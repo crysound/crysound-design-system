@@ -67,6 +67,8 @@ it('includes featured products and a working Blogs carousel below products',asyn
 it('centers a separate diagonal cue beside solution actions and restores dialog focus',async()=>{
  const user=userEvent.setup();render(<SceneStandalone scene="brand"/>);
  const trigger=screen.getAllByRole('button',{name:'See More'}).find(button=>button.closest('.scene-solution-gallery'))!;
+ expect(trigger.closest('article')).toHaveClass('cs-gallery-card-solution');
+ expect(trigger.closest('.scene-brand-solutions')?.querySelector('.cs-section-header')).toBeInTheDocument();
  expect(trigger.querySelector(':scope > span')).toHaveTextContent(/^See More$/);
  const arrow=trigger.querySelector(':scope > svg');
  expect(arrow).toHaveAttribute('aria-hidden','true');
