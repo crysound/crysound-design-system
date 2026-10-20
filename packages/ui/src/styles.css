@@ -857,3 +857,6 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-metric-group-status > span { width:5px; height:5px; border-radius:var(--cs-radius-circle); background:currentColor; flex-shrink:0; }
 .cs-metric-group-status[data-tone="warning"] { color:var(--cs-warning-fg); }
 .cs-metric-group-status[data-tone="danger"] { color:var(--cs-danger-fg); }
+
+/* Company website opt-in; software buttons retain the default corner radius. */
+.cs-button[data-shape="capsule"] { border-radius:var(--cs-radius-pill); }

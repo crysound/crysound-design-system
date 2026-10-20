@@ -5,10 +5,10 @@ import userEvent from "@testing-library/user-event";
 import { Button, Input, Dialog, DeviceTable } from "../packages/ui/src/index";
 afterEach(cleanup);
 describe("accessible component contracts", () => {
-  it("blocks repeated submissions while loading", async () => {
+  it.each(["rounded", "capsule"] as const)("blocks repeated submissions while loading with %s geometry", async (shape) => {
     let calls = 0;
     render(
-      <Button loading onClick={() => calls++}>
+      <Button shape={shape} loading onClick={() => calls++}>
         保存
       </Button>,
     );

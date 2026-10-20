@@ -17,6 +17,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "danger";
   loading?: boolean;
   size?: "sm" | "md" | "lg";
+  /** Capsule geometry is reserved for the company website. */
+  shape?: "rounded" | "capsule";
   iconStart?: ReactNode;
   iconEnd?: ReactNode;
 }
@@ -26,6 +28,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       loading = false,
       size = "md",
+      shape = "rounded",
       iconStart,
       iconEnd,
       disabled,
@@ -41,6 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         ref={ref}
         type={type}
+        data-shape={shape}
         disabled={disabled || loading}
         aria-busy={loading || undefined}
         className={cx(

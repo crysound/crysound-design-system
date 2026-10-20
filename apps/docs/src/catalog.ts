@@ -67,11 +67,12 @@ export const catalog: ComponentDoc[] = [
     [
       ["variant", "primary | secondary | ghost | danger", "primary"],
       ["size", "sm | md | lg", "md"],
+      ["shape", "rounded | capsule", "rounded；capsule 仅公司官网使用"],
       ["loading / disabled", "boolean", "false"],
       ["iconStart / iconEnd", "ReactNode", "—"],
     ],
     '<Button size="md" variant="primary">连接设备</Button>',
-    "同一区域只突出一个主操作。加载时保留操作名称；仅图标按钮必须传 aria-label。",
+    "同一区域只突出一个主操作。常规圆角为系统默认；公司官网可显式设置shape=capsule，复用99999px圆角，尺寸、颜色及加载、禁用、键盘行为与默认按钮相同。加载时保留操作名称；仅图标按钮必须传 aria-label。",
   ),
   define(
     "input",
