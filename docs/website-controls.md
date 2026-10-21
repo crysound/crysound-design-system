@@ -12,7 +12,9 @@ items 由 `{id,label,href?,groups?,featured?}` 构成；groups 是 `{title,links
 
 ## Carousel
 
-items 是 `{id,label,content}`。value/onValueChange 支持受控使用，defaultValue 支持非受控；默认 loop=true、pagination=true、autoPlay=false、interval=5000。无数据展示空状态，单项隐藏切换控制。聚焦轮播本体时支持左右方向键，分页支持 Home/End。自动播放至少1000ms间隔，提供播放/暂停；悬停临时暂停，键盘聚焦停止，页面隐藏时暂停，减少动态效果时禁用自动切换。非循环模式到末项停止，卸载时清理定时器。默认保留各页内容并使用300ms连续轨道平移；目标图片加载、解码后再展示，非当前页使用aria-hidden和inert，减少动态效果时直接切换。不提供拖拽或虚拟化。
+items 是 `{id,label,content}`。value/onValueChange 支持受控使用，defaultValue 支持非受控；默认 loop=true、pagination=true、autoPlay=false、interval=5000。无数据展示空状态，单项隐藏切换控制。聚焦轮播本体时支持左右方向键，分页支持 Home/End。自动播放至少1000ms间隔，提供播放/暂停；悬停临时暂停，键盘聚焦停止，页面隐藏时暂停，减少动态效果时禁用自动切换。非循环模式到末项停止，卸载时清理定时器。默认保留各页内容并使用300ms连续轨道平移；目标图片加载、解码后再展示，非当前页使用aria-hidden和inert，减少动态效果时直接切换。不提供虚拟化。
+
+`draggable` 默认关闭，官网 Blogs 以 `<Carousel draggable loop={false} … />` 开启鼠标和触摸拖动。内容按实际指针距离跟随，松手后按距离与短时速度投影切换一组；拖动停在首末页，边界有阻尼。按下时从当前呈现的轨道位置继续，提前加载相邻页，目标图片尚未就绪时保留拖动后的画面。横向意图超过8px才捕获指针，纵向滑动和双指缩放留给页面；表单和按钮不接管。拖动产生的点击会被拦截，短点击与键盘链接仍正常；取消或丢失捕获时回到当前页。直接拖动后停止自动播放，减少动态效果时取消松手过渡。阈值、速度投影和阻尼为工程适配建议，不宣称原生系统参数。
 
 ## MediaGallery
 

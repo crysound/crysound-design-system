@@ -1523,6 +1523,10 @@ button.cs-step-content { cursor: pointer; }
 .cs-navigation-menu :focus-visible,.cs-navigation-menu-panel :focus-visible,.cs-carousel:focus-visible,.cs-gallery-thumbnails button:focus-visible { outline:2px solid var(--cs-focus); outline-offset:2px; }
 .cs-carousel { position:relative; min-width:0; }
 .cs-carousel-viewport { overflow:hidden; border-radius:var(--cs-radius-lg); }
+.cs-carousel-viewport[data-draggable="true"] { cursor:grab; touch-action:pan-y pinch-zoom; user-select:none; }
+.cs-carousel-viewport[data-dragging="true"] { cursor:grabbing; }
+.cs-carousel-viewport[data-draggable="true"] :is(a,img) { cursor:inherit; -webkit-user-drag:none; }
+.cs-carousel-viewport[data-dragging="true"] > .cs-carousel-track { transition:none; }
 .cs-carousel-track { display:grid; grid-auto-flow:column; grid-auto-columns:100%; align-items:stretch; transition:transform var(--cds-dur-sheet) var(--cds-ease-snap); }
 .cs-carousel-slide { min-width:0; }
 .cs-carousel-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; margin-top:16px; }
