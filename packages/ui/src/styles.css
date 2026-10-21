@@ -360,7 +360,7 @@ select.cs-input.cs-select {
 
 .cs-device-table .cs-button { font-weight: var(--cs-weight-normal); }
 
-/* Bordered form controls change their existing edge instead of adding a focus ring. */
+/* Bordered form controls share an edge change; text entry adds an outer focus halo. */
 .cs-input { transition: border-color var(--cds-dur-fast) var(--cds-ease-out); }
 .cs-input:hover:not(:disabled):not(:focus):not([aria-invalid="true"]) {
   border-color: color-mix(in srgb, var(--cs-brand) 45%, var(--cs-border));
@@ -371,6 +371,11 @@ select.cs-input.cs-select {
   box-shadow: none;
 }
 .cs-input[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
+:is(input, textarea).cs-input:focus {
+  --cs-input-focus-color: var(--cs-brand);
+  box-shadow: 0 0 0 var(--cs-space-1) color-mix(in srgb, var(--cs-input-focus-color) 12%, transparent);
+}
+:is(input, textarea).cs-input[aria-invalid="true"]:focus { --cs-input-focus-color: var(--cs-danger-fg); }
 .cs-input:disabled { opacity: .5; cursor: not-allowed; }
 .cs-button--secondary:focus-visible { border-color: var(--cs-brand); outline: none; }
 .cs-checkbox:focus-visible, .cs-radio:focus-visible {
@@ -381,6 +386,7 @@ select.cs-input.cs-select {
 }
 @media(prefers-reduced-motion:reduce) { .cs-input { transition: none; } }
 @media(forced-colors:active) {
+  :is(input, textarea).cs-input:focus { outline: 2px solid Highlight; outline-offset: 2px; box-shadow: none; }
   .cs-input:focus-visible, .cs-button--secondary:focus-visible,
   .cs-checkbox:focus-visible, .cs-radio:focus-visible,
   .cs-command-input:focus-visible { outline: 2px solid Highlight; outline-offset: 2px; }

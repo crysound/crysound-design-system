@@ -43,6 +43,8 @@ document.documentElement.dataset.customer = 'ocean';
 - DataTable<T>：columns 的 accessor 提供搜索/排序原始值，cell 可自定义展示；getRowId 必须稳定且唯一。选择范围为当前页，已选状态跨页保留。
 - 新增 Badge、Avatar、Alert、Progress、Skeleton、Separator 共享主题 Token。Progress value=null 表示未知完成度。
 
+Input与Textarea在鼠标或键盘聚焦时显示主色边框和浅色外环，失焦后恢复；外环不占据布局空间。错误状态同步使用`--cs-danger-fg`，禁用控件不获得焦点。外环宽度采用`--cs-space-1`（4px），颜色为当前主色或错误色的12%混合，属于依据用户参考图的工程适配值；根级明暗与客户主题通过语义变量继承。强制颜色模式改用系统Highlight实线焦点框。
+
 ## 文字接入约定
 
 优先使用 Heading（level必填，variant为page/section/subsection）和 Text（body/lead/caption/label，tone为default/muted）。level决定HTML标题层级，variant决定视觉大小；不要为字体大小跳级。body默认14/22，长说明lead16/26，caption12/18；数字为工程建议，不来源于Claude截图。Text默认p，可as=span/div，label只是视觉角色，表单关联由Input等组件负责。组件内部不要额外覆盖font-size、line-height、font-weight；外部布局使用gap。密度不自动缩小这些内容文字角色，控件密度继续独立维护。导入tokens.css后再导入styles.css，Portal主题设在html。
