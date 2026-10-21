@@ -338,7 +338,7 @@ export function ComponentDemo({ id }: { id: string }) {
               </TabsList><TabsContent value="day">今日任务视图</TabsContent><TabsContent value="week">本周任务视图</TabsContent>
             </Tabs></div>
             <div><p className="cs-help">品牌官网专用 · 99999px</p><Tabs defaultValue="all">
-              <TabsList variant="pill" shape="capsule" indicatorMode="static" aria-label="品牌官网产品分类">
+              <TabsList variant="pill" shape="capsule" tone="brand" indicatorMode="static" aria-label="品牌官网产品分类">
                 <TabsTrigger value="all">全部产品</TabsTrigger><TabsTrigger value="sensors">传感器</TabsTrigger><TabsTrigger value="daq">数据采集</TabsTrigger>
               </TabsList><TabsContent value="all">展示全部产品系列</TabsContent><TabsContent value="sensors">展示传感器系列</TabsContent><TabsContent value="daq">展示数据采集系列</TabsContent>
             </Tabs><p className="cs-help">用于品牌官网 Products 产品分类。</p></div>
