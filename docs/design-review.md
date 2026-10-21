@@ -166,4 +166,6 @@
 
 ## 星级评分（2026-10-21）
 
-按用户提供的两颗橙色实星、三颗浅灰空星参考新增Rating，使用独立绘制的圆角SVG星形。按用户后续要求，cs-rating-active复用现有cs-warning橙色：浅色#f97316、深色#ffcf85；empty保留浅色#e9e9e9、深色#454545。cs-rating-active/empty仍可单独覆盖。sm/md/lg操作区28/36/48px、图标20/28/40px，触屏至少44px。空星色和尺寸为参考图的Web工程适配提案，颜色反馈沿用系统快速过渡，不宣称Figma原始值或精确取样。默认整数五档，单选与键盘行为复用现有Radix；半星、平均分计算与评分持久化不属于本次组件。
+按用户提供的两颗橙色实星、三颗浅灰空星参考新增Rating，使用独立绘制的圆角SVG星形。按用户后续要求，cs-rating-active复用现有cs-warning橙色：浅色#f97316、深色#ffcf85；empty保留浅色#e9e9e9、深色#454545。cs-rating-active/empty仍可单独覆盖。空星色为参考图的Web工程适配提案，颜色反馈沿用系统快速过渡，不宣称Figma原始值或精确取样。默认整数五档，单选与键盘行为复用现有Radix；半星、平均分计算与评分持久化不属于本次组件。
+
+同日按用户指定的[HeroUI Rating](https://heroui.pro/docs/react/components/rating#sizes)公开Sizes预览实测：sm/md/lg图标与单项为16/20/28px，组间距4/5/8px。本库采用相同图标和桌面单项尺寸，默认示例使用md；间距按现有偶数空间刻度适配为4/4/8px，触屏操作区继续至少44px。只读取公开预览的布局尺寸，保留本库SVG、Radix行为及语义颜色，不引入第三方PRO源码或资产。

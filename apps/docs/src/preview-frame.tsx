@@ -124,7 +124,7 @@ export function LeadExample({ id }: { id: string }) {
     case "number-input":
       return <div className="reference-demo-field"><NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} step={1} /></div>;
     case "rating":
-      return <Rating label="产品评分" defaultValue={2} size="lg" hideLabel />;
+      return <Rating label="产品评分" defaultValue={2} hideLabel />;
     case "combobox":
       return (
         <div className="reference-demo-field">
