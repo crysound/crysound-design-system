@@ -28,7 +28,11 @@ images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非�
 
 轮播文档与品牌样板统一复用OfficialBanner内容组合，使用原官网的四组文案、产品图片、阴影和比例。共享Carousel提供切换状态、键盘与播放行为；controlsClassName/paginationClassName用于摆放原版覆盖式控件，previousLabel/nextLabel用于本地化入口名称。此样板第四组仍为静态产品图，不包含原站3D运行时。
 
-NavigationMenu参照用户指定的线上官网导航更新：brand/actions提供品牌与工具区域；catalog布局包含大类、子分类、产品网格和底部入口，links[].products与groups[].products控制相应内容。默认columns仍支持资源类的分组链接。面板与整个导航栏对齐，以本地主题变量呈现选中态和卡片边界。导航数据为代表性声学产品子集，不包含完整官网目录或商城逻辑。
+NavigationMenu参照用户指定的线上官网导航更新：brand/actions提供品牌与工具区域；catalog布局包含大类、子分类、产品网格和底部入口，links[].products与groups[].products控制相应内容。默认columns仍支持资源类的分组链接。面板与整个导航栏对齐，以本地主题变量呈现选中态和卡片边界。导航数据由消费应用提供，组件不处理商城或业务请求。
+
+2026-10-21 对照用户本地“官网-全新改版”导航更新品牌官网样板：保留Products、Solutions、Resources、Support、Contact、About Us、Shop的次序；采用72px顶栏和居中1380px菜单内容区。Products使用原项目5类、28个二级目录及对应产品导航图；Solutions保留行业/应用两级筛选与27张入口卡片；其余三个大菜单使用原项目的图片入口。只复制本次导航引用的本地素材至`scene-assets/navigation/`，未修改原官网工程。文字沿用系统字体；颜色与阴影使用语义变量。固定网格在窄桌面容器内采用比例列，属于工程适配，不宣称所有宽度均为逐像素复刻。
+
+共享NavigationMenu新增可选`layout="cards"`、`links`图片入口、链接`media`插槽、`catalogLabels`以及`neutralInitialSelection`；`activateOnHover`在指针停留180ms后切换分类，离开或卸载取消，触摸继续点击选择，默认仍为点击。`collapsible`显式启用以自身1200px容器为界的手机导航；使用Radix Popover管理打开、外部点击、Escape与焦点返回，目录使用原生details/summary。跨越断点会关闭当前菜单，嵌入1714px设计画布仍按画布实际宽度展示桌面导航。商城、账号与搜索保留原样板的本地演示边界，导航目标使用原项目提供的官网地址。
 
 MediaGallery 的四种官网卡片、容器断点、缺字段占位和交付验证遵循 [官网卡片使用规则](./media-gallery.md)。该规则区分默认图片封面与数据空状态，不允许用虚构数据补齐卡片。
 

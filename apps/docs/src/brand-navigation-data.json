@@ -1,0 +1,2685 @@
+{
+  "products": {
+    "categories": [
+      {
+        "title": "Sensors",
+        "collections": [
+          "microphone-sets",
+          "microphone-cartridges",
+          "ear-simulators",
+          "mouth-simulators",
+          "accelerometers",
+          "preamplifier",
+          "calibrator",
+          "power-supply",
+          "sensor-accessories"
+        ]
+      },
+      {
+        "title": "Data Acquisition",
+        "collections": [
+          "data-acquisition-system",
+          "data-acquisition-mainframe",
+          "data-acquisition-module",
+          "data-acquisition-software"
+        ]
+      },
+      {
+        "title": "Acoustic Imaging",
+        "collections": [
+          "handheld-acoustic-imaging-camera",
+          "fixed-acoustic-imaging-camera",
+          "uav-acoustic-imaging-camera",
+          "sonocam-pi-acoustic-camera",
+          "acoustic-imaging-accessories",
+          "acoustic-camera-software"
+        ]
+      },
+      {
+        "title": "Noise Measurement",
+        "collections": [
+          "sound-level-meter",
+          "noise-sensor",
+          "noise-measurement-accessories"
+        ]
+      },
+      {
+        "title": "Electroacoustic Test",
+        "collections": [
+          "electroacoustic-analyzer",
+          "electroacoustic-test-software",
+          "acoustic-test-chamber",
+          "audio-test-interface",
+          "test-fixture",
+          "power-amplifier"
+        ]
+      }
+    ],
+    "collections": {
+      "microphone-sets": {
+        "label": "Microphone Set",
+        "href": "https://www.crysound.com/products/microphone-sets/",
+        "products": [
+          {
+            "label": "CRY3213 NVH Measurement Microphone",
+            "href": "https://www.crysound.com/product/cry3213-nvh-measurement-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270296.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3401-S01 Free-Field Microphone Set, 1/4\", 15.8mV/Pa",
+            "href": "https://www.crysound.com/product/cry3401-s01-free-field-microphone-set-1-4-15-8mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270510.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3403-S01 Free-Field Microphone Set, 1/4\", 4mV/Pa",
+            "href": "https://www.crysound.com/product/cry3403-s01-free-field-microphone-set-1-4-4mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270507.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3403-S02 Free-Field Microphone Set, 1/4\", 4mV/Pa",
+            "href": "https://www.crysound.com/product/cry3403-s02-free-field-microphone-set-1-4-4mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270504.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3201-S01 Free-Field Microphone Set, 1/2\", 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3201-s01-free-field-microphone-set-1-2-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270522.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3203-S01 Free-Field Microphone Set, 1/2\", 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3203-s01-free-field-microphone-set-1-2-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270513.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3261-S02 Ultra-Low-Noise Free-Field Microphone Set, 1/2\", 450mV/Pa",
+            "href": "https://www.crysound.com/product/cry3261-s02-free-field-microphone-set-1-2-450mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270528.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3101-S01 Free-Field Microphone Set, 1\", 50mV/Pa",
+            "href": "https://www.crysound.com/product/product-cry3101-s01-free-field-microphone-set-1-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270525.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3203-S02 Free-Field Microphone Set, 1/2\", 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3203-s02-free-field-microphone-set-1-2-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270393.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3408-S01 Pressure-field Prepolarized High-level Microphone Set, 1/4\", 0.14mV/Pa",
+            "href": "https://www.crysound.com/product/cry3408-s01-pressure-field-prepolarized-high-level-microphone-set-1-4-0-14mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270182.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3102-S01 Pressure-Field Microphone Set, 1\", 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3102-s01-pressure-field-microphone-set-1-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270501.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3202-S01 Pressure-Field Microphone Set, 1/2\", 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3202-s01-pressure-field-microphone-set-1-2-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270498.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3202-S02 Pressure-Field Microphone Set, 1/2\", 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3202-s02-pressure-field-microphone-set-1-2-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270495.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3204-S01 Pressure-Field Microphone Set, 1/2\", 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3204-s01-pressure-field-microphone-set-1-2-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270492.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3402-S01 Pressure-Field Microphone Set, 1/4\", 1.6mV/Pa",
+            "href": "https://www.crysound.com/product/cry3402-s01-pressure-field-microphone-set-1-4-1-6mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270489.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3402-S02 Pressure-Field Microphone Set, 1/4\", 1.6mV/Pa",
+            "href": "https://www.crysound.com/product/cry3402-s02-pressure-field-microphone-set-1-4-1-6mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270486.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3404-S01 Pressure-Field Microphone Set, 1/4\", 0.56mV/Pa",
+            "href": "https://www.crysound.com/product/cry3404-s01-pressure-field-microphone-set-1-4-0-56mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270273.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3406-S01 Pressure-Field Microphone Set, 1/4\", 15.8mV/Pa",
+            "href": "https://www.crysound.com/product/cry3406-s01-pressure-field-microphone-set-1-4-15-8mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270270.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "microphone-cartridges": {
+        "label": "Microphone Cartridge",
+        "href": "https://www.crysound.com/products/microphone-cartridges/",
+        "products": [
+          {
+            "label": "CRY3103 Free-field Microphone, 1\", Prepolarized, 100 mV/Pa",
+            "href": "https://www.crysound.com/product/cry3103-free-field-microphone-1-prepolarized-100-mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-278987.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3212 Pressure-field Microphone, 1/2\", Prepolarized, 37.5 mV/Pa",
+            "href": "https://www.crysound.com/product/cry3212-pressure-field-microphone-1-2-prepolarized-37-5-mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-278979.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3282 Pressure-field Microphone, 1/2\", External-polarized, 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3282-pressure-field-microphone-1-2-external-polarized-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270315.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3284 Pressure-field Microphone, 1/2\", External-polarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3284-1-2-pressure-field-external-polarized-high-sensitivity-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270387.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3203 Free-field Microphone, 1/2\", Prepolarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3203-free-field-microphone-1-2-prepolarized-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270483.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3204 Pressure-field Microphone, 1/2\", Prepolarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3204-pressure-field-microphone-1-2-prepolarized-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270396.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3408 Pressure-field Microphone, 1/4\",Prepolarized high-level,0.14 mV/Pa",
+            "href": "https://www.crysound.com/product/cry3408-pressure-field-microphone-1-4prepolarized-high-level0-14-mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270185.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3285 Free-field Microphone, 1/2\",External-polarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3285/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270480.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3201 Free-field Microphone, 1/2\", Prepolarized, 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3201-free-field-microphone-1-2-prepolarized-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270477.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3281 Free-field Microphone, 1/2\",External-polarized, 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3281/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270474.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3403 Free-field Microphone, 1/4\", Prepolarized, 4mV/Pa",
+            "href": "https://www.crysound.com/product/cry3403-free-field-microphone-1-4-prepolarized-4mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270471.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3485 Free-field Microphone, 1/4\", External-polarized, 4mV/Pa",
+            "href": "https://www.crysound.com/product/cry3485-1-4-free-field-externally-polarized-ultra-high-frequency-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270450.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3401 Free-field Microphone, 1/4\", Prepolarized, 15.8mV/Pa",
+            "href": "https://www.crysound.com/product/cry3401-free-field-microphone-1-4-prepolarized-15-8mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270445.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3101 Free-field Microphone, 1\", Prepolarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3101-free-field-microphone-1-prepolarized-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270433.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3102 Pressure-field Microphone, 1\", Prepolarized, 50mV/Pa",
+            "href": "https://www.crysound.com/product/cry3102-pressure-field-microphone-1-prepolarized-50mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270410.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3202 Pressure-field Microphone, 1/2\", Prepolarized, 12.5mV/Pa",
+            "href": "https://www.crysound.com/product/cry3202-pressure-field-microphone-1-2-prepolarized-12-5mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270401.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3402 Pressure-field Microphone, 1/4\" Prepolarized, 1.6mV/Pa",
+            "href": "https://www.crysound.com/product/cry3402-pressure-field-microphone-1-4-prepolarized-1-6mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270359.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3482 Pressure-field Microphone, 1/4\", External-polarized, 1.6mV/Pa",
+            "href": "https://www.crysound.com/product/cry3482-1-4-pressure-field-externally-polarized-ultra-high-frequency-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270333.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3406 , Pressure-field Microphone, 1/4\" Prepolarized, 15.8mV/Pa",
+            "href": "https://www.crysound.com/product/cry3406-pressure-field-microphone-1-4-prepolarized-15-8mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270321.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3404 Pressure-field Microphone, 1/4\", Prepolarized, 0.56mV/Pa",
+            "href": "https://www.crysound.com/product/cry3404-pressure-field-microphone-1-4-prepolarized-0-56mv-pa/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270318.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "ear-simulators": {
+        "label": "Ear Simulator",
+        "href": "https://www.crysound.com/products/ear-simulators/",
+        "products": [
+          {
+            "label": "CRY3711-S03 Ear Simulator Set",
+            "href": "https://www.crysound.com/product/cry3711-s03-ear-simulator-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-279122.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3718-S05 Ear Simulator Set",
+            "href": "https://www.crysound.com/product/cry3718-s05-ear-simulator-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-279119.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3717-S01 Coupler Set",
+            "href": "https://www.crysound.com/product/cry3717-s01-coupler-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270259.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3719-S01 Coupler Set",
+            "href": "https://www.crysound.com/product/cry3719-s01-coupler-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270250.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3721-S01 Ear Simulator Set",
+            "href": "https://www.crysound.com/product/cry3721-s01-ear-simulator-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270265.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3711-S01 Ear Simulator Set",
+            "href": "https://www.crysound.com/product/cry3711-s01-ear-simulator-set/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270262.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3718-S01 Ear Simulator Set IEC60318-1",
+            "href": "https://www.crysound.com/product/cry3718-s01-ear-simulator-set-iec60318-1/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270253.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3717 IEC 60318-3 Coupler",
+            "href": "https://www.crysound.com/product/cry3717-iec-60318-3-coupler/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270312.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3719 Coupler IEC 60318-5",
+            "href": "https://www.crysound.com/product/cry3719-coupler-iec-60318-5/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270247.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3711 Ear Simulator IEC60318-4",
+            "href": "https://www.crysound.com/product/cry3711-ear-simulator-iec60318-4/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270244.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3721 Ear Simulator IEC60318-4, Low-Noise",
+            "href": "https://www.crysound.com/product/cry3721-ear-simulator-iec60318-4-low-noise/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270307.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3718 Ear Simulator IEC60318-1",
+            "href": "https://www.crysound.com/product/cry3718-ear-simulator-iec60318-1/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270256.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "mouth-simulators": {
+        "label": "Mouth Simulator",
+        "href": "https://www.crysound.com/products/mouth-simulators/",
+        "products": [
+          {
+            "label": "CRY3612 Dodecahedron Sound Source Kit",
+            "href": "https://www.crysound.com/product/cry3612-dodecahedron-sound-source-kit/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-279127.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3611 Reference sound source",
+            "href": "https://www.crysound.com/product/cry3611-reference-sound-source/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270242.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3605 Mouth Simulator, High-Performance ITU-T Rec.P51",
+            "href": "https://www.crysound.com/product/cry3605-mouth-simulator-high-performance-itu-t-rec-p51/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270231.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3603 Mouth Simulator 200Hz to 50k Hz, ITU-T Rec.P51",
+            "href": "https://www.crysound.com/product/cry3603-mouth-simulator-200hz-to-50k-hz-itu-t-rec-p51/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270234.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3602 Mouth Simulator with Built-In 20dB Amplifier",
+            "href": "https://www.crysound.com/product/cry3602-mouth-simulator-with-built-in-20db-amplifier/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270237.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "accelerometers": {
+        "label": "Accelerometer",
+        "href": "https://www.crysound.com/products/accelerometers/",
+        "products": [
+          {
+            "label": "CRY446 Accelerometer, Triaxial, 10mv/g, ±500g pk, 1Hz to 5kHz",
+            "href": "https://www.crysound.com/product/cry446-accelerometer-triaxial-10mv-g-%c2%b1500g-pk-1hz-to-5khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270431.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY438 IEPE Accelerometer, 1 Axis, 10mv/g, ±500g pk, 1Hz to 10kHz",
+            "href": "https://www.crysound.com/product/cry438-iepe-accelerometer-1-axis-10mv-g-%c2%b1500g-pk-1hz-to-10khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270429.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY445 Accelerometer, Triaxial, 100mv/g, ±80g pk, 1Hz to 4kHz",
+            "href": "https://www.crysound.com/product/cry445-accelerometer-triaxial-100mv-g-%c2%b180g-pk-1hz-to-4khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270416.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY443 Accelerometer, Triaxial, 50mv/g, ±100g pk, 1Hz to 4kHz",
+            "href": "https://www.crysound.com/product/cry443-accelerometer-triaxial-50mv-g-%c2%b1100g-pk-1hz-to-4khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270399.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY442 Accelerometer, Triaxial, 100mv/g, ±50g pk, 0.5Hz to 5kHz",
+            "href": "https://www.crysound.com/product/cry442-accelerometer-triaxial-100mv-g-%c2%b150g-pk-0-5hz-to-5khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270379.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY441 Charge Accelerometer, 1 Axis, 5pC/g, ±2500g pk, 1Hz to 10kHz",
+            "href": "https://www.crysound.com/product/cry441-charge-accelerometer-1-axis-5pc-g-%c2%b12500g-pk-1hz-to-10khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270377.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY437 Accelerometer, 1 Axis, 10mv/g, ±500g pk, 2Hz to 8kHz",
+            "href": "https://www.crysound.com/product/cry437-accelerometer-1-axis-10mv-g-%c2%b1500g-pk-2hz-to-8khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270372.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY436 Accelerometer, 1 Axis, 100mv/g, ±50g pk, 1Hz to 12kHz",
+            "href": "https://www.crysound.com/product/cry436-accelerometer-1-axis-100mv-g-%c2%b150g-pk-1hz-to-12khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270364.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY435 Accelerometer, 1 Axis, 100mv/g, ±50g pk, 1Hz to 6kHz",
+            "href": "https://www.crysound.com/product/cry435-accelerometer-1-axis-100mv-g-%c2%b150g-pk-1hz-to-6khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270362.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY434 Accelerometer, 1 Axis, 100mv/g, ±50g pk, 0.5Hz to 8kHz",
+            "href": "https://www.crysound.com/product/cry434-accelerometer-1-axis-100mv-g-%c2%b150g-pk-0-5hz-to-8khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270227.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY433 Accelerometer, 1 Axis, 100mv/g, ±50g pk, 0.5Hz to 8kHz",
+            "href": "https://www.crysound.com/product/cry433-accelerometer-1-axis-100mv-g-%c2%b150g-pk-0-5hz-to-8khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270351.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY432 Accelerometer, 1 Axis, 5mv/g, ±1000g pk, 1Hz to 12kHz",
+            "href": "https://www.crysound.com/product/cry432-accelerometer-1-axis-5mv-g-%c2%b11000g-pk-1hz-to-12khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270349.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY431 IEPE Accelerometer, 1 Axis, 5mv/g, ±1000g pk, 1Hz to 12kHz",
+            "href": "https://www.crysound.com/product/cry431-iepe-accelerometer-1-axis-5mv-g-%c2%b11000g-pk-1hz-to-12khz/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270347.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "preamplifier": {
+        "label": "Preamplifier",
+        "href": "https://www.crysound.com/products/preamplifier/",
+        "products": [
+          {
+            "label": "CRY3544 1/4\" Preamplifier, IEPE, 10-32UNF Connector",
+            "href": "https://www.crysound.com/product/cry3544-1-4-preamplifier-iepe-10-32unf-connector/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-278991.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3542 1/4\" Preamplifier, IEPE, SMB Connector",
+            "href": "https://www.crysound.com/product/cry3542-1-4-preamplifier-iepe-smb-connector/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270453.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3543 1/4\" Preamplifier, IEPE, 10-32UNF Connector",
+            "href": "https://www.crysound.com/product/cry3543-1-4-preamplifier-iepe-microdot-connector/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270448.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3501 1/2\" Preamplifier, IEPE, BNC Connector",
+            "href": "https://www.crysound.com/product/cry3501-1-2-preamplifier-iepe-bnc-connector/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270268.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3521 1/2\" Preamplifier, BNC connector, Base-type",
+            "href": "https://www.crysound.com/product/cry3521-1-2-preamplifier-bnc-connector-base-type/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270310.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3502 1/2\" Preamplifier, IEPE, SMB Connector, Very Short",
+            "href": "https://www.crysound.com/product/cry3502-1-2-preamplifier-iepe-smb-connector-very-short/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270305.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3503 1/2\" Preamplifier, IEPE, Microdot Connector, Very Short",
+            "href": "https://www.crysound.com/product/cry3503-1-2-preamplifier-iepe-microdot-connector-very-short/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270303.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3541 1/4\" Preamplifier, IEPE, SMB Connector",
+            "href": "https://www.crysound.com/product/cry3541-1-4-preamplifier-iepe-smb-connector/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270301.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "calibrator": {
+        "label": "Calibrator",
+        "href": "https://www.crysound.com/products/calibrator/",
+        "products": [
+          {
+            "label": "CRY3012 Sound Calibrator",
+            "href": "https://www.crysound.com/product/cry3012-sound-calibrator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-274835.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3016 Sound Calibrator",
+            "href": "https://www.crysound.com/product/cry3016-sound-calibrator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-274804.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY3018 Sound Calibrator",
+            "href": "https://www.crysound.com/product/cry3018-sound-calibrator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270222.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "power-supply": {
+        "label": "Power Supply",
+        "href": "https://www.crysound.com/products/power-supply/",
+        "products": [
+          {
+            "label": "CRY575L Microphone Power Supply, Low-Noise",
+            "href": "https://www.crysound.com/product/cry575l-microphone-power-supply-low-noise/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270342.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY575 Microphone Power Supply",
+            "href": "https://www.crysound.com/product/cry575-microphone-power-supply/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270240.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "sensor-accessories": {
+        "label": "Sensor Accessories",
+        "href": "https://www.crysound.com/products/sensor-accessories/",
+        "products": [
+          {
+            "label": "CRY820 Sound Power Measurement Test Frame - 1 m Radius Hemisphere",
+            "href": "https://www.crysound.com/product/cry820-sound-power-measurement-test-frame-1-m-radius-hemisphere/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293441.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY821 Sound Power Measurement Test Frame - 1.5 m Radius Hemisphere",
+            "href": "https://www.crysound.com/product/cry821-sound-power-measurement-test-frame-1-5-m-radius-hemisphere/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293448.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "1/4\" Electrostatic Actuator Adapter",
+            "href": "https://www.crysound.com/product/1-4-electrostatic-actuator-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292615.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Large Tripod - Soundking S08 Microphone Tripod",
+            "href": "https://www.crysound.com/product/large-tripod-soundking-s08-microphone-tripod/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-291364.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Small Tripod - ST-103 Desktop Microphone Stand",
+            "href": "https://www.crysound.com/product/small-tripod-st-103-desktop-microphone-stand/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-291366.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "AC-DC Power Adapter for Artificial Mouth-CN Plug",
+            "href": "https://www.crysound.com/product/ac-dc-power-adapter-for-artificial-mouth-cn-plug/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280268.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "AC-DC Power Adapter for Artificial Mouth-EU Plug",
+            "href": "https://www.crysound.com/product/ac-dc-power-adapter-for-artificial-mouth-eu-plug/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280270.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "LEMO Preamplifier Cable - WL6004-3m",
+            "href": "https://www.crysound.com/product/lemo-preamplifier-cable-wl6004-3m/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292729.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "BNC Male to XLR Male Audio Cable - BL5010",
+            "href": "https://www.crysound.com/product/bnc-male-to-xlr-male-audio-cable-bl5010/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293175.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "BNC Male-to-Male IP67 Waterproof Cable - WL6003-3m",
+            "href": "https://www.crysound.com/product/bnc-male-to-male-ip67-waterproof-cable-wl6003-3m/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292671.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Microdot (M5, 10-32 UNF) Right-Angle-to-BNC RF Cable",
+            "href": "https://www.crysound.com/product/microdot-m5-10-32-unf-right-angle-to-bnc-rf-cable/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292733.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "4-Pin Aviation Connector to DB9 Male Cable - BL5003 / 1.6 m V2.0",
+            "href": "https://www.crysound.com/product/4-pin-aviation-connector-to-db9-male-cable-bl5003-1-6-m-v2-0/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293167.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Microdot (M5, 10-32 UNF) Straight-to-BNC RF Cable",
+            "href": "https://www.crysound.com/product/microdot-m5-10-32-unf-straight-to-bnc-rf-cable/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292675.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "BNC Male-to-Male Cable - BL5001",
+            "href": "https://www.crysound.com/product/bnc-male-to-male-cable-bl5001/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292673.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "OB 4-Pin Right-Angle Aviation Plug (Male) to DB9 Male Cable",
+            "href": "https://www.crysound.com/product/ob-4-pin-right-angle-aviation-plug-male-to-db9-male-cable/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293171.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Preamplifier Extension Cable - BL5004",
+            "href": "https://www.crysound.com/product/preamplifier-extension-cable-bl5004/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293169.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Single-Channel 3.5 mm Audio Connector to BNC Cable - BL5704",
+            "href": "https://www.crysound.com/product/single-channel-3-5-mm-audio-connector-to-bnc-cable-bl5704/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293173.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "SMB Right-Angle JK 50 Ω to BNC RF Cable - SMB Female to BNC Male",
+            "href": "https://www.crysound.com/product/smb-right-angle-jk-50-cf-89-to-bnc-rf-cable-smb-female-to-bnc-male/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293165.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "SMB Straight JK 50 Ω to BNC RF Cable - SMB Female to BNC Male",
+            "href": "https://www.crysound.com/product/smb-straight-jk-50-cf-89-to-bnc-rf-cable-smb-female-to-bnc-male/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293163.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Microphone Windscreen",
+            "href": "https://www.crysound.com/product/microphone-windscreen/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-291361.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for 1\" Pressure-Field and Free-Field Microphones",
+            "href": "https://www.crysound.com/product/protective-cover-for-1-pressure-field-and-free-field-microphones/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292619.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for 1/2\" Free-Field Microphone",
+            "href": "https://www.crysound.com/product/protective-cover-for-1-2-free-field-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292621.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for 1/2\" Pressure-Field Microphone",
+            "href": "https://www.crysound.com/product/protective-cover-for-1-2-pressure-field-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292623.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for 1/4\" 35X Microphone",
+            "href": "https://www.crysound.com/product/protective-cover-for-1-4-35x-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292627.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for 1/4\" Pressure-Field and Free-Field Microphones",
+            "href": "https://www.crysound.com/product/protective-cover-for-1-4-pressure-field-and-free-field-microphones/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292625.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Protective Cover for CRY3213 NVH Microphone",
+            "href": "https://www.crysound.com/product/protective-cover-for-cry3213-nvh-microphone/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292617.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0101-Flat Magnetic Base - Ø20 × 7 mm - M5",
+            "href": "https://www.crysound.com/product/ta0101-flat-magnetic-base-o20-x-7-mm-m5/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293177.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0102-Flat Magnetic Base - Ø24 × 10 mm - M5",
+            "href": "https://www.crysound.com/product/ta0102-flat-magnetic-base-o24-x-10-mm-m5/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293181.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0103-Flat Magnetic Base - Ø25 × 12 mm - 1/4-28",
+            "href": "https://www.crysound.com/product/ta0103-flat-magnetic-base-o25-x-12-mm-1-4-28/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293187.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0104-Flat Magnetic Base - Ø24 × 7 mm - M5 / 1/4-28",
+            "href": "https://www.crysound.com/product/ta0104-flat-magnetic-base-o24-x-7-mm-m5-1-4-28/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293399.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0105-Flat Magnetic Base - Ø30 × 13 mm - 1/4-28",
+            "href": "https://www.crysound.com/product/ta0105-flat-magnetic-base-o30-x-13-mm-1-4-28/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293401.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0106-Flat Magnetic Base - Ø39 × 10 mm - M6",
+            "href": "https://www.crysound.com/product/ta0106-flat-magnetic-base-o39-x-10-mm-m6/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293403.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0107-Horseshoe Magnetic Base - Ø25.5 × 18 mm",
+            "href": "https://www.crysound.com/product/ta0107-horseshoe-magnetic-base-o25-5-x-18-mm/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293405.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0108-Horseshoe Magnetic Base - Ø30 × 25 mm - 1/4-28",
+            "href": "https://www.crysound.com/product/ta0108-horseshoe-magnetic-base-o30-x-25-mm-1-4-28/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293409.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0111 Insulating Base - Ø23 × 15 mm - 1/4-28",
+            "href": "https://www.crysound.com/product/ta0111-insulating-base-o23-x-15-mm-1-4-28/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293412.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0112-Mounting Base - Ø18 × 5 mm - M5 × 4 mm",
+            "href": "https://www.crysound.com/product/ta0112-mounting-base-o18-x-5-mm-m5-x-4-mm/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293416.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0113-Mounting Base - Ø25.2 × 5 mm - 1/4-28 × 5 mm",
+            "href": "https://www.crysound.com/product/ta0113-mounting-base-o25-2-x-5-mm-1-4-28-x-5-mm/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293418.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0121-Adapter Nut - Ø25 × 21.8 mm - 1/4-28 to M10 × 1.5",
+            "href": "https://www.crysound.com/product/ta0121-adapter-nut-o25-x-21-8-mm-1-4-28-to-m10-x-1-5/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-293420.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0201-1\" Microphone / 21xx Noise Sensor Mounting Post",
+            "href": "https://www.crysound.com/product/ta0201-1-microphone-21xx-noise-sensor-mounting-post/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-281557.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0202-1/2\" Microphone Mounting Post",
+            "href": "https://www.crysound.com/product/ta0202-1-2-microphone-mounting-post/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-281568.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0203-1/4\" Microphone Mounting Post",
+            "href": "https://www.crysound.com/product/ta0203-1-4-microphone-mounting-post/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-281571.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0205 - 1/2-inch Microphone Mounting Clip",
+            "href": "https://www.crysound.com/product/ta0205-1-2-inch-microphone-mounting-clip/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-291359.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0301 - 1\" Electrostatic Actuator",
+            "href": "https://www.crysound.com/product/ta0301-1-electrostatic-actuator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292610.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0302 - 1/2\" Electrostatic Actuator",
+            "href": "https://www.crysound.com/product/ta0302-1-2-electrostatic-actuator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292612.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0307 - Sound Calibrator Adapter, 1/2\" Adapter",
+            "href": "https://www.crysound.com/product/ta0307-sound-calibrator-adapter-1-2-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292629.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0308 - Sound Calibrator Adapter, 1/4\" Adapter",
+            "href": "https://www.crysound.com/product/ta0308-sound-calibrator-adapter-1-4-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292631.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0309 - Sound Calibrator Adapter, 1/8\" Adapter",
+            "href": "https://www.crysound.com/product/ta0309-sound-calibrator-adapter-1-8-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292638.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0310 - Sound Calibrator Adapter for Ø14.5 mm Protective Cover",
+            "href": "https://www.crysound.com/product/ta0310-sound-calibrator-adapter-for-o14-5-mm-protective-cover/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292640.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0501 - 1/2\" to 1\" Preamplifier Adapter",
+            "href": "https://www.crysound.com/product/ta0501-preamplifier-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280151.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0502 - 1/4\" to 1/2\" Preamplifier Adapter",
+            "href": "https://www.crysound.com/product/ta0502-1-4-to-1-2-preamplifier-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280153.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0503 - 1/2\" to 1/4\" Preamplifier Adapter",
+            "href": "https://www.crysound.com/product/ta0503-1-2-to-1-4-preamplifier-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280155.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0504 - 1/2\" Input Adapter (15 pF)",
+            "href": "https://www.crysound.com/product/ta0504-1-2-input-adapter-15-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280157.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0505 - 1/2\" Input Adapter (20 pF)",
+            "href": "https://www.crysound.com/product/ta0505-1-2-input-adapter-20-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280159.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0506 - 1/2\" Input Adapter (18 pF)",
+            "href": "https://www.crysound.com/product/ta0506-1-2-input-adapter-18-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280161.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0507 - 1/2\" Input Adapter (22 pF)",
+            "href": "https://www.crysound.com/product/ta0507-1-2-input-adapter-22-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280165.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0508 - 1/2\" Input Adapter (12 pF)",
+            "href": "https://www.crysound.com/product/ta0508-1-2-input-adapter-12-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280167.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0509 - 1/2\" Input Adapter (50 pF)",
+            "href": "https://www.crysound.com/product/ta0509-1-2-input-adapter-50-pf/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280169.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0510 - 1/2\" to 1/4\" Preamplifier Adapter",
+            "href": "https://www.crysound.com/product/ta0510-1-2-to-1-4-preamplifier-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280171.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0515 - IEC 60318-1 Artificial Ear Base Adapter",
+            "href": "https://www.crysound.com/product/ta0515-iec-60318-1-artificial-ear-base-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280193.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0516‑1/2‑Inch To 1/2‑Inch Right‑Angle Adapter",
+            "href": "https://www.crysound.com/product/ta0516-1-2-inch-to-1-2-inch-right-angle-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280214.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0517-6CC Coupling-Cavity Base-Type Adapter",
+            "href": "https://www.crysound.com/product/ta0517-6cc-coupling-cavity-base-type-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280217.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0518 -10-32 UNF to 1/2\" Preamplifier Input Adapter",
+            "href": "https://www.crysound.com/product/ta0518-10-32-unf-to-1-2-preamplifier-input-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280219.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0519 - Spring Clamp Test Fixture",
+            "href": "https://www.crysound.com/product/ta0519-spring-clamp-test-fixture/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280221.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0601-Artificial Mouth Adapter (Lip Ring, 25 mm MRP)",
+            "href": "https://www.crysound.com/product/ta0601-artificial-mouth-adapter-lip-ring-25-mm-mrp/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280225.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0603-Artificial Mouth Adapter (Lip Ring with Mesh, 25 mm MRP),",
+            "href": "https://www.crysound.com/product/ta0603-artificial-mouth-adapter-lip-ring-with-mesh-25-mm-mrp/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280228.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0604-Artificial Mouth Adapter (Open Type, H-Type)",
+            "href": "https://www.crysound.com/product/ta0604-artificial-mouth-adapter-open-type-h-type/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280230.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0605-Artificial Mouth Adapter (Sealed Type, L-Type)",
+            "href": "https://www.crysound.com/product/ta0605-artificial-mouth-adapter-sealed-type-l-type/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280232.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0606-1/2\" Microphone Holder for Artificial Mouth",
+            "href": "https://www.crysound.com/product/ta0606-1-2-microphone-holder-for-artificial-mouth/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280234.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0611-Artificial Mouth Adapter",
+            "href": "https://www.crysound.com/product/ta0611-artificial-mouth-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280266.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0701 - IEC 60318-1 Artificial Ear Adapter",
+            "href": "https://www.crysound.com/product/ta0701-iec-60318-1-artificial-ear-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280297.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0702 - IEC 60318-1 Artificial Ear Conical Ring Adapter",
+            "href": "https://www.crysound.com/product/ta0702-iec-60318-1-artificial-ear-conical-ring-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280305.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0703 - IEC 60318-1 Artificial Ear Rubber Sealing Ring",
+            "href": "https://www.crysound.com/product/ta0703-iec-60318-1-artificial-ear-rubber-sealing-ring/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280309.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0704 - IEC 60318-1 Artificial Ear Conical Ring Adapter",
+            "href": "https://www.crysound.com/product/ta0704-iec-60318-1-artificial-ear-conical-ring-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280311.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0706 - Coupler Hearing Aid Test Adapter (CRY3719)",
+            "href": "https://www.crysound.com/product/ta0706-coupler-hearing-aid-test-adapter-cry3719/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280314.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0707 - IEC 60318-1 Artificial Ear L-Type Threaded Adapter",
+            "href": "https://www.crysound.com/product/ta0707-iec-60318-1-artificial-ear-l-type-threaded-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280346.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0708 - IEC 60318-1 Artificial Ear H-Type Threaded Adapter",
+            "href": "https://www.crysound.com/product/ta0708-iec-60318-1-artificial-ear-h-type-threaded-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280344.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0709 - IEC 60318-1 Artificial Ear 1/2\" Preamplifier Adapter",
+            "href": "https://www.crysound.com/product/ta0709-iec-60318-1-artificial-ear-1-2-preamplifier-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280353.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0710-IEC 60318-1 Artificial Ear L-Type Threaded Adapter",
+            "href": "https://www.crysound.com/product/ta0710-iec-60318-1-artificial-ear-l-type-threaded-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280369.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0711-IEC 60318-1 Artificial Ear H-Type Threaded Adapter",
+            "href": "https://www.crysound.com/product/ta0711-iec-60318-1-artificial-ear-h-type-threaded-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280413.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0722 - IEC 60318-4 Artificial Ear Adapter",
+            "href": "https://www.crysound.com/product/ta0722-iec-60318-4-artificial-ear-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280415.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0723 - IEC 60318-4 Artificial Ear Adapte",
+            "href": "https://www.crysound.com/product/ta0723-iec-60318-4-artificial-ear-adapte/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280417.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0724 - IEC 60318-4 Artificial Ear Adapter",
+            "href": "https://www.crysound.com/product/ta0724-iec-60318-4-artificial-ear-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280419.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0725 - IEC 60318-4 Artificial Ear Adapter",
+            "href": "https://www.crysound.com/product/ta0725-iec-60318-4-artificial-ear-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280421.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0726 - IEC 60318-4 Artificial Ear Adapter Mount",
+            "href": "https://www.crysound.com/product/ta0726-iec-60318-4-artificial-ear-adapter-mount/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280423.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0727 - IEC 60318-4 Artificial Ear Silicone Adapter",
+            "href": "https://www.crysound.com/product/ta0727-iec-60318-4-artificial-ear-silicone-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-281551.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "TA0728 - IEC 60318-4 Artificial Ear Sound Source Adapter",
+            "href": "https://www.crysound.com/product/ta0728-iec-60318-4-artificial-ear-sound-source-adapter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-281554.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Tripod Head, 1/4\" Male Threaded Interface",
+            "href": "https://www.crysound.com/product/tripod-head-1-4-male-threaded-interface/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-292606.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "data-acquisition-system": {
+        "label": "Data Acquisition System",
+        "href": "https://www.crysound.com/products/data-acquisition-system/",
+        "products": [
+          {
+            "label": "Sound Power Measurement System",
+            "href": "https://www.crysound.com/product/sound-power-testing-system/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276377.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Wind Tunnel Acoustic Imaging and Noise Source Localization System",
+            "href": "https://www.crysound.com/product/wind-tunnel-acoustic-imaging-and-noise-source-localization-system/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276422.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "data-acquisition-mainframe": {
+        "label": "Data Acquisition Mainframe",
+        "href": "https://www.crysound.com/products/data-acquisition-mainframe/",
+        "products": [
+          {
+            "label": "CRY5810 SonoDAQ LT",
+            "href": "https://www.crysound.com/product/cry5810-sonodaq-lt/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275533.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5820 SonoDAQ Pro",
+            "href": "https://www.crysound.com/product/cry5820-sonodaq-pro/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270194.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5620 SonoDAQ Go",
+            "href": "https://www.crysound.com/product/cry5620-sonodaq-go/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275593.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "data-acquisition-module": {
+        "label": "Data Acquisition Module",
+        "href": "https://www.crysound.com/products/data-acquisition-module/",
+        "products": [
+          {
+            "label": "CRY5001 Smart Battery Module - BAT",
+            "href": "https://www.crysound.com/product/cry5001-smart-battery-module-bat/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275609.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5011 IEPE Analog In - IED",
+            "href": "https://www.crysound.com/product/cry5011-iepe-analogin-ied/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-274657.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5014 LEMO Analog In - LMQ",
+            "href": "https://www.crysound.com/product/cry5014-lemo-analog-in-lmq/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275438.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5083 Analog Output - AOS",
+            "href": "https://www.crysound.com/product/cry5083-analog-output-aos/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275569.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5085 Analog Output Class D 10W - ADD",
+            "href": "https://www.crysound.com/product/cry5085-analog-out-add/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-274661.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "data-acquisition-software": {
+        "label": "Data Acquisition Software",
+        "href": "https://www.crysound.com/products/data-acquisition-software/",
+        "products": [
+          {
+            "label": "OpenTest",
+            "href": "https://www.crysound.com/product/opentest/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270213.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "handheld-acoustic-imaging-camera": {
+        "label": "Handheld Acoustic Imaging Camera",
+        "href": "https://www.crysound.com/products/handheld-acoustic-imaging-camera/",
+        "products": [
+          {
+            "label": "CRY8025 SonoCam Pocket Pro Acoustic Camera",
+            "href": "https://www.crysound.com/product/sonocam-pocket-pro-acoustic-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-274326.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY8024 SonoCam Pocket Acoustic Camera",
+            "href": "https://www.crysound.com/product/crysound-pocket-acoustic-imaging-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275688.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY8124 Advanced Acoustic Imaging Camera",
+            "href": "https://www.crysound.com/product/cry8124-advanced-acoustic-imaging-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270286.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY8125 Advanced Ex Acoustic Imaging Camera",
+            "href": "https://www.crysound.com/product/cry8125/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270276.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2624 128-Mic Industrial Acoustic Imaging Camera (ATEX)",
+            "href": "https://www.crysound.com/product/cry2624-128-mic-industrial-acoustic-imaging-camera-atex/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270603.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2623 128-Mic Industrial Acoustic Imaging Camera",
+            "href": "https://www.crysound.com/product/cry2623-128-mic-industrial-acoustic-imaging-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270586.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2620 64-Mic Industrial Acoustic Imaging Camera",
+            "href": "https://www.crysound.com/product/cry2620-64-mic-industrial-acoustic-imager/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270578.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "fixed-acoustic-imaging-camera": {
+        "label": "Fixed Acoustic Imaging Camera",
+        "href": "https://www.crysound.com/products/fixed-acoustic-imaging-camera/",
+        "products": [
+          {
+            "label": "CRY2624M Ex Fixed Acoustic Imager",
+            "href": "https://www.crysound.com/product/cry2624m-ex-fixed-acoustic-imager/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280189.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2623M Fixed Acoustic Imager",
+            "href": "https://www.crysound.com/product/cry2623m-fixed-acoustic-imaging-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270595.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "uav-acoustic-imaging-camera": {
+        "label": "UAV Acoustic Imaging Camera",
+        "href": "https://www.crysound.com/products/uav-acoustic-imaging-camera/",
+        "products": [
+          {
+            "label": "CRY2626G Drone-Mounted Acoustic Imaging Camera",
+            "href": "https://www.crysound.com/product/cry2626g-drone-mounted-acoustic-imaging-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270613.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "sonocam-pi-acoustic-camera": {
+        "label": "SonoCam Pi Acoustic Camera",
+        "href": "https://www.crysound.com/products/sonocam-pi-acoustic-camera/",
+        "products": [
+          {
+            "label": "CRY8500 Series SonoCam Pi Acoustic Camera",
+            "href": "https://www.crysound.com/product/cry8500-series-sonocam-pi-acoustic-camera/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270205.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "acoustic-imaging-accessories": {
+        "label": "Acoustic Camera Accessories",
+        "href": "https://www.crysound.com/products/acoustic-imaging-accessories/",
+        "products": [
+          {
+            "label": "IA3104 Contact Ultrasound Sensor",
+            "href": "https://www.crysound.com/product/ia3104-contact-ultrasound-sensor/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270176.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "IA1301 Thermal Imaging Camera Module",
+            "href": "https://www.crysound.com/product/ia1301-thermal-imaging-camera-module/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276701.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "IA1302 Thermal Imaging Camera Module",
+            "href": "https://www.crysound.com/product/ia1302-thermal-imaging-camera-module/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276715.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "acoustic-camera-software": {
+        "label": "Acoustic Camera Software",
+        "href": "https://www.crysound.com/products/acoustic-camera-software/",
+        "products": [
+          {
+            "label": "Acoustic Link",
+            "href": "https://www.crysound.com/product/acoustic-link/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270188.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "sound-level-meter": {
+        "label": "Sound Level Meter",
+        "href": "https://www.crysound.com/products/sound-level-meter/",
+        "products": [
+          {
+            "label": "CRY2832-2 Lite Sound Level Meter with Data Logging",
+            "href": "https://www.crysound.com/product/class-2-sound-level-meter-with-data-logging-cry2832-2-lite/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276594.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2832-2 Pro Sound Level Meter with Noise Analysis Software",
+            "href": "https://www.crysound.com/product/professional-sound-level-meter-with-noise-analysis-software-and-data-logger-cry2832-2-pro/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-279556.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2831 Class 2 Sound Level Meter",
+            "href": "https://www.crysound.com/product/cry2831-class-2-sound-level-meter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-276029.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2851 Sound Level Meter",
+            "href": "https://www.crysound.com/product/cry2851-sound-level-meter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270536.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2833 Sound Level Meter",
+            "href": "https://www.crysound.com/product/cry2833-sound-level-meter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270516.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2834 Sound Level Meter",
+            "href": "https://www.crysound.com/product/cry2834-sound-level-meter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270546.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "noise-sensor": {
+        "label": "Noise Sensor",
+        "href": "https://www.crysound.com/products/noise-sensor/",
+        "products": [
+          {
+            "label": "CRY2110 Noise Sensor",
+            "href": "https://www.crysound.com/product/cry2110-noise-sensor/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270564.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2112 Noise Sensor",
+            "href": "https://www.crysound.com/product/cry2112-noise-sensor/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270561.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2301 Noise Sensor",
+            "href": "https://www.crysound.com/product/cry2301-noise-sensor/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270558.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY2120 Noise Sensor",
+            "href": "https://www.crysound.com/product/cry2120-noise-sensor/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270552.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "noise-measurement-accessories": {
+        "label": "Noise Measurement Accessories",
+        "href": "https://www.crysound.com/products/noise-measurement-accessories/",
+        "products": [
+          {
+            "label": "NA41 Set Noise Sensor Outdoor Wind & Rain Cover",
+            "href": "https://www.crysound.com/product/na41-set-noise-sensor-outdoor-wind-and-rain-cover/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270573.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "NA43 Set Noise Sensor Outdoor Wind & Rain Cover",
+            "href": "https://www.crysound.com/product/na43-set-noise-sensor-outdoor-wind-and-rain-cover-with-remote-calibration-function/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270567.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "electroacoustic-analyzer": {
+        "label": "Electroacoustic Analyzer",
+        "href": "https://www.crysound.com/products/electroacoustic-analyzer/",
+        "products": [
+          {
+            "label": "CRY5810 SonoDAQ LT",
+            "href": "https://www.crysound.com/product/cry5810-sonodaq-lt/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-275533.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5820 SonoDAQ Pro",
+            "href": "https://www.crysound.com/product/cry5820-sonodaq-pro/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270194.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY6151B Electroacoustic Analyzer",
+            "href": "https://www.crysound.com/product/cry6151b-electroacoustic-analyzer/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270460.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY6151 Electroacoustic Analyzer",
+            "href": "https://www.crysound.com/product/cry6151-electroacoustic-analyzer/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270455.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "electroacoustic-test-software": {
+        "label": "Electroacoustic Test Software",
+        "href": "https://www.crysound.com/products/electroacoustic-test-software/",
+        "products": [
+          {
+            "label": "OpenTest",
+            "href": "https://www.crysound.com/product/opentest/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270213.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "SonoLab Acoustic Analysis Software",
+            "href": "https://www.crysound.com/product/sonolab-acoustic-analysis-software/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270440.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "QuickRadio, Radio Frequency Analysis Software",
+            "href": "https://www.crysound.com/product/quickradio-radio-frequency-analysis-software/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270436.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "acoustic-test-chamber": {
+        "label": "Acoustic Test Chamber",
+        "href": "https://www.crysound.com/products/acoustic-test-chamber/",
+        "products": [
+          {
+            "label": "CRY7422 RF Shielding Test Chamber",
+            "href": "https://www.crysound.com/product/cry7422-rf-shielding-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280184.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY7423 RF Shielding Test Chamber",
+            "href": "https://www.crysound.com/product/cry7423-rf-shielding-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-280348.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "Anechoic Chamber",
+            "href": "https://www.crysound.com/product/anechoic-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270465.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY710 Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry710-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270413.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY721C Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry721c-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270407.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY723 Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry723-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270404.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY723D Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry723d-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270390.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY725 Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry725-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270384.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY725D Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry725d-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270381.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY7865 Pneumatic Acoustic Test Chamber",
+            "href": "https://www.crysound.com/product/cry7865-pneumatic-acoustic-test-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270374.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY7412 Ultra-Quiet Chamber",
+            "href": "https://www.crysound.com/product/cry7412-ultra-quiet-chamber/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270366.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY7413 Acoustic Test Chamber, Manual Door",
+            "href": "https://www.crysound.com/product/cry7413-acoustic-test-chamber-manual-door/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270353.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "audio-test-interface": {
+        "label": "Audio Test Interface",
+        "href": "https://www.crysound.com/products/audio-test-interface/",
+        "products": [
+          {
+            "label": "CRY578 Bluetooth LE Audio Interface",
+            "href": "https://www.crysound.com/product/cry578-bluetooth-le-audio-interface/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270202.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY580 A²B Interface",
+            "href": "https://www.crysound.com/product/cry580-a%c2%b2b-interface/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270468.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY573 Digital Microphone Converter",
+            "href": "https://www.crysound.com/product/cry573-digital-microphone-converter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270424.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY591L Bluetooth Switch Matrix",
+            "href": "https://www.crysound.com/product/cry591l-bluetooth-switch-matrix/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270421.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY592 Audio Filter",
+            "href": "https://www.crysound.com/product/cry592-audio-filter/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270418.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5121 Programmable Battery Simulator",
+            "href": "https://www.crysound.com/product/cry5121-programmable-battery-simulator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270327.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY5240 Programmable Battery Simulator",
+            "href": "https://www.crysound.com/product/cry5240-programmable-battery-simulator/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270324.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "test-fixture": {
+        "label": "Test Fixture",
+        "href": "https://www.crysound.com/products/test-fixture/",
+        "products": [
+          {
+            "label": "CRY801B Headphone Test Fixture",
+            "href": "https://www.crysound.com/product/cry801b-headphone-test-fixture/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270344.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY802 ATF Hearing Protection Headphone Test Fixture",
+            "href": "https://www.crysound.com/product/cry802-atf-hearing-protection-headphone-test-fixture/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270339.webp"
+            ],
+            "crop": "catalog-product"
+          },
+          {
+            "label": "CRY806 TWS Headphones Acoustic Test Fixture",
+            "href": "https://www.crysound.com/product/cry806-tws-headphones-acoustic-test-fixture/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270336.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      },
+      "power-amplifier": {
+        "label": "Power Amplifier",
+        "href": "https://www.crysound.com/products/power-amplifier/",
+        "products": [
+          {
+            "label": "CRY584D Power Amplifier 20W",
+            "href": "https://www.crysound.com/product/cry584d-power-amplifier-20w/",
+            "images": [
+              "/scene-assets/navigation/product-nav-live-270330.webp"
+            ],
+            "crop": "catalog-product"
+          }
+        ]
+      }
+    },
+    "featured": [
+      {
+        "label": "OpenTest",
+        "href": "https://www.crysound.com/product/opentest/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-opentest-frame.png",
+          "/scene-assets/navigation/product-nav-default-opentest-screen.png"
+        ],
+        "crop": "default-opentest"
+      },
+      {
+        "label": "CRY8500 Series SonoCam Pi Acoustic Camera",
+        "href": "https://www.crysound.com/product/cry8500-series-sonocam-pi-acoustic-camera/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry8500.png"
+        ],
+        "crop": "default-cry8500"
+      },
+      {
+        "label": "CRY2833 Sound Level Meter",
+        "href": "https://www.crysound.com/product/cry2833-sound-level-meter/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry2833.png"
+        ],
+        "crop": "default-cry2833"
+      },
+      {
+        "label": "CRY8024 SonoCam Pocket Acoustic Camera",
+        "href": "https://www.crysound.com/product/crysound-pocket-acoustic-imaging-camera/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry8024.png"
+        ],
+        "crop": "default-cry8024"
+      },
+      {
+        "label": "CRY3213 NVH Measurement Microphone",
+        "href": "https://www.crysound.com/product/cry3213-nvh-measurement-microphone/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry3213.png"
+        ],
+        "crop": "default-cry3213"
+      },
+      {
+        "label": "CRY7413 Acoustic Test Chamber, Manual Door",
+        "href": "https://www.crysound.com/product/cry7413-acoustic-test-chamber-manual-door/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry7413.png"
+        ],
+        "crop": "default-cry7413"
+      },
+      {
+        "label": "CRY8125 Advanced Ex Acoustic Imaging Camera",
+        "href": "https://www.crysound.com/product/cry8125/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry8125.png"
+        ],
+        "crop": "default-cry8125"
+      },
+      {
+        "label": "CRY578 Bluetooth LE Audio Interface",
+        "href": "https://www.crysound.com/product/cry578-bluetooth-le-audio-interface/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry578.png"
+        ],
+        "crop": "default-cry578"
+      },
+      {
+        "label": "CRY5820 SonoDAQ Pro",
+        "href": "https://www.crysound.com/product/cry5820-sonodaq-pro/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry5820.png"
+        ],
+        "crop": "default-cry5820"
+      },
+      {
+        "label": "CRY3018 Sound Calibrator",
+        "href": "https://www.crysound.com/product/cry3018-sound-calibrator/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry3018.png"
+        ],
+        "crop": "default-cry3018"
+      },
+      {
+        "label": "CRY2851 Sound Level Meter",
+        "href": "https://www.crysound.com/product/cry2851-sound-level-meter/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry2851.png"
+        ],
+        "crop": "default-cry2851"
+      },
+      {
+        "label": "CRY2831 Class 2 Sound Level Meter",
+        "href": "https://www.crysound.com/product/cry2831-class-2-sound-level-meter/",
+        "images": [
+          "/scene-assets/navigation/product-nav-default-cry2831.png"
+        ],
+        "crop": "default-cry2831"
+      }
+    ]
+  },
+  "solutions": {
+    "groups": [
+      {
+        "title": "By Industry",
+        "links": [
+          {
+            "label": "Consumer Electronics",
+            "group": "industry-consumer"
+          },
+          {
+            "label": "Automotive & EV",
+            "group": "industry-automotive"
+          },
+          {
+            "label": "Industrial",
+            "group": "industry-industrial"
+          },
+          {
+            "label": "Oil, Gas & Chemical",
+            "group": "industry-chemical"
+          },
+          {
+            "label": "Power & Energy",
+            "group": "industry-energy"
+          },
+          {
+            "label": "Environment & Infrastructure",
+            "group": "industry-environment"
+          },
+          {
+            "label": "Aerospace & Rail",
+            "group": "industry-aerospace"
+          },
+          {
+            "label": "Labs & Testing",
+            "group": "industry-labs"
+          },
+          {
+            "label": "Public Safety & Security",
+            "group": "industry-security"
+          }
+        ],
+        "group": "industry"
+      },
+      {
+        "title": "By Application",
+        "links": [
+          {
+            "label": "Audio Testing",
+            "group": "application-audio"
+          },
+          {
+            "label": "Acoustic Quality & AI Listening",
+            "group": "application-quality"
+          },
+          {
+            "label": "Acoustic Imaging & Leaks",
+            "group": "application-imaging"
+          },
+          {
+            "label": "Partial Discharge Testing",
+            "group": "application-partial"
+          },
+          {
+            "label": "Noise & Environmental Monitoring",
+            "group": "application-noise"
+          },
+          {
+            "label": "NVH & Sound Power Testing",
+            "group": "application-nvh"
+          },
+          {
+            "label": "Data Acquisition & Automation",
+            "group": "application-data"
+          },
+          {
+            "label": "Acoustic Security & Drones",
+            "group": "application-security"
+          },
+          {
+            "label": "Airtightness & Sealing Testing",
+            "group": "application-airtightness"
+          }
+        ],
+        "group": "application"
+      }
+    ],
+    "cards": [
+      {
+        "label": "Consumer Electronics",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-consumer",
+        "image": "/scene-assets/navigation/solution-nav-industry-consumer.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-consumer"
+        ]
+      },
+      {
+        "label": "Automobiles and New Energy Vehicles",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-automotive",
+        "image": "/scene-assets/navigation/solution-nav-industry-automotive.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-automotive"
+        ]
+      },
+      {
+        "label": "Industrial Manufacturing",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-industrial",
+        "image": "/scene-assets/navigation/solution-nav-industry-industrial.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-industrial"
+        ]
+      },
+      {
+        "label": "Chemical, Petroleum, and Natural Gas",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-chemical",
+        "image": "/scene-assets/navigation/solution-nav-industry-chemical.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-chemical"
+        ]
+      },
+      {
+        "label": "Electric Power and Energy",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-energy",
+        "image": "/scene-assets/navigation/solution-nav-industry-energy.svg",
+        "large": true,
+        "groups": [
+          "industry",
+          "industry-energy"
+        ]
+      },
+      {
+        "label": "Environmental Noise and Infrastructure",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-environment",
+        "image": "/scene-assets/navigation/solution-nav-industry-environment.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-environment"
+        ]
+      },
+      {
+        "label": "Aerospace and Rail Transit",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-aerospace",
+        "image": "/scene-assets/navigation/solution-nav-industry-aerospace.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-aerospace"
+        ]
+      },
+      {
+        "label": "Research Laboratories and Third-Party Testing Agencies",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-labs",
+        "image": "/scene-assets/navigation/solution-nav-industry-labs.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-labs"
+        ]
+      },
+      {
+        "label": "Public Safety and Low-Altitude Security",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=industry-security",
+        "image": "/scene-assets/navigation/solution-nav-industry-security.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-security"
+        ]
+      },
+      {
+        "label": "Electroacoustics and Audio Testing",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-audio",
+        "image": "/scene-assets/navigation/solution-nav-industry-audio.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-consumer",
+          "industry-labs",
+          "application",
+          "application-audio"
+        ]
+      },
+      {
+        "label": "Production Line Acoustic Quality and AI Listening",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-quality",
+        "image": "/scene-assets/navigation/solution-nav-industry-ai-listening.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-consumer",
+          "industry-industrial",
+          "application",
+          "application-quality"
+        ]
+      },
+      {
+        "label": "Acoustic Imaging and Leak Detection",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-imaging",
+        "image": "/scene-assets/navigation/solution-nav-industry-acoustic-imaging.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-automotive",
+          "industry-industrial",
+          "industry-chemical",
+          "industry-energy",
+          "industry-security",
+          "application",
+          "application-imaging"
+        ]
+      },
+      {
+        "label": "Partial Discharge and Power Asset Inspection",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-partial",
+        "image": "/scene-assets/navigation/solution-nav-default-partial-discharge.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-energy",
+          "application",
+          "application-partial"
+        ]
+      },
+      {
+        "label": "Noise Compliance and Environmental Monitoring",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-noise",
+        "image": "/scene-assets/navigation/solution-nav-default-noise-compliance.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-environment",
+          "application",
+          "application-noise"
+        ]
+      },
+      {
+        "label": "NVH, Sound Power, and Abnormal Noise Detection",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-nvh",
+        "image": "/scene-assets/navigation/solution-nav-default-nvh-abnormal-noise.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-automotive",
+          "industry-aerospace",
+          "industry-labs",
+          "application",
+          "application-nvh"
+        ]
+      },
+      {
+        "label": "Data Acquisition Sensors and Automated Testing",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-data",
+        "image": "/scene-assets/navigation/solution-nav-default-data-acquisition.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-consumer",
+          "industry-automotive",
+          "industry-industrial",
+          "industry-aerospace",
+          "industry-labs",
+          "application",
+          "application-data"
+        ]
+      },
+      {
+        "label": "Acoustic Security and Drone Detection",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solutions/all?category=application-security",
+        "image": "/scene-assets/navigation/solution-nav-default-acoustic-security.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-security",
+          "application",
+          "application-security"
+        ]
+      },
+      {
+        "label": "Composite Material Airtightness & Sealing",
+        "href": "https://www.crysound.com/solutions/airtightness-testing-of-composite-materials/",
+        "image": "/scene-assets/navigation/solution-nav-default-airtightness.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-industrial",
+          "application",
+          "application-airtightness"
+        ]
+      },
+      {
+        "label": "Construction Noise Monitoring",
+        "href": "https://www.crysound.com/solutions/construction-noise-monitoring/",
+        "image": "/scene-assets/navigation/solution-nav-default-construction-noise.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-environment",
+          "application",
+          "application-noise"
+        ]
+      },
+      {
+        "label": "Occupational Noise Measurement",
+        "href": "https://www.crysound.com/solutions/occupational-noise-measurement/",
+        "image": "/scene-assets/navigation/solution-nav-default-occupational-noise.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-industrial",
+          "industry-environment",
+          "application",
+          "application-noise"
+        ]
+      },
+      {
+        "label": "Gas Leak Detection in Explosion-Proof Scenarios",
+        "href": "https://www.crysound.com/solutions/gas-leak-detection-in-explosion-proof-scenarios/",
+        "image": "/scene-assets/navigation/solution-nav-default-gas-leak-explosion-proof.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-chemical",
+          "application",
+          "application-imaging"
+        ]
+      },
+      {
+        "label": "Gas Leak Detection in Ordinary Scenarios",
+        "href": "https://www.crysound.com/solutions/gas-leak-detection-in-ordinary-scenarios/",
+        "image": "/scene-assets/navigation/solution-nav-default-gas-leak-ordinary.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-chemical",
+          "application",
+          "application-imaging"
+        ]
+      },
+      {
+        "label": "Robotic Integrated Gas Leak Detection",
+        "href": "https://www.crysound.com/solutions/robotic-integrated-gas-leak-detection/",
+        "image": "/scene-assets/navigation/solution-nav-default-robotic-gas-leak.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-industrial",
+          "industry-chemical",
+          "application",
+          "application-imaging"
+        ]
+      },
+      {
+        "label": "7/24 Online Monitoring Gas Leak",
+        "href": "https://www.crysound.com/solutions/7-24-online-monitoring/",
+        "image": "/scene-assets/navigation/solution-nav-default-online-gas-leak.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-chemical",
+          "application",
+          "application-imaging"
+        ]
+      },
+      {
+        "label": "Sound Power Testing Solution",
+        "href": "https://crysound-website.ya-wang346019.chatgpt.site/#solution/sound-power-measurement",
+        "image": "/scene-assets/navigation/solution-nav-default-sound-power.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-automotive",
+          "industry-environment",
+          "industry-labs",
+          "application",
+          "application-nvh"
+        ]
+      },
+      {
+        "label": "Traffic Noise Monitoring",
+        "href": "https://www.crysound.com/solutions/traffic-noise-monitoring/",
+        "image": "/scene-assets/navigation/solution-nav-default-traffic-noise.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-environment",
+          "industry-aerospace",
+          "application",
+          "application-noise"
+        ]
+      },
+      {
+        "label": "Airport & Aircraft Noise Monitoring",
+        "href": "https://www.crysound.com/solutions/airport-aircraft-noise-monitoring/",
+        "image": "/scene-assets/navigation/solution-nav-default-airport-noise.svg",
+        "large": false,
+        "groups": [
+          "industry",
+          "industry-environment",
+          "industry-aerospace",
+          "application",
+          "application-noise"
+        ]
+      }
+    ]
+  },
+  "menus": [
+    {
+      "id": "resources",
+      "label": "Resources",
+      "links": [
+        {
+          "label": "Download",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#downloads/all",
+          "image": "/scene-assets/navigation/resource-nav-download-library.png"
+        },
+        {
+          "label": "Blogs",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#blogs/all",
+          "image": "/scene-assets/navigation/resource-nav-blogs.png"
+        },
+        {
+          "label": "Events",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#events/all",
+          "image": "/scene-assets/navigation/resource-nav-events-showcase.png"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "links": [
+        {
+          "label": "Technical Support",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#technical-support",
+          "image": "/scene-assets/navigation/support-nav-technical-support-guidance.png"
+        },
+        {
+          "label": "Warranty",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#warranty",
+          "image": "/scene-assets/navigation/support-nav-warranty-inspection.png"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "links": [
+        {
+          "label": "Contact Us",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#contact-us",
+          "image": "/scene-assets/navigation/contact-nav-contact-us.png"
+        },
+        {
+          "label": "Become a Distributor",
+          "href": "https://crysound-website.ya-wang346019.chatgpt.site/#become-a-distributor",
+          "image": "/scene-assets/navigation/contact-nav-become-distributor-partnership.png"
+        }
+      ]
+    }
+  ]
+}
