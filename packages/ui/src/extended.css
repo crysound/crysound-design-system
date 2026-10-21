@@ -964,6 +964,8 @@
 .cs-tabs-list--pill[data-tone="brand"] .cs-tabs-trigger[data-state="active"] { background:var(--cs-brand); color:var(--cs-on-brand); box-shadow:none; }
 .cs-tabs-list--pill[data-tone="brand"] .cs-tabs-indicator { background:var(--cs-brand); box-shadow:none; }
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background:transparent; }
+/* Static selection must switch foreground and background together. */
+.cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="static"] .cs-tabs-trigger { transition:none; }
 .cs-chart-legend button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; }
 @media(max-width:540px) { .cs-chart { padding: 12px; } }
 
