@@ -868,17 +868,20 @@
 .cs-command-menu-dialog { position: fixed; z-index: var(--cs-z-modal); top: 18vh; left: 50%; transform: translateX(-50%); width: min(560px,calc(100vw - 32px)); outline: none; }
 .cs-command-menu-dialog .cs-command-menu-list { max-height: 55vh; }
 
-.cs-date-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: var(--cs-control-height); padding: 0 12px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); font: inherit;  color: var(--cs-text); background: var(--cs-surface); cursor: pointer;
+.cs-date-trigger { --cs-date-feedback-color: var(--cs-brand); display: flex; align-items: center; gap: 8px; width: 100%; min-height: var(--cs-control-height); padding: 0 12px; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); font: inherit;  color: var(--cs-text); background: var(--cs-surface); cursor: pointer;
   font-size: var(--cs-type-control-size);
   line-height: var(--cs-type-control-leading);
 }
 .cs-date-trigger span { flex: 1; text-align: left; }
 .cs-date-trigger [data-placeholder] { color: var(--cs-muted); }
 .cs-date-trigger svg { flex-shrink: 0; color: var(--cs-muted); }
-.cs-date-trigger:focus-visible, .cs-date-trigger[data-state="open"] { outline: none; border-color: var(--cs-brand); }
+.cs-date-trigger:not(:disabled):is(:focus, [data-state="open"]) { outline: none; border-color: var(--cs-date-feedback-color); box-shadow: 0 0 0 var(--cs-space-0-5) color-mix(in srgb, var(--cs-date-feedback-color) 12%, transparent); }
 .cs-date-trigger[data-state="open"] > svg:last-child { transform: rotate(180deg); color: var(--cs-brand); }
 .cs-date-trigger:disabled { opacity: .5; cursor: not-allowed; }
-.cs-date-trigger[aria-invalid="true"] { border-color: var(--cs-danger-fg); }
+.cs-date-trigger[aria-invalid="true"] { --cs-date-feedback-color: var(--cs-danger-fg); border-color: var(--cs-danger-fg); }
+@media(forced-colors:active) {
+  .cs-date-trigger:not(:disabled):is(:focus, [data-state="open"]) { outline: 2px solid Highlight; outline-offset: var(--cs-space-0-5); box-shadow: none; }
+}
 .cs-date-popover { width: 296px; max-width: calc(100vw - 24px); padding: 16px; box-sizing: border-box; border: 1px solid var(--cs-border); border-radius: var(--cs-radius); background: var(--cs-surface); color: var(--cs-text); box-shadow: var(--cs-shadow); z-index: var(--cs-z-popover); font-family: var(--cs-font); }
 .cs-date-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .cs-date-header strong { font-size: 14px; font-weight: var(--cs-weight-medium); }
