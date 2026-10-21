@@ -6,6 +6,8 @@
 
 `label` 为必填的可访问名称；继承 Button 的 variant、size、disabled、loading、onClick 等属性，支持 ref。默认ghost轻量样式，使用中性色文字及悬停浅底；需要强调时显式设置primary。默认36px，sm28px，lg48px；触屏点击区至少44px。默认显示 Tooltip，可用 tooltip=false 关闭。
 
+官网`brand-ghost`变体默认使用`--cs-muted`中灰，悬停与键盘聚焦时变为完整`--cs-brand`，保持透明背景；采用`--cds-dur-snap`（120ms）颜色过渡，让灰色与主色的变化更清楚。禁用和加载状态不响应悬停，减少动态效果时直接切换；明暗与客户主题继续使用语义变量。
+
 ## NavigationMenu
 
 items 由 `{id,label,href?,groups?,featured?}` 构成；groups 是 `{title,links:[{label,href,description?}]}`。分组项使用 Radix Popover 展开，其余为普通链接。支持 Tab、Enter/Space、Escape、点击外部关闭以及焦点返回。内容保留在主题树内，继承 data-theme、data-customer 和语义变量。移动端面板按列堆叠并独立滚动。

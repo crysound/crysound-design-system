@@ -1875,7 +1875,7 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 @media(forced-colors:active) { .cs-checkbox[data-state="checked"],.cs-checkbox[data-state="indeterminate"] { color:HighlightText; background:Highlight; border-color:Highlight; } }
 
 /* Website icon actions: neutral at rest, brand on hover or keyboard focus. */
-.cs-icon-button.cs-icon-button--brand-ghost { color:var(--cs-text-secondary); background:transparent; transition:color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-icon-button.cs-icon-button--brand-ghost { color:var(--cs-muted); background:transparent; transition:color var(--cds-dur-snap) var(--cds-ease-out); }
 .cs-icon-button.cs-icon-button--brand-ghost:is(:hover,:focus-visible):not(:disabled) { color:var(--cs-brand); background:transparent; }
 @media(prefers-reduced-motion:reduce) { .cs-icon-button.cs-icon-button--brand-ghost { transition:none; } }
 
