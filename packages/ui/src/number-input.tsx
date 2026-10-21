@@ -52,7 +52,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
       />
       {placeholderReveal && props.placeholder && <span className="cs-input-placeholder-reveal" aria-hidden="true">{Array.from(props.placeholder).map((char, index) => <span key={index} style={{ animationDelay: `${index * 90}ms` }}>{char}</span>)}</span>}
       {canStep && <span className="cs-number-steppers">
-        {(["down", "up"] as const).map(direction => <button
+        {(["up", "down"] as const).map(direction => <button
           key={direction}
           type="button"
           className="cs-number-step"
