@@ -14,6 +14,6 @@ export function NavigationMenuDemo() {
  return <div className="navigation-menu-demo">
   <p className="cs-help">品牌官网一级导航 · 胶囊样式</p>
   <NavigationMenu label="官网导航示例" shape="capsule" items={items}/>
-  <p className="cs-help">悬停显示浅灰背景与品牌色文字；点击或 Enter / Space 展开，Escape 关闭并返回焦点。示例链接指向系统文档与样板。</p>
+  <p className="cs-help">悬停显示浅灰背景与品牌色文字；点击从按下位置展开主色，再次点击收回。支持 Enter / Space，Escape 关闭并返回焦点。示例链接指向系统文档与样板。</p>
  </div>;
 }

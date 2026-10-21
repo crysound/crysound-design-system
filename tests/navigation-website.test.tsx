@@ -59,3 +59,27 @@ it('keeps capsule primary navigation click-operated while catalog hover preview 
  expect(products).toHaveAttribute('aria-expanded','true');expect(resources).toHaveAttribute('aria-expanded','false');expect(screen.getByRole('dialog',{name:'Products导航'})).toBeVisible();
  await user.keyboard('{Escape}');expect(products).toHaveFocus();await user.keyboard('{Enter}');expect(screen.getByRole('dialog',{name:'Products导航'})).toBeVisible();
 });
+it('responds on press at the pointer position and reverses immediately on a repeated click',()=>{
+ render(<NavigationMenu shape="capsule" items={items}/>);const trigger=screen.getByRole('button',{name:'Products'});
+ vi.spyOn(trigger,'getBoundingClientRect').mockReturnValue({left:100,top:20,right:300,bottom:60,x:100,y:20,width:200,height:40,toJSON:()=>({})});
+ fireEvent(trigger,new MouseEvent('pointerdown',{bubbles:true,button:0,clientX:150,clientY:30}));
+ expect(trigger).toHaveAttribute('aria-expanded','false');expect(trigger.style.getPropertyValue('--cs-navigation-click-x')).toBe('25%');expect(trigger.style.getPropertyValue('--cs-navigation-click-y')).toBe('25%');
+ const first=trigger.querySelector('.cs-navigation-click-pulse');expect(first).toBeInTheDocument();
+ fireEvent.click(trigger,{detail:1});expect(trigger).toHaveAttribute('aria-expanded','true');
+ fireEvent(trigger,new MouseEvent('pointerdown',{bubbles:true,button:0,clientX:250,clientY:50}));
+ const repeated=trigger.querySelector('.cs-navigation-click-pulse');expect(repeated).not.toBe(first);expect(first).not.toBeInTheDocument();
+ fireEvent.click(trigger,{detail:1});expect(trigger).toHaveAttribute('aria-expanded','false');expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+ const ended=new Event('animationend',{bubbles:true});Object.defineProperty(ended,'animationName',{value:'cs-navigation-click-pulse'});fireEvent(repeated!,ended);
+ expect(trigger.querySelector('.cs-navigation-click-pulse')).toBeNull();
+});
+it.each([false,true])('keeps keyboard toggling and focus return with reduced motion %s',async reduced=>{
+ const original=Object.getOwnPropertyDescriptor(window,'matchMedia');
+ Object.defineProperty(window,'matchMedia',{configurable:true,value:vi.fn(()=>({matches:reduced}))});
+ try {
+  const user=userEvent.setup();render(<NavigationMenu shape="capsule" items={items}/>);const trigger=screen.getByRole('button',{name:'Products'});
+  await user.tab();await user.keyboard('{Enter}');expect(trigger).toHaveAttribute('aria-expanded','true');
+  expect(trigger.style.getPropertyValue('--cs-navigation-click-x')).toBe('50%');expect(trigger.style.getPropertyValue('--cs-navigation-click-y')).toBe('50%');
+  expect(!!trigger.querySelector('.cs-navigation-click-pulse')).toBe(!reduced);
+  await user.keyboard('{Escape}');expect(trigger).toHaveFocus();await user.keyboard(' ');expect(trigger).toHaveAttribute('aria-expanded','true');
+ } finally { if(original)Object.defineProperty(window,'matchMedia',original);else Reflect.deleteProperty(window,'matchMedia'); }
+});

@@ -70,5 +70,4 @@
 }
 @media(prefers-reduced-motion:reduce) {
  .brand-website-navigation :is(.cs-navigation-menu-trigger,.cs-navigation-menu-link),.brand-website-navigation .cs-navigation-menu-trigger > svg { transition:none; }
- .brand-website-navigation .cs-navigation-menu-trigger[data-state="open"] > svg { transform:none; }
 }
