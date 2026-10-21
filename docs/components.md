@@ -19,7 +19,7 @@ DeviceTable 保留少量设备展示 API；新增 DataTable 支持本地搜索�
 
 NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的标签、说明、错误与2px聚焦外环。右侧SVG箭头保持单列，上箭头增加、下箭头减少数值；按钮有悬停、按下和禁用反馈，使用语义颜色适配客户主题。按钮调用原生`stepDown/stepUp`处理范围、步长和小数精度，再触发输入事件，兼容受控与非受控编辑。点击后聚焦输入框，键盘继续使用方向键调整；按钮不增加Tab停靠点，仍具有可访问名称。`step`默认1，小数使用明确步长或`"any"`，`"any"`时不显示步进按钮；disabled和readOnly时按钮禁用。`min/max/step`参与原生表单验证，手动越界不自动截断，业务校验和中文错误提示由消费项目提供。受控编辑可使用字符串保留空值，`valueAsNumber`在空值时为NaN，不能将它默认转换为0。单位放在label中，数字ID、手机号和邮编继续使用文本Input。工作台阈值与OpenTest数值配置使用同一组件，业务范围约束仍留在各自应用。
 
-Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用独立cs-rating-active/empty令牌，尺寸sm/md/lg分别为28/36/48px操作区与20/28/40px图标；触屏操作区至少44px，减少动态效果时取消颜色过渡。
+Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用cs-rating-active/empty令牌，active按用户要求引用现有cs-warning橙色并随明暗主题适配，仍可单独覆盖。尺寸sm/md/lg分别为28/36/48px操作区与20/28/40px图标；触屏操作区至少44px，减少动态效果时取消颜色过渡。
 
 ## 应用级主题
 

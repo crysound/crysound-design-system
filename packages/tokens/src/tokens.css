@@ -115,14 +115,14 @@
   --cs-focus: #95baff;
 }
 
-/* Rating palette adapted from the supplied star reference; proposed Web values. */
+/* Rating reuses the system orange; empty stars follow the supplied reference. */
 :root,
 [data-theme="light"] {
-  --cs-rating-active: #f9a11b;
+  --cs-rating-active: var(--cs-warning);
   --cs-rating-empty: #e9e9e9;
 }
 [data-theme="dark"] {
-  --cs-rating-active: #ffb547;
+  --cs-rating-active: var(--cs-warning);
   --cs-rating-empty: #454545;
 }
 
