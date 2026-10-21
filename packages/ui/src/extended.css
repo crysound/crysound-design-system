@@ -1528,6 +1528,11 @@ button.cs-step-content { cursor: pointer; }
 .cs-carousel-viewport[data-draggable="true"] :is(a,img) { cursor:inherit; -webkit-user-drag:none; }
 .cs-carousel-viewport[data-dragging="true"] > .cs-carousel-track { transition:none; }
 .cs-carousel-track { display:grid; grid-auto-flow:column; grid-auto-columns:100%; align-items:stretch; transition:transform var(--cds-dur-sheet) var(--cds-ease-snap); }
+.cs-carousel--cards { container:cs-carousel / inline-size; }
+.cs-carousel--cards > .cs-carousel-viewport { --cs-carousel-visible:var(--cs-carousel-items); --cs-carousel-gap:var(--cs-space-6); }
+.cs-carousel--cards .cs-carousel-track { grid-auto-columns:calc((100% - (var(--cs-carousel-visible) - 1) * var(--cs-carousel-gap)) / var(--cs-carousel-visible)); gap:var(--cs-carousel-gap); transition:transform 560ms cubic-bezier(.22,1,.36,1); }
+@container cs-carousel (max-width:1100px) { .cs-carousel--cards > .cs-carousel-viewport { --cs-carousel-visible:min(var(--cs-carousel-items),2); } }
+@container cs-carousel (max-width:640px) { .cs-carousel--cards > .cs-carousel-viewport { --cs-carousel-visible:1; } }
 .cs-carousel-slide { min-width:0; }
 .cs-carousel-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; margin-top:16px; }
 .cs-carousel-play { border:0; border-radius:var(--cs-radius); padding:8px 12px; background:var(--cs-subtle); color:var(--cs-text); font:inherit; font-size:14px; cursor:pointer; }
@@ -1546,7 +1551,7 @@ button.cs-step-content { cursor: pointer; }
 .cs-gallery-thumbnails img { width:100%; height:100%; object-fit:contain; }
 @media(max-width:640px) { .cs-navigation-menu-panel { padding:16px; }.cs-navigation-menu-columns { grid-template-columns:1fr; gap:20px; }.cs-navigation-menu-trigger,.cs-navigation-menu-link { min-height:44px; }.cs-gallery-figure { padding:16px; }.cs-gallery-figure > img { height:240px; } }
 @media(pointer:coarse) { .cs-icon-button.cs-button { min-width:44px; min-height:44px; }.cs-carousel-play { min-height:44px; } }
-@media(prefers-reduced-motion:reduce) { .cs-navigation-menu-trigger svg { transition:none; }.cs-carousel-track { transition:none; } }
+@media(prefers-reduced-motion:reduce) { .cs-navigation-menu-trigger svg { transition:none; }.cs-carousel-track,.cs-carousel--cards .cs-carousel-track { transition:none; } }
 .cs-icon-button[aria-busy="true"] .cs-icon-button-glyph { display:none; }
 
 .cs-icon-button.cs-button { border-radius:var(--cs-radius-lg); }

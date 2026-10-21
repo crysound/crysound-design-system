@@ -63,6 +63,12 @@ it('does not steal dragging or clicks from embedded form controls',()=>{
  expect(track).toHaveStyle({transform:'translate3d(0%,0,0)'});
  fireEvent.change(input,{target:{value:'仍可编辑'}});expect(input).toHaveValue('仍可编辑');
 });
+it('allows the next button click after a cancelled drag',()=>{
+ const {pointer}=setup();const button=screen.getByRole('button',{name:'卡片操作'});const clicked=vi.fn();button.addEventListener('click',clicked);
+ pointer('pointerdown',400);pointer('pointermove',280,40,200);pointer('pointercancel',280,40,320);
+ pointer('pointerdown',400,40,500,button);pointer('pointerup',400,40,600,button);fireEvent.click(button,{detail:1});
+ expect(clicked).toHaveBeenCalledOnce();
+});
 it('holds the dragged frame until the requested image is ready',async()=>{
  const {pointer,track,container}=setup();const image=container.querySelector('img')!;
  Object.defineProperty(image,'complete',{value:false});let decoded!:()=>void;
