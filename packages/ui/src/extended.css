@@ -1873,7 +1873,7 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 
 /* Company website only: same segmented treatment with fully rounded geometry. */
 .cs-tabs-list--pill[data-shape="capsule"] { --cs-tabs-thumb-shadow:0 0 2px color-mix(in srgb,var(--cs-text) 12%,transparent); padding:var(--cs-space-1); }
-.cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger { font-size:var(--cs-text-md); line-height:var(--cs-leading-normal); }
+.cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger { font-size:var(--cs-text-md); line-height:var(--cs-leading-normal); font-weight:var(--cs-weight-normal); }
 .cs-tabs-list--pill[data-shape="capsule"],
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-trigger,
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-indicator { border-radius:var(--cs-radius-pill); }
