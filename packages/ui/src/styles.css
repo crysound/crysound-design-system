@@ -376,11 +376,12 @@ select.cs-input.cs-select {
   box-shadow: 0 0 0 var(--cs-space-0-5) color-mix(in srgb, var(--cs-input-focus-color) 12%, transparent);
 }
 :is(input, textarea).cs-input[aria-invalid="true"]:focus { --cs-input-focus-color: var(--cs-danger-fg); }
-.cs-input:is(.cs-select-trigger, .cs-select) { --cs-select-feedback-color: var(--cs-brand); }
+.cs-input:is(.cs-select-trigger, .cs-select) { --cs-select-feedback-color: var(--cs-brand); --cs-select-feedback-width: 1px; }
+.cs-input:is(.cs-select-trigger, .cs-select):focus { --cs-select-feedback-width: var(--cs-space-0-5); }
 .cs-input:is(.cs-select-trigger, .cs-select)[aria-invalid="true"] { --cs-select-feedback-color: var(--cs-danger-fg); }
 .cs-input:is(.cs-select-trigger, .cs-select):not(:disabled):is(:focus, [data-state="open"]) {
   border-color: var(--cs-select-feedback-color);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cs-select-feedback-color) 12%, transparent);
+  box-shadow: 0 0 0 var(--cs-select-feedback-width) color-mix(in srgb, var(--cs-select-feedback-color) 12%, transparent);
 }
 @media(hover:hover) {
   textarea.cs-input:hover:not(:disabled):not(:focus) {
@@ -390,7 +391,7 @@ select.cs-input.cs-select {
   textarea.cs-input[aria-invalid="true"]:hover:not(:disabled):not(:focus) { --cs-textarea-hover-color: var(--cs-danger-fg); }
   textarea.cs-input:hover:not(:disabled):not(:focus):not([aria-invalid="true"]) { border-color: var(--cs-brand); }
   .cs-input:is(.cs-select-trigger, .cs-select):hover:not(:disabled) {
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--cs-select-feedback-color) 12%, transparent);
+    box-shadow: 0 0 0 var(--cs-select-feedback-width) color-mix(in srgb, var(--cs-select-feedback-color) 12%, transparent);
   }
   .cs-input:is(.cs-select-trigger, .cs-select):hover:not(:disabled):not([aria-invalid="true"]) { border-color: var(--cs-brand); }
 }
