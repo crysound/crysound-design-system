@@ -26,7 +26,7 @@ images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非�
 
 文档示例采用当前 CRYSOUND 样板中已授权的本地产品素材，只用于展示组件，不声明同一产品的多角度实拍。
 
-轮播文档与品牌样板统一复用OfficialBanner内容组合，使用原官网的四组文案、产品图片、阴影和比例。共享Carousel提供切换状态、键盘与播放行为；controlsClassName/paginationClassName用于摆放原版覆盖式控件，previousLabel/nextLabel用于本地化入口名称。此样板第四组仍为静态产品图，不包含原站3D运行时。
+轮播文档与品牌样板统一复用OfficialBanner内容组合，使用原官网的四组文案、产品图片、阴影和比例。Learn More按钮沿用原官网16px字号、24px行高与400字重，保持36px高度及24px水平内边距；按钮文字不随Banner宽度缩小，移动布局保留44px高度。共享Carousel提供切换状态、键盘与播放行为；controlsClassName/paginationClassName用于摆放原版覆盖式控件，previousLabel/nextLabel用于本地化入口名称。此样板第四组仍为静态产品图，不包含原站3D运行时。
 
 NavigationMenu参照用户指定的线上官网导航更新：brand/actions提供品牌与工具区域；catalog布局包含大类、子分类、产品网格和底部入口，links[].products与groups[].products控制相应内容。默认columns仍支持资源类的分组链接。面板与整个导航栏对齐，以本地主题变量呈现选中态和卡片边界。导航数据由消费应用提供，组件不处理商城或业务请求。
 

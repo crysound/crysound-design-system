@@ -9,7 +9,7 @@
 .brand-banner-description { width:calc(625 * 100cqw / 1714); max-width:100%; }
 .brand-banner-description p { margin:0; color:#707070; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }
 .brand-banner-new { display:inline-block; padding:calc(2 * 100cqw / 1714) calc(8 * 100cqw / 1714); border-radius:calc(4 * 100cqw / 1714); background:#ef4444; color:#fff; font-size:calc(12 * 100cqw / 1714); line-height:calc(16 * 100cqw / 1714); }
-.brand-banner-copy .cs-button { margin-top:calc(20 * 100cqw / 1714); height:calc(36 * 100cqw / 1714); min-height:calc(36 * 100cqw / 1714); padding:calc(6 * 100cqw / 1714) calc(24 * 100cqw / 1714); border:calc(1 * 100cqw / 1714) solid #170057; border-radius:calc(999 * 100cqw / 1714); background:#170057; color:#fff; font-family:inherit; font-size:calc(16 * 100cqw / 1714); line-height:calc(24 * 100cqw / 1714); font-weight:400; }
+.brand-banner-copy .cs-button { margin-top:calc(20 * 100cqw / 1714); box-sizing:border-box; height:36px; min-height:36px; padding:0 var(--cs-space-6); border:1px solid #170057; border-radius:var(--cs-radius-pill); background:#170057; color:#fff; font-family:inherit; font-size:var(--cs-text-md); line-height:var(--cs-leading-normal); font-weight:var(--cs-weight-normal); }
 .brand-banner-copy .cs-button:hover { background:#2b116d; }
 .brand-banner-visual { position:absolute; top:calc(62 * 100cqw / 1714); left:52.392065%; width:calc(522 * 100cqw / 1714); height:calc(340 * 100cqw / 1714); }
 .brand-banner-monitor { position:absolute; left:0; top:0.088235%; width:calc(319.629 * 100cqw / 1714); height:calc(310.411 * 100cqw / 1714); object-fit:contain; object-position:left top; z-index:3; }
