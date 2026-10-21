@@ -1,5 +1,6 @@
 import {CarouselPaginationDemo} from './carousel-pagination-demo';
 import {NumberInputDemo} from './number-input-demo';
+import {RatingDemo} from './rating-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import {NavigationMenuDemo} from './navigation-menu-demo';
@@ -183,6 +184,8 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "number-input":
       return <NumberInputDemo />;
+    case "rating":
+      return <RatingDemo />;
     case "textarea":
       return (
         <Stack>

@@ -115,6 +115,17 @@
   --cs-focus: #95baff;
 }
 
+/* Rating palette adapted from the supplied star reference; proposed Web values. */
+:root,
+[data-theme="light"] {
+  --cs-rating-active: #f9a11b;
+  --cs-rating-empty: #e9e9e9;
+}
+[data-theme="dark"] {
+  --cs-rating-active: #ffb547;
+  --cs-rating-empty: #454545;
+}
+
 /* Software surface profile: light canvas adaptation; original extraction recorded in design-review. */
 [data-context="software"][data-theme="light"] {
   --cs-bg: #f8fafc;

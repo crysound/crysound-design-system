@@ -13,6 +13,7 @@ import {
   Button,
   Input,
   NumberInput,
+  Rating,
   Combobox,
   Checkbox,
   Switch,
@@ -122,6 +123,8 @@ export function LeadExample({ id }: { id: string }) {
       );
     case "number-input":
       return <div className="reference-demo-field"><NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} step={1} /></div>;
+    case "rating":
+      return <Rating label="产品评分" defaultValue={2} size="lg" hideLabel />;
     case "combobox":
       return (
         <div className="reference-demo-field">
@@ -249,6 +252,8 @@ export function StateExamples({
     );
   if (item.id === "number-input")
     return frame("Number input states", '<NumberInput label="增益 / dB" defaultValue={0.5} min={-12} max={12} step={0.1} />\n<NumberInput label="只读数值" value={1000} readOnly />\n<NumberInput label="禁用数值" defaultValue={4} disabled />', <ComponentDemo id="number-input" />);
+  if (item.id === "rating")
+    return frame("Rating states and sizes", '<Rating label="体验评分" value={score} onValueChange={setScore} />\n<Rating label="只读评分" value={4} readOnly />\n<Rating label="禁用评分" defaultValue={2} disabled />', <ComponentDemo id="rating" />);
   if (item.id === "combobox")
     return (
       <>
@@ -320,6 +325,7 @@ export const idsWithStateExamples = new Set([
   "button",
   "input",
   "number-input",
+  "rating",
   "combobox",
   "checkbox",
   "switch",

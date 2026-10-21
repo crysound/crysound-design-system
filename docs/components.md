@@ -7,6 +7,7 @@
 | Button | variant: primary / secondary / ghost / danger；loading；disabled；onClick | 默认 type=button；表单提交显式设 type=submit；loading 阻止重复点击 |
 | Input | label（必填）；hint；error；value；onChange | 标签与错误说明通过 ID 关联；业务验证由调用方提供 |
 | NumberInput | label；value/defaultValue；onChange；min/max；step；hint/error；disabled/readOnly | 复用Input及原生number语义；支持整数、小数、负值和空值，范围与步长使用原生验证 |
+| Rating | label；value/defaultValue；onValueChange；max；size；readOnly/disabled；name/required | 整数星级评分，0为未评分；悬停预览，点击或键盘选择；只读展示保留可访问评分名称 |
 | StatusBadge | status: online / offline / warning / error / running；children | 可覆盖显示文字；始终保留文字，不单靠颜色 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
@@ -17,6 +18,8 @@
 DeviceTable 保留少量设备展示 API；新增 DataTable 支持本地搜索、排序、分页与跨页选择。大量数据仍需服务端分页或虚拟滚动。Dialog 关闭按钮目前为中文，国际化 API 留待下一版本。
 
 NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的标签、说明、错误与2px聚焦外环。右侧SVG箭头保持单列，上箭头增加、下箭头减少数值；按钮有悬停、按下和禁用反馈，使用语义颜色适配客户主题。按钮调用原生`stepDown/stepUp`处理范围、步长和小数精度，再触发输入事件，兼容受控与非受控编辑。点击后聚焦输入框，键盘继续使用方向键调整；按钮不增加Tab停靠点，仍具有可访问名称。`step`默认1，小数使用明确步长或`"any"`，`"any"`时不显示步进按钮；disabled和readOnly时按钮禁用。`min/max/step`参与原生表单验证，手动越界不自动截断，业务校验和中文错误提示由消费项目提供。受控编辑可使用字符串保留空值，`valueAsNumber`在空值时为NaN，不能将它默认转换为0。单位放在label中，数字ID、手机号和邮编继续使用文本Input。工作台阈值与OpenTest数值配置使用同一组件，业务范围约束仍留在各自应用。
+
+Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用独立cs-rating-active/empty令牌，尺寸sm/md/lg分别为28/36/48px操作区与20/28/40px图标；触屏操作区至少44px，减少动态效果时取消颜色过渡。
 
 ## 应用级主题
 
