@@ -1775,19 +1775,20 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 .cs-gallery-card-solution p { margin:0 0 24px; font-size:16px; line-height:24px; }
 .cs-gallery-card-solution .cs-gallery-card-primary::after { content:""; position:absolute; inset:0; z-index:1; }
 .cs-gallery-card-solution .cs-gallery-card-more { position:relative; z-index:2; margin:0; }
-.cs-gallery-card-solution h3,.cs-gallery-card-solution p,.cs-gallery-card-solution .cs-gallery-card-more { transition:color var(--cs-duration-normal) var(--cds-ease-out); }
-.cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-picture img { transform:scale(1.02); }
-.cs-gallery-card-solution:is(:hover,:focus-within) h3 { color:var(--cs-brand); }
-.cs-gallery-card-solution:is(:hover,:focus-within) p { color:var(--cs-text); }
-.cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) { color:var(--cs-brand-hover); }
-.cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) > span::after { transform:scaleX(1); }
+/* Editorial cards share one coordinated hover and keyboard-focus treatment. */
+:is(.cs-gallery-card-solution,.cs-gallery-card-article) :is(h3,p,.cs-gallery-card-more) { transition:color var(--cs-duration-normal) var(--cds-ease-out); }
+:is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-picture img { transform:scale(1.02); }
+:is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) h3 { color:var(--cs-brand); }
+:is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) p { color:var(--cs-text); }
+:is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) { color:var(--cs-brand-hover); }
+:is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) > span::after { transform:scaleX(1); }
 @media(prefers-reduced-motion:no-preference) {
- .cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) .cs-action-link-arrow { transform:translateX(var(--cs-space-0-5)); }
- .cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) .cs-action-link-arrow[data-external] { transform:translate(1px,-1px); }
+ :is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) .cs-action-link-arrow { transform:translateX(var(--cs-space-0-5)); }
+ :is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-more:not(:disabled):not([aria-disabled="true"]) .cs-action-link-arrow[data-external] { transform:translate(1px,-1px); }
 }
 @media(prefers-reduced-motion:reduce) {
- .cs-gallery-card-solution .cs-gallery-card-picture img,.cs-gallery-card-solution h3,.cs-gallery-card-solution p,.cs-gallery-card-solution .cs-gallery-card-more { transition:none; }
- .cs-gallery-card-solution:is(:hover,:focus-within) .cs-gallery-card-picture img { transform:none; }
+ :is(.cs-gallery-card-solution,.cs-gallery-card-article) .cs-gallery-card-picture img,:is(.cs-gallery-card-solution,.cs-gallery-card-article) :is(h3,p,.cs-gallery-card-more) { transition:none; }
+ :is(.cs-gallery-card-solution,.cs-gallery-card-article):is(:hover,:focus-within) .cs-gallery-card-picture img { transform:none; }
 }
 
 /* Floating chapter rail, adapted from the OpenTest FFT page. */
