@@ -373,7 +373,7 @@ select.cs-input.cs-select {
 .cs-input[aria-invalid="true"]:focus { border-color: var(--cs-danger-fg); }
 :is(input, textarea).cs-input:focus {
   --cs-input-focus-color: var(--cs-brand);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cs-input-focus-color) 12%, transparent);
+  box-shadow: 0 0 0 var(--cs-space-0-5) color-mix(in srgb, var(--cs-input-focus-color) 12%, transparent);
 }
 :is(input, textarea).cs-input[aria-invalid="true"]:focus { --cs-input-focus-color: var(--cs-danger-fg); }
 .cs-input:is(.cs-select-trigger, .cs-select) { --cs-select-feedback-color: var(--cs-brand); }
