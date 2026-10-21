@@ -94,6 +94,8 @@
 .cs-input[aria-invalid="true"] {
   border-color: var(--cs-danger-fg);
 }
+.cs-number-input { font-variant-numeric: tabular-nums; }
+.cs-number-input:not(:disabled):not([readonly])::-webkit-inner-spin-button { opacity: 1; }
 .cs-help {
 
   color: var(--cs-muted);

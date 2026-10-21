@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | Button | variant: primary / secondary / ghost / danger；loading；disabled；onClick | 默认 type=button；表单提交显式设 type=submit；loading 阻止重复点击 |
 | Input | label（必填）；hint；error；value；onChange | 标签与错误说明通过 ID 关联；业务验证由调用方提供 |
+| NumberInput | label；value/defaultValue；onChange；min/max；step；hint/error；disabled/readOnly | 复用Input及原生number语义；支持整数、小数、负值和空值，范围与步长使用原生验证 |
 | StatusBadge | status: online / offline / warning / error / running；children | 可覆盖显示文字；始终保留文字，不单靠颜色 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
@@ -14,6 +15,8 @@
 | DeviceTable | devices；onSelect | 提供 id/name/model/status/location；onSelect 缺省时隐藏操作列；空数组显示空状态 |
 
 DeviceTable 保留少量设备展示 API；新增 DataTable 支持本地搜索、排序、分页与跨页选择。大量数据仍需服务端分页或虚拟滚动。Dialog 关闭按钮目前为中文，国际化 API 留待下一版本。
+
+NumberInput通过`<input type="number">`提供原生步进和spinbutton语义，复用Input的标签、说明、错误与2px聚焦外环。`step`默认1，小数使用明确步长或`"any"`；`min/max/step`参与原生表单验证，手动越界不自动截断，业务校验和中文错误提示由消费项目提供。受控编辑可使用字符串保留空值，`valueAsNumber`在空值时为NaN，不能将它默认转换为0。单位放在label中，数字ID、手机号和邮编继续使用文本Input。上下调整按钮由浏览器原生绘制，WebKit下可编辑字段保持可见，移动端和其他浏览器沿用自身表现。工作台阈值与OpenTest数值配置使用同一组件，业务范围约束仍留在各自应用。
 
 ## 应用级主题
 

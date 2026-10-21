@@ -34,6 +34,7 @@ import {
   Button,
   Checkbox,
   Input,
+  NumberInput,
   Progress,
   Shadow,
   MetricGroup,
@@ -92,6 +93,7 @@ export const docCategories = [
       "checkbox",
       "combobox",
       "input",
+      "number-input",
       "progress",
       "radio-group",
       "select",
@@ -357,6 +359,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
       );
     case "input":
       return <Input label="Email" placeholder="you@example.com" />;
+    case "number-input":
+      return <NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} />;
     case "textarea":
       return (
         <div className="thumb-input">

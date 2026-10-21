@@ -292,6 +292,7 @@ export function DeviceTable({
 }
 
 export * from "./forms";
+export * from "./number-input";
 export * from "./navigation";
 export * from "./overlays";
 export * from "./display";

@@ -1,4 +1,5 @@
 import {CarouselPaginationDemo} from './carousel-pagination-demo';
+import {NumberInputDemo} from './number-input-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import {NavigationMenuDemo} from './navigation-menu-demo';
@@ -180,6 +181,8 @@ export function ComponentDemo({ id }: { id: string }) {
           <Input label="不可用字段" disabled placeholder="请先连接设备" />
         </Stack>
       );
+    case "number-input":
+      return <NumberInputDemo />;
     case "textarea":
       return (
         <Stack>

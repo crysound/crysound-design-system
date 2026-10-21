@@ -61,7 +61,7 @@ export function DeviceConnection() {
 | 分类 | 组件 |
 | --- | --- |
 | 操作 | Button（4 种层级、3 种尺寸、加载、禁用、图标） |
-| 表单 | Input、Textarea、Select、Combobox、Checkbox、Switch、RadioGroup、Slider、FileUpload |
+| 表单 | Input、NumberInput、Textarea、Select、Combobox、Checkbox、Switch、RadioGroup、Slider、FileUpload |
 | 导航 | Tabs、Accordion、Breadcrumbs、Pagination |
 | 浮层 | Dialog、AlertDialog、Sheet、Popover、Tooltip、DropdownMenu |
 | 展示 | Badge、Avatar、Separator、Card |
