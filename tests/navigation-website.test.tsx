@@ -51,3 +51,11 @@ it('keeps the new menu open through consecutive trigger changes and Escape reope
  expect(products).toHaveAttribute('aria-expanded','true');expect(screen.getByRole('dialog',{name:'Products导航'})).toBeVisible();
  await user.click(resources);expect(screen.getByRole('link',{name:'Blogs'})).toBeVisible();
 });
+it('keeps capsule primary navigation click-operated while catalog hover preview is enabled',async()=>{
+ const user=userEvent.setup();render(<NavigationMenu shape="capsule" activateOnHover items={[...items,{id:'resources',label:'Resources',layout:'cards',links:[{label:'Blogs',href:'#blogs'}]}]}/>);
+ const products=screen.getByRole('button',{name:'Products'});const resources=screen.getByRole('button',{name:'Resources'});
+ await user.hover(products);expect(products).toHaveAttribute('aria-expanded','false');expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+ await user.click(products);await user.hover(resources);
+ expect(products).toHaveAttribute('aria-expanded','true');expect(resources).toHaveAttribute('aria-expanded','false');expect(screen.getByRole('dialog',{name:'Products导航'})).toBeVisible();
+ await user.keyboard('{Escape}');expect(products).toHaveFocus();await user.keyboard('{Enter}');expect(screen.getByRole('dialog',{name:'Products导航'})).toBeVisible();
+});

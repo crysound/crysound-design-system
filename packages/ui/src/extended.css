@@ -1567,6 +1567,9 @@ button.cs-step-content { cursor: pointer; }
 .cs-navigation-menu-trigger,.cs-navigation-menu-link { min-height:32px; padding:4px 12px; font-size:16px; line-height:24px; white-space:nowrap; }
 .cs-navigation-menu-trigger[data-state="open"] { background:var(--cs-brand); color:var(--cs-on-brand); }
 .cs-navigation-menu-trigger:hover:not([data-state="open"]),.cs-navigation-menu-link:hover { background:var(--cs-item-hover-bg); }
+.cs-navigation-menu[data-shape="capsule"] :is(.cs-navigation-menu-trigger,.cs-navigation-menu-link) { gap:var(--cs-space-1); padding:var(--cs-space-1) var(--cs-space-4); border-radius:var(--cs-radius-pill); font-weight:var(--cs-weight-medium); transition:background-color 160ms ease,color 160ms ease; }
+.cs-navigation-menu[data-shape="capsule"] :is(.cs-navigation-menu-trigger:not([data-state="open"]),.cs-navigation-menu-link):is(:hover,:focus-visible) { background:var(--cs-navigation-hover-bg,color-mix(in srgb,var(--cs-text) 5%,var(--cs-surface))); color:var(--cs-brand); }
+@media(prefers-reduced-motion:reduce) { .cs-navigation-menu[data-shape="capsule"] :is(.cs-navigation-menu-trigger,.cs-navigation-menu-link) { transition:none; } }
 .cs-navigation-menu-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .cs-navigation-menu-panel { width:min(var(--radix-popover-trigger-width),calc(100vw - 32px)); max-width:none; padding:24px; border:0; border-bottom:1px solid var(--cs-border); border-radius:0; box-shadow:var(--cs-shadow-md); }
 .cs-navigation-catalog { display:grid; grid-template-columns:minmax(144px,18%) minmax(160px,22%) minmax(0,1fr); align-items:start; gap:24px; }

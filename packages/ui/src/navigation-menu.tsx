@@ -12,6 +12,8 @@ export interface NavigationMenuItem {
 }
 export interface NavigationMenuProps {
  items:NavigationMenuItem[];label?:string;className?:string;brand?:ReactNode;actions?:ReactNode;onNavigate?:(href:string)=>void;
+ /** Capsule primary links are intended for brand websites. */
+ shape?:'rounded'|'capsule';
  /** Pointer hover can preview catalog categories; click and keyboard always work. */
  activateOnHover?:boolean;
  /** A local container at 1200px switches to the accessible disclosure menu. */
@@ -47,13 +49,13 @@ function MobileLinks({item,navigate}:{item:NavigationMenuItem;navigate:(href:str
  return <details><summary>{item.label}<Chevron/></summary><div className="cs-navigation-mobile-links">{item.groups?.map(group=><details key={group.title}><summary>{group.title}<Chevron/></summary><div className="cs-navigation-mobile-links">{group.links.map(link=><a key={`${link.href}-${link.label}`} href={link.href} onClick={()=>navigate(link.href)}>{link.label}</a>)}</div></details>)}{item.links?.map(link=><a key={`${link.href}-${link.label}`} href={link.href} onClick={()=>navigate(link.href)}>{link.label}</a>)}{item.footer&&<a href={item.footer.href} onClick={()=>navigate(item.footer!.href)}>{item.footer.label}</a>}</div></details>;
 }
 /** Grouped website links, image-card menus, or a category / subtype / product catalog. */
-export function NavigationMenu({items,label='主导航',className,brand,actions,onNavigate,activateOnHover=false,collapsible=false,mobileToggleLabels={open:'展开导航',close:'收起导航'}}:NavigationMenuProps) {
+export function NavigationMenu({items,label='主导航',className,brand,actions,onNavigate,shape='rounded',activateOnHover=false,collapsible=false,mobileToggleLabels={open:'展开导航',close:'收起导航'}}:NavigationMenuProps) {
  const [open,setOpen]=useState<string>();const [mobileOpen,setMobileOpen]=useState(false);const root=useRef<HTMLElement>(null);const shell=useRef<HTMLDivElement>(null);const [available,setAvailable]=useState(560);
  const measure=()=>setAvailable(Math.max(120,Math.floor(window.innerHeight-(root.current?.getBoundingClientRect().bottom??0)-16)));
  useEffect(()=>{if(!open&&!mobileOpen)return;measure();window.addEventListener('resize',measure);window.addEventListener('scroll',measure,true);return()=>{window.removeEventListener('resize',measure);window.removeEventListener('scroll',measure,true);};},[open,mobileOpen]);
  useEffect(()=>{if(!collapsible||!shell.current)return;let previous:boolean|undefined;const observer=new ResizeObserver(entries=>{const mobile=entries[0].contentRect.width<=1200;if(previous!==undefined&&previous!==mobile){setOpen(undefined);setMobileOpen(false);}previous=mobile;});observer.observe(shell.current);return()=>observer.disconnect();},[collapsible]);
  const navigate=(href:string)=>{setOpen(undefined);setMobileOpen(false);onNavigate?.(href);};
- const nav=<nav ref={root} style={{'--cs-navigation-available-height':`${available}px`} as CSSProperties} aria-label={label} data-open={open||mobileOpen?true:undefined} className={['cs-navigation-menu',className].filter(Boolean).join(' ')}>
+ const nav=<nav ref={root} style={{'--cs-navigation-available-height':`${available}px`} as CSSProperties} aria-label={label} data-shape={shape} data-open={open||mobileOpen?true:undefined} className={['cs-navigation-menu',className].filter(Boolean).join(' ')}>
   {brand&&<div className="cs-navigation-menu-brand">{brand}</div>}
   <div className="cs-navigation-menu-items">{items.map(item=>item.groups?.length||item.links?.length?<P.Root key={item.id} open={open===item.id} onOpenChange={v=>{if(v)measure();setOpen(current=>v?item.id:current===item.id?undefined:current);}}><P.Trigger className="cs-navigation-menu-trigger" data-menu={item.id}><span>{item.label}</span><Chevron/></P.Trigger><P.Content sideOffset={0} align="start" collisionPadding={16} className={`cs-navigation-menu-panel cs-navigation-menu-panel--${item.layout??'columns'}`} data-menu={item.id} aria-label={`${item.label}导航`} onCloseAutoFocus={event=>{if(open&&open!==item.id)event.preventDefault();}}>{item.layout==='catalog'?<CatalogPanel item={item} navigate={navigate} activateOnHover={activateOnHover}/>:item.layout==='cards'?<CardsPanel links={item.links??[]} navigate={navigate}/>:<div className="cs-navigation-menu-columns">{item.groups?.map(group=><section key={group.title}><h3>{group.title}</h3><ul>{group.links.map(link=><li key={`${link.href}-${link.label}`}><a href={link.href} onClick={()=>navigate(link.href)}><span>{link.label}</span>{link.description&&<small>{link.description}</small>}</a></li>)}</ul></section>)}{item.featured&&<aside className="cs-navigation-menu-featured">{item.featured}</aside>}</div>}</P.Content></P.Root>:<a className="cs-navigation-menu-link" key={item.id} href={item.href} onClick={()=>{setOpen(undefined);if(item.href)onNavigate?.(item.href);}}>{item.label}</a>)}</div>
   {actions&&<div className="cs-navigation-menu-actions">{actions}</div>}

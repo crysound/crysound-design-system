@@ -51,3 +51,5 @@ TabsList variant="pill" 保留 shape="rounded" 默认几何；shape="capsule" �
 Button 同样以 shape="rounded" 为默认；shape="capsule" 仅供品牌官网显式使用，复用 --cs-radius-pill（99999px），不覆盖主/次/危险层级、尺寸、加载、禁用与键盘行为。
 
 NavigationMenu的分类状态、悬停意图计时器、手机折叠与Radix浮层行为保留在`packages/ui`；品牌官网的目录、图片、目标地址和特定1380px构图留在文档消费应用。新`cards`布局、`media`插槽、`activateOnHover`和`collapsible`均显式启用，不改变原columns/catalog调用的默认交互。浮层就地渲染以继承主题，商城、认证、搜索接口和产品业务数据不进入共享组件。
+
+官网一级导航的胶囊几何和通用悬停反馈通过共享`NavigationMenu shape="capsule"`复用，默认`rounded`保持原样。官网的顶栏布局、窄桌面文字适配与Shop入口强调由消费应用提供；独立组件文档演示原生链接与点击展开，不引入新的导航组件或路由依赖。

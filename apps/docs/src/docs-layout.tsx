@@ -121,6 +121,7 @@ export const docCategories = [
       "form-dialog",
       "toolbar",
       "link-group",
+      "navigation-menu",
       "accordion",
       "alert",
       "alert-dialog",
@@ -302,6 +303,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
       return <Toolbar label="任务操作"><ToolbarButton>刷新</ToolbarButton><ToolbarButton>导出</ToolbarButton><ToolbarButton>更多</ToolbarButton></Toolbar>;
     case "link-group":
       return <LinkGroup label="技术资源" items={[{id:'start',label:'快速开始',href:'#installation'},{id:'components',label:'组件文档',href:'#library'},{id:'guide',label:'使用指南',href:'#foundations'}]}/>;
+    case "navigation-menu":
+      return <div className="navigation-menu-thumbnail" role="img" aria-label="网站一级导航示意"><span>Products <ChevronDown size={12}/></span><span>Solutions <ChevronDown size={12}/></span><span>About Us</span></div>;
 
     case "button":
       return (

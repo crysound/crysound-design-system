@@ -10,6 +10,8 @@
 
 items 由 `{id,label,href?,groups?,featured?}` 构成；groups 是 `{title,links:[{label,href,description?}]}`。分组项使用 Radix Popover 展开，其余为普通链接。支持 Tab、Enter/Space、Escape、点击外部关闭以及焦点返回。内容保留在主题树内，继承 data-theme、data-customer 和语义变量。移动端面板按列堆叠并独立滚动。
 
+`shape="capsule"` 为品牌官网一级导航变体，默认仍为`rounded`。对照[CRYSOUND官网-全新改版](https://crysound-website.ya-wang346019.chatgpt.site/#top)保留32px高度、16px/24px文字与500字重，选项宽度按文字加左右16px留白计算，箭头16px；1201–1420px的官网容器改为14px与左右10px，1421–1500px保留16px与左右12px。悬停与键盘焦点采用浅中性背景和品牌文字，160ms颜色过渡；点击展开后品牌底白字，箭头翻转，悬停一级菜单不会自行展开或切换面板。浅中性背景由语义表面与文字色5%混合，为支持明暗主题的工程适配值；减少动态效果时禁用过渡。Shop的浅品牌底属于消费页面入口强调，不影响其他导航链接。组件区补充NavigationMenu独立入口与交互示例，官网样板复用同一变体。
+
 ## Carousel
 
 items 是 `{id,label,content}`。value/onValueChange 支持受控使用，defaultValue 支持非受控；默认 loop=true、pagination=true、autoPlay=false、interval=5000。无数据展示空状态，单项隐藏切换控制。聚焦轮播本体时支持左右方向键，分页支持 Home/End。自动播放至少1000ms间隔，提供播放/暂停；悬停临时暂停，键盘聚焦停止，页面隐藏时暂停，减少动态效果时禁用自动切换。非循环模式到末项停止，卸载时清理定时器。默认保留各页内容并使用300ms连续轨道平移；目标图片加载、解码后再展示，非当前页使用aria-hidden和inert，减少动态效果时直接切换。不提供虚拟化。
