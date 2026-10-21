@@ -44,7 +44,7 @@ html[data-customer="example"] {
 
 styles:check 包含 validate-spacing.mjs，覆盖 packages/ui/src 和 apps/docs/src 的 CSS 声明、React 内联 style 字面值与浮层 sideOffset/alignOffset/collisionPadding。普通流布局96px以内的间距必须命中基础刻度，所有固定像素间距都检查奇数与小数。动态表达式仍需按空间变量编写并进行视觉验证。
 
-TabsList 的 indicatorMode="static" 使用选中项自身的白色表面与阴影，不测量或绘制移动滑块，适用于长分类条等需要稳定选中背景的容器；默认 animated 保持原有缓动。两者保留 Radix 键盘和选中语义。
+TabsList 的 indicatorMode="static" 使用选中项自身的表面与阴影，brand色调使用主色底白字，不测量或绘制移动滑块；默认animated使用共享弹簧。品牌pill的animated模式采用0.3s响应、临界阻尼及随滑块裁切的装饰前景层，保留当前位置和速度来处理连续切换；原始标签继续提供可访问名称。减少动态效果时直接定位，两个模式均保留Radix键盘、禁用及选中语义。
 
 TabsList variant="pill" 保留 shape="rounded" 默认几何；shape="capsule" 复用现有 --cs-radius-pill（99999px）同时作用于底槽、选中项、指示器，分类标签使用 --cs-text-md（16px）与1.5行高，仅限品牌官网显式使用，不改变软件/工作台默认样式。
 

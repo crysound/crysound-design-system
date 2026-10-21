@@ -966,6 +966,19 @@
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-ready] .cs-tabs-trigger[data-state="active"] { background:transparent; }
 /* Static selection must switch foreground and background together. */
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="static"] .cs-tabs-trigger { transition:none; }
+.cs-tabs-highlight { display:none; }
+.cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-trigger { color:var(--cs-muted); transition:none; }
+.cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-trigger:not(:disabled):hover { color:var(--cs-text); }
+.cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-highlight {
+  display:block; position:absolute; inset:0; box-sizing:border-box; padding:inherit; text-align:inherit; color:var(--cs-on-brand); pointer-events:none;
+  clip-path:inset(var(--cs-tabs-mask-top,0px) var(--cs-tabs-mask-right,100%) var(--cs-tabs-mask-bottom,0px) var(--cs-tabs-mask-left,0px) round var(--cs-tabs-mask-radius,var(--cs-radius)));
+}
+.cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-highlight { --cs-tabs-mask-radius:var(--cs-radius-pill); }
+@media(forced-colors:active) {
+  .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] :is(.cs-tabs-indicator,.cs-tabs-highlight) { display:none; }
+  .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-trigger { color:ButtonText; }
+  .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] [role="tab"].cs-tabs-trigger[data-state="active"] { background:Highlight; color:HighlightText; }
+}
 .cs-chart-legend button:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 4px; }
 @media(max-width:540px) { .cs-chart { padding: 12px; } }
 

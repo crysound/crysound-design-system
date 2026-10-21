@@ -1,16 +1,18 @@
 "use client";
-import { Children, isValidElement, useEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
+import { Children, createContext, isValidElement, useContext, useLayoutEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
 import * as T from "@radix-ui/react-tabs";
 import * as A from "@radix-ui/react-accordion";
 import { Button } from "./index";
 import { cx } from "./utils";
 export const Tabs = T.Root;
+const BrandTabsMotion = createContext(false);
 export function TabsList({
   className, children, ref, variant = "line", shape = "rounded", tone = "default", indicatorMode = "animated", collapseInactiveLabels = false, onPointerDownCapture, onKeyDownCapture, ...props
 }: ComponentProps<typeof T.List> & { variant?: "line" | "pill"; shape?: "rounded" | "capsule"; tone?: "default" | "brand"; indicatorMode?: "animated" | "static"; collapseInactiveLabels?: boolean }) {
   const list = useRef<HTMLDivElement>(null);
   const indicator = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
+  const brandMotion = variant === "pill" && tone === "brand" && indicatorMode === "animated";
+  useLayoutEffect(() => {
     if (indicatorMode === "static") return;
     const root = list.current;
     const bar = indicator.current;
@@ -18,15 +20,27 @@ export function TabsList({
     const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     const snapTime = getComputedStyle(root).getPropertyValue('--cds-dur-snap').trim();
     const snapSeconds = snapTime.endsWith('ms') ? parseFloat(snapTime) / 1000 : parseFloat(snapTime);
-    const omega = 6.6 / (Number.isFinite(snapSeconds) && snapSeconds > 0 ? snapSeconds : .12);
+    // A 0.3s response and critical damping are a Web adaptation of fluid motion.
+    const omega = brandMotion ? 2 * Math.PI / .3 : 6.6 / (Number.isFinite(snapSeconds) && snapSeconds > 0 ? snapSeconds : .12);
     let frame = 0;
     let previous = 0;
     let initialized = false;
     const current = { x: 0, width: 0, vx: 0, vw: 0 };
     const target = { x: 0, width: 0 };
+    let top = 0;
+    let height = 0;
+    let boxes: {tab: HTMLElement; x: number; width: number; y: number; height: number}[] = [];
     const paint = () => {
       bar.style.transform = `translateX(${current.x}px)`;
       bar.style.width = `${Math.max(0, current.width)}px`;
+      // Clip the decorative white copy to the same moving capsule. The neutral
+      // source label stays readable everywhere the capsule has not reached.
+      if (brandMotion) for (const box of boxes) {
+        box.tab.style.setProperty('--cs-tabs-mask-left', `${current.x - box.x}px`);
+        box.tab.style.setProperty('--cs-tabs-mask-right', `${box.x + box.width - current.x - current.width}px`);
+        box.tab.style.setProperty('--cs-tabs-mask-top', `${top - box.y}px`);
+        box.tab.style.setProperty('--cs-tabs-mask-bottom', `${box.y + box.height - top - height}px`);
+      }
     };
     const snap = () => {
       cancelAnimationFrame(frame);
@@ -49,12 +63,15 @@ export function TabsList({
     };
     const measure = () => {
       const active = root.querySelector<HTMLElement>('[role="tab"][data-state="active"]');
-      if (!active) { bar.style.opacity = '0'; return; }
+      if (!active || !active.offsetWidth) { bar.style.opacity = '0'; return; }
+      boxes = Array.from(root.querySelectorAll<HTMLElement>('[role="tab"]'), tab => ({tab, x: tab.offsetLeft, width: tab.offsetWidth, y: tab.offsetTop, height: tab.offsetHeight}));
       // Layout coordinates stay correct inside scaled component thumbnails.
       target.x = active.offsetLeft;
       target.width = active.offsetWidth;
-      bar.style.top = `${active.offsetTop + (variant === 'line' ? active.offsetHeight - 2 : 0)}px`;
-      bar.style.height = `${variant === 'line' ? 2 : active.offsetHeight}px`;
+      top = active.offsetTop + (variant === 'line' ? active.offsetHeight - 2 : 0);
+      height = variant === 'line' ? 2 : active.offsetHeight;
+      bar.style.top = `${top}px`;
+      bar.style.height = `${height}px`;
       bar.style.opacity = '1';
       root.dataset.indicatorReady = 'true';
       cancelAnimationFrame(frame);
@@ -63,15 +80,19 @@ export function TabsList({
       initialized = true;
     };
     const observer = new MutationObserver(measure);
-    observer.observe(root, { attributes: true, subtree: true, attributeFilter: ['data-state'] });
+    observer.observe(root, { attributes: true, childList: true, subtree: true, attributeFilter: ['data-state'] });
     const resize = new ResizeObserver(measure);
     resize.observe(root);
     root.querySelectorAll('[role="tab"]').forEach(tab => resize.observe(tab));
     const reduce = () => { if (media?.matches) snap(); };
     media?.addEventListener('change', reduce);
     measure();
-    return () => { delete root.dataset.indicatorReady; cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce); };
-  }, [variant, indicatorMode]);
+    return () => {
+      delete root.dataset.indicatorReady;
+      cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect(); media?.removeEventListener('change', reduce);
+      for (const {tab} of boxes) for (const edge of ['left', 'right', 'top', 'bottom']) tab.style.removeProperty(`--cs-tabs-mask-${edge}`);
+    };
+  }, [variant, indicatorMode, brandMotion]);
   const segmented = collapseInactiveLabels && variant === "pill" && Children.toArray(children).filter(child => isValidElement(child) && child.type === TabsTrigger).length === 3;
   const content = <T.List {...props} onPointerDownCapture={event => {
     event.currentTarget.dataset.input = 'pointer';
@@ -87,13 +108,14 @@ export function TabsList({
     {indicatorMode === "animated" && <span ref={indicator} className="cs-tabs-indicator" aria-hidden="true" />}
     {children}
   </T.List>;
-  return segmented ? <div className="cs-tabs-container">{content}</div> : content;
+  return <BrandTabsMotion.Provider value={brandMotion}>{segmented ? <div className="cs-tabs-container">{content}</div> : content}</BrandTabsMotion.Provider>;
 }
 export function TabsTrigger({
   className, icon, children,
   ...props
 }: ComponentProps<typeof T.Trigger> & { icon?: ReactNode }) {
-  return <T.Trigger {...props} data-has-icon={icon ? true : undefined} className={cx("cs-tabs-trigger", className)}>{icon && <span className="cs-tabs-icon" aria-hidden="true">{icon}</span>}<span className="cs-tabs-label">{children}</span></T.Trigger>;
+  const brandMotion = useContext(BrandTabsMotion);
+  return <T.Trigger {...props} data-has-icon={icon ? true : undefined} className={cx("cs-tabs-trigger", className)}>{icon && <span className="cs-tabs-icon" aria-hidden="true">{icon}</span>}<span className="cs-tabs-label">{children}</span>{brandMotion && <span className="cs-tabs-highlight" aria-hidden="true" inert>{icon && <span className="cs-tabs-icon">{icon}</span>}<span className="cs-tabs-label">{children}</span></span>}</T.Trigger>;
 }
 export function TabsContent({
   className, children,

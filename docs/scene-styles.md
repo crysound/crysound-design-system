@@ -66,7 +66,7 @@ Banner 按原站1714×512画布建立独立作用域，嵌入时等比例缩放�
 
 品牌导航补齐原版Shop与语言、购物车、账号、搜索图标，沿用与Banner相同的比例缩放。语言菜单切换标识，搜索过滤样板产品并保留无结果反馈；账号和购物车采用共享Dialog承载本地展示，不执行登录或交易，外部官网入口仍指向CRYSOUND官网。
 
-品牌官网 Products 产品分类使用共享 `TabsList variant="pill" shape="capsule" indicatorMode="static"`，底槽与选中项圆角均为 `--cs-radius-pill`（99999px），选中项保留共享白底、品牌文字和浅阴影；组件文档中的品牌官网示例使用同一配置。分类仅过滤当前产品区，保留键盘切换和面板关联。
+品牌官网 Products 产品分类使用共享 `TabsList variant="pill" shape="capsule" tone="brand" indicatorMode="animated"`，底槽与选中项圆角均为`--cs-radius-pill`（99999px），选中项为主色底白字、无阴影。组件文档与样板共用临界阻尼弹簧，快速切换保留当前位置与速度，白色文字随胶囊覆盖范围裁切，减少动态效果时直接切换。分类仅过滤当前产品区，保留键盘切换和面板关联。
 
 ## 样板库统一入口
 
