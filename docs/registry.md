@@ -8,7 +8,7 @@
 npx shadcn@latest add http://127.0.0.1:5173/r/crysound-ui.json
 ```
 
-如果本地服务使用其他端口，以页面显示的安装命令为准。安装清单也保存在 `apps/docs/public/r/crysound-ui.json`。未配置可公开访问的托管服务；GitHub 仓库保持私有，不要把私有源码的 raw URL 当成匿名可安装的地址。
+如果本地服务使用其他端口，以页面显示的安装命令为准。安装清单也保存在 `apps/docs/public/r/crysound-ui.json`。当前通过本地文档服务提供安装清单，尚未配置独立的公开 Registry 托管服务。
 
 文件安装到 `components` 别名所指目录下的 `crysound/ui` 和 `crysound/tokens.css`，不会覆盖同名 shadcn 基础组件。按项目实际别名导入：
 

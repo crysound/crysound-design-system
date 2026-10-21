@@ -822,7 +822,7 @@ export function ComponentPage({
         </p>
         <div className="reference-resource-links">
           <a
-            href="https://github.com/ya7881/crysound-design-system"
+            href="https://github.com/crysound/crysound-design-system"
             target="_blank"
             rel="noreferrer"
           >

@@ -79,7 +79,7 @@ export function DeviceConnection() {
 npx shadcn@latest add http://127.0.0.1:5173/r/crysound-ui.json
 ```
 
-Registry 从实际源码生成，将组件安装到项目的 components 别名下 `crysound/` 目录。导入安装后的 `crysound/tokens.css` 和 `crysound/ui/styles.css`。详见 [安装与接入](docs/registry.md)。当前没有公开托管 Registry，仓库保持私有。
+Registry 从实际源码生成，将组件安装到项目的 components 别名下 `crysound/` 目录。导入安装后的 `crysound/tokens.css` 和 `crysound/ui/styles.css`。详见 [安装与接入](docs/registry.md)。当前没有独立公开托管的 Registry。
 
 ## 维护与设计依据
 
@@ -97,7 +97,7 @@ Registry 从实际源码生成，将组件安装到项目的 components 别名�
 
 本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
 
-GitHub 仓库：[ya7881/crysound-design-system](https://github.com/ya7881/crysound-design-system)，私有仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
+GitHub 仓库：[crysound/crysound-design-system](https://github.com/crysound/crysound-design-system)，公开仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
 
 ## 导航图标语义
 
