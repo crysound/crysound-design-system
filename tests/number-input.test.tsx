@@ -77,4 +77,77 @@ it("keeps disabled fields out of tab order and submission while readonly values 
   const values = new FormData(view.container.querySelector("form")!);
   expect(values.has("disabled")).toBe(false);
   expect(values.get("readonly")).toBe("1000");
+  expect(screen.getByRole("button", { name: "增加禁用" })).toBeDisabled();
+  expect(screen.getByRole("button", { name: "减少只读" })).toBeDisabled();
+});
+
+it("steps a controlled decimal field through onChange once per click and keeps input focus", async () => {
+  const user = userEvent.setup();
+  const changed = vi.fn();
+  function Example() {
+    const [draft, setDraft] = useState("0.2");
+    return <form onSubmit={event => { event.preventDefault(); throw new Error("Stepper submitted the form"); }}>
+      <NumberInput label="增益" value={draft} step={0.1} onChange={event => {
+        changed(event.target.valueAsNumber);
+        setDraft(event.target.value);
+      }} />
+      <button>保存</button>
+    </form>;
+  }
+  render(<Example />);
+  const input = screen.getByRole("spinbutton", { name: "增益" });
+  await user.click(screen.getByRole("button", { name: "增加增益" }));
+  expect(input).toHaveValue(0.3);
+  expect(input).toHaveFocus();
+  expect(changed).toHaveBeenCalledExactlyOnceWith(0.3);
+  await user.click(screen.getByRole("button", { name: "减少增益" }));
+  expect(input).toHaveValue(0.2);
+  expect(changed).toHaveBeenCalledTimes(2);
+  expect(changed).toHaveBeenLastCalledWith(0.2);
+  await user.tab();
+  expect(screen.getByRole("button", { name: "保存" })).toHaveFocus();
+});
+
+it("uses native bounds, step alignment and empty-value stepping without emitting no-op changes", async () => {
+  const user = userEvent.setup();
+  const changed = vi.fn();
+  render(<NumberInput label="范围" min={-0.5} max={0.5} step={0.5} defaultValue={0} onChange={changed} />);
+  const input = screen.getByRole("spinbutton", { name: "范围" });
+  const increase = screen.getByRole("button", { name: "增加范围" });
+  const decrease = screen.getByRole("button", { name: "减少范围" });
+  await user.click(increase);
+  expect(input).toHaveValue(0.5);
+  await user.click(increase);
+  expect(input).toHaveValue(0.5);
+  expect(changed).toHaveBeenCalledTimes(1);
+  await user.click(decrease);
+  await user.click(decrease);
+  await user.click(decrease);
+  expect(input).toHaveValue(-0.5);
+  expect(changed).toHaveBeenCalledTimes(3);
+  await user.clear(input);
+  await user.click(increase);
+  expect(input).toHaveValue(0.5);
+  fireEvent.change(input, { target: { value: "0.2" } });
+  await user.click(decrease);
+  expect(input).toHaveValue(0);
+});
+
+it("leaves the value unchanged when a controlled parent rejects a step", async () => {
+  const user = userEvent.setup();
+  const changed = vi.fn();
+  render(<NumberInput label="锁定值" value={4} onChange={changed} />);
+  await user.click(screen.getByRole("button", { name: "增加锁定值" }));
+  expect(changed).toHaveBeenCalledOnce();
+  expect(screen.getByRole("spinbutton", { name: "锁定值" })).toHaveValue(4);
+});
+
+it("allows arbitrary decimals without unusable step controls for step=any", async () => {
+  const user = userEvent.setup();
+  render(<NumberInput label="自由小数" step="any" />);
+  const input = screen.getByRole("spinbutton", { name: "自由小数" }) as HTMLInputElement;
+  expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  await user.type(input, "0.12345");
+  expect(input).toHaveValue(0.12345);
+  expect(input.validity.stepMismatch).toBe(false);
 });

@@ -106,7 +106,7 @@ export const catalog: ComponentDoc[] = [
       ["name / ref", "string / Ref<HTMLInputElement>", "原生表单与 input 引用"],
     ],
     '<NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} step={1} />',
-    "复用 Input 的标签、辅助说明、错误及2px聚焦外环。使用原生 number 输入与上下步进，外观由浏览器提供；方向键按 step 调整，disabled和readOnly保持原生行为。min/max/step参与原生表单验证，不会自动截断手动输入。需要中文错误提示时由消费项目传 error；受控编辑保留 target.value 字符串，清空时 valueAsNumber 为 NaN，不要直接转成0。数字标识、手机号和邮编使用 Input，单位写在标签中。",
+    "沿用 Input 的标签、辅助说明、错误及2px聚焦外环。右侧并排的下、上箭头分别减少、增加，悬停和按下使用主色反馈；点击后焦点留在输入框，键盘方向键按 step 调整，不增加 Tab 停靠点。按钮使用原生步进规则处理小数和 min/max；disabled和readOnly时不可调整，step=any时隐藏调整按钮。min/max/step参与原生表单验证，不会自动截断手动输入。需要中文错误提示时由消费项目传 error；受控编辑保留 target.value 字符串，清空时 valueAsNumber 为 NaN，不要直接转成0。数字标识、手机号和邮编使用 Input，单位写在标签中。",
   ),
   define(
     "textarea",
