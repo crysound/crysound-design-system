@@ -370,7 +370,9 @@ select.cs-input.cs-select {
   color: var(--cs-text);
   background: var(--cs-surface);
 }
-.cs-combobox-chevron { flex: 0 0 16px; color: var(--cs-muted); }
+.cs-combobox-chevron { flex: 0 0 16px; color: var(--cs-muted); transition: transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-combobox-trigger[data-state="open"] .cs-combobox-chevron { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .cs-combobox-chevron { transition: none; } }
 .cs-button.cs-combobox-trigger:focus,
 .cs-button.cs-combobox-trigger[data-state="open"] {
   border-color: var(--cs-brand);
