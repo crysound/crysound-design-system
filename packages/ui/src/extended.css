@@ -1613,6 +1613,8 @@ button.cs-step-content { cursor: pointer; }
 .cs-gallery-card h3 { font-size:20px; line-height:28px; font-weight:400; margin:0; }
 .cs-gallery-card-product,.cs-gallery-card-details { border:1px solid var(--cs-border); border-radius:8px; overflow:hidden; transition:border-color 200ms ease-out; }
 .cs-gallery-card-product:hover,.cs-gallery-card-details:hover { border-color:var(--cs-brand); }
+.cs-gallery-card-product { transition:border-color 200ms ease-out,box-shadow 200ms ease-out; }
+.cs-gallery-card-product:is(:hover,:focus-within) { box-shadow:var(--cs-shadow-sm); }
 .cs-gallery-card-product h3 { padding:20px 24px; text-align:center; }
 .cs-gallery-card-product .cs-gallery-card-picture { aspect-ratio:4/3; }
 .cs-gallery-card-details { display:flex; flex-direction:column; padding:24px; }
