@@ -132,7 +132,7 @@ export const Select = forwardRef<
           select.dispatchEvent(new Event('change',{bubbles:true}));
         }}>
           {options.map(option => <Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option">
-            <span>{option.label}</span><Menu.ItemIndicator aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m5 12 4 4L19 6"/></svg></Menu.ItemIndicator>
+            <span className="cs-select-option-label">{option.label}</span><Menu.ItemIndicator className="cs-select-option-indicator" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false"><path d="m20 6-11 11-5-5"/></svg></Menu.ItemIndicator>
           </Menu.RadioItem>)}
         </Menu.RadioGroup>
       </Menu.Content></Menu.Portal>

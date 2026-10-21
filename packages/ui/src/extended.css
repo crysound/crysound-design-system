@@ -1392,6 +1392,9 @@ button.cs-step-content { cursor: pointer; }
   font-size: var(--cs-type-control-size);
   line-height: var(--cs-type-control-leading);
 }
+.cs-select-option-label { flex: 1 1 auto; min-width: 0; }
+.cs-select-option-indicator { display: grid; place-items: center; flex: 0 0 16px; width: 16px; height: 16px; line-height: 0; }
+.cs-select-option-indicator > svg { display: block; width: 16px; height: 16px; }
 .cs-select-option[data-highlighted] { background: var(--cs-item-hover-bg); }
 .cs-select-option[data-state="checked"] { background: var(--cs-selected-bg); color: var(--cs-selected-fg); }
 .cs-select-option[data-disabled] { color: var(--cs-text-disabled); pointer-events: none; }
