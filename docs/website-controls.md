@@ -22,6 +22,8 @@ items 是 `{id,label,content}`。value/onValueChange 支持受控使用，defaul
 
 官网Solutions与Blogs使用`<Carousel draggable itemsPerView={4} loop={false} … />`，各卡片复用MediaGallery，保留系统字体、原有内容与Dialog。行为对照用户本地`官网-全新改版/js/main.js`的Solutions/Blogs轨道实现：直接跟随、最近卡片吸附、横向wheel及Shift+wheel；卡片轨道的560ms缓动采用该项目`.solution-track`/`.blog-track`参数。没有修改源官网工程。
 
+官网Solutions、Products与Blogs区块统一使用`SectionHeader size="lg"`，在官网上下文共同覆盖文字角色为36px/44px、700字重；640px及以下容器统一为30px/40px。说明文字统一16px/24px，标题与说明间距12px，标题区域与内容间距32px。组件本身的默认文字角色保持不变。
+
 ## MediaGallery
 
 images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非受控索引，复用 Carousel 的切换行为；缩略图可点击并支持方向键与 Home/End。放大使用现有 Radix Dialog，关闭后焦点回到入口。图片请求失败展示重试入口；切换图片后独立处理错误。图库不自动播放，不执行图片上传或远程处理。

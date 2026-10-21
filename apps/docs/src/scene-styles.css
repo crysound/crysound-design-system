@@ -506,8 +506,11 @@
 @container(max-width:1100px) { .scene-brand-official .scene-product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @container(max-width:480px) { .scene-brand-official .scene-product-grid { grid-template-columns:1fr; } }
 
-/* Layout stays with the scene; card and heading presentation stays with shared UI. */
-.scene-brand-solutions > .cs-section-header { margin-bottom:32px; }
+/* Homepage section titles share one SectionHeader role override. */
+.scene-brand-official > section > .cs-section-header { --cs-type-page-size:36px; --cs-type-page-leading:44px; --cs-type-body-size:var(--cs-text-md); --cs-type-body-leading:24px; --cs-weight-semibold:var(--cs-weight-bold); margin-bottom:32px; }
+.scene-brand-official > section > .cs-section-header .cs-section-header-main { align-items:center; }
+.scene-brand-official > section > .cs-section-header .cs-section-header-copy { gap:12px; }
+@container(max-width:640px) { .scene-brand-official > section > .cs-section-header { --cs-type-page-size:30px; --cs-type-page-leading:40px; } }
 /* Adjacent homepage sections share one 64px gap rather than stacking 80px twice. */
 .scene-brand-official .scene-brand-solutions { padding-bottom:32px; }
 .scene-brand-official .scene-brand-products { padding-top:32px; }
