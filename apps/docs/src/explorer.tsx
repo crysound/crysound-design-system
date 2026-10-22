@@ -2,6 +2,7 @@ import {CarouselPaginationDemo} from './carousel-pagination-demo';
 import {NumberInputDemo} from './number-input-demo';
 import {RatingDemo} from './rating-demo';
 import {AvatarDemo} from './avatar-demo';
+import {EmptyPageDemo} from './empty-page-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import {NavigationMenuDemo} from './navigation-menu-demo';
@@ -719,6 +720,8 @@ export function ComponentDemo({ id }: { id: string }) {
           }
         />
       );
+    case "empty-page":
+      return <EmptyPageDemo/>;
     case "device-table":
       return <DeviceTableDemo devices={sampleDevices.slice(0, 3)} />;
     case "data-table":
@@ -758,6 +761,8 @@ export function ComponentPage({
                     ? "Tooltip, Button"
                     : item.id === "dropdown-menu"
                       ? "DropdownMenu, Button"
+                      : item.id === "empty-page"
+                        ? "EmptyPage, Button"
                       : item.id === "empty-state"
                         ? "EmptyState, Button"
                         : item.name;
@@ -853,7 +858,7 @@ export function ComponentPage({
       <PreviewFrame
         title={`${item.name} example`}
         code={code}
-        wide={["data-table", "device-table"].includes(item.id)}
+        wide={["data-table", "device-table", "empty-page"].includes(item.id)}
         theme={theme}
         onToggleTheme={onToggleTheme}
       >

@@ -297,6 +297,7 @@ export * from "./rating";
 export * from "./navigation";
 export * from "./overlays";
 export * from "./display";
+export {EmptyPage,type EmptyPageProps} from './empty-page';
 export * from "./toast";
 export * from "./data-table";
 export * from "./file-icon";

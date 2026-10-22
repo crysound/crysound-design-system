@@ -152,7 +152,7 @@ function App() {
   React.useEffect(() => {
     document.title = activeDoc
       ? `${activeDoc.name} · CRYSOUND Design System`
-      : route === "scene/blank" ? "品牌空白页 · CRYSOUND Design System" : route.startsWith("templates") ? "样板库 · CRYSOUND Design System" : "CRYSOUND Design System";
+      : route.startsWith("templates") ? "样板库 · CRYSOUND Design System" : "CRYSOUND Design System";
   }, [activeDoc,route]);
   if (route.startsWith("scene/")) return <SceneStandalone key={route} scene={route.slice(6)} />;
   return (

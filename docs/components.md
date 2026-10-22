@@ -14,6 +14,7 @@
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
 | EmptyState | title；description；action | 为用户提供具体下一步；数据加载失败应由业务层明确说明 |
+| EmptyPage | title；description；layout；tone；logo；icon；illustration；action；footer；headingLevel | 页面空白页；整页与局部两种布局，可组合品牌素材；请求与恢复逻辑由应用提供 |
 | Dialog | trigger；title；description；children | trigger 应是可接收 ref 的单个按钮元素；支持 Escape、焦点限制与恢复；这是非受控基础弹窗 |
 | DeviceTable | devices；onSelect | 提供 id/name/model/status/location；onSelect 缺省时隐藏操作列；空数组显示空状态 |
 
@@ -30,6 +31,14 @@ Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，取姓名首个 Unic
 图片请求期间先显示首字母，成功后显示图片，失败后保留回退；更换 src 会重置该图片的加载状态，旧图片事件不会改变新图片。`loading`显式显示静态占位并标记aria-busy。online/away/busy/offline分别用实点、时钟、短横及空心圆区分，同时加入头像可访问名称；消费项目应在必要时提供相邻状态文字，`statusLabel`可替换默认中文读法。
 
 AvatarGroup 接收直接放置的Avatar，size统一组内尺寸，max默认不截断；小于1时至少显示一位，超出显示+N，超过99显示99+并保留准确的可访问人数。叠放间距8px、表面分隔2px为工程适配建议。头像本身是有名称的静态图像，账号菜单或导航由原生按钮/链接承载，不给头像制造额外Tab停靠点。示例包括三种尺寸、公司头像、状态、头像组、身份信息与加载/失败回退。组合方式参考[shadcn Avatar公开文档](https://ui.shadcn.com/docs/components/base/avatar)，继续沿用本库API与React实现，未引入Base UI行为体系。
+
+## EmptyPage 页面空白页
+
+EmptyPage在组件库提供整页`layout="page"`与局部内容区`layout="section"`，保留原有EmptyState的简洁提示。页面默认560px最小高度、32px内距，局部默认280px/24px；小屏页面480px/16px水平内距，均为本库Web适配建议；可通过className/style适配实际页面高度。标题按现有page/section角色使用24/32与20/28，页面默认h2、局部h3，可通过headingLevel接入完整页面层级。
+
+neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-page-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认图标复用标准CrysoundMark，icon=null可隐藏；插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，并提供下载入口，安装后由消费应用托管素材。
+
+首次使用、无搜索结果与加载失败由消费方提供不同文案/图标/操作，组件不查询接口、不自动重试、不假设权限；加载期间使用LoadingIndicator而不是提前展示空白页。区域是带标题/说明关联的section，不额外制造main地标，也不自动使用alert打断用户。创建、清空搜索与重试示例只操作文档本地状态。
 
 ## 应用级主题
 
