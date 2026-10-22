@@ -559,6 +559,7 @@
   color: var(--cs-on-brand);
 }
 .cs-avatar-fallback { display: grid; place-items: center; width: 100%; height: 100%; }
+.cs-avatar[data-appearance="soft"] > .cs-avatar-face { background: var(--cs-brand-subtle); color: var(--cs-brand); }
 .cs-avatar-face > img {
   position: absolute;
   inset: 0;

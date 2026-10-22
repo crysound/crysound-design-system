@@ -9,7 +9,7 @@
 | NumberInput | label；value/defaultValue；onChange；min/max；step；hint/error；disabled/readOnly | 复用Input及原生number语义；支持整数、小数、负值和空值，范围与步长使用原生验证 |
 | Rating | label；value/defaultValue；onValueChange；max；size；readOnly/disabled；name/required | 整数星级评分，0为未评分；悬停预览，点击或键盘选择；只读展示保留可访问评分名称 |
 | StatusBadge | status: online / offline / warning / error / running；children | 可覆盖显示文字；始终保留文字，不单靠颜色 |
-| Avatar | name；src；initials；variant；shape；size；status；statusLabel；loading | 默认主色底首字母；公司标志与图片；状态有可访问名称 |
+| Avatar | name；src；initials；variant；appearance；shape；size；status；statusLabel；loading | 默认主色底首字母；可选浅色；公司标志与图片；状态有可访问名称 |
 | AvatarGroup | children；size；max；label | 直接组合 Avatar；统一尺寸，超出 max 用 +N 汇总；空组显示暂无成员 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
@@ -24,6 +24,8 @@ NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的�
 Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用cs-rating-active/empty令牌，active按用户要求引用现有cs-warning橙色并随明暗主题适配，仍可单独覆盖。尺寸参考[HeroUI Rating公开示例](https://heroui.pro/docs/react/components/rating#sizes)，sm/md/lg图标及桌面单项分别为16/20/28px，默认md；间距按本库刻度适配为4/4/8px，触屏操作区至少44px。减少动态效果时取消颜色过渡。
 
 Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，取姓名首个 Unicode 字符并将英文转为大写；`initials` 可显式提供最多两个字符。保留现有 sm/md/lg 的28/40/56px尺寸，`shape="rounded"`提供原圆角外形。`variant="logo"`复用已有 CrysoundMark 标准符号，使用60%占比；不裁切横版标识、不复制第三方品牌素材。圆形默认、符号占比与8/10/12px状态标记为本库 Web 适配建议。
+
+`appearance="soft"`提供浅色外观，使用已有 `--cs-brand-subtle` 背景和 `--cs-brand` 前景，支持首字母、公司标志及全部尺寸；默认仍为 `solid`。浅色映射是本库 Web 适配建议，随明暗及客户主题使用对应语义色，不新增固定色值。
 
 图片请求期间先显示首字母，成功后显示图片，失败后保留回退；更换 src 会重置该图片的加载状态，旧图片事件不会改变新图片。`loading`显式显示静态占位并标记aria-busy。online/away/busy/offline分别用实点、时钟、短横及空心圆区分，同时加入头像可访问名称；消费项目应在必要时提供相邻状态文字，`statusLabel`可替换默认中文读法。
 

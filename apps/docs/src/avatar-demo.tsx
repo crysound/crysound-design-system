@@ -11,6 +11,10 @@ export function AvatarDemo() {
     {sizes.map(({ size }, i) => <Avatar key={size} name={members[i]} size={size} />)}
     <span className="avatar-demo-row-label">公司 Logo</span>
     {sizes.map(({ size, label }) => <Avatar key={size} name={`CRYSOUND 公司，${label}号头像`} size={size} variant="logo" shape="rounded" />)}
+    <span className="avatar-demo-row-label">浅色首字母</span>
+    {sizes.map(({ size }, i) => <Avatar key={size} name={members[i]} size={size} appearance="soft" />)}
+    <span className="avatar-demo-row-label">浅色 Logo</span>
+    {sizes.map(({ size, label }) => <Avatar key={size} name={`CRYSOUND 公司，浅色${label}号头像`} size={size} variant="logo" shape="rounded" appearance="soft" />)}
   </div>;
 }
 

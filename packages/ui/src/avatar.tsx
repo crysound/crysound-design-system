@@ -14,6 +14,7 @@ export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "chil
   size?: AvatarSize;
   shape?: "circle" | "rounded";
   variant?: "initials" | "logo";
+  appearance?: "solid" | "soft";
   status?: AvatarStatus;
   statusLabel?: string;
   loading?: boolean;
@@ -29,11 +30,11 @@ function AvatarVisual({ src, fallback, loading }: { src?: string; fallback: Reac
   </span>;
 }
 
-export function Avatar({ name, src, initials, size = "md", shape = "circle", variant = "initials", status, statusLabel, loading = false, className, ...props }: AvatarProps) {
+export function Avatar({ name, src, initials, size = "md", shape = "circle", variant = "initials", appearance = "solid", status, statusLabel, loading = false, className, ...props }: AvatarProps) {
   const label = name.trim() || "未知用户";
   const letters = (initials?.trim() ? Array.from(initials.trim()).slice(0, 2).join("") : Array.from(name.trim())[0] || "?").toLocaleUpperCase();
   const presence = status ? statusLabel?.trim() || statusNames[status] : undefined;
-  return <span {...props} role="img" aria-label={props["aria-label"] ?? [label, presence, loading ? "头像加载中" : undefined].filter(Boolean).join("，")} aria-busy={loading || undefined} className={cx("cs-avatar", `cs-avatar--${size}`, className)} data-shape={shape} data-variant={variant}>
+  return <span {...props} role="img" aria-label={props["aria-label"] ?? [label, presence, loading ? "头像加载中" : undefined].filter(Boolean).join("，")} aria-busy={loading || undefined} className={cx("cs-avatar", `cs-avatar--${size}`, className)} data-shape={shape} data-variant={variant} data-appearance={appearance}>
     <AvatarVisual key={src || ""} src={src} loading={loading} fallback={variant === "logo" ? <CrysoundMark className="cs-avatar-logo" /> : letters} />
     {status && <span className="cs-avatar-status" data-status={status} title={presence} aria-hidden="true" />}
   </span>;
