@@ -134,7 +134,7 @@ ToolbarButton的Ghost默认采用中性正文色和medium字重，悬停时才�
 
 DetailPanel的字段行之间使用1px浅色细线，按55%语义边框色与45%当前表面色混合，末行不额外画线；混色比例与线前后各8px留白为工程适配值。保留原生dt/dd语义、长内容自然换行与小屏上下排列。
 
-DetailPanel默认`variant="card"`保持上述卡片样式，官网技术参数可显式使用`variant="website"`。官网样式参考用户提供的Technical Specifications截图：无外框、左侧图标库ChevronUp箭头、24/32 semibold标题、16/26常规参数文字（标签与数值显式使用normal/400字重）、约40%/60%两列与含末行的浅色底线；标题上下各12px留白，参数区顶部8px；单行参数按用户要求保持36px高度，采用上下4px留白，换行时自然增高。480px以下容器改为标签和值上下排列、标题20/28。除用户指定的36px行高外，其余尺寸为本库Web适配提案，不从截图推定精确CSS。采用原生details/summary折叠，默认展开，`defaultOpen={false}`仅设置初始收起；支持Tab、Enter/Space，收起后内容和操作退出读序及Tab顺序。减少动态效果时箭头直接切换。description/status位于展开内容顶部，actions位于参数之后；空数组仍显示“暂无详情”，null/undefined值显示“—”，0保留。产品字段、实测数值和业务操作由消费项目提供，文档示例仅沿用用户参考中的排版内容。
+DetailPanel默认`variant="card"`保持上述卡片样式，官网技术参数可显式使用`variant="website"`。官网样式参考用户提供的Technical Specifications截图：无外框、左侧图标库ChevronUp箭头、24/32 semibold标题、16/26常规参数文字（标签与数值显式使用normal/400字重）、约40%/60%两列与含末行的浅色底线；图标与标题间距8px，标题上下各12px留白，参数区顶部8px；单行参数按用户要求保持36px高度，采用上下4px留白，换行时自然增高。480px以下容器改为标签和值上下排列、标题20/28。除用户指定的36px行高外，其余尺寸为本库Web适配提案，不从截图推定精确CSS。采用原生details/summary折叠，默认展开，`defaultOpen={false}`仅设置初始收起；支持Tab、Enter/Space，收起后内容和操作退出读序及Tab顺序。减少动态效果时箭头直接切换。description/status位于展开内容顶部，actions位于参数之后；空数组仍显示“暂无详情”，null/undefined值显示“—”，0保留。产品字段、实测数值和业务操作由消费项目提供，文档示例仅沿用用户参考中的排版内容。
 
 ## 表格长标题
 
