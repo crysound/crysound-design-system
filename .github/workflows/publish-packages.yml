@@ -1,0 +1,42 @@
+name: Publish packages
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Version tag (for example v1.1.0-rc.0)
+        required: true
+        default: v1.1.0-rc.0
+permissions:
+  contents: read
+  packages: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: '@crysound'
+      - run: npm ci
+      - name: Set package versions
+        id: version
+        env:
+          VERSION_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          node scripts/set-package-version.mjs "$VERSION_TAG"
+          VERSION="${VERSION_TAG#v}"
+          if [[ "$VERSION" == *-* ]]; then DIST_TAG=next; else DIST_TAG=latest; fi
+          echo "dist-tag=$DIST_TAG" >> "$GITHUB_OUTPUT"
+      - run: npm run check
+      - run: node scripts/publish-package.mjs packages/tokens '${{ steps.version.outputs.dist-tag }}'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node scripts/publish-package.mjs packages/ui '${{ steps.version.outputs.dist-tag }}'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

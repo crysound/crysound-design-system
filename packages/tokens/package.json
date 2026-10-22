@@ -1,15 +1,26 @@
 {
   "name": "@crysound/tokens",
-  "version": "0.2.0",
+  "version": "1.1.0-rc.0",
   "type": "module",
   "files": [
     "dist"
   ],
   "exports": {
     "./tokens.css": "./dist/tokens.css",
-    "./tokens.json": "./dist/tokens.json"
+    "./tokens.json": "./dist/tokens.json",
+    "./theme.css": "./dist/theme.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "mkdir -p dist && cp src/* dist/"
+    "build": "mkdir -p dist && cp src/tokens.css src/tokens.json dist/ && node ../../scripts/build-token-css.mjs"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crysound/design-system.git"
   }
 }
