@@ -255,6 +255,9 @@
   border-bottom: 1px solid var(--cs-border);
 }
 .cs-tabs-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
   border: 0;
   border-bottom: 2px solid transparent;
@@ -983,7 +986,7 @@
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-trigger { color:var(--cs-muted); transition:none; }
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-trigger:not(:disabled):hover { color:var(--cs-text); }
 .cs-tabs-list--pill[data-tone="brand"][data-indicator-mode="animated"][data-indicator-ready] .cs-tabs-highlight {
-  display:block; position:absolute; inset:0; box-sizing:border-box; padding:inherit; text-align:inherit; color:var(--cs-on-brand); pointer-events:none;
+  display:flex; align-items:center; justify-content:center; position:absolute; inset:0; box-sizing:border-box; padding:inherit; text-align:inherit; color:var(--cs-on-brand); pointer-events:none;
   clip-path:inset(var(--cs-tabs-mask-top,0px) var(--cs-tabs-mask-right,100%) var(--cs-tabs-mask-bottom,0px) var(--cs-tabs-mask-left,0px) round var(--cs-tabs-mask-radius,var(--cs-radius)));
 }
 .cs-tabs-list--pill[data-shape="capsule"] .cs-tabs-highlight { --cs-tabs-mask-radius:var(--cs-radius-pill); }
