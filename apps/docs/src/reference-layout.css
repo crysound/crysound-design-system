@@ -1898,6 +1898,9 @@ body {
  .website-gallery-examples .cs-gallery-shop-card .cs-gallery-shop-image img { inset:0; width:100%; height:100%; }
 }
 
+.website-detail-panel-demo { width:100%; max-width:960px; box-sizing:border-box; padding:var(--cs-space-8); }
+@media(max-width:600px) { .website-detail-panel-demo { padding:var(--cs-space-6) var(--cs-space-4); } }
+
 .floating-toc-demo { width:100%; max-width:960px; }
 .floating-toc-demo-stage { position:relative; display:grid; grid-template-columns:64px minmax(0,1fr); border:1px solid var(--cs-border); border-radius:8px; background:var(--cs-surface); }
 .floating-toc-demo-stage > aside { position:relative; z-index:2; padding:64px 0 0 24px; }

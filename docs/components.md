@@ -134,6 +134,8 @@ ToolbarButton的Ghost默认采用中性正文色和medium字重，悬停时才�
 
 DetailPanel的字段行之间使用1px浅色细线，按55%语义边框色与45%当前表面色混合，末行不额外画线；混色比例与线前后各8px留白为工程适配值。保留原生dt/dd语义、长内容自然换行与小屏上下排列。
 
+DetailPanel默认`variant="card"`保持上述卡片样式，官网技术参数可显式使用`variant="website"`。官网样式参考用户提供的Technical Specifications截图：无外框、左侧图标库ChevronUp箭头、24/32 semibold标题、16/26常规参数文字、约40%/60%两列与含末行的浅色底线；行上下12px留白，480px以下容器改为标签和值上下排列、标题20/28。以上尺寸为本库Web适配提案，不从截图推定精确CSS。采用原生details/summary折叠，默认展开，`defaultOpen={false}`仅设置初始收起；支持Tab、Enter/Space，收起后内容和操作退出读序及Tab顺序。减少动态效果时箭头直接切换。description/status位于展开内容顶部，actions位于参数之后；空数组仍显示“暂无详情”，null/undefined值显示“—”，0保留。产品字段、实测数值和业务操作由消费项目提供，文档示例仅沿用用户参考中的排版内容。
+
 ## 表格长标题
 
 DataTable的columns.cell可返回TableCellText，标题用body14/22常规字重，description放caption12/18；卡号独立列后不重复拼入标题。共享表格使用较轻分隔线、中性排序按钮与等宽数字。必要任务说明不截断；同一状态行不要同时使用粗体标题、品牌底块和高对比分割线。运营排程示例依据截图改编，未访问需登录的内部数据或部署到ops站点。

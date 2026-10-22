@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState, type ReactNode } from 'react';
+import { ChevronUp } from '@untitledui/icons';
 import { Button, Input, Card, CardBody, CardActions, ToolbarButton } from './index';
 import { DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from './overlays';
 
@@ -30,9 +31,24 @@ export function QuotaCard({title, description, badge, status, quotas, state = 'r
   </Card>;
 }
 export interface DetailField { id: string; label: string; value: ReactNode; }
-export interface DetailPanelProps { title: string; description?: string; status?: ReactNode; fields: DetailField[]; actions?: ReactNode; }
-export function DetailPanel({title, description, status, fields, actions}: DetailPanelProps) {
-  return <Card title={title} description={description} actions={status}><CardBody>{fields.length ? <dl className="cs-detail-fields">{fields.map(field => <div key={field.id}><dt>{field.label}</dt><dd>{field.value ?? '—'}</dd></div>)}</dl> : <p className="cs-muted">暂无详情</p>}</CardBody>{actions && <CardActions>{actions}</CardActions>}</Card>;
+export interface DetailPanelProps {
+  title: string; description?: string; status?: ReactNode; fields: DetailField[]; actions?: ReactNode;
+  variant?: 'card' | 'website';
+  /** Initial expansion of the website variant. */
+  defaultOpen?: boolean;
+}
+export function DetailPanel({title, description, status, fields, actions, variant='card', defaultOpen=true}: DetailPanelProps) {
+  const [open,setOpen]=useState(defaultOpen);
+  const content=fields.length ? <dl className="cs-detail-fields">{fields.map(field => <div key={field.id}><dt>{field.label}</dt><dd>{field.value ?? '—'}</dd></div>)}</dl> : <p className="cs-muted">暂无详情</p>;
+  if(variant==='website')return <details className="cs-detail-panel--website" open={open} onToggle={event=>setOpen(event.currentTarget.open)}>
+    <summary className="cs-detail-website-summary"><ChevronUp className="cs-detail-website-chevron" size={20} aria-hidden="true"/><h3 className="cs-detail-website-title">{title}</h3></summary>
+    <div className="cs-detail-website-body">
+      {(description||status)&&<div className="cs-detail-website-meta">{description&&<p>{description}</p>}{status&&<div>{status}</div>}</div>}
+      {content}
+      {actions&&<div className="cs-detail-website-actions">{actions}</div>}
+    </div>
+  </details>;
+  return <Card title={title} description={description} actions={status}><CardBody>{content}</CardBody>{actions && <CardActions>{actions}</CardActions>}</Card>;
 }
 export interface FormDialogProps {
   title: string; description: string; trigger: ReactNode; children: ReactNode;

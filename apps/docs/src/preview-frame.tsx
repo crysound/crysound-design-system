@@ -27,6 +27,7 @@ import { ComponentDemo } from "./explorer";
 import type { ComponentDoc } from "./catalog";
 import { AvatarStatusDemo, AvatarGroupDemo, AvatarCombinationsDemo, AvatarFallbackDemo } from "./avatar-demo";
 import {EmptyStateDemo,EmptyStateSectionDemo,EmptyStateSearchDemo,EmptyStateErrorDemo} from './empty-state-demo';
+import {WebsiteDetailPanelDemo} from './detail-panel-demo';
 export async function copyExample(
   code: string,
   notify: ReturnType<typeof useToast>,
@@ -186,6 +187,8 @@ export function StateExamples({
       {children}
     </PreviewFrame>
   );
+  if(item.id==='detail-panel')
+    return frame('官网技术参数', '<DetailPanel\n  variant="website"\n  title="Technical Specifications"\n  fields={[\n    {id:"array", label:"Mic Array", value:"64 channels"},\n    {id:"screen", label:"Screen", value:"Capacitive touchscreen"},\n  ]}\n/>', <WebsiteDetailPanelDemo/>, true);
   if(item.id==='empty-state')
     return <>
       {frame('局部内容区', '<EmptyState layout="section" title="暂无附件" description="上传文件后会显示在这里。" graphic="particles" />', <EmptyStateSectionDemo/>)}
@@ -339,6 +342,7 @@ export function StateExamples({
   return null;
 }
 export const idsWithStateExamples = new Set([
+  "detail-panel",
   "empty-state",
   "avatar",
   "button",
