@@ -795,7 +795,7 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-choice p { font-size: var(--cs-type-caption-size); line-height: var(--cs-type-caption-leading); color: var(--cs-muted); }
 .cs-alert-content > strong, .cs-toast strong, .cs-popover > .cs-between > strong { font-size: var(--cs-type-label-size); line-height: var(--cs-type-label-leading); font-weight: var(--cs-weight-medium); }
 .cs-dialog-description { margin-top: 8px; }
-.cs-sheet > .cs-muted { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); margin-top: 8px; }
+.cs-sheet > .cs-muted { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); margin-top: var(--cs-space-1); }
 
 .cs-heading--display { font-size: var(--cs-type-display-size); line-height: var(--cs-type-display-leading); }
 .cs-heading--marketing-section { font-size: var(--cs-type-marketing-section-size); line-height: var(--cs-type-marketing-section-leading); }
