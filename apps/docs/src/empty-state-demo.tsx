@@ -9,7 +9,6 @@ export function EmptyStateDemo({brand=false}:{brand?:boolean}){
     <Button variant="secondary" onClick={()=>setCreated(false)}>移除演示任务</Button>
   </div>:<EmptyState layout="page" title="暂无测量任务" description="创建第一个任务，开始整理测量数据。" tone={brand?'brand':'neutral'} headingLevel={3}
     icon={null}
-    logo={<img className={brand?'empty-state-logo-white':'empty-state-logo-auto'} src={`/brand/logo-horizontal-${brand?'white':'purple'}.svg`} alt="CRYSOUND"/>}
     graphic="particles"
     action={<Button onClick={()=>setCreated(true)}>创建任务</Button>}/>}
   </div>;

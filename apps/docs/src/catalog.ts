@@ -549,7 +549,7 @@ export const catalog: ComponentDoc[] = [
       ["action / footer", "ReactNode", "可选；操作与底部说明由消费项目提供"],
       ["headingLevel", "1 | 2 | 3", "整页默认2，局部默认3；由页面层级决定"],
     ],
-    '<EmptyState\n  layout="page"\n  title="暂无测量任务"\n  description="创建第一个任务，开始整理测量数据。"\n  icon={null}\n  logo={<img src={brandLogoUrl} alt="CRYSOUND" />}\n  graphic="particles"\n  action={<Button onClick={createTask}>创建任务</Button>}\n/>\n\n<EmptyState layout="section" title="暂无附件" description="上传文件后会显示在这里。" />',
+    '<EmptyState\n  layout="page"\n  title="暂无测量任务"\n  description="创建第一个任务，开始整理测量数据。"\n  icon={null}\n  graphic="particles"\n  action={<Button onClick={createTask}>创建任务</Button>}\n/>\n\n<EmptyState layout="section" title="暂无附件" description="上传文件后会显示在这里。" />',
     "整页使用layout=page，卡片或面板中的局部空白使用section。首次使用、搜索无结果与加载失败分别提供对应的标题、说明和动作；重试、搜索与创建逻辑留在消费项目。logo与illustration接收消费方素材，组件不依赖文档站资源地址；示例中的点阵波面可下载。装饰图与图标不进入读序或Tab顺序，操作使用原生按钮/链接。按页面层级设置headingLevel，不在已有main中再嵌套main。默认section支持原有简洁提示；通过graphic=particles增加动态点阵声面，animated=false显示静态。提供暂停按钮，减少动态效果时保持静态；离屏和后台自动暂停。自定义illustration仍可覆盖内置图形。",
   ),
   define(
