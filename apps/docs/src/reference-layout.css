@@ -1010,6 +1010,7 @@ body {
   max-width: 480px;
   width: 100%;
 }
+.cs-sheet-body > .demo-stack { gap: var(--cs-space-4); }
 .reference-component-page--pagination .reference-preview > .demo-stack {
   justify-items: center;
   text-align: center;
