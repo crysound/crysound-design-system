@@ -132,6 +132,8 @@ FilterToolbar（受控搜索、筛选插槽、重置回调）、QuotaCard（read
 
 ToolbarButton的Ghost默认采用中性正文色和medium字重，悬停时才增强；不与品牌主操作争抢注意力。QuotaCard使用20px内容边距、12px辅助说明，演示状态控件放在卡片外，不作为业务操作区。
 
+DetailPanel的字段行之间使用1px语义边框色细线，末行不额外画线；线前后各8px留白为工程适配值。保留原生dt/dd语义、长内容自然换行与小屏上下排列。
+
 ## 表格长标题
 
 DataTable的columns.cell可返回TableCellText，标题用body14/22常规字重，description放caption12/18；卡号独立列后不重复拼入标题。共享表格使用较轻分隔线、中性排序按钮与等宽数字。必要任务说明不截断；同一状态行不要同时使用粗体标题、品牌底块和高对比分割线。运营排程示例依据截图改编，未访问需登录的内部数据或部署到ops站点。
