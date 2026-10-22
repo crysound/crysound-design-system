@@ -1928,9 +1928,6 @@ body {
 .docs-nav-section--single { padding-bottom:8px; margin-bottom:8px; }
 .templates-page { padding:0 0 64px; color:var(--cs-text); }
 .empty-state-demo { width:100%; }
-.empty-state-demo .empty-state-wave-dark { display:none; }
-[data-theme="dark"] .empty-state-demo .empty-state-wave-light { display:none; }
-[data-theme="dark"] .empty-state-demo .empty-state-wave-dark { display:block; }
 [data-theme="dark"] .empty-state-logo-auto { filter:brightness(0) invert(1); }
 .empty-state-assets { margin-top:var(--cs-space-4); color:var(--cs-muted); font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); }
 .empty-state-assets summary { width:fit-content; cursor:pointer; }

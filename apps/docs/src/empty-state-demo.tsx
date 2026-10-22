@@ -2,12 +2,6 @@ import {useState} from 'react';
 import {AlertCircle,File02,SearchLg} from '@untitledui/icons';
 import {Button,Card,EmptyState,Input} from '../../../packages/ui/src/index';
 
-function BrandWave({brand=false}:{brand?:boolean}){
-  return brand?<img src="/brand/blank-wave-dark.png" alt=""/>:<>
-    <img className="empty-state-wave-light" src="/brand/blank-wave-light.png" alt=""/>
-    <img className="empty-state-wave-dark" src="/brand/blank-wave-dark.png" alt=""/>
-  </>;
-}
 export function EmptyStateDemo({brand=false}:{brand?:boolean}){
   const [created,setCreated]=useState(false);
   return <div className="empty-state-demo">{created?<div className="empty-state-result" role="region" aria-label="测量任务">
@@ -16,13 +10,13 @@ export function EmptyStateDemo({brand=false}:{brand?:boolean}){
   </div>:<EmptyState layout="page" title="暂无测量任务" description="创建第一个任务，开始整理测量数据。" tone={brand?'brand':'neutral'} headingLevel={3}
     icon={null}
     logo={<img className={brand?'empty-state-logo-white':'empty-state-logo-auto'} src={`/brand/logo-horizontal-${brand?'white':'purple'}.svg`} alt="CRYSOUND"/>}
-    illustration={<BrandWave brand={brand}/>}
+    graphic="particles"
     action={<Button onClick={()=>setCreated(true)}>创建任务</Button>}/>}
   </div>;
 }
 export function EmptyStateSectionDemo(){
   return <div className="empty-state-section-demo"><div className="empty-state-section-header">项目附件</div>
-    <EmptyState layout="section" title="暂无附件" description="上传配置、测量记录或报告后，会显示在这里。" icon={<File02/>}/>
+    <EmptyState layout="section" title="暂无附件" description="上传配置、测量记录或报告后，会显示在这里。" icon={<File02/>} graphic="particles"/>
   </div>;
 }
 export function EmptyStateSearchDemo(){

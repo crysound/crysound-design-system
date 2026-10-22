@@ -13,7 +13,7 @@
 | AvatarGroup | children；size；max；label | 直接组合 Avatar；统一尺寸，超出 max 用 +N 汇总；空组显示暂无成员 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
-| EmptyState | title；description；layout；tone；logo；icon；illustration；action；footer；headingLevel | 统一空状态；默认局部，可切换整页、增加辅助图形；请求与恢复逻辑由应用提供 |
+| EmptyState | title；description；layout；tone；logo；icon；illustration；graphic；animated；action；footer；headingLevel | 统一空状态；默认局部，可切换整页、增加辅助图形；请求与恢复逻辑由应用提供 |
 | Dialog | trigger；title；description；children | trigger 应是可接收 ref 的单个按钮元素；支持 Escape、焦点限制与恢复；这是非受控基础弹窗 |
 | DeviceTable | devices；onSelect | 提供 id/name/model/status/location；onSelect 缺省时隐藏操作列；空数组显示空状态 |
 
@@ -36,6 +36,10 @@ AvatarGroup 接收直接放置的Avatar，size统一组内尺寸，max默认不�
 组件库仅保留EmptyState，默认局部内容区`layout="section"`，整页显式设置`layout="page"`。原有title/description/action调用继续使用，icon和illustration均为可选辅助图形。页面默认560px最小高度、32px内距，局部默认240px/32px；小屏页面480px/16px水平内距，局部240px/16px水平内距。内容组最大宽度320px，页面/局部图标32/28px；标题按现有section/subsection角色使用20/28与16/24、中等字重。以上均为本库Web适配建议，可通过className/style适配实际页面。页面默认h2、局部h3，视觉尺寸与语义层级独立，可通过headingLevel接入完整页面层级。
 
 neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-state-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认不显示图标，避免普通表格空状态引入额外品牌标识。品牌例子仅保留左上角112px横版Logo，隐藏中心重复标识与页脚；点阵图案限制在右下角，最大400px宽、16%透明度，让文字与操作保持清晰。小屏按钮保留内容宽度与至少44px高度。插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，下载入口收在使用约定的“品牌图案素材”中，安装后由消费应用托管素材。
+
+`graphic="particles"`提供内置动态辅助图形，参考[CRYSOUND 声面空间粒子 V05](https://crysound-particle-spatial-v05.lin-wang356222.chatgpt.site/)可见预览中的有序声面、局部聚散与点径明暗层次，独立实现轻量Canvas绘制，不加载参考站脚本。保留右下角留白构图，局部内容区使用更小比例；58×20点位、16秒聚散周期、最多30次/秒绘制与2倍像素比均为本库工程适配建议。颜色继承品牌/客户主题，默认深色随系统转为中性前景，显式brand使用浅色颗粒。
+
+内置动效可通过区域右上角按钮暂停/播放，`animated={false}`固定为静态；尊重并实时响应减少动态效果，离屏或后台停止帧循环，恢复后从原相位继续。无Canvas或SSR时使用同源静态SVG，动效是装饰而非真实加载/声场信号；自定义illustration优先于graphic。装饰层不接收指针、焦点或读序，暂停按钮保留键盘焦点。
 
 首次使用、无搜索结果与加载失败由消费方提供不同文案/图标/操作，组件不查询接口、不自动重试、不假设权限；加载期间使用LoadingIndicator而不是提前展示空白页。区域是带标题/说明关联的section，不额外制造main地标，也不自动使用alert打断用户。创建、清空搜索与重试示例只操作文档本地状态。
 
