@@ -25,6 +25,7 @@ import {
 } from "../../../packages/ui/src/index";
 import { ComponentDemo } from "./explorer";
 import type { ComponentDoc } from "./catalog";
+import { AvatarStatusDemo, AvatarGroupDemo, AvatarCombinationsDemo, AvatarFallbackDemo } from "./avatar-demo";
 export async function copyExample(
   code: string,
   notify: ReturnType<typeof useToast>,
@@ -183,6 +184,13 @@ export function StateExamples({
       {children}
     </PreviewFrame>
   );
+  if (item.id === "avatar")
+    return <>
+      {frame("Avatar status", '<Avatar name="林晨" status="online" />\n<Avatar name="周宁" status="away" />\n<Avatar name="Alex Chen" status="busy" />\n<Avatar name="李娜" status="offline" />', <AvatarStatusDemo />)}
+      {frame("Avatar groups", '<AvatarGroup label="声学研发团队" size="md" max={3}>\n  <Avatar name="林晨" />\n  <Avatar name="Alex Chen" />\n  <Avatar name="周宁" />\n  <Avatar name="李娜" />\n  <Avatar name="王明" />\n</AvatarGroup>', <AvatarGroupDemo />)}
+      {frame("Avatar combinations", '<div>\n  <Avatar name="林晨" status="online" />\n  <span>林晨 · 声学工程师</span>\n</div>\n<Avatar name="CRYSOUND" variant="logo" shape="rounded" />', <AvatarCombinationsDemo />)}
+      {frame("Avatar fallback and loading", '<Avatar name="林晨" loading />\n<Avatar name="陈言" src="/user-avatar.png" />\n<Avatar name="Alex Chen" initials="AC" />', <AvatarFallbackDemo />)}
+    </>;
   if (item.id === "button")
     return (
       <>
@@ -322,6 +330,7 @@ export function StateExamples({
   return null;
 }
 export const idsWithStateExamples = new Set([
+  "avatar",
   "button",
   "input",
   "number-input",

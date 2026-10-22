@@ -1,12 +1,12 @@
 "use client";
 import {
-  useState,
   type HTMLAttributes,
   type ReactNode,
   type CSSProperties,
 } from "react";
 import * as P from "@radix-ui/react-progress";
 import { cx } from "./utils";
+export { Avatar, AvatarGroup, type AvatarProps, type AvatarGroupProps, type AvatarSize, type AvatarStatus } from "./avatar";
 export type Tone = "neutral" | "brand" | "success" | "warning" | "danger";
 export function Badge({
   tone = "neutral",
@@ -28,37 +28,6 @@ export function Badge({
       )}
     >
       {children}
-    </span>
-  );
-}
-export function Avatar({
-  name,
-  src,
-  size = "md",
-}: {
-  name: string;
-  src?: string;
-  size?: "sm" | "md" | "lg";
-}) {
-  const [failedSrc, setFailedSrc] = useState<string>();
-  return (
-    <span
-      role="img"
-      aria-label={name}
-      className={cx("cs-avatar", `cs-avatar--${size}`)}
-    >
-      {src && src !== failedSrc ? (
-        <img src={src} alt="" onError={() => setFailedSrc(src)} />
-      ) : (
-        <span aria-hidden="true">
-          {name
-            .trim()
-            .split(/\s+/)
-            .map((n) => Array.from(n)[0])
-            .slice(0, 2)
-            .join("") || "?"}
-        </span>
-      )}
     </span>
   );
 }

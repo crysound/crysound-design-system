@@ -1,6 +1,7 @@
 import {CarouselPaginationDemo} from './carousel-pagination-demo';
 import {NumberInputDemo} from './number-input-demo';
 import {RatingDemo} from './rating-demo';
+import {AvatarDemo} from './avatar-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import {NavigationMenuDemo} from './navigation-menu-demo';
@@ -65,7 +66,6 @@ const {
   Tooltip,
   DropdownMenu,
   Badge,
-  Avatar,
   Alert,
   Progress,
   Skeleton,
@@ -511,14 +511,7 @@ export function ComponentDemo({ id }: { id: string }) {
         </Stack>
       );
     case "avatar":
-      return (
-        <div className="demo-row">
-          <Avatar name="林 工程师" size="sm" />
-          <Avatar name="周 工程师" />
-          <Avatar name="CRYSOUND" size="lg" />
-          <span className="cs-help">无图片时显示姓名缩写。</span>
-        </div>
-      );
+      return <AvatarDemo />;
     case "alert":
       return (
         <Stack>
@@ -745,7 +738,9 @@ export function ComponentPage({
 }) {
   const toast = useToast();
   const imports =
-    item.id === "tabs"
+    item.id === "avatar"
+      ? "Avatar, AvatarGroup"
+      : item.id === "tabs"
       ? "Tabs, TabsList, TabsTrigger, TabsContent"
       : item.id === "toast"
         ? "ToastProvider, useToast"

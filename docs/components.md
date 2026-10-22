@@ -9,6 +9,8 @@
 | NumberInput | label；value/defaultValue；onChange；min/max；step；hint/error；disabled/readOnly | 复用Input及原生number语义；支持整数、小数、负值和空值，范围与步长使用原生验证 |
 | Rating | label；value/defaultValue；onValueChange；max；size；readOnly/disabled；name/required | 整数星级评分，0为未评分；悬停预览，点击或键盘选择；只读展示保留可访问评分名称 |
 | StatusBadge | status: online / offline / warning / error / running；children | 可覆盖显示文字；始终保留文字，不单靠颜色 |
+| Avatar | name；src；initials；variant；shape；size；status；statusLabel；loading | 默认主色底首字母；公司标志与图片；状态有可访问名称 |
+| AvatarGroup | children；size；max；label | 直接组合 Avatar；统一尺寸，超出 max 用 +N 汇总；空组显示暂无成员 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
 | EmptyState | title；description；action | 为用户提供具体下一步；数据加载失败应由业务层明确说明 |
@@ -20,6 +22,12 @@ DeviceTable 保留少量设备展示 API；新增 DataTable 支持本地搜索�
 NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的标签、说明、错误与2px聚焦外环。右侧SVG箭头保持单列，上箭头增加、下箭头减少数值；按钮有悬停、按下和禁用反馈，使用语义颜色适配客户主题。按钮调用原生`stepDown/stepUp`处理范围、步长和小数精度，再触发输入事件，兼容受控与非受控编辑。点击后聚焦输入框，键盘继续使用方向键调整；按钮不增加Tab停靠点，仍具有可访问名称。`step`默认1，小数使用明确步长或`"any"`，`"any"`时不显示步进按钮；disabled和readOnly时按钮禁用。`min/max/step`参与原生表单验证，手动越界不自动截断，业务校验和中文错误提示由消费项目提供。受控编辑可使用字符串保留空值，`valueAsNumber`在空值时为NaN，不能将它默认转换为0。单位放在label中，数字ID、手机号和邮编继续使用文本Input。工作台阈值与OpenTest数值配置使用同一组件，业务范围约束仍留在各自应用。
 
 Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用cs-rating-active/empty令牌，active按用户要求引用现有cs-warning橙色并随明暗主题适配，仍可单独覆盖。尺寸参考[HeroUI Rating公开示例](https://heroui.pro/docs/react/components/rating#sizes)，sm/md/lg图标及桌面单项分别为16/20/28px，默认md；间距按本库刻度适配为4/4/8px，触屏操作区至少44px。减少动态效果时取消颜色过渡。
+
+Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，取姓名首个 Unicode 字符并将英文转为大写；`initials` 可显式提供最多两个字符。保留现有 sm/md/lg 的28/40/56px尺寸，`shape="rounded"`提供原圆角外形。`variant="logo"`复用已有 CrysoundMark 标准符号，使用60%占比；不裁切横版标识、不复制第三方品牌素材。圆形默认、符号占比与8/10/12px状态标记为本库 Web 适配建议。
+
+图片请求期间先显示首字母，成功后显示图片，失败后保留回退；更换 src 会重置该图片的加载状态，旧图片事件不会改变新图片。`loading`显式显示静态占位并标记aria-busy。online/away/busy/offline分别用实点、时钟、短横及空心圆区分，同时加入头像可访问名称；消费项目应在必要时提供相邻状态文字，`statusLabel`可替换默认中文读法。
+
+AvatarGroup 接收直接放置的Avatar，size统一组内尺寸，max默认不截断；小于1时至少显示一位，超出显示+N，超过99显示99+并保留准确的可访问人数。叠放间距8px、表面分隔2px为工程适配建议。头像本身是有名称的静态图像，账号菜单或导航由原生按钮/链接承载，不给头像制造额外Tab停靠点。示例包括三种尺寸、公司头像、状态、头像组、身份信息与加载/失败回退。组合方式参考[shadcn Avatar公开文档](https://ui.shadcn.com/docs/components/base/avatar)，继续沿用本库API与React实现，未引入Base UI行为体系。
 
 ## 应用级主题
 
