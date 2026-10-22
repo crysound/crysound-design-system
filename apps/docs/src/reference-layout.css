@@ -1895,7 +1895,8 @@ body {
 
 .pagination-demo { width:100%; max-width:560px; }
 .pagination-demo-carousel { position:relative; }
-.pagination-demo-slide { width:100%; aspect-ratio:16/9; box-sizing:border-box; overflow:hidden; border-radius:8px; border:1px solid var(--cs-border); background:var(--cs-subtle); color:var(--cs-muted); }
+.pagination-demo-carousel > .cs-carousel-viewport { box-shadow:var(--cs-shadow-sm); }
+.pagination-demo-slide { width:100%; aspect-ratio:16/9; box-sizing:border-box; overflow:hidden; border-radius:8px; border:0; background:var(--cs-media-bg); color:var(--cs-muted); }
 .pagination-demo-placeholder { display:block; width:100%; height:100%; }
 .pagination-demo-placeholder text { fill:currentColor; font-family:var(--cs-font); font-weight:var(--cs-weight-normal); }
 .pagination-demo-logo { opacity:.65; }
