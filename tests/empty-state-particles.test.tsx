@@ -36,17 +36,17 @@ afterEach(()=>{cleanup();vi.restoreAllMocks();vi.unstubAllGlobals();});
 const enterView=()=>views.at(-1)?.notify(true);
 const advance=(time:number)=>{const pending=[...frames.values()];frames.clear();for(const callback of pending)callback(time);};
 
-it('pauses and resumes from the keyboard while preserving the content action',async()=>{
+it('keeps decorative motion below the action without adding keyboard controls',async()=>{
   const user=userEvent.setup(),create=vi.fn();
   const {container}=render(<EmptyState title="暂无任务" graphic="particles" action={<Button onClick={create}>创建任务</Button>}/>);
   enterView();expect(frames.size).toBe(1);
-  await user.tab();expect(screen.getByRole('button',{name:'暂停辅助图形动画'})).toHaveFocus();
-  await user.keyboard('{Enter}');
-  expect(screen.getByRole('button',{name:'播放辅助图形动画'})).toHaveFocus();
-  expect(frames.size).toBe(0);
-  expect(container.querySelector('[data-running="false"]')).toHaveAttribute('aria-hidden','true');
-  await user.tab();await user.keyboard('{Enter}');expect(create).toHaveBeenCalledOnce();
-  await user.click(screen.getByRole('button',{name:'播放辅助图形动画'}));enterView();
+  const action=screen.getByRole('button',{name:'创建任务'});
+  await user.tab();expect(action).toHaveFocus();
+  await user.keyboard('{Enter}');expect(create).toHaveBeenCalledOnce();
+  expect(screen.getAllByRole('button')).toHaveLength(1);
+  const art=container.querySelector('[data-running="true"]')!;
+  expect(art).toHaveAttribute('aria-hidden','true');expect(art).toHaveAttribute('inert');
+  expect(action.compareDocumentPosition(art)&Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   expect(frames.size).toBe(1);
   expect(screen.queryByRole('img')).not.toBeInTheDocument();
 });

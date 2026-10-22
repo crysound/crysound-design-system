@@ -29,11 +29,11 @@ export function EmptyState({title,description,layout='section',tone='neutral',he
   return <section {...props} className={cx('cs-empty','cs-empty-state',className)} data-layout={layout} data-tone={tone} aria-labelledby={props['aria-labelledby']??(props['aria-label']?undefined:titleId)} aria-describedby={props['aria-describedby']??descriptionId}>
     {logo&&<header className="cs-empty-state-brand">{logo}</header>}
     <div className="cs-empty-state-body"><div className="cs-empty-state-copy">
-      {illustration?<div className="cs-empty-state-art" aria-hidden="true" inert>{illustration}</div>:graphic==='particles'&&<EmptyStateParticles animated={animated}/>}
       {icon!=null&&<div className="cs-empty-state-icon" aria-hidden="true" inert>{icon}</div>}
       <Heading id={titleId}>{title}</Heading>
       {description&&<div className="cs-empty-state-description" id={descriptionId}>{description}</div>}
       {action&&<div className="cs-empty-state-actions">{action}</div>}
+      {illustration?<div className="cs-empty-state-art" aria-hidden="true" inert>{illustration}</div>:graphic==='particles'&&<EmptyStateParticles animated={animated}/>}
     </div></div>
     {footer&&<footer className="cs-empty-state-footer">{footer}</footer>}
   </section>;

@@ -1,6 +1,5 @@
 "use client";
 import {useEffect,useRef,useState} from 'react';
-import {PauseCircle,PlayCircle} from '@untitledui/icons';
 
 const TAU=Math.PI*2;
 const columns=58,rows=20;
@@ -38,10 +37,9 @@ function staticPaths(seconds:number){
 export function EmptyStateParticles({animated=true}:{animated?:boolean}){
   const canvas=useRef<HTMLCanvasElement>(null);
   const elapsed=useRef(0);
-  const [paused,setPaused]=useState(false);
   const [reduced,setReduced]=useState(false);
   const [ready,setReady]=useState(false);
-  const active=animated&&!paused&&!reduced;
+  const active=animated&&!reduced;
 
   useEffect(()=>{
     const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -114,12 +112,10 @@ export function EmptyStateParticles({animated=true}:{animated?:boolean}){
     };
   },[active]);
 
-  const label=paused?'播放辅助图形动画':'暂停辅助图形动画';
   return <div className="cs-empty-state-graphic">
     <div className="cs-empty-state-art cs-empty-state-art--particles" aria-hidden="true" inert data-running={active&&ready}>
       <svg viewBox="0 0 400 200" preserveAspectRatio="none" focusable="false">{staticPaths(elapsed.current).map((d,index)=><path key={index} d={d} fill="currentColor" fillOpacity={(index+.5)/4}/>)}</svg>
       <canvas ref={canvas}/>
     </div>
-    {animated&&!reduced&&ready&&<button type="button" className="cs-empty-state-motion-toggle" aria-label={label} title={label} onClick={()=>setPaused(value=>!value)}>{paused?<PlayCircle size={18}/>:<PauseCircle size={18}/>}</button>}
   </div>;
 }
