@@ -100,7 +100,6 @@
 .cs-number-input::-webkit-outer-spin-button { appearance: none; margin: 0; }
 .cs-number-input[data-steppers] { padding-inline-end: calc(var(--cs-control-height) + var(--cs-space-2)); }
 .cs-number-steppers {
-  --cs-number-chevron-offset: max(0px, calc((var(--cs-control-height) - var(--cs-space-6)) / 4));
   position: absolute;
   inset-block: var(--cs-space-1);
   inset-inline-end: var(--cs-space-1);
@@ -128,9 +127,7 @@
   cursor: pointer;
   transition: color var(--cds-dur-fast) var(--cds-ease-out), background-color var(--cds-dur-fast) var(--cds-ease-out);
 }
-.cs-number-step svg { display: block; height: min(16px, calc((var(--cs-control-height) - var(--cs-space-2)) / 2)); pointer-events: none; }
-.cs-number-step:first-child svg { transform: translateY(var(--cs-number-chevron-offset)); }
-.cs-number-step:last-child svg { transform: translateY(calc(var(--cs-number-chevron-offset) * -1)); }
+.cs-number-step svg { display: block; height: min(16px, calc((var(--cs-control-height) - var(--cs-space-2)) / 2)); }
 @media (hover: hover) {
   .cs-number-step:hover:not(:disabled) { color: var(--cs-brand); background: var(--cs-subtle); }
 }
