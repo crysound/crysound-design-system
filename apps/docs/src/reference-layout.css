@@ -1010,6 +1010,10 @@ body {
   max-width: 480px;
   width: 100%;
 }
+.reference-component-page--pagination .reference-preview > .demo-stack {
+  justify-items: center;
+  text-align: center;
+}
 .reference-preview > .cs-field:not(.cs-rating) {
   max-width: 360px;
   width: 100%;
