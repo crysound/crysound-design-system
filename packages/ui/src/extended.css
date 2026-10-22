@@ -1409,7 +1409,8 @@ button.cs-step-content { cursor: pointer; }
   .cs-tabs-trigger:focus-visible { outline: 1px solid Highlight; outline-offset: calc(var(--cs-space-1) * -1); }
 }
 
-.cs-action-link { display: inline-flex; align-items: center; gap: 4px; color: var(--cs-brand); font-family:var(--cs-font); font-size:16px; line-height:24px; font-weight:var(--cs-weight-normal); text-decoration: none; border-radius: var(--cs-radius); }
+.cs-action-link { display: inline-flex; align-items: center; gap: 4px; color: var(--cs-brand); font-family:var(--cs-font); font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); font-weight:var(--cs-weight-normal); text-decoration: none; border-radius: var(--cs-radius); }
+.cs-action-link--lg { font-size:var(--cs-type-subsection-size); line-height:var(--cs-type-subsection-leading); }
 .cs-action-link > span { min-width:0; position:relative; }
 .cs-action-link > span::after { content:""; position:absolute; inset-inline:0; bottom:0; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left center; transition:transform var(--cds-dur-base) var(--cds-ease-out); }
 .cs-action-link-arrow { display: block; flex: 0 0 16px; transition:transform var(--cds-dur-sheet) var(--cds-ease-snap); }
