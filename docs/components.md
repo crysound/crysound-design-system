@@ -23,7 +23,7 @@ NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的�
 
 Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用cs-rating-active/empty令牌，active按用户要求引用现有cs-warning橙色并随明暗主题适配，仍可单独覆盖。尺寸参考[HeroUI Rating公开示例](https://heroui.pro/docs/react/components/rating#sizes)，sm/md/lg图标及桌面单项分别为16/20/28px，默认md；间距按本库刻度适配为4/4/8px，触屏操作区至少44px。减少动态效果时取消颜色过渡。
 
-Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，取姓名首个 Unicode 字符并将英文转为大写；`initials` 可显式提供最多两个字符。保留现有 sm/md/lg 的28/40/56px尺寸，`shape="rounded"`提供原圆角外形。`variant="logo"`复用已有 CrysoundMark 标准符号，使用60%占比；不裁切横版标识、不复制第三方品牌素材。圆形默认、符号占比与8/10/12px状态标记为本库 Web 适配建议。
+Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，示例统一使用大写字母，中文姓名通过`initials`显式提供拼音首字母，例如林晨使用`L`、周宁使用`Z`；深浅外观、状态、头像组与图片失败回退一致使用该字母，完整姓名保留在可访问名称中。`initials`最多支持两个字符；未传入时保留姓名首个Unicode字符回退，并将英文转为大写。保留现有 sm/md/lg 的28/40/56px尺寸，`shape="rounded"`提供原圆角外形。`variant="logo"`复用已有 CrysoundMark 标准符号，使用60%占比；不裁切横版标识、不复制第三方品牌素材。圆形默认、符号占比与8/10/12px状态标记为本库 Web 适配建议。
 
 `appearance="soft"`提供浅色外观，使用已有 `--cs-brand-subtle` 背景和 `--cs-brand` 前景，支持首字母、公司标志及全部尺寸；默认仍为 `solid`。浅色映射是本库 Web 适配建议，随明暗及客户主题使用对应语义色，不新增固定色值。
 

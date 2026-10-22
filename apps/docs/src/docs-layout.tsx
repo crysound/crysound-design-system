@@ -323,7 +323,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
     case "avatar":
       return (
         <div className="thumb-row">
-          <Avatar name="林晨" size="sm" />
+          <Avatar name="林晨" initials="L" size="sm" />
           <Avatar name="Alex Chen" status="online" />
           <Avatar name="CRYSOUND" variant="logo" shape="rounded" size="lg" />
         </div>

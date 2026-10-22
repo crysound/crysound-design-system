@@ -195,10 +195,10 @@ export function StateExamples({
     </>;
   if (item.id === "avatar")
     return <>
-      {frame("Avatar status", '<Avatar name="林晨" status="online" />\n<Avatar name="周宁" status="away" />\n<Avatar name="Alex Chen" status="busy" />\n<Avatar name="李娜" status="offline" />', <AvatarStatusDemo />)}
-      {frame("Avatar groups", '<AvatarGroup label="声学研发团队" size="md" max={3}>\n  <Avatar name="林晨" />\n  <Avatar name="Alex Chen" />\n  <Avatar name="周宁" />\n  <Avatar name="李娜" />\n  <Avatar name="王明" />\n</AvatarGroup>', <AvatarGroupDemo />)}
-      {frame("Avatar combinations", '<div>\n  <Avatar name="林晨" status="online" />\n  <span>林晨 · 声学工程师</span>\n</div>\n<Avatar name="CRYSOUND" variant="logo" shape="rounded" />', <AvatarCombinationsDemo />)}
-      {frame("Avatar fallback and loading", '<Avatar name="林晨" loading />\n<Avatar name="陈言" src="/user-avatar.png" />\n<Avatar name="Alex Chen" initials="AC" />', <AvatarFallbackDemo />)}
+      {frame("Avatar status", '<Avatar name="林晨" initials="L" status="online" />\n<Avatar name="周宁" initials="Z" status="away" />\n<Avatar name="Alex Chen" status="busy" />\n<Avatar name="李娜" initials="L" status="offline" />', <AvatarStatusDemo />)}
+      {frame("Avatar groups", '<AvatarGroup label="声学研发团队" size="md" max={3}>\n  <Avatar name="林晨" initials="L" />\n  <Avatar name="Alex Chen" />\n  <Avatar name="周宁" initials="Z" />\n  <Avatar name="李娜" initials="L" />\n  <Avatar name="王明" initials="W" />\n</AvatarGroup>', <AvatarGroupDemo />)}
+      {frame("Avatar combinations", '<div>\n  <Avatar name="林晨" initials="L" status="online" />\n  <span>林晨 · 声学工程师</span>\n</div>\n<Avatar name="CRYSOUND" variant="logo" shape="rounded" />', <AvatarCombinationsDemo />)}
+      {frame("Avatar fallback and loading", '<Avatar name="林晨" initials="L" loading />\n<Avatar name="陈言" initials="C" src="/user-avatar.png" />\n<Avatar name="Alex Chen" initials="AC" />', <AvatarFallbackDemo />)}
     </>;
   if (item.id === "button")
     return (
