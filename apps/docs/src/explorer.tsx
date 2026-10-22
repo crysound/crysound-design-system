@@ -931,6 +931,10 @@ export function ComponentPage({
       <section className="component-guidance">
         <h2>使用约定</h2>
         <p>{item.guidance}</p>
+        {item.id==='empty-page'&&<details className="empty-page-assets">
+          <summary>品牌图案素材</summary>
+          <div><a href="/brand/blank-wave-light.png" download>下载浅色波面</a><a href="/brand/blank-wave-dark.png" download>下载深色波面</a></div>
+        </details>}
       </section>
       <div className="component-neighbors">
         {[previous, next].filter(Boolean).map((neighbor) => (

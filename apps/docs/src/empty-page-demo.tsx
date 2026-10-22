@@ -14,15 +14,14 @@ export function EmptyPageDemo({brand=false}:{brand?:boolean}){
     <p role="status">已创建测量任务</p><Card title="测量任务 01" description="等待配置采集设备"/>
     <Button variant="secondary" onClick={()=>setCreated(false)}>移除演示任务</Button>
   </div>:<EmptyPage title="暂无测量任务" description="创建第一个任务，开始整理测量数据。" tone={brand?'brand':'neutral'} headingLevel={3}
+    icon={null}
     logo={<img className={brand?'empty-page-logo-white':'empty-page-logo-auto'} src={`/brand/logo-horizontal-${brand?'white':'purple'}.svg`} alt="CRYSOUND"/>}
     illustration={<BrandWave brand={brand}/>}
-    action={<Button onClick={()=>setCreated(true)}>创建任务</Button>}
-    footer="CRYSOUND · 声学测量与分析"/>}
-    {!brand&&<div className="empty-page-assets"><a href="/brand/blank-wave-light.png" download>下载浅色波面</a><a href="/brand/blank-wave-dark.png" download>下载深色波面</a></div>}
+    action={<Button onClick={()=>setCreated(true)}>创建任务</Button>}/>}
   </div>;
 }
 export function EmptyPageSectionDemo(){
-  return <div className="empty-page-section-demo"><div className="empty-page-section-header"><strong>项目附件</strong><span>0 个文件</span></div>
+  return <div className="empty-page-section-demo"><div className="empty-page-section-header">项目附件</div>
     <EmptyPage layout="section" title="暂无附件" description="上传配置、测量记录或报告后，会显示在这里。" icon={<File02/>}/>
   </div>;
 }

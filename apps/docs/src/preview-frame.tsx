@@ -191,7 +191,7 @@ export function StateExamples({
       {frame('局部内容区', '<EmptyPage layout="section" title="暂无附件" description="上传文件后会显示在这里。" />', <EmptyPageSectionDemo/>)}
       {frame('搜索无结果', '<EmptyPage layout="section" title="没有找到匹配记录" description="尝试其他关键词，或清空搜索。" icon={<SearchLg/>} action={<Button onClick={clearSearch}>清空搜索</Button>} />', <EmptyPageSearchDemo/>)}
       {frame('加载失败', '<EmptyPage layout="section" title="记录加载失败" description="暂时无法获取测量记录，请重试。" icon={<AlertCircle/>} action={<Button onClick={retry}>重新加载</Button>} />', <EmptyPageErrorDemo/>)}
-      {frame('品牌深色背景', '<EmptyPage tone="brand" title="暂无测量任务" description="创建第一个任务，开始整理测量数据。" logo={<img src={brandLogoUrl} alt="CRYSOUND"/>} illustration={<img src={brandWaveUrl} alt=""/>} action={<Button onClick={createTask}>创建任务</Button>} />', <EmptyPageDemo brand/>, true)}
+      {frame('品牌深色背景', '<EmptyPage tone="brand" title="暂无测量任务" description="创建第一个任务，开始整理测量数据。" icon={null} logo={<img src={brandLogoUrl} alt="CRYSOUND"/>} illustration={<img src={brandWaveUrl} alt=""/>} action={<Button onClick={createTask}>创建任务</Button>} />', <EmptyPageDemo brand/>, true)}
     </>;
   if (item.id === "avatar")
     return <>

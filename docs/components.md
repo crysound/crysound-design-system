@@ -34,9 +34,9 @@ AvatarGroup 接收直接放置的Avatar，size统一组内尺寸，max默认不�
 
 ## EmptyPage 页面空白页
 
-EmptyPage在组件库提供整页`layout="page"`与局部内容区`layout="section"`，保留原有EmptyState的简洁提示。页面默认560px最小高度、32px内距，局部默认280px/24px；小屏页面480px/16px水平内距，均为本库Web适配建议；可通过className/style适配实际页面高度。标题按现有page/section角色使用24/32与20/28，页面默认h2、局部h3，可通过headingLevel接入完整页面层级。
+EmptyPage在组件库提供整页`layout="page"`与局部内容区`layout="section"`，保留原有EmptyState的简洁提示。页面默认560px最小高度、32px内距，局部默认240px/32px；小屏页面480px/16px水平内距，局部240px/16px水平内距。内容组最大宽度320px，页面/局部图标32/28px；标题按现有section/subsection角色使用20/28与16/24、中等字重。以上均为本库Web适配建议，可通过className/style适配实际页面。页面默认h2、局部h3，视觉尺寸与语义层级独立，可通过headingLevel接入完整页面层级。
 
-neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-page-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认图标复用标准CrysoundMark，icon=null可隐藏；插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，并提供下载入口，安装后由消费应用托管素材。
+neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-page-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认图标复用标准CrysoundMark，icon=null可隐藏。品牌例子仅保留左上角112px横版Logo，隐藏中心重复标识与页脚；点阵图案限制在右下角，最大400px宽、16%透明度，让文字与操作保持清晰。小屏按钮保留内容宽度与至少44px高度。插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，下载入口收在使用约定的“品牌图案素材”中，安装后由消费应用托管素材。
 
 首次使用、无搜索结果与加载失败由消费方提供不同文案/图标/操作，组件不查询接口、不自动重试、不假设权限；加载期间使用LoadingIndicator而不是提前展示空白页。区域是带标题/说明关联的section，不额外制造main地标，也不自动使用alert打断用户。创建、清空搜索与重试示例只操作文档本地状态。
 
