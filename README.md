@@ -2,7 +2,7 @@
 
 面向 CRYSOUND 产品软件、管理后台、官网和客户定制的 React + TypeScript 设计系统工程首版。
 
-**状态：0.2.0。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、PingFang SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。
+**状态：1.1.0-rc.0。** 已读取三个输入 Figma 文件的结构与代表节点，提取 OpenTest 软件与 CRYSOUND 官网变量。主色 #170057、PingFang SC、4px 圆角与间距基线有来源；深色主题、状态色和控件高度是待批准的扩展提案。
 
 ## 本地运行
 
@@ -26,17 +26,21 @@ npm run check
 | `docs` | 架构、定制策略、设计依据与后续路线 |
 | `.github/workflows` | GitHub 持续集成 |
 
-## 接入项目
+## 从 GitHub Packages 安装
 
-尚未发布到 npm。先在本仓库构建后打包：
+在项目的 `.npmrc` 中配置 CRYSOUND scope（私有包还需要具有 `read:packages` 权限的认证 token）：
 
-```sh
-npm run build
-npm pack -w @crysound/tokens
-npm pack -w @crysound/ui
+```ini
+@crysound:registry=https://npm.pkg.github.com
 ```
 
-在目标项目安装这两个生成的 `.tgz` 文件和 React 19，然后：
+然后安装 React 19 与两个包：
+
+```sh
+npm install @crysound/tokens @crysound/ui
+```
+
+安装后：
 
 ```tsx
 import { Button, Input, StatusBadge } from '@crysound/ui';
@@ -97,7 +101,14 @@ Registry 从实际源码生成，将组件安装到项目的 components 别名�
 
 本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
 
-GitHub 仓库：[crysound/crysound-design-system](https://github.com/crysound/crysound-design-system)，公开仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
+GitHub 仓库：[crysound/design-system](https://github.com/crysound/design-system)。包发布到 GitHub Packages。发布前运行 `npm run check`，然后创建并推送版本 tag；例如预发布版本使用：
+
+```sh
+git tag v1.1.0-rc.0
+git push origin v1.1.0-rc.0
+```
+
+带预发布号的版本发布到 `next` dist-tag，正式版本发布到 `latest`。也可以从 GitHub Actions 手动运行 Publish packages workflow 并填写版本 tag。
 
 ## 导航图标语义
 
