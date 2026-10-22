@@ -19,6 +19,7 @@ import * as R from "@radix-ui/react-radio-group";
 import * as L from "@radix-ui/react-slider";
 import * as P from "@radix-ui/react-popover";
 import { Command } from "cmdk";
+import { File02, Upload01, XClose } from "@untitledui/icons";
 import { cx } from "./utils";
 import { Button } from "./index";
 type FieldProps = { label: string; hint?: string; error?: string };
@@ -418,17 +419,17 @@ export function FileUpload({label,accept,multiple=false,maxSize=10*1024*1024,max
     <div className="cs-upload-dropzone" data-dragging={drag||undefined} data-disabled={disabled||undefined} onDragOver={event=>{event.preventDefault();if(!disabled)setDrag(true);}} onDragLeave={event=>{if(!event.currentTarget.contains(event.relatedTarget as Node))setDrag(false);}} onDrop={event=>{event.preventDefault();setDrag(false);add(Array.from(event.dataTransfer.files));}}>
       <input ref={input} id={id} type="file" accept={accept} multiple={multiple} disabled={disabled} aria-describedby={`${id}-help`} aria-invalid={!!error} className="cs-sr-only" onChange={event=>{add(Array.from(event.target.files??[]));event.target.value='';}} />
       <button type="button" className="cs-upload-choose" disabled={disabled} onClick={()=>input.current?.click()}>
-        <span className="cs-upload-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4" /></svg></span>
+        <span className="cs-upload-icon" aria-hidden="true"><Upload01 size={24} aria-hidden="true" /></span>
         <span><strong>点击选择文件</strong> 或拖拽到此处</span>
         <small>{accept||'所有文件类型'} · 每个文件最大 {bytes(maxSize)}{multiple?` · 最多 ${limit} 个`:''}</small>
       </button>
     </div>
     <span id={`${id}-help`} className={error?'cs-error':'cs-help'} role={error?'alert':undefined}>{error||'仅本地选择，实际上传与进度由消费项目提供。'}</span>
     {files.length>0&&<ul className="cs-upload-list">{files.map((file,i)=>{const percent=progress[file.name];const failure=errors[file.name];return <li key={JSON.stringify([file.name,file.size,file.lastModified])}>
-      <svg className="cs-upload-file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 12h8M8 16h6" /></svg>
+      <File02 className="cs-upload-file-icon" size={24} aria-hidden="true" />
       <div className="cs-upload-file-details"><strong>{file.name}</strong><span>{bytes(file.size)} · {failure?'上传失败':percent===undefined?'已选择':percent>=100?'上传完成':`上传中 ${Math.round(percent)}%`}</span>{failure?<span className="cs-error" role="alert">{failure}</span>:percent!==undefined&&<progress aria-label={`${file.name} 上传进度`} max="100" value={Math.max(0,Math.min(100,percent))}/>}</div>
       {failure&&onRetry&&<button type="button" disabled={disabled} onClick={()=>onRetry(file)}>重试</button>}
-      <button type="button" aria-label={`移除 ${file.name}`} disabled={disabled} onClick={()=>{update(files.filter((_,index)=>index!==i));setError('');}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+      <button type="button" aria-label={`移除 ${file.name}`} disabled={disabled} onClick={()=>{update(files.filter((_,index)=>index!==i));setError('');}}><XClose size={16} aria-hidden="true" /></button>
     </li>;})}</ul>}
   </div>;
 }
