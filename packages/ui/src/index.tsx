@@ -10,6 +10,7 @@ import {
 } from "react";
 export { TextReveal } from "./text-reveal";
 import { AnimatedNumber } from "./animated-number";
+import { EmptyState } from "./empty-state";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 const cx = (...parts: (string | undefined | false)[]) =>
   parts.filter(Boolean).join(" ");
@@ -184,23 +185,6 @@ export function Metric({
     </div>
   );
 }
-export function EmptyState({
-  title,
-  description,
-  action,
-}: {
-  title: string;
-  description: string;
-  action?: ReactNode;
-}) {
-  return (
-    <div className="cs-empty">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      {action}
-    </div>
-  );
-}
 export function Dialog({
   trigger,
   title,
@@ -297,6 +281,7 @@ export * from "./rating";
 export * from "./navigation";
 export * from "./overlays";
 export * from "./display";
+export {EmptyState,type EmptyStateProps} from './empty-state';
 export {EmptyPage,type EmptyPageProps} from './empty-page';
 export * from "./toast";
 export * from "./data-table";

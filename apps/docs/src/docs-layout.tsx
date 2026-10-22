@@ -59,7 +59,7 @@ import {
   TabsTrigger,
   TabsContent,
   StatusBadge,
-  EmptyPage,
+  EmptyState,
   Popover,
   Sheet,
 } from "../../../packages/ui/src/index";
@@ -136,7 +136,6 @@ export const docCategories = [
       "dialog",
       "dropdown-menu",
       "empty-state",
-      "empty-page",
       "file-upload",
       "pagination",
       "popover",
@@ -555,15 +554,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
         </div>
       );
     case "empty-state":
-      return (
-        <div className="thumb-empty">
-          <Grid01 size={24} />
-          <strong>暂无测量任务</strong>
-          <small>创建第一个任务</small>
-        </div>
-      );
-    case "empty-page":
-      return <div className="thumb-empty-page"><EmptyPage layout="section" title="暂无测量任务" description="创建第一个任务"/></div>;
+      return <div className="thumb-empty-state"><EmptyState title="暂无测量任务" description="创建第一个任务" icon={<Grid01/>}/></div>;
     case "breadcrumbs":
       return (
         <div className="thumb-row">

@@ -14,3 +14,9 @@ it('provides a specific thumbnail and category entry for every catalog component
     cleanup();
   }
 });
+
+it('offers one empty-state entry after consolidating page emptiness',()=>{
+  const listed=docCategories.flatMap(category=>category.ids);
+  expect(listed.filter(id=>id.startsWith('empty-'))).toEqual(['empty-state']);
+  expect(catalog.filter(component=>component.id.startsWith('empty-')).map(component=>component.name)).toEqual(['EmptyState']);
+});

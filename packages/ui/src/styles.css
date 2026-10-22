@@ -1,5 +1,5 @@
 @import "./extended.css";
-@import "./empty-page.css";
+@import "./empty-state.css";
 /* Library typography must also work outside the documentation site's reset. */
 :where(.cs-card, .cs-table, .cs-field, .cs-choice, .cs-radio-group,
   .cs-tabs-list, .cs-tabs-content, .cs-accordion, .cs-breadcrumbs,
@@ -289,16 +289,6 @@
   margin-top: var(--cs-space-1-5);
   font-size: var(--cs-type-caption-size);
   line-height: var(--cs-type-caption-leading);
-}
-.cs-empty {
-  text-align: center;
-  padding: 48px 24px;
-}
-.cs-empty > h3 { margin: 0; font-size: 20px; color: var(--cs-text-heading); }
-.cs-empty > p {
-  margin: 12px 0 20px;
-  font-size: var(--cs-font-size);
-  color: var(--cs-muted);
 }
 .cs-dialog-overlay {
   position: fixed;
@@ -789,10 +779,10 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 /* Shared component roles do not depend on documentation styles. */
 .cs-card-header > div > h3 { font-size: var(--cs-type-subsection-size); line-height: var(--cs-type-subsection-leading); font-weight: var(--cs-weight-medium); }
 .cs-card-header > div > p { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
-.cs-empty > h3, .cs-instrument-dialog-header h2 { font-size: var(--cs-type-section-size); line-height: var(--cs-type-section-leading); font-weight: var(--cs-weight-semibold); }
+.cs-instrument-dialog-header h2 { font-size: var(--cs-type-section-size); line-height: var(--cs-type-section-leading); font-weight: var(--cs-weight-semibold); }
 .cs-instrument-dialog-header .cs-dialog-description { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
 
-.cs-tabs-content, .cs-sheet-body, .cs-empty > p { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
+.cs-tabs-content, .cs-sheet-body { font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); }
 .cs-choice p { font-size: var(--cs-type-caption-size); line-height: var(--cs-type-caption-leading); color: var(--cs-muted); }
 .cs-alert-content > strong, .cs-toast strong, .cs-popover > .cs-between > strong { font-size: var(--cs-type-label-size); line-height: var(--cs-type-label-leading); font-weight: var(--cs-weight-medium); }
 .cs-dialog-description { margin-top: 8px; }

@@ -4,7 +4,7 @@ import {cleanup,render,screen,within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {TemplatesLibrary,canonicalTemplateRoute} from '../apps/docs/src/templates-library';
 afterEach(cleanup);
-it.each([['patterns','templates'],['scene-styles','templates'],['templates','templates'],['templates/scenes','templates'],['scene/brand','scene/brand'],['scene/blank','component/empty-page']])('normalizes %s without changing standalone scene routes',(input,result)=>{expect(canonicalTemplateRoute(input)).toBe(result);});
+it.each([['patterns','templates'],['scene-styles','templates'],['templates','templates'],['templates/scenes','templates'],['scene/brand','scene/brand'],['scene/blank','component/empty-state'],['component/empty-page','component/empty-state']])('normalizes %s without changing standalone scene routes',(input,result)=>{expect(canonicalTemplateRoute(input)).toBe(result);});
 it('opens directly to scene templates and preserves scene switching and preview links',async()=>{
  const user=userEvent.setup();
  render(<TemplatesLibrary/>);

@@ -2,7 +2,7 @@ import {CarouselPaginationDemo} from './carousel-pagination-demo';
 import {NumberInputDemo} from './number-input-demo';
 import {RatingDemo} from './rating-demo';
 import {AvatarDemo} from './avatar-demo';
-import {EmptyPageDemo} from './empty-page-demo';
+import {EmptyStateDemo} from './empty-state-demo';
 import {FloatingTocDemo} from './floating-toc-demo';
 import {IconButtonDemo,MediaGalleryDemo} from './website-controls-demo';
 import {NavigationMenuDemo} from './navigation-menu-demo';
@@ -709,19 +709,7 @@ export function ComponentDemo({ id }: { id: string }) {
         </div>
       );
     case "empty-state":
-      return (
-        <EmptyState
-          title="尚未创建测量任务"
-          description="连接设备后，创建第一个测量任务。"
-          action={
-            <Button onClick={() => toast({ title: "已触发创建任务示例" })}>
-              创建任务
-            </Button>
-          }
-        />
-      );
-    case "empty-page":
-      return <EmptyPageDemo/>;
+      return <EmptyStateDemo/>;
     case "device-table":
       return <DeviceTableDemo devices={sampleDevices.slice(0, 3)} />;
     case "data-table":
@@ -761,8 +749,6 @@ export function ComponentPage({
                     ? "Tooltip, Button"
                     : item.id === "dropdown-menu"
                       ? "DropdownMenu, Button"
-                      : item.id === "empty-page"
-                        ? "EmptyPage, Button"
                       : item.id === "empty-state"
                         ? "EmptyState, Button"
                         : item.name;
@@ -858,7 +844,7 @@ export function ComponentPage({
       <PreviewFrame
         title={`${item.name} example`}
         code={code}
-        wide={["data-table", "device-table", "empty-page"].includes(item.id)}
+        wide={["data-table", "device-table", "empty-state"].includes(item.id)}
         theme={theme}
         onToggleTheme={onToggleTheme}
       >
@@ -931,7 +917,7 @@ export function ComponentPage({
       <section className="component-guidance">
         <h2>使用约定</h2>
         <p>{item.guidance}</p>
-        {item.id==='empty-page'&&<details className="empty-page-assets">
+        {item.id==='empty-state'&&<details className="empty-state-assets">
           <summary>品牌图案素材</summary>
           <div><a href="/brand/blank-wave-light.png" download>下载浅色波面</a><a href="/brand/blank-wave-dark.png" download>下载深色波面</a></div>
         </details>}

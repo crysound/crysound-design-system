@@ -1,6 +1,6 @@
 import {SceneStyles} from './scene-styles';
 export function canonicalTemplateRoute(route:string){
- if(route==='scene/blank')return 'component/empty-page';
+ if(route==='scene/blank'||route==='component/empty-page')return 'component/empty-state';
  if(['patterns','scene-styles','templates/scenes'].includes(route))return 'templates';
  return route;
 }

@@ -13,8 +13,7 @@
 | AvatarGroup | children；size；max；label | 直接组合 Avatar；统一尺寸，超出 max 用 +N 汇总；空组显示暂无成员 |
 | Card | title；description；actions；children | 内容区组件自行选择合适 padding；标题是 h3，应用负责整体标题层级 |
 | Metric | label；value；unit；note | 单位和采集时间由业务层提供；无效值传入“—”，不要用 0 代表断连 |
-| EmptyState | title；description；action | 为用户提供具体下一步；数据加载失败应由业务层明确说明 |
-| EmptyPage | title；description；layout；tone；logo；icon；illustration；action；footer；headingLevel | 页面空白页；整页与局部两种布局，可组合品牌素材；请求与恢复逻辑由应用提供 |
+| EmptyState | title；description；layout；tone；logo；icon；illustration；action；footer；headingLevel | 统一空状态；默认局部，可切换整页、增加辅助图形；请求与恢复逻辑由应用提供 |
 | Dialog | trigger；title；description；children | trigger 应是可接收 ref 的单个按钮元素；支持 Escape、焦点限制与恢复；这是非受控基础弹窗 |
 | DeviceTable | devices；onSelect | 提供 id/name/model/status/location；onSelect 缺省时隐藏操作列；空数组显示空状态 |
 
@@ -32,13 +31,15 @@ Avatar 默认圆形、主色底配 `--cs-on-brand` 前景，取姓名首个 Unic
 
 AvatarGroup 接收直接放置的Avatar，size统一组内尺寸，max默认不截断；小于1时至少显示一位，超出显示+N，超过99显示99+并保留准确的可访问人数。叠放间距8px、表面分隔2px为工程适配建议。头像本身是有名称的静态图像，账号菜单或导航由原生按钮/链接承载，不给头像制造额外Tab停靠点。示例包括三种尺寸、公司头像、状态、头像组、身份信息与加载/失败回退。组合方式参考[shadcn Avatar公开文档](https://ui.shadcn.com/docs/components/base/avatar)，继续沿用本库API与React实现，未引入Base UI行为体系。
 
-## EmptyPage 页面空白页
+## EmptyState 空状态
 
-EmptyPage在组件库提供整页`layout="page"`与局部内容区`layout="section"`，保留原有EmptyState的简洁提示。页面默认560px最小高度、32px内距，局部默认240px/32px；小屏页面480px/16px水平内距，局部240px/16px水平内距。内容组最大宽度320px，页面/局部图标32/28px；标题按现有section/subsection角色使用20/28与16/24、中等字重。以上均为本库Web适配建议，可通过className/style适配实际页面。页面默认h2、局部h3，视觉尺寸与语义层级独立，可通过headingLevel接入完整页面层级。
+组件库仅保留EmptyState，默认局部内容区`layout="section"`，整页显式设置`layout="page"`。原有title/description/action调用继续使用，icon和illustration均为可选辅助图形。页面默认560px最小高度、32px内距，局部默认240px/32px；小屏页面480px/16px水平内距，局部240px/16px水平内距。内容组最大宽度320px，页面/局部图标32/28px；标题按现有section/subsection角色使用20/28与16/24、中等字重。以上均为本库Web适配建议，可通过className/style适配实际页面。页面默认h2、局部h3，视觉尺寸与语义层级独立，可通过headingLevel接入完整页面层级。
 
-neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-page-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认图标复用标准CrysoundMark，icon=null可隐藏。品牌例子仅保留左上角112px横版Logo，隐藏中心重复标识与页脚；点阵图案限制在右下角，最大400px宽、16%透明度，让文字与操作保持清晰。小屏按钮保留内容宽度与至少44px高度。插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，下载入口收在使用约定的“品牌图案素材”中，安装后由消费应用托管素材。
+neutral消费当前明暗/客户表面及文字语义色；brand显式使用CRYSOUND深紫背景与浅色前景，可通过局部`--cs-empty-state-bg/fg/muted`覆盖。logo、icon、illustration与action均为ReactNode槽位，默认不显示图标，避免普通表格空状态引入额外品牌标识。品牌例子仅保留左上角112px横版Logo，隐藏中心重复标识与页脚；点阵图案限制在右下角，最大400px宽、16%透明度，让文字与操作保持清晰。小屏按钮保留内容宽度与至少44px高度。插画是无交互的装饰层，不进入辅助技术读序或键盘顺序。共享组件不读取文档站的素材地址；文档例子使用之前根据用户参考生成的透明点阵PNG，下载入口收在使用约定的“品牌图案素材”中，安装后由消费应用托管素材。
 
 首次使用、无搜索结果与加载失败由消费方提供不同文案/图标/操作，组件不查询接口、不自动重试、不假设权限；加载期间使用LoadingIndicator而不是提前展示空白页。区域是带标题/说明关联的section，不额外制造main地标，也不自动使用alert打断用户。创建、清空搜索与重试示例只操作文档本地状态。
+
+原`#component/empty-page`与`#scene/blank`统一跳转到`#component/empty-state`。`EmptyPage`仅保留弃用的源码兼容别名，复用同一实现并维持旧page默认值；新接入统一使用EmptyState，目录和搜索不再注册第二个组件。
 
 ## 应用级主题
 
