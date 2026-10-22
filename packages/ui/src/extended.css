@@ -1426,6 +1426,7 @@ button.cs-step-content { cursor: pointer; }
   .cs-tabs-list[data-compact-segmented] .cs-tabs-trigger[data-has-icon]:not([data-state="active"]) .cs-tabs-icon { margin-inline-end: 0; }
   .cs-tabs-list[data-compact-segmented] .cs-tabs-trigger[data-has-icon]:not([data-state="active"]) .cs-tabs-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: calc(var(--cs-space-0-5) * -1); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .cs-tabs-list[data-compact-segmented] .cs-tabs-trigger[data-state="active"] { flex: none; padding-inline: 16px; }
+  .cs-tabs-list[data-compact-segmented] .cs-tabs-trigger[data-has-icon][data-state="active"] { padding-inline-start: var(--cs-space-3-5); }
 }
 
 @media (prefers-reduced-motion: reduce) {
