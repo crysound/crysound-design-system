@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {AlertCircle,File02,SearchLg} from '@untitledui/icons';
+import {AlertCircle,SearchLg} from '@untitledui/icons';
 import {Button,Card,EmptyState,Input} from '../../../packages/ui/src/index';
 
 export function EmptyStateDemo({brand=false}:{brand?:boolean}){
@@ -15,7 +15,7 @@ export function EmptyStateDemo({brand=false}:{brand?:boolean}){
 }
 export function EmptyStateSectionDemo(){
   return <div className="empty-state-section-demo"><div className="empty-state-section-header">项目附件</div>
-    <EmptyState layout="section" title="暂无附件" description="上传配置、测量记录或报告后，会显示在这里。" icon={<File02/>} graphic="particles"/>
+    <EmptyState layout="section" title="暂无附件" description="上传配置、测量记录或报告后，会显示在这里。" graphic="particles"/>
   </div>;
 }
 export function EmptyStateSearchDemo(){

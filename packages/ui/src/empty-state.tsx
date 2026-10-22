@@ -27,9 +27,9 @@ export function EmptyState({title,description,layout='section',tone='neutral',he
   const descriptionId=description?`${generated}-description`:undefined;
   const Heading=headingLevel===1?'h1':headingLevel===3||(!headingLevel&&layout==='section')?'h3':'h2';
   return <section {...props} className={cx('cs-empty','cs-empty-state',className)} data-layout={layout} data-tone={tone} aria-labelledby={props['aria-labelledby']??(props['aria-label']?undefined:titleId)} aria-describedby={props['aria-describedby']??descriptionId}>
-    {illustration?<div className="cs-empty-state-art" aria-hidden="true" inert>{illustration}</div>:graphic==='particles'&&<EmptyStateParticles animated={animated}/>}
     {logo&&<header className="cs-empty-state-brand">{logo}</header>}
     <div className="cs-empty-state-body"><div className="cs-empty-state-copy">
+      {illustration?<div className="cs-empty-state-art" aria-hidden="true" inert>{illustration}</div>:graphic==='particles'&&<EmptyStateParticles animated={animated}/>}
       {icon!=null&&<div className="cs-empty-state-icon" aria-hidden="true" inert>{icon}</div>}
       <Heading id={titleId}>{title}</Heading>
       {description&&<div className="cs-empty-state-description" id={descriptionId}>{description}</div>}
