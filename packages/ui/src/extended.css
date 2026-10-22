@@ -1034,7 +1034,8 @@ button.cs-step-content { cursor: pointer; }
 .cs-progress-steps li[data-state="complete"] .cs-step-marker { background: var(--cs-brand); border-color: var(--cs-brand); color: var(--cs-on-brand); }
 .cs-progress-steps li[data-state="current"] .cs-step-marker { border-color: var(--cs-brand); color: var(--cs-selected-fg); background: var(--cs-selected-bg); box-shadow: 0 0 0 3px var(--cs-selected-bg); }
 .cs-progress-steps li[data-state="current"] strong { color: var(--cs-brand); }
-.cs-progress-steps li[data-state="error"] .cs-step-marker { color: var(--cs-danger-fg); background: var(--cs-danger-bg); border-color: var(--cs-danger-fg); }
+.cs-progress-steps li[data-state="error"] .cs-step-marker { color: var(--cs-danger-fg); background: var(--cs-danger-bg); border: 0; }
+.cs-progress-steps li[data-state="error"] .cs-step-marker svg { width: 100%; height: 100%; }
 .cs-progress-steps li[data-state="error"] strong { color: var(--cs-danger-fg); }
 .cs-progress-steps li[data-disabled] { opacity: .45; }
 .cs-step-content:disabled { cursor: not-allowed; }
