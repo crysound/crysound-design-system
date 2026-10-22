@@ -113,6 +113,10 @@ Accordion 的动画容器与 Radix 尺寸测量节点分离，避免尺寸读取
 
 品牌官网页脚沿用LinkGroup的标题下距8px和链接上下各4px内距，不额外叠加列表间距；桌面与手机采用相同规则。官网的12px/20px链接排版和列布局由消费应用保留。
 
+## NavigationMenu 分类选中反馈
+
+按用户对选中色偏重的反馈，分类与子分类采用`cs-selected-bg`和`cs-surface`各50%混合的轻底色，文字继续使用`cs-selected-fg`。这是局部Web适配建议，不更改全局选中令牌；普通目录与官网面板共用此规则，选中后悬停不叠加深色，保留键盘焦点与`aria-pressed`语义。
+
 ## 边界组合规则（已落实共享组件）
 
 Card默认outlined且无阴影；页面分组使用variant="plain"（标题和留白），嵌入分组可用variant="inset"（浅表面，无闭合边框）。CardBody提供内容间距，CardActions仅使用顶部单向分隔线。Toolbar为有名称的操作分组，ToolbarButton默认ghost并保留Button全部加载、禁用及键盘语义；关键次级操作显式variant="secondary"。不根据DOM父容器强制取消Input或Secondary按钮边框。阴影只在独立浮层或显式shadow属性时使用，内容卡片不默认抬升。
