@@ -163,7 +163,7 @@
 .scene-preview-nav a { color:var(--cs-muted); text-decoration:none; padding:8px; display:inline-flex; align-items:center; }
 .scene-preview-back { gap:var(--cs-space-1); }
 .scene-preview-back svg { flex-shrink:0; }
-.scene-preview-nav div { display:flex; gap:12px; }.scene-preview-nav a[aria-current] { color:var(--cs-brand); background:var(--cs-subtle); border-radius:4px; }
+.scene-preview-nav div { display:flex; flex-wrap:wrap; gap:12px; }.scene-preview-nav a[aria-current] { color:var(--cs-brand); background:var(--cs-subtle); border-radius:4px; }
 .scene-preview-nav > span { color:var(--cs-muted); }.scene-standalone > .scene-sample { border:0; border-radius:0; max-width:1600px; margin:auto; }
 .scene-standalone .scene-workspace { min-height:calc(100vh - 118px); }.scene-standalone .scene-analysis-body { max-width:1440px; margin:auto; }
 .scene-brand-centered { display:block; padding:48px 36px 24px; }
