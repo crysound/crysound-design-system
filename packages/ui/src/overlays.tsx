@@ -50,7 +50,7 @@ export function Popover({
         <PopoverPrimitive.Content
           sideOffset={8}
           align="start"
-          className="cs-popover"
+          className="cs-popover cs-popover--titled"
           aria-label={title}
         >
           <div className="cs-between">

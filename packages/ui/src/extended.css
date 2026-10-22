@@ -399,6 +399,12 @@
 .cs-popover {
   width: 300px;
 }
+.cs-popover--titled {
+  padding-block-start: var(--cs-space-2);
+}
+.cs-popover--titled > .cs-between {
+  margin-block-end: var(--cs-space-3);
+}
 .cs-dropdown {
   padding: var(--cs-space-1-5);
   min-width: 200px;
