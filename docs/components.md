@@ -111,6 +111,8 @@ Accordion 的动画容器与 Radix 尺寸测量节点分离，避免尺寸读取
 
 官网页脚和链接目录使用共享LinkGroup，label为可访问分组名，items接受原生链接属性。悬停一项时仅同组其他项切换为cs-muted，当前项保持cs-text；颜色200ms ease，不缩放、位移、加粗。此为参考Claude Design官网反馈方式的CRYSOUND适配，分组淡化不宣称完全复刻其实现。键盘显示焦点环，不触发全组淡化；触摸保持正常文字，减少动态效果取消过渡，增强对比度取消淡化。每组独立，禁止应用于状态、错误和关键工作台操作。
 
+品牌官网页脚沿用LinkGroup的标题下距8px和链接上下各4px内距，不额外叠加列表间距；桌面与手机采用相同规则。官网的12px/20px链接排版和列布局由消费应用保留。
+
 ## 边界组合规则（已落实共享组件）
 
 Card默认outlined且无阴影；页面分组使用variant="plain"（标题和留白），嵌入分组可用variant="inset"（浅表面，无闭合边框）。CardBody提供内容间距，CardActions仅使用顶部单向分隔线。Toolbar为有名称的操作分组，ToolbarButton默认ghost并保留Button全部加载、禁用及键盘语义；关键次级操作显式variant="secondary"。不根据DOM父容器强制取消Input或Secondary按钮边框。阴影只在独立浮层或显式shadow属性时使用，内容卡片不默认抬升。
