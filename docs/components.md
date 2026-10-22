@@ -21,6 +21,8 @@ NumberInput通过`<input type="number">`提供spinbutton语义，沿用Input的�
 
 Rating默认5星，交互值为1至max的整数，0表示未评分；不支持半星或平均分。复用Radix RadioGroup的单选、方向键、Space及RTL行为，同组仅一个Tab停靠点。悬停只改变预览，不触发onValueChange；选择后回调，受控状态始终以value为准。name/required参与原生表单提交与验证，非受控表单重置恢复defaultValue。readOnly使用带完整评分名称的静态图像语义，不进入Tab序列；传name时通过隐藏字段提交，禁用字段不提交。hint/error与评分区域关联；清空由消费方设置value=0，异步保存和业务文案留在消费应用。颜色使用cs-rating-active/empty令牌，active按用户要求引用现有cs-warning橙色并随明暗主题适配，仍可单独覆盖。尺寸参考[HeroUI Rating公开示例](https://heroui.pro/docs/react/components/rating#sizes)，sm/md/lg图标及桌面单项分别为16/20/28px，默认md；间距按本库刻度适配为4/4/8px，触屏操作区至少44px。减少动态效果时取消颜色过渡。
 
+NumberInput的上下箭头按用户补充截图收紧为居中的视觉组合，按钮点击区域及4px内缩保持原样。舒适40px控件中，两枚图标分别向中间靠拢4px；紧凑32px控件中各靠拢2px，几何间距约4/5px，属于Web适配建议。SVG不拦截指针事件，避免图标包围盒重叠影响增加、减少的点击分区。
+
 ## 应用级主题
 
 主题放在 html 根元素，保证浮层 Portal 也继承 CSS 变量。
