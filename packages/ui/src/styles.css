@@ -854,7 +854,7 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-quota-item p { margin:0; color:var(--cs-muted); font-size:var(--cs-type-caption-size); line-height:var(--cs-type-caption-leading); }
 .cs-detail-fields { margin:0; display:grid; gap:var(--cs-space-2); }
 .cs-detail-fields > div { display:grid; grid-template-columns:minmax(80px,1fr) minmax(0,2fr); gap:16px; font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
-.cs-detail-fields > div:not(:last-child) { padding-bottom:var(--cs-space-2); border-bottom:1px solid var(--cs-border); }
+.cs-detail-fields > div:not(:last-child) { padding-bottom:var(--cs-space-2); border-bottom:1px solid color-mix(in srgb,var(--cs-border) 55%,var(--cs-surface)); }
 .cs-detail-fields dt { color:var(--cs-muted); }
 .cs-detail-fields dd { margin:0; overflow-wrap:anywhere; min-width:0; font-variant-numeric:tabular-nums; }
 .cs-form-dialog { display:grid; gap:16px; margin-top:20px; }
