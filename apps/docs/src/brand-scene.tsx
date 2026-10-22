@@ -1,5 +1,5 @@
 import {useRef,useState} from 'react';
-import {ArrowNarrowUpRight} from '@untitledui/icons';
+import {BrandFooter} from './brand-footer';
 import {BrandNavigation} from './brand-navigation';
 import {Button,Dialog,SectionHeader,MediaGallery,ActionButton,ActionLink,Carousel,Tabs,TabsList,TabsTrigger,TabsContent} from '../../../packages/ui/src/index';
 import './brand-banner.css';
@@ -37,7 +37,7 @@ const blogPosts=[
 ].map(post=>({...post,alt:post.caption,href:websiteUrl+'#blog/'+post.id}));
 export function BrandSample(){
  const [category,setCategory]=useState('all');
- const productSection=useRef<HTMLElement>(null);const solutionSection=useRef<HTMLElement>(null);const footer=useRef<HTMLElement>(null);
+ const productSection=useRef<HTMLElement>(null);const solutionSection=useRef<HTMLElement>(null);
  const scroll=(target:HTMLElement|null)=>target?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
  const showProducts=(id='all')=>{setCategory(id);scroll(productSection.current);};
  return <div className="scene-brand scene-brand-official" lang="en">
@@ -47,7 +47,7 @@ export function BrandSample(){
   <section className="scene-brand-products" ref={productSection}><SectionHeader title="Products" level={3} size="lg" divider={false} actions={<ActionLink size="lg" href={websiteUrl+'#products'}>See More</ActionLink>}/><Tabs value={category} onValueChange={setCategory}><TabsList variant="pill" shape="capsule" tone="brand" indicatorMode="animated" aria-label="样板产品分类">{categories.map(c=><TabsTrigger key={c.id} value={c.id}>{c.name}</TabsTrigger>)}</TabsList><TabsContent value={category}><div className="scene-product-grid">{products.filter(p=>category==='all'||p.id===category).map(p=><article key={p.image}><Dialog title={p.title} description="产品系列概览" trigger={<button type="button" className={`scene-product-card scene-product-${p.variant}`} aria-label={`查看系列：${p.title}`}><span className="scene-product-image">{p.variant==='monitor'?<><span className="scene-opentest-frame"><img src="/scene-assets/home-opentest-imac-source.png" alt="" loading="lazy"/></span><span className="scene-opentest-screen"><img src="/scene-assets/home-opentest-octave-source.png" alt="" loading="lazy"/></span></>:<img src={`/scene-assets/${p.image}`} alt="" loading="lazy"/>}</span><span className="scene-product-title" role="heading" aria-level={4}>{p.title}</span></button>}><img className="scene-product-dialog-image" src={`/scene-assets/${p.image}`} alt={p.title}/><p>{p.description}</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">前往 CRYSOUND 官网了解产品</a></Dialog></article>)}</div></TabsContent></Tabs></section>
   <section className="scene-brand-featured" aria-label="Featured Products"><MediaGallery className="scene-featured-gallery" images={featuredProducts} label="Featured Products" layout="grid" cardStyle="shop" buttonShape="capsule"/></section>
   <section className="scene-brand-blogs" id="brand-blogs"><SectionHeader title="Blogs" description="Share insights, cases, and trends in acoustic testing" level={3} size="lg" divider={false} actions={<ActionLink size="lg" href={websiteUrl+'#blogs/all'} arrow>See More</ActionLink>}/><Carousel draggable itemsPerView={4} loop={false} arrows={false} className="scene-card-carousel scene-blog-carousel" label="Blogs articles" previousLabel="上一篇文章" nextLabel="下一篇文章" items={blogPosts.map(post=>({id:post.id,label:post.caption,content:<MediaGallery className="scene-blog-gallery" label={post.caption} layout="grid" cardStyle="article" images={[post]}/>}))}/></section>
-  <footer className="scene-brand-footer" ref={footer}><div><img src="/crysound-logo.svg" alt="CRYSOUND"/><h3>Measure Sound Better</h3><p>Precision in every signal.<br/>Possibility in every discovery.</p></div><div><strong>Resources & Support</strong><p>Discover acoustic measurement products,<br/>applications and technical support.</p><a href="https://www.crysound.com/" target="_blank" rel="noopener noreferrer">Visit CRYSOUND <ArrowNarrowUpRight size={18}/></a></div></footer>
+  <BrandFooter siteUrl={websiteUrl}/>
  </div>;
 }
 
