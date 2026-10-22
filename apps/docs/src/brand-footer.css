@@ -29,19 +29,14 @@
   line-height:20px;
   font-weight:var(--cs-weight-normal);
 }
-/* LinkGroup owns the title gap and link padding at every viewport width. */
+/* LinkGroup owns spacing, brand feedback and the animated underline. */
 .scene-brand-footer-column .cs-link-group-link {
-  position:relative;
-  color:var(--cs-text);
   font-size:var(--cs-type-caption-size);
   line-height:20px;
   font-weight:var(--cs-weight-normal);
   white-space:normal;
   overflow-wrap:anywhere;
 }
-.scene-brand-footer-column .cs-link-group-link:hover,.scene-brand-footer-column .cs-link-group-link:focus-visible { color:var(--cs-brand); }
-.scene-brand-footer-column .cs-link-group-link::after { content:''; position:absolute; inset-inline:0; bottom:var(--cs-space-1); height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform var(--cds-dur-base) var(--cds-ease-out); }
-.scene-brand-footer-column .cs-link-group-link:is(:hover,:focus-visible)::after { transform:scaleX(1); }
 .scene-brand-footer-bottom {
   grid-column:1 / -1;
   display:flex;
@@ -85,4 +80,4 @@
   .scene-brand-footer-inner { width:calc(100% - 32px); grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--cs-space-7) var(--cs-space-5); }
   .scene-brand-footer-bottom { align-items:flex-start; flex-direction:column; }
 }
-@media(prefers-reduced-motion:reduce) { .scene-brand-footer-socials a,.scene-brand-footer-column .cs-link-group-link::after { transition:none; } }
+@media(prefers-reduced-motion:reduce) { .scene-brand-footer-socials a { transition:none; } }

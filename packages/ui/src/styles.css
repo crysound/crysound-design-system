@@ -799,12 +799,17 @@ button.cs-close-icon { display: inline-grid; place-items: center; width: 32px; h
 .cs-link-group { color: var(--cs-text); }
 .cs-link-group-title { margin: 0 0 8px; color: var(--cs-muted); font-size: var(--cs-type-label-size); line-height: var(--cs-type-label-leading); font-weight: var(--cs-weight-normal); }
 .cs-link-group-list { list-style: none; margin: 0; padding: 0; }
-.cs-link-group-link { display: block; width: fit-content; max-width: 100%; padding: 4px 0; font-family: var(--cs-font); font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); font-weight: var(--cs-weight-normal); color: var(--cs-text); text-decoration: none; overflow-wrap: anywhere; transition: color 200ms ease; }
+.cs-link-group-link { position: relative; display: block; width: fit-content; max-width: 100%; padding: 4px 0; font-family: var(--cs-font); font-size: var(--cs-type-body-size); line-height: var(--cs-type-body-leading); font-weight: var(--cs-weight-normal); color: var(--cs-text); text-decoration: none; overflow-wrap: anywhere; transition: color var(--cds-dur-base) var(--cds-ease-out); }
+.cs-link-group-link::after { content: ''; position: absolute; inset-inline: 0; bottom: var(--cs-space-1); height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--cds-dur-base) var(--cds-ease-out); }
+.cs-link-group-link:dir(rtl)::after { transform-origin: right; }
 @media (hover: hover) and (pointer: fine) {
+  .cs-link-group-link:hover { color: var(--cs-brand); }
+  .cs-link-group-link:hover::after { transform: scaleX(1); }
   .cs-link-group-list:has(.cs-link-group-link:hover) .cs-link-group-link:not(:hover):not(:focus-visible) { color: var(--cs-muted); }
 }
-.cs-link-group-link:focus-visible { color: var(--cs-text); outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-1); border-radius: var(--cs-radius); }
-@media (prefers-reduced-motion: reduce) { .cs-link-group-link { transition: none; } }
+.cs-link-group-link:focus-visible { color: var(--cs-brand); outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-1); border-radius: var(--cs-radius); }
+.cs-link-group-link:focus-visible::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .cs-link-group-link,.cs-link-group-link::after { transition: none; } }
 @media (prefers-contrast: more), (forced-colors: active) {
   .cs-link-group-list:has(.cs-link-group-link:hover) .cs-link-group-link:not(:hover):not(:focus-visible) { color: var(--cs-text); }
 }
