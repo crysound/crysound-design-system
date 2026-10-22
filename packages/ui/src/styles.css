@@ -1,4 +1,5 @@
 @import "./extended.css";
+@import "./rating-reviews.css";
 @import "./empty-state.css";
 /* Library typography must also work outside the documentation site's reset. */
 :where(.cs-card, .cs-table, .cs-field, .cs-choice, .cs-radio-group,
@@ -159,7 +160,9 @@
 .cs-rating-item[data-filled="true"] { color: var(--cs-rating-active); }
 .cs-rating-item svg { display: block; width: var(--cs-rating-icon); height: var(--cs-rating-icon); fill: currentColor; stroke: currentColor; stroke-width: var(--cs-icon-stroke-width); stroke-linecap: round; stroke-linejoin: round; }
 .cs-rating-item:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 0; }
-.cs-rating-stars[role="img"] .cs-rating-item { cursor: default; }
+.cs-rating-stars[role="img"] .cs-rating-item { position:relative; cursor: default; }
+.cs-rating-fill { position:absolute; inset-block:0; inset-inline-start:0; overflow:hidden; color:var(--cs-rating-active); pointer-events:none; }
+.cs-rating-fill svg { position:absolute; inset-block-start:0; inset-inline-start:0; max-width:none; }
 .cs-rating-stars[data-disabled] { opacity: .5; }
 .cs-rating-stars[data-disabled] .cs-rating-item { cursor: not-allowed; }
 @media (pointer: coarse) {

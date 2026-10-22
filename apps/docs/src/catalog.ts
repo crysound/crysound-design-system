@@ -113,7 +113,7 @@ export const catalog: ComponentDoc[] = [
     "Rating",
     "星级评分",
     "表单",
-    "以星级收集整数评分，支持悬停预览、键盘选择与只读展示。",
+    "收集星级评分，并组合平均分、星级分布与用户评价列表。",
     [
       ["label / hideLabel", "string / boolean", "名称必填；hideLabel默认false"],
       ["value / defaultValue", "number", "受控值 / 初始值；0表示未评分"],
@@ -124,9 +124,13 @@ export const catalog: ComponentDoc[] = [
       ["name / required", "string / boolean", "原生表单字段名 / 必选"],
       ["hint / error", "string", "辅助说明 / 错误说明"],
       ["getValueLabel", "(value: number, max: number) => string", "自定义星级的可访问名称"],
+      ["precision", "integer | fractional", "integer；fractional仅用于只读均分"],
+      ["RatingReviews reviews", "RatingReview[]", "必填；每条评分为1至5整数"],
+      ["RatingReviews labels", "Partial<{overview, reviews, all, verified, empty}>", "可选自定义界面文案"],
+      ["RatingReview verified", "boolean", "false；由消费项目提供验证结果"],
     ],
     '<Rating label="产品评分" defaultValue={2} hideLabel />',
-    "默认5星，0表示未评分，选择范围1至max；整数评分不表示半星或平均分。悬停仅预览，点击提交；Tab进入当前值，方向键选择，Space选中，支持RTL。readOnly只朗读评分且不进入Tab序列，disabled阻止交互。name和required参与原生表单提交与验证，表单重置恢复defaultValue；清空由消费方将受控value设为0。异步保存由消费项目处理。实星按用户要求复用系统橙色cs-warning，随明暗主题适配；保留cs-rating-active/empty令牌供单独覆盖。sm/md/lg星形按HeroUI公开示例采用16/20/28px，默认md，间距按本库刻度适配为4/4/8px，触屏操作区至少44px。",
+    "默认5星，0表示未评分，选择范围1至max；输入保持整数；只读均分可显式设置precision=\"fractional\"按比例填充星形。悬停仅预览，点击提交；Tab进入当前值，方向键选择，Space选中，支持RTL。readOnly只朗读评分且不进入Tab序列，disabled阻止交互。name和required参与原生表单提交与验证，表单重置恢复defaultValue；清空由消费方将受控value设为0。异步保存由消费项目处理。实星按用户要求复用系统橙色cs-warning，随明暗主题适配；保留cs-rating-active/empty令牌供单独覆盖。sm/md/lg星形按HeroUI公开示例采用16/20/28px，默认md，间距按本库刻度适配为4/4/8px，触屏操作区至少44px。RatingReviews从同一组评价推导均分、分布和总数，星级按钮筛选列表，All恢复全部；没有评价时显示空状态，已验证标记仅按verified字段展示。评价内容、审核与异步加载由消费项目提供。",
   ),
   define(
     "textarea",

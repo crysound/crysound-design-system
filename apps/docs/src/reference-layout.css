@@ -1948,3 +1948,7 @@ body {
 .thumb-empty-state .cs-empty-state-copy > :is(h1,h2,h3) { font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
 .templates-page .scene-styles-page--embedded { padding:0; max-width:none; }
 @media(max-width:600px) { .templates-page { padding-bottom:40px; } }
+
+.rating-reviews-demo { width:100%; box-sizing:border-box; padding:var(--cs-space-8); }
+.rating-reviews-demo > .cs-help { margin:0 0 var(--cs-space-6); }
+@media(max-width:600px) { .rating-reviews-demo { padding:var(--cs-space-4); } }

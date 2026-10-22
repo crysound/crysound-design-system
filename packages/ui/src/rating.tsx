@@ -2,6 +2,7 @@
 import { useEffect, useId, useRef, useState, type ComponentPropsWithoutRef } from "react";
 import * as Radio from "@radix-ui/react-radio-group";
 import { cx } from "./utils";
+import { RatingStar } from './rating-star';
 
 export interface RatingProps extends Omit<ComponentPropsWithoutRef<typeof Radio.Root>, "value" | "defaultValue" | "onValueChange" | "children" | "asChild"> {
   label: string;
@@ -12,6 +13,8 @@ export interface RatingProps extends Omit<ComponentPropsWithoutRef<typeof Radio.
   max?: number;
   size?: "sm" | "md" | "lg";
   readOnly?: boolean;
+  /** Fractional filling is available only for read-only averages; input remains integer. */
+  precision?: 'integer' | 'fractional';
   hideLabel?: boolean;
   hint?: string;
   error?: string;
@@ -19,22 +22,16 @@ export interface RatingProps extends Omit<ComponentPropsWithoutRef<typeof Radio.
 }
 
 const valueLabel = (value: number, max: number) => value === 0 ? `未评分，共 ${max} 星` : `${value} 星，共 ${max} 星`;
-function Star() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <path d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 2.9 1.1-6.3-4.6-4.4 6.3-.9Z" />
-  </svg>;
-}
-
 export function Rating({
   label, value, defaultValue = 0, onValueChange, max: requestedMax = 5,
-  size = "md", readOnly = false, hideLabel = false, hint, error,
+  size = "md", readOnly = false, precision = 'integer', hideLabel = false, hint, error,
   getValueLabel = valueLabel, className, name, required, disabled,
   onPointerLeave, onKeyDown, "aria-describedby": described, ...props
 }: RatingProps) {
   const generated = useId();
   const groupRef = useRef<HTMLDivElement>(null);
   const max = Number.isFinite(requestedMax) && requestedMax >= 1 ? Math.floor(requestedMax) : 5;
-  const normalize = (next: number) => Number.isFinite(next) ? Math.min(max, Math.max(0, Math.round(next))) : 0;
+  const normalize = (next: number) => Number.isFinite(next) ? Math.min(max, Math.max(0, readOnly && precision === 'fractional' ? next : Math.round(next))) : 0;
   const [internal, setInternal] = useState(defaultValue);
   const [preview, setPreview] = useState<number | null>(null);
   const selected = normalize(value ?? internal);
@@ -59,7 +56,13 @@ export function Rating({
     {readOnly ? <>
       <div {...props} ref={groupRef} role="img" aria-label={`${label}：${getValueLabel(selected, max)}`}
         aria-describedby={description} className={cx("cs-rating-stars", className)} data-disabled={disabled || undefined}>
-        {Array.from({ length: max }, (_, index) => <span key={index} className="cs-rating-item" data-filled={index < selected}><Star /></span>)}
+        {Array.from({ length: max }, (_, index) => {
+          const fill = Math.min(1, Math.max(0, selected - index));
+          return <span key={index} className="cs-rating-item" data-filled={fill === 1}>
+            <RatingStar />
+            {fill > 0 && fill < 1 && <span className="cs-rating-fill" style={{width:`${fill * 100}%`}}><RatingStar /></span>}
+          </span>;
+        })}
       </div>
       {name && <input type="hidden" name={name} value={selected} disabled={disabled} />}
     </> : <Radio.Root
@@ -81,7 +84,7 @@ export function Rating({
         key={index} value={String(index + 1)} className="cs-rating-item"
         aria-label={getValueLabel(index + 1, max)} data-filled={index < displayed}
         onPointerEnter={event => { if (!disabled && event.pointerType !== "touch") setPreview(index + 1); }}
-      ><Star /></Radio.Item>)}
+      ><RatingStar /></Radio.Item>)}
     </Radio.Root>}
     {(error || hint) && <span id={`${generated}-help`} className={cx("cs-help", !!error && "cs-error")}>{error || hint}</span>}
   </div>;

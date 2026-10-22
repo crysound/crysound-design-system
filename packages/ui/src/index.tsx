@@ -278,6 +278,7 @@ export function DeviceTable({
 export * from "./forms";
 export * from "./number-input";
 export * from "./rating";
+export * from "./rating-reviews";
 export * from "./navigation";
 export * from "./overlays";
 export * from "./display";

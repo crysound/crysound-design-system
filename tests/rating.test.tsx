@@ -106,3 +106,25 @@ it("associates validation text and supports a custom integer scale and accessibl
   expect(group).toHaveAttribute("aria-invalid", "true");
   expect(screen.queryByText("普通说明")).not.toBeInTheDocument();
 });
+
+it('preserves an opt-in read-only fractional value in its accessible name and form data', () => {
+  const {container} = render(<form><Rating label="Average" value={4.75} precision="fractional" readOnly name="average" /></form>);
+  const image = screen.getByRole('img', {name:'Average：4.75 星，共 5 星'});
+  expect(filled(image)).toBe(4);
+  expect(image.querySelector('.cs-rating-fill')).toHaveStyle({width:'75%'});
+  expect(new FormData(container.querySelector('form')!).get('average')).toBe('4.75');
+  expect(screen.queryByRole('radio')).not.toBeInTheDocument();
+});
+
+it('keeps integer keyboard input when fractional precision is requested on an interactive rating', async () => {
+  const user = userEvent.setup();
+  const change = vi.fn();
+  render(<Rating label="Input" defaultValue={2.6} precision="fractional" onValueChange={change} />);
+  const third = screen.getByRole('radio', {name:'3 星，共 5 星'});
+  expect(third).toBeChecked();
+  third.focus();
+  await user.keyboard('{ArrowRight>}');
+  await waitFor(() => expect(change).toHaveBeenLastCalledWith(4));
+  await user.keyboard('{/ArrowRight}');
+  expect(screen.getByRole('radio', {name:'4 星，共 5 星'})).toBeChecked();
+});
