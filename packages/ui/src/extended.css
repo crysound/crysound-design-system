@@ -405,6 +405,9 @@
 .cs-popover--titled > .cs-between {
   margin-block-end: var(--cs-space-3);
 }
+.cs-popover--titled > .cs-between > .cs-overlay-close {
+  margin-inline-end: calc(var(--cs-space-2) * -1);
+}
 .cs-dropdown {
   padding: var(--cs-space-1-5);
   min-width: 200px;
