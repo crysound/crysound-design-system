@@ -1,23 +1,10 @@
 import {useState} from 'react';
-import {Button,Dialog,DropdownMenu,Input,NavigationMenu,type NavigationMenuItem,type NavigationMenuLink} from '../../../packages/ui/src/index';
-import data from './brand-navigation-data.json';
+import {Button,Dialog,DropdownMenu,Input,NavigationMenu} from '../../../packages/ui/src/index';
+import {brandNavigationItems} from './brand-navigation-items';
+export {brandNavigationItems} from './brand-navigation-items';
 import './brand-navigation.css';
 
 const website='https://crysound-website.ya-wang346019.chatgpt.site/';
-interface Product {label:string;href:string;images:string[];crop:string|number;}
-const collections:Record<string,{label:string;href:string;products:Product[]}>=data.products.collections;
-function productLink(product:Product):NavigationMenuLink {
- return {label:product.label,href:product.href,media:<span className="brand-nav-product" data-crop={product.crop}>{product.images.map(src=><img key={src} src={src} alt="" loading="lazy"/>)}</span>};
-}
-const unique=(products:Product[])=>[...new Map(products.map(p=>[p.href,p])).values()];
-const solutionLinks=data.solutions.cards.map(card=>({label:card.label,href:card.href,media:<span className="brand-nav-solution-icon"><img src={card.image} alt="" data-large={card.large||undefined} loading="lazy"/></span>,groups:card.groups}));
-export const brandNavigationItems:NavigationMenuItem[]=[
- {id:'products',label:'Products',layout:'catalog',neutralInitialSelection:true,catalogLabels:{categories:'Product categories',products:'Featured products'},products:data.products.featured.map(productLink),groups:data.products.categories.map(category=>({title:category.title,links:category.collections.map(key=>{const collection=collections[key];return{label:collection.label,href:collection.href,products:collection.products.map(productLink)};}),products:unique(category.collections.flatMap(key=>collections[key].products)).map(productLink)})),footer:{label:'Products home',href:website+'#product-line/acoustic-imaging'}},
- {id:'solutions',label:'Solutions',layout:'catalog',neutralInitialSelection:true,catalogLabels:{categories:'Solution navigation groups',products:'Featured solutions'},products:solutionLinks,groups:data.solutions.groups.map(group=>({title:group.title,links:group.links.map(link=>({label:link.label,href:website+'#solutions/all?category='+encodeURIComponent(link.group!),products:solutionLinks.filter(card=>card.groups.includes(link.group!))})),products:solutionLinks.filter(card=>card.groups.includes(group.group))})),footer:{label:'Solutions home',href:website+'#solutions/all'}},
- ...data.menus.map(menu=>({...menu,layout:'cards' as const})),
- {id:'about',label:'About Us',href:website+'#why-crysound'},
- {id:'shop',label:'Shop',href:website+'#shop'},
-];
 export function BrandNavigation({products}:{products:{title:string;description:string;image:string}[]}) {
  const [language,setLanguage]=useState('EN');const [search,setSearch]=useState('');
  const tools=<div className="brand-navigation-tools">
@@ -26,5 +13,5 @@ export function BrandNavigation({products}:{products:{title:string;description:s
   <Dialog title="Account" description="CRYSOUND account" trigger={<Button variant="ghost" size="sm" aria-label="Account"><img src="/scene-assets/header-login.svg" alt=""/></Button>}><p>Manage your account on the CRYSOUND website.</p><a href={website+'#auth/sign-in'}>Visit CRYSOUND</a></Dialog>
   <Dialog title="Search" description="Find products" trigger={<Button variant="ghost" size="sm" aria-label="Search"><img src="/scene-assets/header-search.svg" alt=""/></Button>}><Input label="Search products" type="search" value={search} onChange={e=>setSearch(e.target.value)}/><ul className="brand-header-search-results">{products.filter(p=>!search||`${p.title} ${p.description}`.toLowerCase().includes(search.toLowerCase())).map(p=><li key={p.image}><strong>{p.title}</strong><p>{p.description}</p></li>)}</ul>{search&&!products.some(p=>`${p.title} ${p.description}`.toLowerCase().includes(search.toLowerCase()))&&<p>No products found.</p>}</Dialog>
  </div>;
- return <header className="scene-brand-header"><NavigationMenu shape="capsule" className="brand-website-navigation" label="Brand website navigation" brand={<a href="#scene/brand" aria-label="CRYSOUND home"><img src="/crysound-logo.svg" alt="CRYSOUND"/></a>} actions={tools} items={brandNavigationItems} activateOnHover collapsible mobileToggleLabels={{open:'Open navigation',close:'Close navigation'}}/></header>;
+ return <header className="scene-brand-header"><NavigationMenu shape="capsule" panelVariant="website" className="brand-website-navigation" label="Brand website navigation" brand={<a href="#scene/brand" aria-label="CRYSOUND home"><img src="/crysound-logo.svg" alt="CRYSOUND"/></a>} actions={tools} items={brandNavigationItems} activateOnHover collapsible mobileToggleLabels={{open:'Open navigation',close:'Close navigation'}}/></header>;
 }

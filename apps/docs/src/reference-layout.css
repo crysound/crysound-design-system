@@ -1817,9 +1817,11 @@ body {
 
 .card-boundary-example { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px; align-items:stretch; }
 .website-navigation-demo { width:100%; min-height:340px; }
-.navigation-menu-demo { width:100%; min-height:320px; container:navigation-demo / inline-size; }
+.navigation-menu-demo { display:flex; flex-direction:column; width:100%; min-height:664px; container:navigation-demo / inline-size; }
 .navigation-menu-demo > p { margin:0 0 16px; }
+.navigation-menu-demo > p:last-child { margin-top:auto; margin-bottom:0; padding-top:24px; }
 .navigation-menu-demo > .cs-navigation-menu { margin-bottom:16px; }
+.navigation-menu-demo .cs-navigation-menu-items { flex-wrap:wrap; }
 .navigation-menu-demo .cs-navigation-menu-link:last-child { background:color-mix(in srgb,var(--cs-brand) 8%,var(--cs-surface)); }
 .navigation-menu-thumbnail { display:flex; align-items:center; gap:8px; color:var(--cs-text); font-size:12px; }
 .navigation-menu-thumbnail > span { display:inline-flex; align-items:center; gap:4px; padding:4px 8px; border-radius:var(--cs-radius-pill); }

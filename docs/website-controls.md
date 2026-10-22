@@ -38,6 +38,8 @@ images 是 `{id,src,alt,thumbnail?,caption?}`，alt 必填。支持受控与非�
 
 NavigationMenu参照用户指定的线上官网导航更新：brand/actions提供品牌与工具区域；catalog布局包含大类、子分类、产品网格和底部入口，links[].products与groups[].products控制相应内容。默认columns仍支持资源类的分组链接。面板与整个导航栏对齐，以本地主题变量呈现选中态和卡片边界。导航数据由消费应用提供，组件不处理商城或业务请求。
 
+2026-10-22 按用户要求将独立NavigationMenu示例的展开内容同步到本地“官网-全新改版”：Products和Solutions复用官网样板目录、产品图片与底部入口，Resources/Support/Contact复用图片卡片。共享`panelVariant="website"`提供16px顶部留白、416px目录区、128px产品卡片和56px底部入口；品牌官网通过`--cs-navigation-panel-inset`接入原1380px对齐。组件预览保留一级文字16px与左右各16px；默认目录前两列最小192/208px、示例预留664px高度，760px以下面板内容改两列产品，560px以下堆叠。这些最小尺寸与断点为文档窄容器的工程适配建议，不宣称原站全部断点逐像素一致。目录、素材与链接继续由消费应用提供。
+
 2026-10-21 对照用户本地“官网-全新改版”导航更新品牌官网样板：保留Products、Solutions、Resources、Support、Contact、About Us、Shop的次序；采用72px顶栏和居中1380px菜单内容区。Products使用原项目5类、28个二级目录及对应产品导航图；Solutions保留行业/应用两级筛选与27张入口卡片；其余三个大菜单使用原项目的图片入口。只复制本次导航引用的本地素材至`scene-assets/navigation/`，未修改原官网工程。文字沿用系统字体；颜色与阴影使用语义变量。固定网格在窄桌面容器内采用比例列，属于工程适配，不宣称所有宽度均为逐像素复刻。
 
 共享NavigationMenu新增可选`layout="cards"`、`links`图片入口、链接`media`插槽、`catalogLabels`以及`neutralInitialSelection`；`activateOnHover`在指针停留180ms后切换分类，离开或卸载取消，触摸继续点击选择，默认仍为点击。`collapsible`显式启用以自身1200px容器为界的手机导航；使用Radix Popover管理打开、外部点击、Escape与焦点返回，目录使用原生details/summary。跨越断点会关闭当前菜单，嵌入1714px设计画布仍按画布实际宽度展示桌面导航。商城、账号与搜索保留原样板的本地演示边界，导航目标使用原项目提供的官网地址。
