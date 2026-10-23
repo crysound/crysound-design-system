@@ -1,7 +1,9 @@
-.brand-nav-product { position:relative; display:grid; place-items:center; width:100%; height:80px; overflow:hidden; }
-.brand-nav-product > img { width:100%; height:80px; object-fit:contain; }
-.brand-nav-product[data-crop="default-opentest"] > img { position:absolute; top:8px; left:24%; width:52%; height:84px; object-fit:fill; }
-.brand-nav-product[data-crop="default-opentest"] > img:last-child { top:8px; left:24.5%; width:51%; height:54px; }
-.brand-nav-solution-icon { display:grid; place-items:center; width:100%; height:80px; }
-.brand-nav-solution-icon > img { width:48px; height:48px; object-fit:contain; }
-.brand-nav-solution-icon > img[data-large] { width:56px; height:56px; }
+/* Proposed optical sizes within the shared 80px media band. */
+.brand-nav-product { position:relative; display:grid; place-items:center; width:100%; max-width:104px; height:56px; overflow:hidden; }
+.brand-nav-product > img { display:block; min-height:0; width:100%; height:100%; max-height:56px; object-fit:contain; }
+/* Keep the supplied frame and screen aligned without stretching the monitor. */
+.brand-nav-product[data-crop="default-opentest"] { width:min(100%,64px); height:auto; aspect-ratio:1314 / 1085; }
+.brand-nav-product[data-crop="default-opentest"] > img:last-child { position:absolute; top:1.66%; left:1.37%; width:97.26%; height:65%; object-fit:fill; }
+.brand-nav-solution-icon { display:grid; place-items:center; width:100%; height:100%; }
+.brand-nav-solution-icon > img { width:40px; height:40px; object-fit:contain; }
+.brand-nav-solution-icon > img[data-large] { width:48px; height:48px; }
