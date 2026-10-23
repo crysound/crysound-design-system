@@ -1,5 +1,6 @@
 import {SceneStyles} from './scene-styles';
 export function canonicalTemplateRoute(route:string){
+ if(["rating-summary","rating-distribution-row","rating-score","rating-overview","rating-review-card"].some(id=>route===`component/${id}`))return "component/rating";
  if(route==='component/number-input'||route==='component/inputs')return 'component/input';
  if(route==='scene/blank'||route==='component/empty-page')return 'component/empty-state';
  if(['patterns','scene-styles','templates/scenes'].includes(route))return 'templates';

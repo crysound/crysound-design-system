@@ -301,7 +301,12 @@ export function StateExamples({
     return frame("Number input states", '<NumberInput label="增益 / dB" defaultValue={0.5} min={-12} max={12} step={0.1} />\n<NumberInput label="只读数值" value={1000} readOnly />\n<NumberInput label="禁用数值" defaultValue={4} disabled />', <ComponentDemo id="number-input" />);
   if (item.id === "rating")
     return <>
-      {frame('评分概览与用户评价', ratingReviewsExampleCode, <RatingReviewsDemo/>, true)}
+      {frame('评分摘要 · RatingSummary','<RatingSummary value={4.75} count={4} />',<RatingSummaryDemo/>)}
+      {frame('星级分布行 · RatingDistributionRow','<RatingDistributionRow score={5} count={3} total={4} />',<RatingDistributionRowDemo/>)}
+      {frame('星级与分数 · RatingScore','<RatingScore value={5} label="产品评分" />',<RatingScoreDemo/>)}
+      {frame('评分概览 · RatingOverview','<RatingOverview reviews={reviews} />',<RatingOverviewDemo/>)}
+      {frame('评价卡片 · RatingReviewCard','<RatingReviewCard review={review} />',<RatingReviewCardDemo/>,true)}
+      {frame('评分概览与用户评价' , ratingReviewsExampleCode, <RatingReviewsDemo/>, true)}
       {frame("Rating states and sizes", '<Rating label="体验评分" value={score} onValueChange={setScore} />\n<Rating label="只读评分" value={4} readOnly />\n<Rating label="禁用评分" defaultValue={2} disabled />', <ComponentDemo id="rating" />)}
     </>;
   if (item.id === "combobox")
