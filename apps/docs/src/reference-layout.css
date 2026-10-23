@@ -1844,6 +1844,12 @@ body {
 .card-boundary-example { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px; align-items:stretch; }
 .website-navigation-demo { width:100%; min-height:340px; }
 .navigation-menu-demo { display:flex; flex-direction:column; width:100%; min-height:664px; container:navigation-demo / inline-size; }
+.navigation-parts-demo { display:grid; gap:var(--cs-space-4); width:100%; min-width:0; }
+.navigation-parts-demo .cs-navigation-menu-items { flex-wrap:wrap; }
+.navigation-parts-demo .cs-help { margin:0; }
+.navigation-parts-demo-control { max-width:200px; }
+.navigation-panel-thumbnail { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--cs-space-3); width:100%; padding:var(--cs-space-4); color:var(--cs-muted); font-size:var(--cs-type-caption-size); }
+.navigation-panel-thumbnail > span { display:grid; place-items:center; min-height:64px; border:1px solid var(--cs-border); border-radius:var(--cs-radius); }
 .navigation-menu-demo > p { margin:0 0 16px; }
 .navigation-menu-demo > p:last-child { margin-top:auto; margin-bottom:0; padding-top:24px; }
 .navigation-menu-demo > .cs-navigation-menu { margin-bottom:16px; }

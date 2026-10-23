@@ -1,4 +1,7 @@
 @import "./extended.css";
+@import "./navigation-bar.css";
+@import "./navigation-panel.css";
+@import "./navigation-menu.css";
 @import "./rating-reviews.css";
 @import "./empty-state.css";
 /* Library typography must also work outside the documentation site's reset. */

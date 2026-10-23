@@ -29,6 +29,7 @@ import { AvatarStatusDemo, AvatarGroupDemo, AvatarCombinationsDemo, AvatarFallba
 import {EmptyStateDemo,EmptyStateSectionDemo,EmptyStateSearchDemo,EmptyStateErrorDemo} from './empty-state-demo';
 import {WebsiteDetailPanelDemo} from './detail-panel-demo';
 import {RatingReviewsDemo,ratingReviewsExampleCode} from './rating-reviews-demo';
+import {NavigationPanelDemo} from './navigation-parts-demo';
 export async function copyExample(
   code: string,
   notify: ReturnType<typeof useToast>,
@@ -190,6 +191,8 @@ export function StateExamples({
   );
   if(item.id==='detail-panel')
     return frame('官网技术参数', '<DetailPanel\n  variant="website"\n  title="Technical Specifications"\n  fields={[\n    {id:"array", label:"Mic Array", value:"64 channels"},\n    {id:"screen", label:"Screen", value:"Capacitive touchscreen"},\n  ]}\n/>', <WebsiteDetailPanelDemo/>, true);
+  if(item.id==='navigation-panel')
+    return frame('图片卡片布局', '<NavigationPanel variant="website" item={{id:"resources",label:"Resources",layout:"cards",links:[{label:"Download",href:"/downloads",image:"/downloads.jpg"},{label:"Blogs",href:"/blogs",image:"/blogs.jpg"}]}} />', <NavigationPanelDemo cards/>);
   if(item.id==='empty-state')
     return <>
       {frame('局部内容区', '<EmptyState layout="section" title="暂无附件" description="上传文件后会显示在这里。" graphic="particles" />', <EmptyStateSectionDemo/>)}
@@ -346,6 +349,7 @@ export function StateExamples({
   return null;
 }
 export const idsWithStateExamples = new Set([
+  "navigation-panel",
   "detail-panel",
   "empty-state",
   "avatar",

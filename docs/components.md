@@ -113,7 +113,18 @@ Accordion 的动画容器与 Radix 尺寸测量节点分离，避免尺寸读取
 
 品牌官网页脚沿用LinkGroup的标题下距8px和链接上下各4px内距，不额外叠加列表间距；桌面与手机采用相同规则。官网的12px/20px链接排版和列布局由消费应用保留。
 
-## NavigationMenu 分类选中反馈
+## NavigationMenu 组合与子组件
+
+NavigationMenu继续作为完整导航入口，内部组合两个可单独导入的子组件：
+
+- `NavigationBar`承载brand、一级控件、actions与移动导航插槽；`NavigationBarTrigger`是原生button，`NavigationBarLink`是原生a，支持ref、事件与原生属性。外部通过`aria-expanded`、`aria-controls`和回调控制展开状态。
+- `NavigationPanel`接收原有`NavigationMenuItem`与`variant`、`activateOnHover`、`onNavigate`，可独立展示为有名称的region。目录、子分类、产品卡、图片卡与底部链接由该组件维护；`catalog`与`cards`分别展示目录和图片卡片，原`columns`保留兼容。
+- `NavigationMenu`继续拥有Radix Popover根节点、打开项、菜单切换、Escape关闭、焦点返回、移动端disclosure和可用高度；原有props与类型导入路径兼容，目录选择仍在关闭重开后复位。
+
+源样式分为`navigation-bar.css`、`navigation-panel.css`和组合定位/移动布局的`navigation-menu.css`，统一从`styles.css`加载；使用方仍按原方式引入组件库样式，无需手动排序这三个内部文件。独立面板拥有自己的容器查询，不依赖外层导航class；主题与客户属性从所在DOM树继承，未新增Portal或业务请求。
+
+组件文档分别提供NavigationBar、NavigationPanel入口，以及NavigationMenu完整组合；面板示例可切换Products/Solutions目录和Resources/Support/Contact卡片。以下视觉规则由三者共用。
+
 
 胶囊一级导航的触发按钮与直接链接按用户要求统一使用常规字重，默认、悬停、聚焦与展开状态均不加粗；组件示例与官网样板共享此规则。
 

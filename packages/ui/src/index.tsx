@@ -335,6 +335,8 @@ export * from './progress-list';
 export * from './carousel-pagination';
 export * from './icon-button';
 export * from './navigation-menu';
+export * from './navigation-bar';
+export * from './navigation-panel';
 export * from './carousel';
 export * from './media-gallery';
 export * from './floating-toc';
