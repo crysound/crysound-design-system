@@ -5,5 +5,8 @@
 .brand-nav-product[data-crop="default-opentest"] { width:min(100%,64px); height:auto; aspect-ratio:1314 / 1085; }
 .brand-nav-product[data-crop="default-opentest"] :is(.cs-navigation-image-full,.cs-navigation-image-preview) > img:last-child { position:absolute; top:1.66%; left:1.37%; width:97.26%; height:65%; object-fit:fill; }
 .brand-nav-solution-icon { display:grid; place-items:center; width:100%; height:100%; }
-.brand-nav-solution-icon > img { width:40px; height:40px; object-fit:contain; }
-.brand-nav-solution-icon > img[data-large] { width:48px; height:48px; }
+.brand-nav-solution-icon > span { width:40px; height:40px; background:color-mix(in srgb,var(--cs-text) 35%,var(--cs-surface)); -webkit-mask:var(--solution-icon-url) center / contain no-repeat; mask:var(--solution-icon-url) center / contain no-repeat; transition:background-color var(--cds-dur-base) var(--cds-ease-out); }
+.brand-nav-solution-icon > span[data-large] { width:48px; height:48px; }
+
+.cs-navigation-products > a:is(:hover,:focus-visible) .brand-nav-solution-icon > span { background:var(--cs-brand); }
+@media(prefers-reduced-motion:reduce) { .brand-nav-solution-icon > span { transition:none; } }
