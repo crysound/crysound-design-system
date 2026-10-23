@@ -134,3 +134,10 @@
 @media (pointer:coarse) {
  .cs-input-control > .cs-input-tool:last-child { --cs-input-tool-width:32px; }
 }
+/* Keep native search rendering on the same centered baseline as text fields. */
+.cs-input-entry { display:flex; align-items:center; }
+.cs-input-control input[type="search"] { appearance:none; -webkit-appearance:none; display:block; margin:0; }
+.cs-input-control input[type="search"]::-webkit-search-decoration { -webkit-appearance:none; }
+.cs-input-icon { align-items:center; justify-content:center; }
+.cs-input-icon > svg { display:block; }
+.cs-input-label-row { line-height:var(--cs-type-label-leading); }
