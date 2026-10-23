@@ -98,6 +98,7 @@ export const catalog: ComponentDoc[] = [
       ["leadingSelect / trailingSelect", "InputSelectProps", "—"],
       ["trailingAction", "InputActionProps", "—"],
       ["passwordToggle", "boolean", "false"],
+      ["NumberInput.orientation", "vertical | horizontal", "vertical"],
       ["NumberInput.min / max / step", "number / number / number | any", "step=1"],
       ["controlSize", "sm | md | lg", "md；尺寸为项目建议值"],
     ],

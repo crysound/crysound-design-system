@@ -1027,3 +1027,12 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
  .cs-select-menu[data-state] { animation:none; }
  .cs-select-trigger > svg,.cs-select-option-label { transition:none; }
 }
+
+.cs-number-control[data-orientation="horizontal"] .cs-number-input[data-steppers] { padding-inline:calc(var(--cs-control-height) + var(--cs-space-3)); text-align:center; }
+.cs-number-control[data-orientation="horizontal"] .cs-number-steppers { inset-inline:0; display:flex; justify-content:space-between; pointer-events:none; }
+.cs-number-control[data-orientation="horizontal"] .cs-number-steppers::before { display:none; }
+.cs-number-control[data-orientation="horizontal"] .cs-number-step { width:var(--cs-control-height); pointer-events:auto; border:0; }
+.cs-number-control[data-orientation="horizontal"] .cs-number-step:first-child { border-inline-end:1px solid var(--cs-border); }
+.cs-number-control[data-orientation="horizontal"] .cs-number-step:last-child { border-inline-start:1px solid var(--cs-border); }
+.cs-number-control[data-orientation="horizontal"] .cs-number-step svg { height:16px; }
+.cs-number-control[data-orientation="horizontal"] .cs-input-placeholder-reveal { inset-inline:calc(var(--cs-control-height) + var(--cs-space-3)); justify-content:center; }

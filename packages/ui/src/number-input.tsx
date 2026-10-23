@@ -10,11 +10,12 @@ export interface NumberInputProps extends Omit<InputFieldProps, "type" | "value"
   min?: number;
   max?: number;
   step?: number | "any";
+  orientation?: "vertical" | "horizontal";
 }
 
 /** Native number-field semantics with consistently styled step controls. */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(function NumberInput(
-  { label, hint, error, id, className, step = 1, placeholderReveal = false, "aria-describedby": description, ...props }, ref,
+  { label, hint, error, id, className, orientation = "vertical", step = 1, placeholderReveal = false, "aria-describedby": description, ...props }, ref,
 ) {
   const generated = useId();
   const inputId = id ?? generated;
@@ -38,7 +39,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
 
   return <div className="cs-field">
     <label htmlFor={inputId}>{label}</label>
-    <div className={cx("cs-number-control", placeholderReveal && "cs-input-reveal")}>
+    <div data-orientation={orientation} className={cx("cs-number-control", placeholderReveal && "cs-input-reveal")}>
       <input
         {...props}
         ref={inputRef}
@@ -52,7 +53,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
       />
       {placeholderReveal && props.placeholder && <span className="cs-input-placeholder-reveal" aria-hidden="true">{Array.from(props.placeholder).map((char, index) => <span key={index} style={{ animationDelay: `${index * 90}ms` }}>{char}</span>)}</span>}
       {canStep && <span className="cs-number-steppers">
-        {(["up", "down"] as const).map(direction => <button
+        {(orientation === "horizontal" ? ["down", "up"] as const : ["up", "down"] as const).map(direction => <button
           key={direction}
           type="button"
           className="cs-number-step"
@@ -62,7 +63,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
           disabled={props.disabled || props.readOnly}
           onPointerDown={event => event.preventDefault()}
           onClick={() => adjust(direction)}
-        ><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d={direction === "up" ? "m6 15 6-6 6 6" : "m6 9 6 6 6-6"} /></svg></button>)}
+        ><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d={orientation === "horizontal" ? direction === "up" ? "M5 12h14M12 5v14" : "M5 12h14" : direction === "up" ? "m6 15 6-6 6 6" : "m6 9 6 6 6-6"} /></svg></button>)}
       </span>}
     </div>
     {(error || hint) && <span id={helpId} className={cx("cs-help", !!error && "cs-error")}>{error || hint}</span>}

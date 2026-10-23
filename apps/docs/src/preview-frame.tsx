@@ -262,6 +262,7 @@ export function StateExamples({
   if (item.id === "input")
     return (
       <>
+        {frame("Number input horizontal", '<NumberInput label="数量" orientation="horizontal" defaultValue={3} min={0} max={10} />', <div className="reference-demo-field demo-stack"><NumberInput label="数量" orientation="horizontal" defaultValue={3} min={0} max={10}/><NumberInput label="小数步长 / dB" orientation="horizontal" defaultValue={0.5} min={-12} max={12} step={0.1}/><NumberInput label="禁用数量" orientation="horizontal" defaultValue={3} disabled/></div>)}
         {frame("NumberInput", '<NumberInput label="Gain" defaultValue={0.5} step={0.1} />', <ComponentDemo id="number-input" />)}
         {frame("输入框组合", '<Input label="联系电话" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />',
           <div className="input-combinations-demo">

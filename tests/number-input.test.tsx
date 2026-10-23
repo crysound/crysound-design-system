@@ -151,3 +151,10 @@ it("allows arbitrary decimals without unusable step controls for step=any", asyn
   expect(input).toHaveValue(0.12345);
   expect(input.validity.stepMismatch).toBe(false);
 });
+it('supports horizontal minus and plus with native decimal bounds and focus',async()=>{
+ render(<NumberInput label="Gain" orientation="horizontal" defaultValue={0.5} min={0.4} max={0.6} step={0.1}/>);
+ const input=screen.getByRole('spinbutton',{name:'Gain'});
+ await userEvent.click(screen.getByRole('button',{name:'减少Gain'}));expect(input).toHaveValue(0.4);expect(input).toHaveFocus();
+ await userEvent.click(screen.getByRole('button',{name:'减少Gain'}));expect(input).toHaveValue(0.4);
+ await userEvent.click(screen.getByRole('button',{name:'增加Gain'}));expect(input).toHaveValue(0.5);
+});
