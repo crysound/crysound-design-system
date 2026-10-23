@@ -74,7 +74,7 @@ function InputSelect({ label, options, disabled, ...props }: InputSelectProps) {
           select.dispatchEvent(new Event("change",{bubbles:true}));
         }}>
           {options.map(option=><Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option">
-            <span className="cs-select-option-label">{option.label}</span><Menu.ItemIndicator className="cs-select-option-indicator" aria-hidden="true">✓</Menu.ItemIndicator>
+            <span className="cs-select-option-label">{option.label}</span>
           </Menu.RadioItem>)}
         </Menu.RadioGroup>
       </Menu.Content></Menu.Portal>
