@@ -141,3 +141,7 @@
 .cs-input-icon { align-items:center; justify-content:center; }
 .cs-input-icon > svg { display:block; }
 .cs-input-label-row { line-height:var(--cs-type-label-leading); }
+/* Position the clear glyph by its painted bounds, independent of flex spacing. */
+.cs-input-control:has(> .cs-input-tool-slot:last-child) { position:relative; padding-inline-end:var(--cs-space-10); }
+.cs-input-control > .cs-input-tool-slot:last-child { position:absolute; inset-block:0; inset-inline-end:0; width:32px; margin:0; align-items:center; justify-content:center; }
+.cs-input-control > .cs-input-tool-slot:last-child > .cs-input-tool { width:32px; height:100%; flex-basis:32px; }
