@@ -152,3 +152,7 @@
 .cs-input-control:is(:hover,:focus-within) .cs-input-help-tool { opacity:1; }
 @media(hover:none) { .cs-input-help-tool { opacity:1; } }
 @media(prefers-reduced-motion:reduce) { .cs-input-help-tool { transition:none; } }
+
+.cs-field[data-hint-visibility="hover"] > .cs-help:not(.cs-error) { opacity:0; transition:opacity var(--cds-dur-fast) var(--cds-ease-out); }
+.cs-field[data-hint-visibility="hover"]:is(:hover,:focus-within) > .cs-help:not(.cs-error) { opacity:1; }
+@media(prefers-reduced-motion:reduce) { .cs-field[data-hint-visibility="hover"] > .cs-help { transition:none; } }

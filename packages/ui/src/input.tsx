@@ -33,6 +33,7 @@ export interface InputProps extends InputFieldProps {
   suffix?: string;
   prefixDivider?: boolean;
   helpTooltip?: string;
+  hintVisibility?: "always" | "hover";
   helpLabel?: string;
   leadingSelect?: InputSelectProps;
   trailingSelect?: InputSelectProps;
@@ -84,7 +85,7 @@ function InputSelect({ label, options, disabled, ...props }: InputSelectProps) {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
   label, hint, error, id, className, placeholderReveal = false, controlSize = "md",
-  iconStart, iconEnd, prefix, suffix, prefixDivider = false, helpTooltip, helpLabel = `${label}帮助`, leadingSelect, trailingSelect, trailingAction,
+  iconStart, iconEnd, prefix, suffix, prefixDivider = false, helpTooltip, hintVisibility = "always", helpLabel = `${label}帮助`, leadingSelect, trailingSelect, trailingAction,
   clearable = false, clearLabel = `清空${label}`, onClear, passwordToggle = false,
   showPasswordLabel = "显示密码", hidePasswordLabel = "隐藏密码", type = "text",
   "aria-describedby": description, ...props
@@ -150,7 +151,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
       {Array.from(props.placeholder).map((char, index) => <span key={index} style={{ animationDelay: `${index * 90}ms` }}>{char}</span>)}
     </span>}
   </div>;
-  return <div className="cs-field">
+  return <div className="cs-field" data-hint-visibility={hintVisibility}>
     <div className="cs-input-label-row"><label htmlFor={inputId}>{label}</label>{props.required && <span className="cs-input-required" aria-hidden="true">*</span>}</div>
     {grouped ? <div className="cs-input-control" data-size={controlSize}
       data-invalid={invalid || undefined} data-disabled={props.disabled || undefined} data-readonly={props.readOnly || undefined}>

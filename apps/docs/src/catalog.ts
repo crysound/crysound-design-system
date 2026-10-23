@@ -87,6 +87,7 @@ export const catalog: ComponentDoc[] = [
     [
       ["label", "string", "必填"],
       ["hint / error", "string", "—"],
+      ["hintVisibility", "always | hover", "always；hover 时悬停或聚焦显示，错误始终显示"],
       ["value / onChange", "原生 input 属性", "—"],
       ["clearable / onClear", "boolean / callback", "false"],
       ["iconStart / iconEnd", "ReactNode", "—"],
