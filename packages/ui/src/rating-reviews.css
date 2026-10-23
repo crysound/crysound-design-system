@@ -8,7 +8,7 @@
 .cs-rating-reviews-average > span { font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); color:var(--cs-muted); }
 .cs-rating-reviews-distribution { display:grid; gap:var(--cs-space-2); }
 .cs-rating-reviews-tier,.cs-rating-reviews-all { box-sizing:border-box; width:100%; min-height:40px; padding:var(--cs-space-2); border:0; border-radius:var(--cs-radius); background:transparent; color:var(--cs-text); font:inherit; font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); font-weight:var(--cs-weight-normal); font-variant-numeric:tabular-nums; cursor:pointer; }
-.cs-rating-reviews-tier { display:grid; grid-template-columns:36px minmax(0,1fr) 24px; gap:var(--cs-space-2); align-items:center; }
+.cs-rating-reviews-tier { display:grid; grid-template-columns:max-content minmax(0,1fr) max-content; gap:var(--cs-space-1); align-items:center; }
 .cs-rating-reviews-tier[aria-pressed="true"] { background:color-mix(in srgb,var(--cs-rating-active) 8%,var(--cs-surface)); }
 .cs-rating-reviews-tier-label { display:inline-flex; align-items:center; gap:var(--cs-space-1); }
 .cs-rating-reviews-tier-label svg { display:block; width:16px; height:16px; fill:var(--cs-rating-active); stroke:var(--cs-rating-active); stroke-width:1.5px; stroke-linecap:round; stroke-linejoin:round; }
