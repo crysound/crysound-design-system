@@ -611,8 +611,10 @@ export function ComponentDemo({ id }: { id: string }) {
     case "separator":
       return (
         <Stack>
-          <span>设备身份</span>
+          <span>常规横向分割线</span>
           <Separator decorative={false} />
+          <span>浅色横向分割线</span>
+          <Separator tone="subtle" decorative={false} />
           <div className="demo-row">
             <span>参数</span>
             <Separator orientation="vertical" />

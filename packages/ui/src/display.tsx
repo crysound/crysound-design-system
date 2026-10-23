@@ -117,7 +117,9 @@ export function Skeleton({
 export function Separator({
   orientation = "horizontal",
   decorative = true,
+  tone = "default",
 }: {
+  tone?: "default" | "subtle";
   orientation?: "horizontal" | "vertical";
   decorative?: boolean;
 }) {
@@ -125,6 +127,7 @@ export function Separator({
     <div
       role={decorative ? "none" : "separator"}
       aria-orientation={decorative ? undefined : orientation}
+      data-tone={tone}
       className={cx("cs-separator", `cs-separator--${orientation}`)}
     />
   );
