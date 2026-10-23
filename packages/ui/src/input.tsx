@@ -3,7 +3,8 @@ import {
   forwardRef, useEffect, useId, useImperativeHandle, useLayoutEffect, useRef, useState,
   type InputHTMLAttributes, type SelectHTMLAttributes, type ReactNode, type MouseEventHandler,
 } from "react";
-import { Eye, EyeOff, XClose, ChevronDown } from "@untitledui/icons";
+import { Eye, EyeOff, XClose, ChevronDown, HelpCircle } from "@untitledui/icons";
+import { Tooltip } from "./overlays";
 import { cx } from "./utils";
 
 export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -29,6 +30,9 @@ export interface InputProps extends InputFieldProps {
   iconEnd?: ReactNode;
   prefix?: string;
   suffix?: string;
+  prefixDivider?: boolean;
+  helpTooltip?: string;
+  helpLabel?: string;
   leadingSelect?: InputSelectProps;
   trailingSelect?: InputSelectProps;
   trailingAction?: InputActionProps;
@@ -51,7 +55,7 @@ function InputSelect({ label, options, disabled, ...props }: InputSelectProps) {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
   label, hint, error, id, className, placeholderReveal = false, controlSize = "md",
-  iconStart, iconEnd, prefix, suffix, leadingSelect, trailingSelect, trailingAction,
+  iconStart, iconEnd, prefix, suffix, prefixDivider = false, helpTooltip, helpLabel = `${label}帮助`, leadingSelect, trailingSelect, trailingAction,
   clearable = false, clearLabel = `清空${label}`, onClear, passwordToggle = false,
   showPasswordLabel = "显示密码", hidePasswordLabel = "隐藏密码", type = "text",
   "aria-describedby": description, ...props
@@ -68,7 +72,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
   const textEntry = ["text", "search", "url", "tel", "email", "password"].includes(type);
   const canClear = clearable && textEntry && !props.disabled && !props.readOnly && value.length > 0;
   const canReveal = passwordToggle && type === "password";
-  const grouped = !!(iconStart || iconEnd || prefix || suffix || leadingSelect || trailingSelect || trailingAction || (clearable && textEntry) || canReveal);
+  const grouped = !!(helpTooltip || iconStart || iconEnd || prefix || suffix || leadingSelect || trailingSelect || trailingAction || (clearable && textEntry) || canReveal);
   const invalid = !!error || props["aria-invalid"] === true || props["aria-invalid"] === "true";
 
   useEffect(() => {
@@ -118,12 +122,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
     </span>}
   </div>;
   return <div className="cs-field">
-    <label htmlFor={inputId}>{label}</label>
+    <div className="cs-input-label-row"><label htmlFor={inputId}>{label}</label>{props.required && <span className="cs-input-required" aria-hidden="true">*</span>}</div>
     {grouped ? <div className="cs-input-control" data-size={controlSize}
       data-invalid={invalid || undefined} data-disabled={props.disabled || undefined} data-readonly={props.readOnly || undefined}>
       {leadingSelect && <InputSelect {...leadingSelect} disabled={props.disabled || props.readOnly || leadingSelect.disabled} />}
       {iconStart && <span className="cs-input-icon" aria-hidden="true">{iconStart}</span>}
-      {prefix && <span className="cs-input-affix">{prefix}</span>}
+      {prefix && <span className={cx("cs-input-affix", prefixDivider && "cs-input-affix--divided")}>{prefix}</span>}
       {entry}
       {suffix && <span className="cs-input-affix">{suffix}</span>}
       {iconEnd && <span className="cs-input-icon" aria-hidden="true">{iconEnd}</span>}
@@ -138,6 +142,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
           if (input) selection.current = { start: input.selectionStart, end: input.selectionEnd };
           setRevealed(previous => !previous);
         }}>{revealed ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}</button>}
+      {helpTooltip && <Tooltip content={helpTooltip}><button type="button" className="cs-input-tool" aria-label={helpLabel} disabled={props.disabled}><HelpCircle size={18} aria-hidden="true" /></button></Tooltip>}
       {trailingSelect && <InputSelect {...trailingSelect} disabled={props.disabled || props.readOnly || trailingSelect.disabled} />}
       {trailingAction && <button type="button" className="cs-input-action"
         disabled={props.disabled || trailingAction.disabled} onClick={trailingAction.onClick}>

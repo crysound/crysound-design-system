@@ -16,3 +16,10 @@ it('keeps selects in native form data and disables editing for readonly groups',
 it('toggles password visibility without changing value',async()=>{
  render(<Input label="密码" type="password" defaultValue="sample-only" passwordToggle/>);await userEvent.click(screen.getByRole('button',{name:'显示密码'}));expect(screen.getByLabelText('密码')).toHaveAttribute('type','text');expect(screen.getByLabelText('密码')).toHaveValue('sample-only');await userEvent.click(screen.getByRole('button',{name:'隐藏密码'}));expect(screen.getByLabelText('密码')).toHaveAttribute('type','password');
 });
+it('exposes required validation and help through keyboard focus',async()=>{
+ render(<Input label="Website" required prefix="https://" prefixDivider helpTooltip="Enter a domain" helpLabel="Website help"/>);
+ expect(screen.getByRole('textbox',{name:'Website'})).toBeRequired();
+ await userEvent.tab();await userEvent.tab();
+ expect(screen.getByRole('button',{name:'Website help'})).toHaveFocus();
+ expect(await screen.findByRole('tooltip')).toHaveTextContent('Enter a domain');
+});
