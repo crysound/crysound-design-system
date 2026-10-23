@@ -128,3 +128,9 @@
 .cs-input-select-trigger[data-state="open"] > svg { transform:rotate(180deg); }
 .cs-input-select-trigger:disabled { cursor:not-allowed; }
 @media(prefers-reduced-motion:reduce) { .cs-input-select-trigger > svg { transition:none; } }
+
+/* Match the trailing 18px glyph inset to the leading icon, retaining hit areas. */
+.cs-input-control > .cs-input-tool:last-child { --cs-input-tool-width:24px; --cs-input-tool-icon-width:18px; margin-inline-end:calc((var(--cs-input-tool-icon-width) - var(--cs-input-tool-width)) / 2); }
+@media (pointer:coarse) {
+ .cs-input-control > .cs-input-tool:last-child { --cs-input-tool-width:32px; }
+}

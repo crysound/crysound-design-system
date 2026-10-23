@@ -1,5 +1,6 @@
 import { type ReactNode, useState } from "react";
 import {
+  SearchLg,
   Lock01,
   Copy01,
   Check,
@@ -259,7 +260,7 @@ export function StateExamples({
         {frame("NumberInput", '<NumberInput label="Gain" defaultValue={0.5} step={0.1} />', <ComponentDemo id="number-input" />)}
         {frame("输入框组合", '<Input label="联系电话" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />',
           <div className="input-combinations-demo">
-            <Input label="搜索设备" type="search" placeholder="输入名称" clearable iconStart={<span>⌕</span>} />
+            <Input label="搜索设备" type="search" placeholder="输入名称" clearable iconStart={<SearchLg />} />
             <Input label="联系电话" required helpTooltip="选择区号后输入联系电话。" hint="用于联系设备负责人。" type="tel" placeholder="138 0000 0000" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />
             <Input label="金额" required helpTooltip="选择金额对应的币种。" hint="输入金额并选择币种。" inputMode="decimal" placeholder="0.00" prefix="¥" trailingSelect={{label:"币种",options:[{value:"CNY",label:"CNY"},{value:"USD",label:"USD"}]}} />
             <Input label="网站地址" required prefix="https://" prefixDivider helpTooltip="只需输入域名，无需重复输入协议。" hint="输入完整的网站域名。" placeholder="example.com" />
