@@ -171,7 +171,7 @@ export function categoryFor(id: string) {
 export function DocsBrand() {
   return (
     <a className="docs-brand" href="#library" aria-label="CRYSOUND 设计系统首页">
-      <img className="docs-brand-logo" src="/crysound-logo.svg" alt="CRYSOUND" width="1476" height="199" />
+      <img className="docs-brand-logo" src="./crysound-logo.svg" alt="CRYSOUND" width="1476" height="199" />
     </a>
   );
 }
@@ -282,7 +282,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
     case "instrument-dialog":
       return <div className="thumb-modal"><strong>通道校准</strong><span>确认设备连接后开始校准。</span><div style={{display:'flex',justifyContent:'space-between',gap:12}}><span>采集设备 01</span><StatusBadge status="online"/></div><Progress value={66} label="校准进度"/><div className="thumb-row"><Button size="sm" variant="secondary">取消</Button><Button size="sm">开始校准</Button></div></div>;
     case "icon-button":return <IconButtonDemo/>;
-    case "media-gallery":return <img src="/scene-assets/sonodaq.png" alt="产品图片画廊" style={{width:120,height:80,objectFit:'contain'}}/>;
+    case "media-gallery":return <img src="./scene-assets/sonodaq.png" alt="产品图片画廊" style={{width:120,height:80,objectFit:'contain'}}/>;
     case "floating-toc":
       return <div aria-label="悬浮目录示意" style={{display:'grid',gap:12}}>{Array.from({length:8},(_,i)=><span key={i} style={{display:'block',width:i===3?28:16,height:i===3?2:1,background:i===3?'var(--cs-text)':'var(--cs-border)'}}/>)}</div>;
     case "carousel-pagination":
@@ -442,7 +442,7 @@ export function PreviewThumbnail({ id }: { id: string }) {
     case "color-picker":
       return <div className="thumb-color-picker"><div /><span>#170057</span></div>;
     case "video-player":
-      return <VideoPlayer title="测量演示" poster="/video-poster.svg" src="/demo-video.webm" />;
+      return <VideoPlayer title="测量演示" poster="./video-poster.svg" src="./demo-video.webm" />;
     case "pagination":
       return (
         <Pagination page={1} pageCount={12} onPageChange={() => {}} />

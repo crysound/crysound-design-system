@@ -869,8 +869,7 @@ export function ComponentPage({
           <TabsContent value="cli">
             <pre className="reference-install-code">
               <code>
-                npx shadcn@latest add {window.location.origin}
-                /r/crysound-ui.json
+                npx shadcn@latest add {new URL('./r/crysound-ui.json', window.location.href).href}
               </code>
             </pre>
           </TabsContent>
@@ -927,7 +926,7 @@ export function ComponentPage({
         <p>{item.guidance}</p>
         {item.id==='empty-state'&&<details className="empty-state-assets">
           <summary>品牌图案素材</summary>
-          <div><a href="/brand/blank-wave-light.png" download>下载浅色波面</a><a href="/brand/blank-wave-dark.png" download>下载深色波面</a></div>
+          <div><a href="./brand/blank-wave-light.png" download>下载浅色波面</a><a href="./brand/blank-wave-dark.png" download>下载深色波面</a></div>
         </details>}
       </section>
       <div className="component-neighbors">

@@ -294,7 +294,7 @@ npm pack -w @crysound/ui`}</code>
                   description="将源码安装到客户项目，支持独立扩展。"
                 >
                   <pre>
-                    <code>{`npx shadcn@latest add ${window.location.origin}/r/crysound-ui.json`}</code>
+                    <code>{`npx shadcn@latest add ${new URL('./r/crysound-ui.json', window.location.href).href}`}</code>
                   </pre>
                   <div className="example">
                     <p>

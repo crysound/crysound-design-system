@@ -53,6 +53,6 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
     <div className="icon-grid">{matches.slice(activePage*80,(activePage+1)*80).map(([name, Icon]) => <button key={name} className="icon-tile" aria-pressed={selected===name} onClick={()=>{setSelected(name);setMessage("");}}><Icon size={size} strokeWidth={stroke} aria-hidden="true" style={{color:brand?'var(--cs-brand)':'var(--cs-text)'}} /><span>{name}</span></button>)}</div>
     {!matches.length && <p className="icon-empty">没有匹配的图标，请更换关键词或分类。</p>}
     <div className="icon-pagination"><button className="cs-button cs-button--secondary" disabled={activePage===0} onClick={()=>setPage(activePage-1)}>上一页</button><span>第 {activePage+1} / {pages} 页</span><button className="cs-button cs-button--secondary" disabled={activePage===pages-1} onClick={()=>setPage(activePage+1)}>下一页</button></div>
-    <p className="cs-help">依赖：{!existingNames.has(selected)?'lucide-react · ISC 许可':'@untitledui/icons · MIT 许可'} · 消费项目需安装对应包。<a href={!existingNames.has(selected)?'/licenses/lucide-react-LICENSE.txt':'/licenses/untitled-ui-icons-MIT.txt'} target="_blank" rel="noreferrer">查看许可</a></p>
+    <p className="cs-help">依赖：{!existingNames.has(selected)?'lucide-react · ISC 许可':'@untitledui/icons · MIT 许可'} · 消费项目需安装对应包。<a href={!existingNames.has(selected)?'./licenses/lucide-react-LICENSE.txt':'./licenses/untitled-ui-icons-MIT.txt'} target="_blank" rel="noreferrer">查看许可</a></p>
   </article>;
 }

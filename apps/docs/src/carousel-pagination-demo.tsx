@@ -4,7 +4,7 @@ const examples=[1,2,3].map(number=>({id:`image-${number}`,label:`默认图片 ${
 function DefaultImage({number}:{number:number}){
  return <div className="pagination-demo-slide">
   <svg className="pagination-demo-placeholder" viewBox="0 0 1600 900" role="img" aria-label={`默认图片 ${number}（CRYSOUND）`}>
-   <image className="pagination-demo-logo" href="/crysound-logo.svg" x="560" y="418" width="480" height="64" aria-hidden="true"/>
+   <image className="pagination-demo-logo" href="./crysound-logo.svg" x="560" y="418" width="480" height="64" aria-hidden="true"/>
    <text x="1540" y="840" textAnchor="end" className="pagination-demo-placeholder-index">{String(number).padStart(2,'0')}</text>
   </svg>
  </div>;
