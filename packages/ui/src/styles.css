@@ -1037,3 +1037,13 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-number-control[data-orientation="horizontal"] .cs-number-step svg { height:16px; }
 .cs-number-control[data-orientation="horizontal"] .cs-input-placeholder-reveal { inset-inline:calc(var(--cs-control-height) + var(--cs-space-3)); justify-content:center; }
 .cs-number-control[data-orientation="horizontal"] .cs-number-steppers { border-radius:var(--cs-radius); }
+
+/* Select proposal: leading checkbox-style indicator with single-selection semantics. */
+.cs-select-option--check { justify-content:flex-start; gap:var(--cs-space-2); padding:var(--cs-space-2); }
+.cs-select-option--check .cs-select-option-label { padding:0; background:transparent; }
+.cs-select-option--check[data-state="checked"] .cs-select-option-label { background:transparent; }
+.cs-select-option-checkbox { display:grid; place-items:center; box-sizing:border-box; width:16px; height:16px; flex:0 0 16px; border:1px solid var(--cs-border); border-radius:var(--cs-radius); color:var(--cs-on-brand); }
+.cs-select-option--check[data-state="checked"] .cs-select-option-checkbox { background:var(--cs-brand); border-color:var(--cs-brand); }
+.cs-select-option--check[data-state="checked"] { color:var(--cs-text); }
+.cs-select-option--check .cs-select-option-indicator,.cs-select-option--check .cs-select-option-indicator > svg { width:12px; height:12px; }
+.cs-select-option--check[data-disabled] .cs-select-option-checkbox { opacity:.5; }
