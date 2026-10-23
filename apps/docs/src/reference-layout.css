@@ -1961,7 +1961,7 @@ body {
 .rating-reviews-demo > .cs-help { margin:0 0 var(--cs-space-6); }
 @media(max-width:600px) { .rating-reviews-demo { padding:var(--cs-space-4); } }
 
-.input-combinations-demo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--cs-space-4); width:100%; max-width:720px; }
+.input-combinations-demo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--cs-space-5); width:100%; max-width:720px; }
 @media(max-width:600px) { .input-combinations-demo { grid-template-columns:minmax(0,1fr); } }
 
 .separator-combinations-demo { display:grid; gap:var(--cs-space-6); width:100%; max-width:480px; }
@@ -1973,5 +1973,3 @@ body {
 
 .reference-preview > .number-horizontal-demo { width:200px; max-width:100%; }
 
-.input-combinations-demo > .cs-field[data-hint-visibility="hover"] { position:relative; }
-.input-combinations-demo > .cs-field[data-hint-visibility="hover"] > .cs-help:not(.cs-error) { position:absolute; bottom:calc(100% + var(--cs-space-1)); inset-inline:0; z-index:1; padding:var(--cs-space-1) var(--cs-space-2); border:1px solid var(--cs-border); border-radius:var(--cs-radius); pointer-events:none; background:var(--cs-surface); }
