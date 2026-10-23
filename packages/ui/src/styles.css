@@ -107,18 +107,21 @@
 .cs-number-input[data-steppers] { padding-inline-end: calc(var(--cs-control-height) + var(--cs-space-2)); }
 .cs-number-steppers {
   position: absolute;
-  inset-block: var(--cs-space-1);
-  inset-inline-end: var(--cs-space-1);
+  inset-block: 0;
+  inset-inline-end: 0;
   display: grid;
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  padding-inline-start: var(--cs-space-1);
+  border: 1px solid transparent;
+  border-radius: 0 var(--cs-radius) var(--cs-radius) 0;
+  overflow: hidden;
+  padding: 0;
 }
 .cs-number-steppers::before {
   content: "";
   position: absolute;
   inset-inline-start: 0;
-  inset-block: var(--cs-space-1);
-  border-inline-start: 1px solid var(--cs-border);
+  inset-block: 0;
+  border-inline-start: 0.5px solid var(--cs-border);
 }
 .cs-number-step {
   display: grid;
@@ -127,12 +130,13 @@
   height: 100%;
   padding: 0;
   border: 0;
-  border-radius: var(--cs-radius);
+  border-radius: 0;
   background: transparent;
   color: var(--cs-muted);
   cursor: pointer;
   transition: color var(--cds-dur-fast) var(--cds-ease-out), background-color var(--cds-dur-fast) var(--cds-ease-out);
 }
+.cs-number-step + .cs-number-step { border-block-start: 0.5px solid var(--cs-border); }
 .cs-number-step svg { display: block; height: min(16px, calc((var(--cs-control-height) - var(--cs-space-2)) / 2)); }
 @media (hover: hover) {
   .cs-number-step:hover:not(:disabled) { color: var(--cs-brand); background: var(--cs-subtle); }
