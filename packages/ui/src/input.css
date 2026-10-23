@@ -89,7 +89,7 @@
   margin-inline-end: calc(var(--cs-space-3) * -1);
   padding: 0 var(--cs-space-3);
   border: 0;
-  border-inline-start: 1px solid var(--cs-border);
+  border-inline-start: 0.5px solid var(--cs-border);
   border-start-end-radius: var(--cs-radius);
   border-end-end-radius: var(--cs-radius);
   background: transparent;
