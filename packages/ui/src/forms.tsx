@@ -101,32 +101,39 @@ export const Select = forwardRef<
     return { value: String(option.value ?? option.children ?? ''), label: option.children, disabled: option.disabled };
   });
   const [current, setCurrent] = useState(String(props.value ?? props.defaultValue ?? options[0]?.value ?? ''));
+  const [multipleCurrent,setMultipleCurrent]=useState<string[]>(Array.isArray(props.defaultValue)?props.defaultValue.map(String):[]);
   useEffect(() => {
     const select = native.current;
-    const reset = () => requestAnimationFrame(() => setCurrent(select?.value ?? ''));
+    const reset = () => requestAnimationFrame(() => {setCurrent(select?.value ?? '');setMultipleCurrent(Array.from(select?.selectedOptions??[],option=>option.value));});
     select?.form?.addEventListener('reset', reset);
     return () => select?.form?.removeEventListener('reset', reset);
   }, []);
   const value = props.value !== undefined ? String(props.value) : current;
+  const multipleValues=props.value!==undefined?(Array.isArray(props.value)?props.value.map(String):[String(props.value)]):multipleCurrent;
   const description = [described, (error || hint) && `${field}-help`].filter(Boolean).join(' ') || undefined;
   // Preserve native multi-select, grouped options and custom child contracts.
-  if (props.multiple || props.size || Children.toArray(children).some(child => !isValidElement(child) || child.type !== 'option')) {
+  if (props.size || Children.toArray(children).some(child => !isValidElement(child) || child.type !== 'option')) {
     return <div className="cs-field"><label className={hideLabel?'cs-sr-only':undefined} htmlFor={field}>{label}</label><select {...props} ref={ref} id={field} className={cx('cs-input cs-select',className)} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>{children}</select><Help id={`${field}-help`} error={error} hint={hint}/></div>;
   }
   return <div className="cs-field">
     <label className={hideLabel?'cs-sr-only':undefined} id={`${field}-label`} htmlFor={field}>{label}</label>
     <select {...props} ref={node => { native.current = node; if(typeof ref === 'function') ref(node); else if(ref) ref.current = node; }}
-      className="cs-select-native" aria-hidden="true" tabIndex={-1} value={value}
-      onChange={event => {setCurrent(event.target.value); props.onChange?.(event);}}
+      className="cs-select-native" aria-hidden="true" tabIndex={-1} value={props.multiple?multipleValues:value}
+      onChange={event => {setCurrent(event.target.value);setMultipleCurrent(Array.from(event.target.selectedOptions,option=>option.value)); props.onChange?.(event);}}
       onInvalid={event => {trigger.current?.focus(); props.onInvalid?.(event);}}>{children}</select>
     <Menu.Root modal={false}>
       <Menu.Trigger ref={trigger} id={field} disabled={props.disabled} className={cx('cs-input cs-select-trigger',className)} style={props.style}
         aria-labelledby={`${field}-label ${field}-value`} aria-invalid={error ? true : props['aria-invalid']} aria-describedby={description}>
-        <span id={`${field}-value`}>{options.find(option => option.value === value)?.label}</span>
+        <span id={`${field}-value`}>{props.multiple?(multipleValues.length?options.filter(option=>multipleValues.includes(option.value)).map(option=>option.label).join("、"):"请选择"):options.find(option => option.value === value)?.label}</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
       </Menu.Trigger>
       <Menu.Portal><Menu.Content className="cs-select-menu" sideOffset={6} align="start" collisionPadding={12}>
-        <Menu.RadioGroup value={value} onValueChange={next => {
+        {props.multiple ? options.map(option=><Menu.CheckboxItem key={option.value} checked={multipleValues.includes(option.value)} disabled={option.disabled} className="cs-select-option cs-select-option--check" onSelect={event=>event.preventDefault()} onCheckedChange={checked=>{
+          const select=native.current;if(!select)return;
+          const next=checked?[...multipleValues,option.value]:multipleValues.filter(value=>value!==option.value);
+          for(const nativeOption of Array.from(select.options))nativeOption.selected=next.includes(nativeOption.value);
+          select.dispatchEvent(new Event('change',{bubbles:true}));
+        }}><span className="cs-select-option-checkbox" aria-hidden="true"><Menu.ItemIndicator className="cs-select-option-indicator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg></Menu.ItemIndicator></span><span className="cs-select-option-label">{option.label}</span></Menu.CheckboxItem>) : <Menu.RadioGroup value={value} onValueChange={next => {
           const select = native.current;
           if(!select) return;
           Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value')?.set?.call(select,next);
@@ -135,7 +142,7 @@ export const Select = forwardRef<
           {options.map(option => <Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option cs-select-option--check">
             <span className="cs-select-option-checkbox" aria-hidden="true"><Menu.ItemIndicator className="cs-select-option-indicator"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false"><path d="m20 6-11 11-5-5"/></svg></Menu.ItemIndicator></span><span className="cs-select-option-label">{option.label}</span>
           </Menu.RadioItem>)}
-        </Menu.RadioGroup>
+        </Menu.RadioGroup>}
       </Menu.Content></Menu.Portal>
     </Menu.Root>
     <Help id={`${field}-help`} error={error} hint={hint}/>

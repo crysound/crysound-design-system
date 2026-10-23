@@ -14,6 +14,7 @@ import {
   Button,
   Input,
   NumberInput,
+  Select,
   Rating,
   Combobox,
   Checkbox,
@@ -196,6 +197,7 @@ export function StateExamples({
       {children}
     </PreviewFrame>
   );
+  if(item.id==='select')return frame('多选 · Multiple select','<Select label="测量项目" multiple defaultValue={["noise","vibration"]}><option value="noise">噪声</option><option value="vibration">振动</option><option value="acoustic">声学成像</option></Select>',<div className="reference-demo-field"><Select label="测量项目" multiple defaultValue={['noise','vibration']} hint="可连续勾选多项，按 Esc 收起。"><option value="noise">噪声</option><option value="vibration">振动</option><option value="acoustic">声学成像</option><option value="unavailable" disabled>不可用项目</option></Select></div>);
   if(item.id==='detail-panel')
     return frame('官网技术参数', '<DetailPanel\n  variant="website"\n  title="Technical Specifications"\n  fields={[\n    {id:"array", label:"Mic Array", value:"64 channels"},\n    {id:"screen", label:"Screen", value:"Capacitive touchscreen"},\n  ]}\n/>', <WebsiteDetailPanelDemo/>, true);
   if(item.id==='navigation-menu')
