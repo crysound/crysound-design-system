@@ -26,7 +26,7 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
   const matches = libraryEntries.filter(([name]) => name.toLowerCase().includes(query.toLowerCase()) && (!category || new RegExp(category).test(name)));
   const pages = Math.max(1, Math.ceil(matches.length / 80));
   const activePage = Math.min(page, pages - 1);
-  const snippet = `import { ${selected} } from '${!existingNames.has(selected)?'lucide-react':'@untitledui/icons'}';\n\n<${selected} size={${size}} strokeWidth={1.2} aria-hidden="true"${brand ? ' style={{ color: "var(--cs-brand)" }}' : ''} />`;
+  const snippet = `<${selected} size={${size}} strokeWidth={1.2} aria-hidden="true"${brand ? ' style={{ color: "var(--cs-brand)" }}' : ''} />`;
   async function copy() {
     try { await navigator.clipboard.writeText(snippet); setMessage("已复制代码"); }
     catch { setMessage("复制失败，请从下方代码框手动复制。"); }
