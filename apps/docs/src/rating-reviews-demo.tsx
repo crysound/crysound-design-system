@@ -18,7 +18,7 @@ const reviews: RatingReview[] = ${JSON.stringify(reviews, null, 2)};
 <RatingReviews reviews={reviews} />`;
 
 export function RatingOverviewDemo(){return <div style={{width:320,maxWidth:"100%"}}><RatingOverview reviews={reviews}/></div>;}
-export function RatingReviewCardDemo(){return <RatingReviewCard review={reviews[0]}/>;}
+export function RatingReviewCardDemo(){return <div className="rating-review-card-demo"><RatingReviewCard review={reviews[0]}/></div>;}
 
 export function RatingSummaryDemo(){return <RatingSummary value={4.75} count={4}/>;}
 export function RatingDistributionRowDemo(){return <div style={{width:320,maxWidth:"100%"}}><RatingDistributionRow score={5} count={3} total={4}/></div>;}

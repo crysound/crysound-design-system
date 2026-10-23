@@ -1967,3 +1967,6 @@ body {
 .separator-combinations-demo { display:grid; gap:var(--cs-space-6); width:100%; max-width:480px; }
 .separator-combination { display:grid; gap:var(--cs-space-2); }
 .separator-combination > .cs-separator { margin:0; }
+
+.rating-review-card-demo { box-sizing:border-box; width:100%; padding:var(--cs-space-8); }
+@media(max-width:600px) { .rating-review-card-demo { padding:var(--cs-space-4); } }
