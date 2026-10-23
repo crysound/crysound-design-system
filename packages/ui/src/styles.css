@@ -121,7 +121,7 @@
   position: absolute;
   inset-inline-start: 0;
   inset-block: 0;
-  border-inline-start: 0.5px solid var(--cs-border);
+  border-inline-start: 1px solid var(--cs-border);
 }
 .cs-number-step {
   display: grid;
@@ -136,7 +136,7 @@
   cursor: pointer;
   transition: color var(--cds-dur-fast) var(--cds-ease-out), background-color var(--cds-dur-fast) var(--cds-ease-out);
 }
-.cs-number-step + .cs-number-step { border-block-start: 0.5px solid var(--cs-border); }
+.cs-number-step + .cs-number-step { border-block-start: 1px solid var(--cs-border); }
 .cs-number-step svg { display: block; height: min(16px, calc((var(--cs-control-height) - var(--cs-space-2)) / 2)); }
 @media (hover: hover) {
   .cs-number-step:hover:not(:disabled) { color: var(--cs-brand); background: var(--cs-subtle); }
