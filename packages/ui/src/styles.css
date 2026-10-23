@@ -4,6 +4,7 @@
 @import "./navigation-menu.css";
 @import "./rating-reviews.css";
 @import "./empty-state.css";
+@import "./input.css";
 /* Library typography must also work outside the documentation site's reset. */
 :where(.cs-card, .cs-table, .cs-field, .cs-choice, .cs-radio-group,
   .cs-tabs-list, .cs-tabs-content, .cs-accordion, .cs-breadcrumbs,

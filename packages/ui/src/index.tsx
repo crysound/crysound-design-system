@@ -4,7 +4,6 @@ import {
   forwardRef,
   useId,
   type ButtonHTMLAttributes,
-  type InputHTMLAttributes,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
@@ -63,54 +62,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  hint?: string;
-  error?: string;
-  placeholderReveal?: boolean;
-}
-export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  {
-    label,
-    hint,
-    error,
-    placeholderReveal = false,
-    id,
-    className,
-    "aria-describedby": description,
-    ...props
-  },
-  ref,
-) {
-  const generated = useId();
-  const inputId = id ?? generated;
-  const helpId = `${inputId}-help`;
-  return (
-    <div className="cs-field">
-      <label htmlFor={inputId}>{label}</label>
-      <div className={placeholderReveal ? "cs-input-reveal" : "cs-input-wrap"}>
-      <input
-        {...props}
-        ref={ref}
-        id={inputId}
-        aria-invalid={error ? true : props["aria-invalid"]}
-        aria-describedby={
-          [description, error || hint ? helpId : undefined]
-            .filter(Boolean)
-            .join(" ") || undefined
-        }
-        className={cx("cs-input", className)}
-      />
-      {placeholderReveal && props.placeholder && <span className="cs-input-placeholder-reveal" aria-hidden="true">{Array.from(props.placeholder).map((char,index)=><span key={index} style={{animationDelay:`${index*90}ms`}}>{char}</span>)}</span>}
-      </div>
-      {(error || hint) && (
-        <span id={helpId} className={cx("cs-help", !!error && "cs-error")}>
-          {error || hint}
-        </span>
-      )}
-    </div>
-  );
-});
+export { Input, type InputProps, type InputFieldProps, type InputSelectProps, type InputActionProps } from "./input";
 export type Status = "online" | "offline" | "warning" | "error" | "running";
 const statusLabels: Record<Status, string> = {
   online: "在线",

@@ -1,9 +1,9 @@
 "use client";
 import { forwardRef, useId, useImperativeHandle, useRef } from "react";
-import type { InputProps } from "./index";
+import type { InputFieldProps } from "./input";
 import { cx } from "./utils";
 
-export interface NumberInputProps extends Omit<InputProps, "type" | "value" | "defaultValue" | "min" | "max" | "step"> {
+export interface NumberInputProps extends Omit<InputFieldProps, "type" | "value" | "defaultValue" | "min" | "max" | "step"> {
   /** A string value lets controlled fields remain empty while editing. */
   value?: number | string;
   defaultValue?: number | string;

@@ -1960,3 +1960,6 @@ body {
 .rating-reviews-demo { width:100%; box-sizing:border-box; padding:var(--cs-space-8); }
 .rating-reviews-demo > .cs-help { margin:0 0 var(--cs-space-6); }
 @media(max-width:600px) { .rating-reviews-demo { padding:var(--cs-space-4); } }
+
+.input-combinations-demo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--cs-space-6); width:100%; max-width:720px; }
+@media(max-width:600px) { .input-combinations-demo { grid-template-columns:minmax(0,1fr); } }

@@ -1,0 +1,113 @@
+/* Proposed size steps use the existing control height and spacing scale. */
+.cs-input[data-control-size="sm"], .cs-input-control[data-size="sm"] { --cs-input-height: calc(var(--cs-control-height) - var(--cs-space-2)); }
+.cs-input[data-control-size="lg"], .cs-input-control[data-size="lg"] { --cs-input-height: calc(var(--cs-control-height) + var(--cs-space-2)); }
+.cs-input[data-control-size]:not(.cs-textarea) { height: var(--cs-input-height, var(--cs-control-height)); }
+.cs-input-control {
+  display: flex;
+  align-items: center;
+  gap: var(--cs-space-2);
+  min-width: 0;
+  height: var(--cs-input-height, var(--cs-control-height));
+  box-sizing: border-box;
+  padding-inline: var(--cs-space-3);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  font-size: var(--cs-type-control-size);
+  line-height: var(--cs-type-control-leading);
+  transition: border-color var(--cds-dur-fast) var(--cds-ease-out), box-shadow var(--cds-dur-fast) var(--cds-ease-out);
+}
+.cs-input-control:hover:not([data-disabled]):not([data-invalid]) { border-color: color-mix(in srgb, var(--cs-brand) 45%, var(--cs-border)); }
+.cs-input-control[data-invalid] { --cs-input-focus-color: var(--cs-danger-fg); border-color: var(--cs-danger-fg); }
+.cs-input-control:focus-within {
+  border-color: var(--cs-input-focus-color, var(--cs-brand));
+  box-shadow: 0 0 0 var(--cs-space-0-5) color-mix(in srgb, var(--cs-input-focus-color, var(--cs-brand)) 12%, transparent);
+}
+.cs-input-control[data-disabled] { opacity: .5; cursor: not-allowed; }
+.cs-input-entry { flex: 1 1 0; min-width: 0; height: 100%; }
+.cs-input-control .cs-input,
+.cs-input-control .cs-input:is(:hover, :focus, :focus-visible) {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  opacity: 1;
+}
+.cs-input-entry.cs-input-reveal .cs-input-placeholder-reveal { inset-inline: 0; }
+.cs-input-control:has(.cs-input-tool-slot) input[type="search"]::-webkit-search-cancel-button { appearance: none; }
+.cs-input-icon { display: inline-flex; flex: 0 0 auto; color: var(--cs-muted); pointer-events: none; }
+.cs-input-icon > svg { width: 18px; height: 18px; }
+.cs-input-affix { flex: 0 0 auto; color: var(--cs-muted); white-space: nowrap; }
+.cs-input-tool-slot { width: 24px; flex: 0 0 24px; display: flex; }
+.cs-input-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cs-radius);
+  background: transparent;
+  color: var(--cs-muted);
+  cursor: pointer;
+}
+.cs-input-tool:hover:not(:disabled) { background: var(--cs-subtle); color: var(--cs-text); }
+.cs-input-tool:focus-visible, .cs-input-action:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-0-5); }
+.cs-input-tool:disabled, .cs-input-action:disabled { cursor: not-allowed; }
+.cs-input-select { display: inline-flex; position: relative; flex: 0 0 auto; height: 100%; align-items: center; max-width: 40%; }
+.cs-input-select select {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0 var(--cs-space-5) 0 0;
+  border: 0;
+  border-radius: var(--cs-radius);
+  background: transparent;
+  color: var(--cs-text);
+  font: inherit;
+  cursor: pointer;
+}
+.cs-input-select option { color: var(--cs-text); background: var(--cs-surface); }
+.cs-input-select > svg { position: absolute; inset-inline-end: 0; pointer-events: none; color: var(--cs-muted); }
+.cs-input-select select:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: var(--cs-space-0-5); }
+.cs-input-select select:disabled { opacity: 1; cursor: not-allowed; }
+.cs-input-action {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: var(--cs-space-2);
+  margin-inline-end: calc(var(--cs-space-3) * -1);
+  padding: 0 var(--cs-space-3);
+  border: 0;
+  border-inline-start: 1px solid var(--cs-border);
+  border-start-end-radius: var(--cs-radius);
+  border-end-end-radius: var(--cs-radius);
+  background: transparent;
+  color: var(--cs-text);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cs-input-action > span { display: inline-flex; }
+.cs-input-action svg { width: 16px; height: 16px; }
+.cs-input-action:hover:not(:disabled) { background: var(--cs-subtle); }
+@media (prefers-reduced-motion: reduce) { .cs-input-control { transition: none; } }
+@media (forced-colors: active) {
+  .cs-input-control:focus-within { outline: 2px solid Highlight; outline-offset: 2px; box-shadow: none; }
+  .cs-input-select select { appearance: auto; padding-inline-end: 0; }
+  .cs-input-select > svg { display: none; }
+}
+@media (pointer: coarse) {
+  .cs-input-tool, .cs-input-tool-slot { width: 32px; flex-basis: 32px; }
+  .cs-input-tool { height: 32px; }
+}

@@ -121,8 +121,9 @@ export function LeadExample({ id }: { id: string }) {
         <div className="reference-demo-field">
           <Input
             label="设备名称"
-            placeholder="实验室设备 01"
-            hint="用于识别当前设备。"
+            defaultValue="实验室设备 01"
+            clearable
+            hint="用于识别当前设备；输入后可一键清空。"
           />
         </div>
       );
@@ -177,6 +178,7 @@ export function StateExamples({
   theme: string;
   onToggleTheme: () => void;
 }) {
+  const toast = useToast();
   const frame = (title: string, code: string, children: ReactNode, wide=false) => (
     <PreviewFrame
       key={title}
@@ -253,6 +255,19 @@ export function StateExamples({
   if (item.id === "input")
     return (
       <>
+        {frame("输入框组合", '<Input label="联系电话" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />',
+          <div className="input-combinations-demo">
+            <Input label="搜索设备" type="search" placeholder="输入名称" clearable iconStart={<span>⌕</span>} />
+            <Input label="联系电话" type="tel" placeholder="138 0000 0000" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />
+            <Input label="金额" inputMode="decimal" placeholder="0.00" prefix="¥" trailingSelect={{label:"币种",options:[{value:"CNY",label:"CNY"},{value:"USD",label:"USD"}]}} />
+            <Input label="网站地址" prefix="https://" placeholder="example.com" />
+            <Input label="测量时长" suffix="秒" placeholder="60" inputMode="numeric" />
+            <Input label="密码" type="password" passwordToggle placeholder="输入密码" />
+            <Input label="设备地址" defaultValue="192.168.1.100" trailingAction={{label:"检查",onClick:()=>toast({title:"地址格式示例"})}} />
+            <Input label="小号输入框" controlSize="sm" placeholder="32px（默认密度）" />
+            <Input label="大号输入框" controlSize="lg" placeholder="48px（默认密度）" />
+          </div>,
+        )}
         {frame(
           "Input with validation",
           '<Input label="连接地址" error="请输入完整的设备地址。" />',
