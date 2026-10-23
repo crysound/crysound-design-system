@@ -30,7 +30,7 @@ import type { ComponentDoc } from "./catalog";
 import { AvatarStatusDemo, AvatarGroupDemo, AvatarCombinationsDemo, AvatarFallbackDemo } from "./avatar-demo";
 import {EmptyStateDemo,EmptyStateSectionDemo,EmptyStateSearchDemo,EmptyStateErrorDemo} from './empty-state-demo';
 import {WebsiteDetailPanelDemo} from './detail-panel-demo';
-import {RatingReviewsDemo,ratingReviewsExampleCode} from './rating-reviews-demo';
+import {RatingOverviewDemo,RatingReviewCardDemo,RatingReviewsDemo,ratingReviewsExampleCode} from './rating-reviews-demo';
 import {NavigationPanelDemo} from './navigation-parts-demo';
 export async function copyExample(
   code: string,
@@ -131,6 +131,8 @@ export function LeadExample({ id }: { id: string }) {
       );
     case "number-input":
       return <div className="reference-demo-field"><NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} step={1} /></div>;
+    case "rating-overview": return <RatingOverviewDemo/>;
+    case "rating-review-card": return <RatingReviewCardDemo/>;
     case "rating":
       return <Rating label="产品评分" defaultValue={2} hideLabel />;
     case "combobox":

@@ -1,4 +1,4 @@
-import { RatingReviews, type RatingReview } from '../../../packages/ui/src/index';
+import { RatingOverview, RatingReviewCard, RatingReviews, type RatingReview } from '../../../packages/ui/src/index';
 
 const reviews: RatingReview[] = [
   { id:'alex', name:'Alex Chen', initials:'AC', role:'Acoustics engineer', date:'2026/10/18', dateTime:'2026-10-18', score:5, verified:true, content:'The setup was straightforward, and the support team helped us verify our measurement workflow. The documentation made it easy to get started.' },
@@ -16,3 +16,6 @@ export const ratingReviewsExampleCode = `import { RatingReviews, type RatingRevi
 const reviews: RatingReview[] = ${JSON.stringify(reviews, null, 2)};
 
 <RatingReviews reviews={reviews} />`;
+
+export function RatingOverviewDemo(){return <div style={{width:320,maxWidth:"100%"}}><RatingOverview reviews={reviews}/></div>;}
+export function RatingReviewCardDemo(){return <RatingReviewCard review={reviews[0]}/>;}

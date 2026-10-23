@@ -96,6 +96,8 @@ export const docCategories = [
       "combobox",
       "input",
       "rating",
+      "rating-overview",
+      "rating-review-card",
       "progress",
       "radio-group",
       "select",
@@ -368,6 +370,8 @@ export function PreviewThumbnail({ id }: { id: string }) {
       return <Input label="Email" placeholder="you@example.com" />;
     case "number-input":
       return <NumberInput label="演示阈值 / dB(A)" defaultValue={64} min={30} max={90} />;
+    case "rating-overview":
+    case "rating-review-card":
     case "rating":
       return <Rating label="产品评分" value={2} size="lg" hideLabel readOnly />;
     case "textarea":
