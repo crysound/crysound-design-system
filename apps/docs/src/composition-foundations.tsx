@@ -1,3 +1,6 @@
+import {InputCombinationsDemo} from "./input-combinations-demo";
+import {RatingReviewsDemo} from "./rating-reviews-demo";
+import {WebsiteDetailPanelDemo} from "./detail-panel-demo";
 import { ProgressListDemo } from './progress-list-demo';
 import { ResourceCardDemo } from "./resource-card-demo";
 import { MetricGroupDemo, StatusSummaryDemo } from "./metric-group-demo";
@@ -21,11 +24,14 @@ export function CompositionExamples({only}: {only?: string}) {
 }
 export function CompositionFoundations() {
   return <section className="radius-foundations" aria-labelledby="composition-heading">
-    <h3 id="composition-heading">组合模板与视觉验收</h3><p className="cs-help">四个共享组合提供稳定布局；演示不包含硬件协议、账号鉴权或业务 API。下面的布局数值为工程建议。</p>
+    <h3 id="composition-heading">组合模板与视觉验收</h3><p className="cs-help">共享组合复用当前组件实现，覆盖表单、评分、详情与工作台；演示不包含硬件协议、账号鉴权或业务 API。下面的布局数值为工程建议。</p>
     <h4>指标摘要 · 统一组合</h4><MetricGroupDemo/>
     <p className="cs-help">指标组统一文字层级、弱边界与等宽数字，保持同组信息的阅读节奏一致。</p>
     <section className="radius-foundations"><h4>状态摘要 · 概览与异常</h4><StatusSummaryDemo/><p className="cs-help">组合建议：标签14/20，核心数值24/32 medium，单位和说明12/18；一个摘要区域容纳3–5项。异常采用带文字的状态点，数值保持正常文字色，不叠加彩色结论和徽标。标题使用24/32，说明只保留一项原因；详细错误不可在业务详情中省略。</p></section>
     <section className="radius-foundations"><h4>连续卡片 · 边界完整性</h4><p className="cs-help">每张有边框卡片保持四边与圆角完整；首项、换行后的首项都不取消上边框。分组用外部标题和间距，卡片间使用gap。</p><div className="card-boundary-example">{[{name:'采集设备 01',value:42,note:'实验室 A · 16 路采集'},{name:'采集设备 02',value:68,note:'较长说明自然换行，保持卡片边界完整，不使用负边距覆盖上边框。'}].map(item=><Card key={item.name} title={item.name}><CardBody><Progress value={item.value} label="采集进度"/><p className="cs-help" style={{margin:0}}>{item.note}</p></CardBody></Card>)}</div><p className="cs-help">接入检查：避免section:first-child等全局边框重置、负margin、父容器裁切和绝对定位遮挡。仅用plain/inset显式选择无边框容器；不要通过行列位置判断卡片边界。</p></section>
+    <section className="radius-foundations"><h4>Inputs · 当前输入组合</h4><p className="cs-help">组合间距20px；辅助说明直接显示。普通名称字段不显示清空按钮，搜索按需启用 clearable；帮助图标在悬停或键盘聚焦时显示，图标无底色并以主色反馈。前缀和尾部操作分隔线均为1px。</p><InputCombinationsDemo/></section>
+    <section className="radius-foundations"><h4>Rating · 评分与评价组合</h4><p className="cs-help">评分摘要、星级分布行和星级分数均可独立复用；组合负责筛选。进度条两侧间距6px，评价采用浅色边框、md头像并与作者信息顶部对齐。</p><RatingReviewsDemo/></section>
+    <section className="radius-foundations"><h4>官网详情 · 技术参数</h4><p className="cs-help">标题图标与文字间距12px，字段使用常规字重、浅色分隔线和36px最小行高；长内容自然换行。</p><WebsiteDetailPanelDemo/></section>
     <CompositionExamples/>
     <section className="radius-foundations"><h4>资源链接卡片 · Hover 与键盘聚焦</h4><p className="cs-help">适用于官网资源入口。鼠标移动或使用Tab查看同组表面变化；焦点环与悬停背景分别承担定位和反馈。</p><ResourceCardDemo/></section>
     <section className="radius-foundations"><h4>进度列表 · 任务与详情</h4><p className="cs-help">任务、进度和日期按列对齐，共性提示集中展示。以下布局数值为工程建议，使用合成测量数据。</p><ProgressListDemo/></section>
@@ -36,6 +42,8 @@ export function CompositionFoundations() {
     <details className="foundation-reference"><summary>组件组合规则：从零件到完整区域</summary><ul><li>指标组：一块表面承载3–5个同级指标；标签、数值、单位、备注各用固定文字角色，缺少备注时保留对齐空间。</li><li>表单与Checkbox：控件与首行标签对齐，多行帮助放在标签下方；同组选择项统一间距，不让说明改变控件位置。</li><li>标题与操作：标题承担分组，次级操作用ToolbarButton；不要让所有文字和操作都变成品牌色粗体。</li><li>卡片内部分组：优先间距与单向分隔线；输入框保留必要边界，不堆叠阴影和闭合框。</li><li>同一信息带共用数字格式、单位位置和状态语义；不要用字体大小代替重要性判断。</li><li>先看实际组合的长内容、明暗主题和窄容器，再确认单个组件参数。</li></ul></details>
     <h4>布局与长内容规则</h4>
     <div className="cs-table-scroll"><table className="cs-table"><thead><tr><th>场景</th><th>默认建议</th><th>验收重点</th></tr></thead><tbody>{[
+      ['输入组合','组合间距20px；普通字段不默认显示清空；辅助说明直接显示','横向数值输入示例200px；键盘与范围验证保持原生行为'],
+      ['评分组合','分布行两侧间距6px；浅边框；头像md顶部对齐','筛选结果、空数据与键盘反馈一致'],
       ['工作台布局','区块间距24px；卡片内容间距16px；标准控件40px、紧凑32px','窄屏换行，不把正文一起缩小'],
       ['官网内容','展示区按容器限宽；阅读正文16/26，中文约30–44字/行','大屏不把正文横向铺满'],
       ['筛选工具栏','搜索可伸缩，筛选与操作间距8–12px','各控件底部对齐；窄屏分行'],
@@ -52,6 +60,6 @@ document.documentElement.dataset.theme = 'dark';
 // 将 query、filters、提交请求放在消费项目；不要全局重置组件字号。
 // CSS 顺序：项目 reset → tokens → UI styles → 有范围的项目覆盖。`}</code></pre></details>
     <details className="foundation-reference"><summary>圆角迁移清单</summary><p className="cs-help">控件4px、Popover8px、胶囊与圆形已落实；Card和Dialog当前仍为4px，建议8/16px尚未全局迁移。独立内容面板12px与官网展示20px按场景采用，不宣称已全库统一。</p></details>
-    <details className="foundation-reference"><summary>动效使用表</summary><div className="cs-table-scroll"><table className="cs-table"><thead><tr><th>类型</th><th>使用规则</th></tr></thead><tbody><tr><td>默认</td><td>按钮轻按压、Tab指示器、Accordion展开、浮层进出、附件新增淡入</td></tr><tr><td>可选</td><td>真实加载时骨架扫光；明确状态变化时成功反馈；按需弹簧预设</td></tr><tr><td>禁止作为默认</td><td>文字晕开、静态卡片抬升、在线状态持续呼吸、整列表重复入场</td></tr></tbody></table></div></details>
+    <details className="foundation-reference"><summary>动效使用表</summary><div className="cs-table-scroll"><table className="cs-table"><thead><tr><th>类型</th><th>使用规则</th></tr></thead><tbody><tr><td>默认</td><td>Select 220ms展开、140ms收起并支持减少动态效果；参数卡片200ms轻阴影；按钮轻按压、Tab指示器、Accordion展开、浮层进出、附件新增淡入</td></tr><tr><td>可选</td><td>真实加载时骨架扫光；明确状态变化时成功反馈；按需弹簧预设</td></tr><tr><td>禁止作为默认</td><td>文字晕开、静态卡片抬升、在线状态持续呼吸、整列表重复入场</td></tr></tbody></table></div></details>
   </section>;
 }
