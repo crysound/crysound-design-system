@@ -76,7 +76,7 @@ export interface RatingReviewCardProps { review:RatingReview; verifiedLabel?:str
 export function RatingReviewCard({review,verifiedLabel='Verified review',className}:RatingReviewCardProps) {
  return <article className={cx("cs-rating-review",className)}>
           <header className="cs-rating-review-header">
-            <Avatar name={review.name} initials={review.initials} size="lg" appearance="soft" />
+            <Avatar name={review.name} initials={review.initials} size="md" appearance="soft" />
             <div className="cs-rating-review-identity">
               <div className="cs-rating-review-name"><h4>{review.name}</h4>{review.verified && <span className="cs-rating-review-verified"><span aria-hidden="true"><Check size={12}/></span>{verifiedLabel}</span>}</div>
               {review.role && <p>{review.role}</p>}
