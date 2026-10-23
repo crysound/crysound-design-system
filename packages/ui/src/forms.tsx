@@ -139,8 +139,8 @@ export const Select = forwardRef<
           Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value')?.set?.call(select,next);
           select.dispatchEvent(new Event('change',{bubbles:true}));
         }}>
-          {options.map(option => <Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option cs-select-option--check">
-            <span className="cs-select-option-checkbox" aria-hidden="true"><Menu.ItemIndicator className="cs-select-option-indicator"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false"><path d="m20 6-11 11-5-5"/></svg></Menu.ItemIndicator></span><span className="cs-select-option-label">{option.label}</span>
+          {options.map(option => <Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option cs-select-option--single">
+            <span className="cs-select-option-label">{option.label}</span><Menu.ItemIndicator className="cs-select-option-indicator"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false"><path d="m20 6-11 11-5-5"/></svg></Menu.ItemIndicator>
           </Menu.RadioItem>)}
         </Menu.RadioGroup>}
       </Menu.Content></Menu.Portal>

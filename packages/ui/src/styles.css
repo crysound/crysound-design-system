@@ -1051,3 +1051,8 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-select-option--check[data-state="checked"] { color:var(--cs-text); }
 .cs-select-option--check .cs-select-option-indicator,.cs-select-option--check .cs-select-option-indicator > svg { width:12px; height:12px; }
 .cs-select-option--check[data-disabled] .cs-select-option-checkbox { opacity:.5; }
+
+.cs-select-option--single { justify-content:space-between; padding:var(--cs-space-2) var(--cs-space-3); }
+.cs-select-option--single .cs-select-option-label { padding:0; }
+.cs-select-option--single[data-state="checked"] { background:var(--cs-selected-bg); color:var(--cs-selected-fg); }
+.cs-select-option--single[data-state="checked"] .cs-select-option-label { background:transparent; }
