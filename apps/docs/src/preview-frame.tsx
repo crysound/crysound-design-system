@@ -30,7 +30,7 @@ import { AvatarStatusDemo, AvatarGroupDemo, AvatarCombinationsDemo, AvatarFallba
 import {EmptyStateDemo,EmptyStateSectionDemo,EmptyStateSearchDemo,EmptyStateErrorDemo} from './empty-state-demo';
 import {WebsiteDetailPanelDemo} from './detail-panel-demo';
 import {RatingSummaryDemo,RatingDistributionRowDemo,RatingScoreDemo,RatingOverviewDemo,RatingReviewCardDemo,RatingReviewsDemo,ratingReviewsExampleCode} from './rating-reviews-demo';
-import {NavigationPanelDemo} from './navigation-parts-demo';
+import {NavigationBarDemo,NavigationPanelDemo} from './navigation-parts-demo';
 export async function copyExample(
   code: string,
   notify: ReturnType<typeof useToast>,
@@ -198,6 +198,12 @@ export function StateExamples({
   );
   if(item.id==='detail-panel')
     return frame('官网技术参数', '<DetailPanel\n  variant="website"\n  title="Technical Specifications"\n  fields={[\n    {id:"array", label:"Mic Array", value:"64 channels"},\n    {id:"screen", label:"Screen", value:"Capacitive touchscreen"},\n  ]}\n/>', <WebsiteDetailPanelDemo/>, true);
+  if(item.id==='navigation-menu')
+    return <>
+      {frame('一级导航栏 · NavigationBar','<NavigationBar shape="capsule" panelVariant="website"><NavigationBarLink href="/about">About Us</NavigationBarLink></NavigationBar>',<NavigationBarDemo/>)}
+      {frame('分类目录 · NavigationPanel','<NavigationPanel item={productsItem} variant="website" />',<NavigationPanelDemo/>)}
+      {frame('图片卡片 · NavigationPanel','<NavigationPanel item={resourcesItem} variant="website" />',<NavigationPanelDemo cards/>)}
+    </>;
   if(item.id==='navigation-panel')
     return frame('图片卡片布局', '<NavigationPanel variant="website" item={{id:"resources",label:"Resources",layout:"cards",links:[{label:"Download",href:"/downloads",image:"/downloads.jpg"},{label:"Blogs",href:"/blogs",image:"/blogs.jpg"}]}} />', <NavigationPanelDemo cards/>);
   if(item.id==='empty-state')

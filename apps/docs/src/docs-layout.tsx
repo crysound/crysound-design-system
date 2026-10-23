@@ -126,8 +126,6 @@ export const docCategories = [
       "toolbar",
       "link-group",
       "navigation-menu",
-      "navigation-bar",
-      "navigation-panel",
       "accordion",
       "alert",
       "alert-dialog",
