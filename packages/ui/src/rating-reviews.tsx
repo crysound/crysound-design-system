@@ -64,17 +64,9 @@ export function RatingOverview({reviews,labels,filter=null,onFilterChange,result
   const average = reviews.length ? reviews.reduce((sum, review) => sum + review.score, 0) / reviews.length : null;
  return       <aside className={cx("cs-rating-reviews-overview",className)}>
         <h3 id={heading}>{text.overview}</h3>
-        <div className="cs-rating-reviews-average">
-          <strong>{average === null ? '—' : average.toFixed(2)}</strong>
-          <Rating label={text.overview} value={average ?? 0} readOnly precision="fractional" hideLabel size="lg" getValueLabel={() => average === null ? text.empty : `${average.toFixed(2)} / 5`} />
-          <span>{reviews.length} {text.reviews}</span>
-        </div>
+        <RatingSummary value={average} count={reviews.length} label={text.overview} countLabel={text.reviews} emptyLabel={text.empty}/>
         <div className="cs-rating-reviews-distribution" role="group" aria-label={`${text.overview} · ${text.reviews}`}>
-          {counts.map(({score,count}) => <button key={score} type="button" className="cs-rating-reviews-tier" aria-label={`${score} / 5 · ${count} ${text.reviews}`} aria-pressed={filter === score} aria-controls={list} disabled={!count || !onFilterChange} onClick={() => onFilterChange?.(filter === score ? null : score)}>
-            <span className="cs-rating-reviews-tier-label" aria-hidden="true">{score}<RatingStar /></span>
-            <progress aria-hidden="true" max={reviews.length || 1} value={count} />
-            <span aria-hidden="true">{count}</span>
-          </button>)}
+          {counts.map(({score,count}) => <RatingDistributionRow key={score} score={score} count={count} total={reviews.length} countLabel={text.reviews} selected={filter===score} controls={list} disabled={!count || !onFilterChange} onSelect={()=>onFilterChange?.(filter===score?null:score)}/>)}
           <button type="button" className="cs-rating-reviews-all" disabled={!onFilterChange} aria-pressed={filter === null} aria-controls={list} onClick={() => onFilterChange?.(null)}><span>{text.all}</span><span>{reviews.length}</span></button>
         </div>
       </aside>;
@@ -90,8 +82,28 @@ export function RatingReviewCard({review,verifiedLabel='Verified review',classNa
               {review.role && <p>{review.role}</p>}
               <time dateTime={review.dateTime}>{review.date}</time>
             </div>
-            <div className="cs-rating-review-score"><Rating label={review.name} value={review.score} readOnly hideLabel size="sm" getValueLabel={score => `${score} / 5`} /><span aria-hidden="true">{review.score}/5</span></div>
+            <RatingScore value={review.score} label={review.name}/>
           </header>
           <div className="cs-rating-review-content">{review.content}</div>
         </article>;
+}
+
+export interface RatingSummaryProps { value:number|null; count:number; label?:string; countLabel?:string; emptyLabel?:string; className?:string; }
+export function RatingSummary({value,count,label='Rating',countLabel='Reviews',emptyLabel='No reviews yet.',className}:RatingSummaryProps) {
+ return <div className={cx('cs-rating-reviews-average',className)}>
+  <strong>{value===null?'—':value.toFixed(2)}</strong>
+  <Rating label={label} value={value??0} readOnly precision="fractional" hideLabel size="lg" getValueLabel={()=>value===null?emptyLabel:`${value.toFixed(2)} / 5`}/>
+  <span>{count} {countLabel}</span>
+ </div>;
+}
+export interface RatingDistributionRowProps { score:ReviewScore; count:number; total:number; countLabel?:string; selected?:boolean; disabled?:boolean; controls?:string; onSelect?:()=>void; className?:string; }
+export function RatingDistributionRow({score,count,total,countLabel='Reviews',selected=false,disabled=false,controls,onSelect,className}:RatingDistributionRowProps) {
+ return <button type="button" className={cx('cs-rating-reviews-tier',className)} aria-label={`${score} / 5 · ${count} ${countLabel}`} aria-pressed={selected} aria-controls={controls} disabled={disabled||!onSelect} onClick={onSelect}>
+  <span className="cs-rating-reviews-tier-label" aria-hidden="true">{score}<RatingStar/></span>
+  <progress aria-hidden="true" max={total||1} value={count}/><span aria-hidden="true">{count}</span>
+ </button>;
+}
+export interface RatingScoreProps { value:number; label:string; className?:string; }
+export function RatingScore({value,label,className}:RatingScoreProps) {
+ return <div className={cx('cs-rating-review-score',className)}><Rating label={label} value={value} readOnly precision="fractional" hideLabel size="sm" getValueLabel={score=>`${score} / 5`}/><span aria-hidden="true">{value}/5</span></div>;
 }

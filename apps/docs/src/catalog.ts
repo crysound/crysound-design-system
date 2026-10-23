@@ -28,6 +28,9 @@ const define = (
   guidance,
 });
 export const catalog: ComponentDoc[] = [
+ define("rating-summary","RatingSummary","评分摘要","展示","平均分、星星与评价数量。",[["value / count","number | null / number","必填"]],'<RatingSummary value={4.75} count={4} />',"可独立使用，也由 RatingOverview 复用。"),
+ define("rating-distribution-row","RatingDistributionRow","星级分布行","展示","单个星级、分布进度及数量。",[["score / count / total","ReviewScore / number / number","必填"],["selected / onSelect","boolean / callback","可选；传回调启用筛选"]],'<RatingDistributionRow score={5} count={3} total={4} />',"筛选状态由消费应用管理。"),
+ define("rating-score","RatingScore","星级与分数","展示","只读星星与数字分数组合。",[["value / label","number / string","必填"]],'<RatingScore value={5} label="产品评分" />',"评价卡片与其他紧凑评分场景共用。"),
  define("rating-overview","RatingOverview","评分概览","展示","独立展示平均评分、星级分布与总数。",[["reviews","readonly RatingReview[]","必填"],["filter / onFilterChange","ReviewScore | null / callback","可选；传入回调启用筛选"],["resultsId","string","可选，关联结果列表"]],'<RatingOverview reviews={reviews} filter={filter} onFilterChange={setFilter} />',"消费应用管理筛选结果；可与 RatingReviewCard 组合。"),
  define("rating-review-card","RatingReviewCard","评价卡片","展示","单独展示作者、评分、日期与评价内容。",[["review","RatingReview","必填"],["verifiedLabel","string","Verified review"]],'<RatingReviewCard review={review} />',"验证标识由消费应用提供；使用 RatingReviews 获得完整的筛选组合。"),
   define("icon-button", "IconButton", "图标按钮", "基础", "只有图标的操作按钮，提供统一点击区域、状态与可访问名称。", [["label", "string", "必填"], ["children", "ReactNode", "图标"], ["variant / size", "Button variants | brand-ghost / sm | md | lg", "ghost / md"], ["tooltip / disabled / loading", "boolean", "true / false / false"]], '<IconButton label="搜索" variant="ghost" onClick={openSearch}><SearchIcon /></IconButton>', "默认36px，小号28px，大号48px，触屏点击区至少44px。label必须说明动作，图标本身不重复朗读。官网图标操作使用brand-ghost变体：默认使用cs-muted中灰，hover及键盘focus-visible以120ms过渡变为完整主色，保持透明背景；禁用时不响应变色，颜色随明暗主题和客户主色适配，减少动态效果时直接切换。"),
