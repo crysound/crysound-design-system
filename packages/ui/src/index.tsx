@@ -337,6 +337,8 @@ export * from './icon-button';
 export * from './navigation-menu';
 export * from './navigation-bar';
 export * from './navigation-panel';
+export {NavigationPanelMedia} from './navigation-panel-image';
+export type {NavigationPanelMediaProps,NavigationPanelImageSource} from './navigation-panel-image';
 export * from './carousel';
 export * from './media-gallery';
 export * from './floating-toc';

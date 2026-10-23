@@ -1,7 +1,7 @@
 import {afterEach,beforeEach,expect,it,vi} from 'vitest';
 import {act,cleanup,fireEvent,render,screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {NavigationPanel} from '../packages/ui/src/index';
+import {NavigationPanel,NavigationPanelMedia} from '../packages/ui/src/index';
 
 let observers:{notify:(visible:boolean)=>void;disconnect:ReturnType<typeof vi.fn>}[];
 const preview='data:image/jpeg;base64,cHJldmlldw==';
@@ -68,4 +68,27 @@ it('falls back to native lazy loading when IntersectionObserver is unavailable a
 it('leaves caller-supplied custom media in control of its own loading behavior',()=>{
  render(<NavigationPanel item={{...cards(),links:[{...cards().links[0],media:<svg data-testid="custom-art"/>}]}}/>);
  expect(screen.getByTestId('custom-art')).toBeInTheDocument();expect(observers).toHaveLength(0);expect(screen.getByRole('link',{name:'Blogs'}).querySelector('img')).toBeNull();
+});
+
+it('lazily loads a plain catalog product using contain rather than cropping it',async()=>{
+ render(<NavigationPanel item={{id:'products',label:'Products',layout:'catalog',products:[{label:'Instrument',href:'#instrument',image:'/instrument.png',imagePreview:preview}],groups:[]}}/>);
+ const link=screen.getByRole('link',{name:'Instrument'});const image=link.querySelector('.cs-navigation-image-full') as HTMLImageElement;
+ expect(image).not.toHaveAttribute('src');expect(image.parentElement).toHaveAttribute('data-fit','contain');enter();expect(image).toHaveAttribute('src','/instrument.png');
+ await act(async()=>fireEvent.load(image));expect(image.parentElement).toHaveAttribute('data-state','ready');expect(link).toHaveAttribute('href','#instrument');
+});
+
+it('reveals a layered product only after every original layer finishes decoding',async()=>{
+ render(<NavigationPanel item={{id:'products',label:'Products',layout:'catalog',groups:[],products:[{label:'OpenTest',href:'#opentest',media:<NavigationPanelMedia className="composite" data-crop="monitor" fit="contain" sources={[{src:'/frame.png',preview},{src:'/screen.png',preview}]}/>}]}}/>);
+ const link=screen.getByRole('link',{name:'OpenTest'});const media=link.querySelector('.cs-navigation-image')!;const images=Array.from(media.querySelectorAll<HTMLImageElement>('[data-navigation-source]'));
+ expect(observers).toHaveLength(1);expect(images.every(image=>!image.hasAttribute('src'))).toBe(true);expect(media).toHaveAttribute('data-crop','monitor');
+ let finishFrame!:()=>void,finishScreen!:()=>void;Object.defineProperty(images[0],'decode',{value:()=>new Promise<void>(resolve=>{finishFrame=resolve;})});Object.defineProperty(images[1],'decode',{value:()=>new Promise<void>(resolve=>{finishScreen=resolve;})});
+ enter();expect(images.map(image=>image.getAttribute('src'))).toEqual(['/frame.png','/screen.png']);fireEvent.load(images[0]);fireEvent.load(images[1]);
+ await act(async()=>finishFrame());expect(media).toHaveAttribute('data-state','loading');await act(async()=>finishScreen());expect(media).toHaveAttribute('data-state','ready');
+});
+
+it('keeps a failed composition and its destination available without showing partial layers',async()=>{
+ const navigate=vi.fn();const user=userEvent.setup();render(<NavigationPanel item={{id:'products',label:'Products',layout:'catalog',groups:[],products:[{label:'Software',href:'#software',media:<NavigationPanelMedia sources={[{src:'/broken-frame.png',preview},{src:'/working-screen.png',preview}]}/>}]}} onNavigate={navigate}/>);
+ const link=screen.getByRole('link',{name:'Software'});const media=link.querySelector('.cs-navigation-image')!;const images=media.querySelectorAll('[data-navigation-source]');enter();
+ fireEvent.error(images[0]);await act(async()=>fireEvent.load(images[1]));expect(media).toHaveAttribute('data-state','error');expect(media.querySelectorAll('.cs-navigation-image-preview img')).toHaveLength(2);
+ await user.click(link);expect(navigate).toHaveBeenCalledWith('#software');
 });

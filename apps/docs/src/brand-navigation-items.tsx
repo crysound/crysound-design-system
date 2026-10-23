@@ -1,12 +1,13 @@
-import type {NavigationMenuItem,NavigationMenuLink} from '../../../packages/ui/src/index';
+import {NavigationPanelMedia,type NavigationMenuItem,type NavigationMenuLink} from '../../../packages/ui/src/index';
 import data from './brand-navigation-data.json';
+import previews from './brand-navigation-previews.json';
 import './brand-navigation-media.css';
 
 const website='https://crysound-website.ya-wang346019.chatgpt.site/';
 interface Product {label:string;href:string;images:string[];crop:string|number;}
 const collections:Record<string,{label:string;href:string;products:Product[]}>=data.products.collections;
 function productLink(product:Product):NavigationMenuLink {
- return {label:product.label,href:product.href,media:<span className="brand-nav-product" data-crop={product.crop}>{product.images.map(src=><img key={src} src={src} alt="" loading="lazy"/>)}</span>};
+ return {label:product.label,href:product.href,media:<NavigationPanelMedia className="brand-nav-product" data-crop={product.crop} fit="contain" sources={product.images.map(src=>({src,preview:(previews as Record<string,string>)[src]}))}/>};
 }
 const unique=(products:Product[])=>[...new Map(products.map(p=>[p.href,p])).values()];
 const solutionLinks=data.solutions.cards.map(card=>({label:card.label,href:card.href,media:<span className="brand-nav-solution-icon"><img src={card.image} alt="" data-large={card.large||undefined} loading="lazy"/></span>,groups:card.groups}));

@@ -41,7 +41,10 @@
 .cs-navigation-cards > a:is(:hover,:focus-visible) img { transform:scale(1.04); }
 /* Proposed progressive reveal: show a tiny preview immediately, then the decoded photo. */
 .cs-navigation-image { position:relative; display:block; width:100%; height:100%; overflow:hidden; background:var(--cs-subtle); }
-.cs-navigation-image > img { position:absolute; inset:0; display:block; }
+.cs-navigation-image > :is(img,.cs-navigation-image-full,.cs-navigation-image-preview) { position:absolute; inset:0; display:block; width:100%; height:100%; }
+.cs-navigation-image img { width:100%; height:100%; object-fit:cover; }
+.cs-navigation-image[data-fit="contain"] { background:transparent; }
+.cs-navigation-image[data-fit="contain"] img { object-fit:contain; }
 .cs-navigation-image > .cs-navigation-image-full { z-index:1; opacity:0; filter:blur(8px); transition:opacity var(--cs-duration-normal) var(--cds-ease-out),filter var(--cds-dur-slow) var(--cds-ease-out),transform var(--cs-duration-normal) var(--cds-ease-out); }
 .cs-navigation-image[data-state="ready"] > .cs-navigation-image-full { opacity:1; filter:blur(0); }
 .cs-navigation-image > .cs-navigation-image-preview { opacity:1; filter:blur(8px); transform:scale(1.08); transition:opacity var(--cs-duration-normal) var(--cds-ease-out); }
@@ -64,6 +67,7 @@
 .cs-navigation-panel[data-variant="website"] .cs-navigation-products > a { justify-content:flex-start; height:128px; padding:0; border:1px solid color-mix(in srgb,var(--cs-border) 55%,var(--cs-surface)); border-radius:var(--cs-radius); font-size:var(--cs-type-label-size); line-height:var(--cs-type-label-leading); }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-product-media { display:grid; place-items:center; box-sizing:border-box; height:80px; padding:var(--cs-space-3); overflow:hidden; }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-product-media > img { max-width:104px; max-height:56px; }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-product-media > .cs-navigation-image { max-width:104px; max-height:56px; }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-product-title { display:-webkit-box; width:100%; height:40px; margin:var(--cs-space-1) 0; padding:0 var(--cs-space-1); box-sizing:border-box; -webkit-line-clamp:2; }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-menu-footer { box-sizing:border-box; height:56px; min-height:56px; margin-top:var(--cs-space-6); padding:var(--cs-space-4) 0; font-size:var(--cs-type-subsection-size); line-height:var(--cs-type-subsection-leading); }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-cards { width:100%; max-width:702px; margin:auto; }
