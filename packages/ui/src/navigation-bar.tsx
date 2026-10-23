@@ -40,7 +40,7 @@ export function NavigationBarTrigger({children,className,style,onPointerDown,onC
   {motion&&feedback.pulse>0&&<span key={feedback.pulse} className="cs-navigation-click-pulse" aria-hidden="true" onAnimationEnd={event=>{if(event.animationName==='cs-navigation-click-pulse'){const pulse=feedback.pulse;setFeedback(current=>current.pulse===pulse?{...current,pulse:0}:current);}}}/>}
  </button>;
 }
-export type NavigationBarLinkProps=ComponentProps<'a'>;
-export function NavigationBarLink({className,...props}:NavigationBarLinkProps) {
- return <a {...props} className={cx('cs-navigation-menu-link',className)}/>;
+export type NavigationBarLinkProps=ComponentProps<'a'> & {tone?:'default'|'subtle'};
+export function NavigationBarLink({className,tone='default',...props}:NavigationBarLinkProps) {
+ return <a {...props} data-tone={tone} className={cx('cs-navigation-menu-link',className)}/>;
 }

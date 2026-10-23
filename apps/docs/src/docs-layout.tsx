@@ -95,7 +95,6 @@ export const docCategories = [
       "checkbox",
       "combobox",
       "input",
-      "number-input",
       "rating",
       "progress",
       "radio-group",

@@ -9,11 +9,11 @@ afterEach(cleanup);
 it("collapses component groups without losing current-route semantics", async () => {
   const user = userEvent.setup();
   render(<SidebarContent route="component/input" />);
-  expect(screen.getByRole("link", { name: "Input 输入框" })).toHaveAttribute(
+  expect(screen.getByRole("link", { name: "Inputs 输入框" })).toHaveAttribute(
     "aria-current",
     "page",
   );
-  const originalInputLink=screen.getByRole("link", { name: "Input 输入框" });
+  const originalInputLink=screen.getByRole("link", { name: "Inputs 输入框" });
   const baseHeading=screen.getByRole("button", { name: "Base components" });
   await user.click(baseHeading);
   expect(originalInputLink).toBeInTheDocument();
@@ -22,7 +22,7 @@ it("collapses component groups without losing current-route semantics", async ()
   expect(panel).toHaveAttribute('aria-hidden','true');
   expect(baseHeading).toHaveFocus();
   expect(
-    screen.queryByRole("link", { name: "Input 输入框" }),
+    screen.queryByRole("link", { name: "Inputs 输入框" }),
   ).not.toBeInTheDocument();
   expect(
     screen.getByRole("button", { name: "Base components" }),
@@ -31,7 +31,7 @@ it("collapses component groups without losing current-route semantics", async ()
     screen.getByRole("link", { name: "DataTable 数据表格" }),
   ).toBeInTheDocument();
   await user.keyboard(' ');
-  expect(screen.getByRole("link", { name: "Input 输入框" })).toBe(originalInputLink);
+  expect(screen.getByRole("link", { name: "Inputs 输入框" })).toBe(originalInputLink);
   expect(panel).not.toHaveAttribute('inert');
   expect(baseHeading).toHaveFocus();
 });

@@ -7,7 +7,7 @@ export function NavigationBarDemo() {
  const id=useId();
  return <div className="navigation-parts-demo">
   <NavigationBar label="一级导航栏示例" shape="capsule" panelVariant="website" open={!!open}>
-   {brandNavigationItems.map(item=>item.groups||item.links?<NavigationBarTrigger key={item.id} aria-expanded={open===item.id} aria-controls={id} onClick={()=>setOpen(current=>current===item.id?undefined:item.id)} onKeyDown={event=>{if(event.key==='Escape')setOpen(undefined);}}>{item.label}</NavigationBarTrigger>:<NavigationBarLink key={item.id} href={item.href}>{item.label}</NavigationBarLink>)}
+   {brandNavigationItems.map(item=>item.groups||item.links?<NavigationBarTrigger key={item.id} aria-expanded={open===item.id} aria-controls={id} onClick={()=>setOpen(current=>current===item.id?undefined:item.id)} onKeyDown={event=>{if(event.key==='Escape')setOpen(undefined);}}>{item.label}</NavigationBarTrigger>:<NavigationBarLink tone={item.id==='shop'?'subtle':'default'} key={item.id} href={item.href}>{item.label}</NavigationBarLink>)}
   </NavigationBar>
   <p className="cs-help">点击箭头项查看展开状态；完整下拉交互见 <a href="#component/navigation-menu">NavigationMenu</a>。</p>
   <div className="navigation-bar-demo-status"><div id={id} role="region" aria-label="展开状态预览" hidden={!open}><p className="cs-help">当前展开：{brandNavigationItems.find(item=>item.id===open)?.label}</p></div></div>
