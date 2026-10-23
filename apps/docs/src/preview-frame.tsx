@@ -255,6 +255,7 @@ export function StateExamples({
   if (item.id === "input")
     return (
       <>
+        {frame("NumberInput", '<NumberInput label="Gain" defaultValue={0.5} step={0.1} />', <ComponentDemo id="number-input" />)}
         {frame("输入框组合", '<Input label="联系电话" leadingSelect={{label:"区号",options:[{value:"+86",label:"+86"},{value:"+1",label:"+1"}]}} />',
           <div className="input-combinations-demo">
             <Input label="搜索设备" type="search" placeholder="输入名称" clearable iconStart={<span>⌕</span>} />
