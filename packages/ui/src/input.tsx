@@ -171,7 +171,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
           if (input) selection.current = { start: input.selectionStart, end: input.selectionEnd };
           setRevealed(previous => !previous);
         }}>{revealed ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}</button>}
-      {helpTooltip && <Tooltip content={helpTooltip}><button type="button" className="cs-input-tool" aria-label={helpLabel} disabled={props.disabled}><HelpCircle size={18} aria-hidden="true" /></button></Tooltip>}
+      {helpTooltip && <Tooltip content={helpTooltip}><button type="button" className="cs-input-tool cs-input-help-tool" aria-label={helpLabel} disabled={props.disabled}><HelpCircle size={18} aria-hidden="true" /></button></Tooltip>}
       {trailingSelect && <InputSelect {...trailingSelect} disabled={props.disabled || props.readOnly || trailingSelect.disabled} />}
       {trailingAction && <button type="button" className="cs-input-action"
         disabled={props.disabled || trailingAction.disabled} onClick={trailingAction.onClick}>

@@ -147,3 +147,8 @@
 .cs-input-control > .cs-input-tool-slot:last-child > .cs-input-tool { width:32px; height:100%; flex-basis:32px; }
 /* Proposed optical centering for search glyph and text at the control baseline. */
 .cs-input-control:has(input[type="search"]) > :is(.cs-input-icon,.cs-input-entry) { transform:translateY(-1px); }
+
+.cs-input-help-tool { opacity:0; transition:opacity var(--cds-dur-fast) var(--cds-ease-out),color var(--cds-dur-fast) var(--cds-ease-out); }
+.cs-input-control:is(:hover,:focus-within) .cs-input-help-tool { opacity:1; }
+@media(hover:none) { .cs-input-help-tool { opacity:1; } }
+@media(prefers-reduced-motion:reduce) { .cs-input-help-tool { transition:none; } }
