@@ -1971,4 +1971,4 @@ body {
 .rating-review-card-demo { box-sizing:border-box; width:100%; padding:var(--cs-space-8); }
 @media(max-width:600px) { .rating-review-card-demo { padding:var(--cs-space-4); } }
 
-.reference-preview > .number-horizontal-demo { width:240px; max-width:100%; }
+.reference-preview > .number-horizontal-demo { width:200px; max-width:100%; }
