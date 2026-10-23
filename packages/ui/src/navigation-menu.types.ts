@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react';
 
 export interface NavigationMenuLink {
- label:string;href:string;description?:string;image?:string;media?:ReactNode;products?:NavigationMenuLink[];
+ label:string;href:string;description?:string;image?:string;imagePreview?:string;media?:ReactNode;products?:NavigationMenuLink[];
 }
 export interface NavigationMenuGroup {title:string;links:NavigationMenuLink[];products?:NavigationMenuLink[];}
 export interface NavigationMenuItem {

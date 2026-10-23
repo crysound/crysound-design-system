@@ -2,6 +2,7 @@
 import {useCallback,useEffect,useId,useRef,useState,type ComponentProps} from 'react';
 import type {NavigationMenuItem,NavigationMenuLink} from './navigation-menu.types';
 import {NavigationChevron as Chevron} from './navigation-menu-icons';
+import {NavigationPanelImage} from './navigation-panel-image';
 import {cx} from './utils';
 
 export interface NavigationPanelProps extends Omit<ComponentProps<'div'>,'children'|'onNavigate'> {
@@ -39,5 +40,5 @@ function CatalogPanel({item,navigate,activateOnHover}:{item:NavigationMenuItem;n
  </div>{item.footer&&<Footer link={item.footer} navigate={navigate}/>}</>;
 }
 function CardsPanel({links,navigate}:{links:NavigationMenuLink[];navigate:(href:string)=>void}) {
- return <div className="cs-navigation-cards" data-count={links.length}>{links.map(link=><a href={link.href} key={`${link.href}-${link.label}`} onClick={()=>navigate(link.href)}>{(link.media||link.image)&&<span className="cs-navigation-card-media">{link.media??<img src={link.image} alt="" loading="lazy"/>}</span>}<span className="cs-navigation-card-label"><span>{link.label}</span><Chevron/></span></a>)}</div>;
+ return <div className="cs-navigation-cards" data-count={links.length}>{links.map(link=><a href={link.href} key={`${link.href}-${link.label}`} onClick={()=>navigate(link.href)}>{(link.media||link.image)&&<span className="cs-navigation-card-media">{link.media??<NavigationPanelImage key={link.image} src={link.image!} preview={link.imagePreview}/>}</span>}<span className="cs-navigation-card-label"><span>{link.label}</span><Chevron/></span></a>)}</div>;
 }
