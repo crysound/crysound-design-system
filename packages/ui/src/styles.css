@@ -104,7 +104,7 @@
 .cs-number-input { appearance: textfield; -moz-appearance: textfield; font-variant-numeric: tabular-nums; }
 .cs-number-input::-webkit-inner-spin-button,
 .cs-number-input::-webkit-outer-spin-button { appearance: none; margin: 0; }
-.cs-number-input[data-steppers] { padding-inline-end: calc(var(--cs-control-height) + var(--cs-space-2)); }
+.cs-number-input[data-steppers] { padding-inline-end: var(--cs-control-height); }
 .cs-number-steppers {
   position: absolute;
   inset-block: 0;
@@ -126,7 +126,7 @@
 .cs-number-step {
   display: grid;
   place-items: center;
-  width: calc(var(--cs-control-height) - var(--cs-space-2));
+  width: calc(var(--cs-control-height) - var(--cs-space-3));
   height: 100%;
   padding: 0;
   border: 0;
@@ -144,7 +144,7 @@
 .cs-number-step:active:not(:disabled) { color: var(--cs-brand); background: color-mix(in srgb, var(--cs-brand) 12%, var(--cs-surface)); }
 .cs-number-step:focus-visible { outline: 2px solid var(--cs-focus); outline-offset: 0; }
 .cs-number-step:disabled { opacity: .4; cursor: not-allowed; }
-.cs-number-input[data-steppers] ~ .cs-input-placeholder-reveal { inset-inline-end: calc(var(--cs-control-height) + var(--cs-space-2)); }
+.cs-number-input[data-steppers] ~ .cs-input-placeholder-reveal { inset-inline-end: var(--cs-control-height); }
 @media (prefers-reduced-motion: reduce) { .cs-number-step { transition: none; } }
 .cs-rating { --cs-rating-target: 20px; --cs-rating-icon: 20px; --cs-rating-gap: var(--cs-space-1); --cs-icon-stroke-width: calc(var(--cs-rating-icon) / 12); }
 .cs-rating[data-size="sm"] { --cs-rating-target: 16px; --cs-rating-icon: 16px; }
