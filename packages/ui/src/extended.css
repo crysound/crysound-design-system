@@ -1882,3 +1882,4 @@ article.cs-gallery-card-details:is(:hover,:focus-within) { box-shadow:var(--cs-s
 
 .cs-data-table .cs-table-toolbar-right { --cs-control-height:32px; align-items:center; }
 @media(max-width:640px) { .cs-data-table .cs-table-toolbar-right { --cs-control-height:44px; } .cs-data-table .cs-table-toolbar-right .cs-button { min-height:44px; } }
+.cs-gallery-card-product h3 { font-weight:var(--cs-weight-normal); }
