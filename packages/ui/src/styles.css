@@ -1036,3 +1036,4 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 .cs-number-control[data-orientation="horizontal"] .cs-number-step:last-child { border-inline-start:1px solid var(--cs-border); }
 .cs-number-control[data-orientation="horizontal"] .cs-number-step svg { height:16px; }
 .cs-number-control[data-orientation="horizontal"] .cs-input-placeholder-reveal { inset-inline:calc(var(--cs-control-height) + var(--cs-space-3)); justify-content:center; }
+.cs-number-control[data-orientation="horizontal"] .cs-number-steppers { border-radius:var(--cs-radius); }
