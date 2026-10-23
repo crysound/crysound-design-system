@@ -4,6 +4,8 @@ import { Checkbox } from "../../../packages/ui/src/index";
 import * as Icons from "@untitledui/icons";
 const entries = Object.entries(Icons).filter(([name]) => !name.endsWith('Rtl')).sort(([a], [b]) => a.localeCompare(b));
 const lucideEntries = Object.entries(LucideIcons).filter(([name])=>!name.endsWith("Icon")&&!name.startsWith("Lucide")).sort(([a],[b])=>a.localeCompare(b));
+const existingNames=new Set(entries.map(([name])=>name));
+const mergedEntries=[...entries,...lucideEntries.filter(([name])=>!existingNames.has(name))].sort(([a],[b])=>a.localeCompare(b));
 const categories = [
   ["全部", ""], ["导航", "Arrow|Chevron|Menu|Home|Link"],
   ["操作", "Plus|Minus|Edit|Trash|Copy|Download|Upload|Check|Search|Settings"],
@@ -12,9 +14,7 @@ const categories = [
   ["文件", "File|Folder|Image|Book|Clipboard"], ["用户", "User|Users|Lock|Shield|Key"],
 ];
 export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean }) {
-  const [source,setSource]=useState('untitled');
-  const sourceEntries=source==='lucide'?lucideEntries:entries;
-  const libraryEntries = filesOnly ? entries.filter(([name]) => /^(File|Folder)/.test(name)) : sourceEntries;
+  const libraryEntries = filesOnly ? mergedEntries.filter(([name]) => /^(File|Folder)/.test(name)) : mergedEntries;
   const visibleCategories = filesOnly ? [["全部文件", ""], ["文档", "^File0"], ["文件夹", "^Folder"], ["上传下载", "Upload|Download|Attachment"], ["文件状态", "Check|Lock|Shield|Question|X|Plus|Minus|Search"]] : categories;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
@@ -26,7 +26,7 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
   const matches = libraryEntries.filter(([name]) => name.toLowerCase().includes(query.toLowerCase()) && (!category || new RegExp(category).test(name)));
   const pages = Math.max(1, Math.ceil(matches.length / 80));
   const activePage = Math.min(page, pages - 1);
-  const snippet = `import { ${selected} } from '${source==='lucide'&&!filesOnly?'lucide-react':'@untitledui/icons'}';\n\n<${selected} size={${size}} strokeWidth={1.2} aria-hidden="true"${brand ? ' style={{ color: "var(--cs-brand)" }}' : ''} />`;
+  const snippet = `import { ${selected} } from '${!existingNames.has(selected)?'lucide-react':'@untitledui/icons'}';\n\n<${selected} size={${size}} strokeWidth={1.2} aria-hidden="true"${brand ? ' style={{ color: "var(--cs-brand)" }}' : ''} />`;
   async function copy() {
     try { await navigator.clipboard.writeText(snippet); setMessage("已复制代码"); }
     catch { setMessage("复制失败，请从下方代码框手动复制。"); }
@@ -35,7 +35,6 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
     <h1>{filesOnly ? "文件图标 / File icons" : "图标库 / Icons"}</h1>
     <p className="icon-intro">{libraryEntries.length} 个开源线性图标，与产品组件统一使用。支持按名称搜索、分类浏览及复制 React 代码。</p>
     <div className="icon-guidance">常用尺寸 16 / 20 / 24 / 32px，默认继承文字颜色。纯装饰图标使用 aria-hidden；图标按钮应在按钮上提供 aria-label。</div>
-    {!filesOnly && <div className="icon-categories" role="group" aria-label="图标来源">{[['untitled','Untitled UI'],['lucide','Lucide']].map(([value,label])=><button key={value} className="cs-button cs-button--secondary" aria-pressed={source===value} onClick={()=>{setSource(value);setSelected('Activity');setPage(0);setMessage('');}}>{label} · {value==='lucide'?lucideEntries.length:entries.length}</button>)}</div>}
     {filesOnly && <div className="file-type-examples" aria-label="常见文件类型">{[
       ["PDF", "报告文档", "File06"], ["DOCX", "文字文档", "File02"],
       ["XLSX / CSV", "表格与测量数据", "File03"], ["JSON / XML", "配置文件", "FileCode01"],
@@ -53,6 +52,6 @@ export default function IconLibrary({ filesOnly = false }: { filesOnly?: boolean
     <div className="icon-grid">{matches.slice(activePage*80,(activePage+1)*80).map(([name, Icon]) => <button key={name} className="icon-tile" aria-pressed={selected===name} onClick={()=>{setSelected(name);setMessage("");}}><Icon size={size} strokeWidth={1.2} aria-hidden="true" style={{color:brand?'var(--cs-brand)':'var(--cs-text)'}} /><span>{name}</span></button>)}</div>
     {!matches.length && <p className="icon-empty">没有匹配的图标，请更换关键词或分类。</p>}
     <div className="icon-pagination"><button className="cs-button cs-button--secondary" disabled={activePage===0} onClick={()=>setPage(activePage-1)}>上一页</button><span>第 {activePage+1} / {pages} 页</span><button className="cs-button cs-button--secondary" disabled={activePage===pages-1} onClick={()=>setPage(activePage+1)}>下一页</button></div>
-    <p className="cs-help">依赖：{source==='lucide'&&!filesOnly?'lucide-react · ISC 许可':'@untitledui/icons · MIT 许可'} · 消费项目需安装对应包。<a href={source==='lucide'&&!filesOnly?'/licenses/lucide-react-LICENSE.txt':'/licenses/untitled-ui-icons-MIT.txt'} target="_blank" rel="noreferrer">查看许可</a></p>
+    <p className="cs-help">依赖：{!existingNames.has(selected)?'lucide-react · ISC 许可':'@untitledui/icons · MIT 许可'} · 消费项目需安装对应包。<a href={!existingNames.has(selected)?'/licenses/lucide-react-LICENSE.txt':'/licenses/untitled-ui-icons-MIT.txt'} target="_blank" rel="noreferrer">查看许可</a></p>
   </article>;
 }
