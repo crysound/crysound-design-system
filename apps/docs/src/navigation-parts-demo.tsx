@@ -10,7 +10,7 @@ export function NavigationBarDemo() {
    {brandNavigationItems.map(item=>item.groups||item.links?<NavigationBarTrigger key={item.id} aria-expanded={open===item.id} aria-controls={id} onClick={()=>setOpen(current=>current===item.id?undefined:item.id)} onKeyDown={event=>{if(event.key==='Escape')setOpen(undefined);}}>{item.label}</NavigationBarTrigger>:<NavigationBarLink key={item.id} href={item.href}>{item.label}</NavigationBarLink>)}
   </NavigationBar>
   <p className="cs-help">点击箭头项查看展开状态；完整下拉交互见 <a href="#component/navigation-menu">NavigationMenu</a>。</p>
-  <div id={id} role="region" aria-label="展开状态预览" hidden={!open}><p className="cs-help">当前展开：{brandNavigationItems.find(item=>item.id===open)?.label}</p></div>
+  <div className="navigation-bar-demo-status"><div id={id} role="region" aria-label="展开状态预览" hidden={!open}><p className="cs-help">当前展开：{brandNavigationItems.find(item=>item.id===open)?.label}</p></div></div>
  </div>;
 }
 

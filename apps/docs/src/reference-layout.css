@@ -1847,6 +1847,7 @@ body {
 .navigation-parts-demo { display:grid; gap:var(--cs-space-4); width:100%; min-width:0; }
 .navigation-parts-demo .cs-navigation-menu-items { flex-wrap:wrap; }
 .navigation-parts-demo .cs-help { margin:0; }
+.navigation-bar-demo-status { min-height:var(--cs-type-caption-leading); }
 .navigation-parts-demo-control { max-width:200px; }
 .navigation-panel-thumbnail { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--cs-space-3); width:100%; padding:var(--cs-space-4); color:var(--cs-muted); font-size:var(--cs-type-caption-size); }
 .navigation-panel-thumbnail > span { display:grid; place-items:center; min-height:64px; border:1px solid var(--cs-border); border-radius:var(--cs-radius); }
