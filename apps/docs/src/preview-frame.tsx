@@ -124,8 +124,7 @@ export function LeadExample({ id }: { id: string }) {
           <Input
             label="设备名称"
             defaultValue="实验室设备 01"
-            clearable
-            hint="用于识别当前设备；输入后可一键清空。"
+            hint="用于识别当前设备。"
           />
         </div>
       );
