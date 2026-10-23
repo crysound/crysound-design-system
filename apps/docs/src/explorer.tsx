@@ -610,11 +610,11 @@ export function ComponentDemo({ id }: { id: string }) {
       );
     case "separator":
       return (
-        <Stack>
-          <span>常规横向分割线</span>
-          <Separator decorative={false} />
-          <span>浅色横向分割线</span>
-          <Separator tone="subtle" decorative={false} />
+        <div className="separator-combinations-demo">
+          <div className="separator-combination"><span>常规横向分割线</span>
+          <Separator decorative={false} /></div>
+          <div className="separator-combination"><span>浅色横向分割线</span>
+          <Separator tone="subtle" decorative={false} /></div>
           <div className="demo-row">
             <span>参数</span>
             <Separator orientation="vertical" />
@@ -622,7 +622,7 @@ export function ComponentDemo({ id }: { id: string }) {
             <Separator orientation="vertical" />
             <span>报告</span>
           </div>
-        </Stack>
+        </div>
       );
     case "instrument-dialog":
       return <InstrumentDialogDemo/>;
