@@ -27,6 +27,7 @@ export interface InputActionProps {
 export interface InputProps extends InputFieldProps {
   /** Visual size; native numeric `size` still controls character width. */
   controlSize?: "sm" | "md" | "lg";
+  hideLabel?: boolean;
   iconStart?: ReactNode;
   iconEnd?: ReactNode;
   prefix?: string;
@@ -84,7 +85,7 @@ function InputSelect({ label, options, disabled, ...props }: InputSelectProps) {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
-  label, hint, error, id, className, placeholderReveal = false, controlSize = "md",
+  label, hint, error, id, className, placeholderReveal = false, controlSize = "md", hideLabel = false,
   iconStart, iconEnd, prefix, suffix, prefixDivider = false, helpTooltip, hintVisibility = "always", helpLabel = `${label}帮助`, leadingSelect, trailingSelect, trailingAction,
   clearable = false, clearLabel = `清空${label}`, onClear, passwordToggle = false,
   showPasswordLabel = "显示密码", hidePasswordLabel = "隐藏密码", type = "text",
@@ -152,7 +153,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
     </span>}
   </div>;
   return <div className="cs-field" data-hint-visibility={hintVisibility}>
-    <div className="cs-input-label-row"><label htmlFor={inputId}>{label}</label>{props.required && <span className="cs-input-required" aria-hidden="true">*</span>}</div>
+    <div className={cx("cs-input-label-row",hideLabel && "cs-sr-only")}><label htmlFor={inputId}>{label}</label>{props.required && <span className="cs-input-required" aria-hidden="true">*</span>}</div>
     {grouped ? <div className="cs-input-control" data-size={controlSize}
       data-invalid={invalid || undefined} data-disabled={props.disabled || undefined} data-readonly={props.readOnly || undefined}>
       {leadingSelect && <InputSelect {...leadingSelect} disabled={props.disabled || props.readOnly || leadingSelect.disabled} />}
