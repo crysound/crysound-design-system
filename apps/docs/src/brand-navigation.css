@@ -47,3 +47,17 @@
 @media(prefers-reduced-motion:reduce) {
  .brand-website-navigation :is(.cs-navigation-menu-trigger,.cs-navigation-menu-link),.brand-website-navigation .cs-navigation-menu-trigger > svg { transition:none; }
 }
+/* Proposed 24px falloff softens the header edge without intercepting content. */
+.scene-brand-header::after {
+ content:"";
+ position:absolute;
+ inset-inline:0;
+ top:100%;
+ height:var(--cs-space-6);
+ pointer-events:none;
+ background:linear-gradient(to bottom,color-mix(in srgb,var(--cs-surface) 40%,transparent),transparent);
+ -webkit-backdrop-filter:blur(8px);
+ backdrop-filter:blur(8px);
+ -webkit-mask-image:linear-gradient(to bottom,#000,transparent);
+ mask-image:linear-gradient(to bottom,#000,transparent);
+}
