@@ -45,3 +45,4 @@
   .cs-rating-review-content { margin-top:var(--cs-space-4); font-size:var(--cs-type-body-size); line-height:var(--cs-type-body-leading); }
 }
 .cs-rating-reviews-overview,.cs-rating-review { box-sizing:border-box; font-family:var(--cs-font); color:var(--cs-text); }
+.cs-rating-review-header > .cs-avatar { align-self:start; }
