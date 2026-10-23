@@ -56,10 +56,11 @@
 .cs-navigation-panel[data-variant="website"] .cs-navigation-menu-footer { box-sizing:border-box; height:56px; min-height:56px; margin-top:var(--cs-space-6); padding:var(--cs-space-4) 0; font-size:var(--cs-type-subsection-size); line-height:var(--cs-type-subsection-leading); }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-cards { width:100%; max-width:702px; margin:auto; }
 .cs-navigation-panel[data-variant="website"] .cs-navigation-cards[data-count="2"] { max-width:468px; grid-template-columns:repeat(2,minmax(0,1fr)); }
-.cs-navigation-panel[data-variant="website"] .cs-navigation-card-media { box-sizing:border-box; height:96px; padding:var(--cs-space-3); background:var(--cs-surface); }
-.cs-navigation-panel[data-variant="website"] .cs-navigation-card-media > img { border-radius:var(--cs-radius); }
-.cs-navigation-panel[data-variant="website"] .cs-navigation-card-label { box-sizing:border-box; padding:var(--cs-space-3); }
-.cs-navigation-panel[data-variant="website"] .cs-navigation-card-label > svg { width:12px; height:12px; }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-cards > a { padding:0; border:0; border-radius:0; }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-card-media { box-sizing:border-box; height:88px; padding:0; border-radius:var(--cs-radius); background:var(--cs-surface); }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-card-label { box-sizing:border-box; min-height:28px; padding:var(--cs-space-2) 0 0; }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-card-label > svg { width:12px; height:12px; color:var(--cs-border); }
+.cs-navigation-panel[data-variant="website"] .cs-navigation-cards > a:is(:hover,:focus-visible) .cs-navigation-card-label > svg { color:inherit; }
 @container cs-navigation-panel (max-width:760px) {
  .cs-navigation-panel[data-variant="website"] .cs-navigation-catalog { grid-template-columns:minmax(120px,20%) minmax(160px,28%) minmax(0,1fr); gap:var(--cs-space-4); }
  .cs-navigation-panel[data-variant="website"] .cs-navigation-products { grid-template-columns:repeat(2,minmax(0,1fr)); }
