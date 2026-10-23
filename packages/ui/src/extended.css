@@ -1713,7 +1713,8 @@ button.cs-step-content { cursor: pointer; }
 }
 
 /* Optional website panels share catalog and card geometry across consumers. */
-.cs-navigation-menu[data-panel-variant="website"] .cs-navigation-menu-panel { container:cs-navigation-panel / inline-size; width:100%; box-sizing:border-box; max-height:var(--cs-navigation-available-height); padding:var(--cs-space-4) var(--cs-navigation-panel-inset,var(--cs-space-6)) 0; overflow-y:auto; overscroll-behavior:contain; border-top:1px solid var(--cs-border); border-bottom:0; box-shadow:none; background:var(--cs-surface); }
+.cs-navigation-menu[data-panel-variant="website"] { border-bottom:0; }
+.cs-navigation-menu[data-panel-variant="website"] .cs-navigation-menu-panel { container:cs-navigation-panel / inline-size; width:100%; box-sizing:border-box; max-height:var(--cs-navigation-available-height); padding:var(--cs-space-4) var(--cs-navigation-panel-inset,var(--cs-space-6)) 0; overflow-y:auto; overscroll-behavior:contain; border-top:0; border-bottom:0; box-shadow:none; background:var(--cs-surface); }
 .cs-navigation-menu[data-panel-variant="website"] .cs-navigation-catalog { height:416px; grid-template-columns:minmax(192px,20%) minmax(208px,24%) minmax(0,1fr); gap:var(--cs-space-6); }
 .cs-navigation-menu[data-panel-variant="website"] :is(.cs-navigation-categories,.cs-navigation-subcategories) { gap:0; }
 .cs-navigation-menu[data-panel-variant="website"] .cs-navigation-categories > button { min-height:40px; padding:0 var(--cs-space-1); font-size:16px; line-height:24px; font-weight:var(--cs-weight-normal); }
