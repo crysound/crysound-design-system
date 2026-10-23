@@ -146,14 +146,15 @@ export const catalog: ComponentDoc[] = [
     "Select",
     "选择器",
     "表单",
-    "使用原生选择行为，适合数量较少的固定选项。",
+    "适合数量较少的固定选项。单选使用选中项底色与右侧对号，多选使用左侧复选框。",
     [
       ["label", "string", "必填"],
       ["children", "option / optgroup", "必填"],
+      ["multiple", "boolean", "false"],
       ["disabled / required", "boolean", "false"],
     ],
     '<Select label="采样率" defaultValue="48000"><option value="48000">48 kHz</option><option value="96000">96 kHz</option></Select>',
-    "大量项目使用 Combobox。值保留业务单位，展示文本给出易读单位。",
+    "单选选择后关闭菜单；设置 multiple 可连续勾选多项，菜单保持展开，按 Esc 收起。采样率等互斥参数使用单选。大量项目使用 Combobox。值保留业务单位，展示文本给出易读单位。",
   ),
   define(
     "combobox",

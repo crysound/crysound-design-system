@@ -25,7 +25,9 @@ it('keeps a visually hidden field label available during menu selection and form
  const user=userEvent.setup();
  const {container}=render(<form><Select label="Input signal" hideLabel name="signal" defaultValue="acoustic"><option value="acoustic">Acoustic</option><option value="voltage">Voltage</option></Select></form>);
  await user.click(screen.getByRole('button',{name:'Input signal Acoustic'}));
+ expect(screen.queryByRole('menuitemcheckbox')).not.toBeInTheDocument();
  await user.click(screen.getByRole('menuitemradio',{name:'Voltage'}));
+ expect(screen.queryByRole('menu')).not.toBeInTheDocument();
  expect(screen.getByRole('button',{name:'Input signal Voltage'})).toHaveFocus();
  expect(new FormData(container.querySelector('form')!).get('signal')).toBe('voltage');
 });
