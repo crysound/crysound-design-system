@@ -12,6 +12,7 @@
     "@crysound/tokens": "0.2.0",
     "@crysound/ui": "0.2.0",
     "@untitledui/icons": "^0.0.23",
-    "framer-motion": "^14.2.0"
+    "framer-motion": "^14.2.0",
+    "lucide-react": "^1.61.0"
   }
 }
