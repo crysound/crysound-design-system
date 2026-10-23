@@ -46,7 +46,7 @@ writeFileSync(
     {
       $schema: "https://ui.shadcn.com/schema/registry.json",
       name: "crysound",
-      homepage: "https://github.com/crysound/crysound-design-system",
+      homepage: "https://github.com/crysound/design-system",
       items: [{ ...item, $schema: undefined }],
     },
     null,

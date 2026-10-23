@@ -97,7 +97,7 @@ Registry 从实际源码生成，将组件安装到项目的 components 别名�
 
 本次组件为独立实现，没有直接拷贝上述仓库源码。依赖的许可由各依赖自行声明。Figma 商业素材与 PRO 资源的权利不因开源 React 仓库的许可而改变。当前默认保留本项目代码权利，未擅自将 CRYSOUND 品牌和用户设计开源授权。
 
-GitHub 仓库：[crysound/crysound-design-system](https://github.com/crysound/crysound-design-system)，公开仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
+GitHub 仓库：[crysound/design-system](https://github.com/crysound/design-system)，公开仓库。npm 包尚未发布；现阶段可克隆源码或使用构建后的 tarball。
 
 ## 导航图标语义
 

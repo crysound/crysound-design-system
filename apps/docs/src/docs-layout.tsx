@@ -717,7 +717,7 @@ export function DocsHeader({
         </Popover>
         <a
           className="docs-icon-button docs-desktop-action"
-          href="https://github.com/crysound/crysound-design-system"
+          href="https://github.com/crysound/design-system"
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub 仓库"
@@ -726,7 +726,7 @@ export function DocsHeader({
         </a>
         <a
           className="docs-action docs-desktop-action"
-          href="https://github.com/crysound/crysound-design-system"
+          href="https://github.com/crysound/design-system"
           target="_blank"
           rel="noopener noreferrer"
         >
