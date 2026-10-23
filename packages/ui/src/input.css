@@ -118,7 +118,7 @@
 }
 
 .cs-input-required { color:var(--cs-brand); }
-.cs-input-affix--divided { display:flex; align-items:center; align-self:stretch; padding-inline-end:var(--cs-space-3); border-inline-end:1px solid var(--cs-border); }
+.cs-input-affix--divided { display:flex; align-items:center; align-self:stretch; padding-inline-end:var(--cs-space-3); border-inline-end:0.5px solid var(--cs-border); }
 
 .cs-input-label-row { display:flex; align-items:baseline; gap:var(--cs-space-1); }
 
