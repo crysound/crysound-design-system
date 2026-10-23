@@ -1876,3 +1876,6 @@ article.cs-gallery-card-details { height:432px; box-sizing:border-box; padding:0
 
 /* Proposed softer divider, derived from the theme border and surface. */
 .cs-separator[data-tone="subtle"] { background:color-mix(in srgb,var(--cs-border) 50%,var(--cs-surface)); }
+article.cs-gallery-card-details { transition:border-color 200ms ease-out,box-shadow 200ms ease-out; }
+article.cs-gallery-card-details:is(:hover,:focus-within) { box-shadow:var(--cs-shadow-sm); }
+@media(prefers-reduced-motion:reduce) { article.cs-gallery-card-details { transition:none; } }
