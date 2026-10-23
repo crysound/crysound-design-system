@@ -563,10 +563,14 @@ select.cs-input.cs-select {
 .cs-instrument-dialog-close:hover, .cs-instrument-dialog-close:focus-visible { background: var(--cs-subtle); color: var(--cs-text); outline: none; }
 @media(forced-colors:active) { .cs-instrument-dialog-close:focus-visible { outline: 1px solid Highlight; } }
 
-/* Decorative interface SVGs share a physical 1.2px stroke; chart geometry is independent. */
+/* Proposed proportional physical stroke scale; explicit component overrides win. */
+svg[aria-hidden="true"][width="16"] { --cs-icon-size-stroke:1.2px; }
+svg[aria-hidden="true"][width="20"] { --cs-icon-size-stroke:1.5px; }
+svg[aria-hidden="true"][width="24"] { --cs-icon-size-stroke:1.8px; }
+svg[aria-hidden="true"][width="32"] { --cs-icon-size-stroke:2.4px; }
 svg[aria-hidden="true"],
 svg[aria-hidden="true"] :is(path, line, polyline, polygon, rect, circle, ellipse) {
-  stroke-width: var(--cs-icon-stroke-width, 1.2px);
+  stroke-width: var(--cs-icon-stroke-width, var(--cs-icon-size-stroke, 1.2px));
   vector-effect: non-scaling-stroke;
 }
 .cs-accordion-trigger > span { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 20px; }
