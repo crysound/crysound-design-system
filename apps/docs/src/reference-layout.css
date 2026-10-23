@@ -1817,6 +1817,7 @@ body {
 .composition-examples > section { justify-content:flex-start; gap:16px; }
 .composition-examples > section > .composition-state-select { max-width:200px; }
 .composition-examples .cs-filter-toolbar + .cs-help { margin:0; }
+.composition-examples > section:has(> .cs-quota-card) { gap:var(--cs-space-2); }
 .composition-examples > section > .cs-quota-card { width:100%; max-width:520px; }
 
 .composition-preview-control { width:180px; max-width:100%; }
