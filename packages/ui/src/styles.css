@@ -992,3 +992,34 @@ summary.cs-progress-list-row:focus-visible { outline:2px solid var(--cs-focus); 
 
 /* Company website opt-in; software buttons retain the default corner radius. */
 .cs-button[data-shape="capsule"] { border-radius:var(--cs-radius-pill); }
+
+/* Select motion proposal: an anchored reveal and a compact selected-label surface. */
+.cs-select-menu {
+ transform-origin:var(--radix-dropdown-menu-content-transform-origin);
+}
+.cs-select-menu[data-state="open"] { animation:cs-select-reveal 220ms cubic-bezier(.22,1,.36,1) both; }
+.cs-select-menu[data-state="closed"] { animation:cs-select-dismiss 140ms ease-in both; }
+.cs-select-trigger > svg { transition:transform 220ms cubic-bezier(.22,1,.36,1); }
+.cs-select-option-label {
+ flex:0 1 auto;
+ min-width:0;
+ padding:var(--cs-space-1) var(--cs-space-2);
+ border-radius:var(--cs-radius);
+ transition:background-color 180ms var(--cds-ease-out),color 180ms var(--cds-ease-out);
+}
+.cs-select-option { padding:var(--cs-space-1) var(--cs-space-0-5); }
+.cs-select-option[data-state="checked"] { background:transparent; color:var(--cs-selected-fg); }
+.cs-select-option[data-state="checked"] .cs-select-option-label { background:var(--cs-selected-bg); }
+.cs-select-option[data-highlighted] { background:var(--cs-item-hover-bg); }
+@keyframes cs-select-reveal {
+ from { opacity:0; transform:translateY(-4px) scale(.97); filter:blur(3px); }
+ to { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+}
+@keyframes cs-select-dismiss {
+ from { opacity:1; transform:scale(1); }
+ to { opacity:0; transform:scale(.98); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .cs-select-menu[data-state] { animation:none; }
+ .cs-select-trigger > svg,.cs-select-option-label { transition:none; }
+}
