@@ -4,6 +4,7 @@ import {
   type InputHTMLAttributes, type SelectHTMLAttributes, type ReactNode, type MouseEventHandler,
 } from "react";
 import { Eye, EyeOff, XClose, ChevronDown, HelpCircle } from "@untitledui/icons";
+import * as Menu from "@radix-ui/react-dropdown-menu";
 import { Tooltip } from "./overlays";
 import { cx } from "./utils";
 
@@ -45,11 +46,39 @@ export interface InputProps extends InputFieldProps {
 }
 
 function InputSelect({ label, options, disabled, ...props }: InputSelectProps) {
+  const native = useRef<HTMLSelectElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const [current,setCurrent] = useState(String(props.defaultValue ?? options[0]?.value ?? ""));
+  const value = props.value !== undefined ? String(props.value) : current;
+  useEffect(() => {
+    const select = native.current;
+    let active = true;
+    const reset = (event: Event) => queueMicrotask(() => { if(active && !event.defaultPrevented) setCurrent(select?.value ?? ""); });
+    select?.form?.addEventListener("reset",reset);
+    return () => {active=false;select?.form?.removeEventListener("reset",reset);};
+  },[props.form]);
   return <span className="cs-input-select">
-    <select {...props} disabled={disabled} aria-label={label}>
+    <select {...props} ref={native} className="cs-select-native" tabIndex={-1} aria-hidden="true" disabled={disabled} value={value}
+      onInvalid={event=>{trigger.current?.focus();props.onInvalid?.(event);}}
+      onChange={event=>{setCurrent(event.target.value);props.onChange?.(event);}}>
       {options.map(option => <option key={option.value} {...option}>{option.label}</option>)}
     </select>
-    <ChevronDown size={14} aria-hidden="true" />
+    <Menu.Root modal={false}>
+      <Menu.Trigger ref={trigger} type="button" disabled={disabled} className="cs-input-select-trigger" aria-label={label}>
+        <span>{options.find(option=>option.value===value)?.label}</span><ChevronDown size={14} aria-hidden="true" />
+      </Menu.Trigger>
+      <Menu.Portal><Menu.Content className="cs-select-menu" sideOffset={6} align="end" collisionPadding={12}>
+        <Menu.RadioGroup value={value} onValueChange={next=>{
+          const select=native.current;if(!select)return;
+          Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,"value")?.set?.call(select,next);
+          select.dispatchEvent(new Event("change",{bubbles:true}));
+        }}>
+          {options.map(option=><Menu.RadioItem key={option.value} value={option.value} disabled={option.disabled} className="cs-select-option">
+            <span className="cs-select-option-label">{option.label}</span><Menu.ItemIndicator className="cs-select-option-indicator" aria-hidden="true">✓</Menu.ItemIndicator>
+          </Menu.RadioItem>)}
+        </Menu.RadioGroup>
+      </Menu.Content></Menu.Portal>
+    </Menu.Root>
   </span>;
 }
 

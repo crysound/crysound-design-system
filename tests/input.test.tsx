@@ -10,8 +10,8 @@ it('clears controlled input through native change and restores focus without sub
 });
 it('keeps selects in native form data and disables editing for readonly groups',async()=>{
  const {container,rerender}=render(<form><Input label="电话" name="phone" defaultValue="123" leadingSelect={{label:'区号',name:'code',options:[{value:'+86',label:'+86'},{value:'+1',label:'+1'}]}}/></form>);
- await userEvent.selectOptions(screen.getByLabelText('区号'),'+1');expect(new FormData(container.querySelector('form')!).get('code')).toBe('+1');
- rerender(<Input label="电话" defaultValue="123" readOnly clearable leadingSelect={{label:'区号',options:[{value:'+86',label:'+86'}]}}/>);expect(screen.getByLabelText('区号')).toBeDisabled();expect(screen.queryByRole('button',{name:'清空电话'})).toBeNull();
+ await userEvent.click(screen.getByRole('button',{name:'区号'}));await userEvent.click(screen.getByRole('menuitemradio',{name:'+1'}));expect(new FormData(container.querySelector('form')!).get('code')).toBe('+1');
+ rerender(<Input label="电话" defaultValue="123" readOnly clearable leadingSelect={{label:'区号',options:[{value:'+86',label:'+86'}]}}/>);expect(screen.getByRole('button',{name:'区号'})).toBeDisabled();expect(screen.queryByRole('button',{name:'清空电话'})).toBeNull();
 });
 it('toggles password visibility without changing value',async()=>{
  render(<Input label="密码" type="password" defaultValue="sample-only" passwordToggle/>);await userEvent.click(screen.getByRole('button',{name:'显示密码'}));expect(screen.getByLabelText('密码')).toHaveAttribute('type','text');expect(screen.getByLabelText('密码')).toHaveValue('sample-only');await userEvent.click(screen.getByRole('button',{name:'隐藏密码'}));expect(screen.getByLabelText('密码')).toHaveAttribute('type','password');
